@@ -1,8 +1,8 @@
 # DoctorsNotes
 ### The TL;DR
-If you already know how to use Git, here's what you need to know about working with the Flavour Cats repository.
+If you already know how to use Git, here's what you need to know about working with the Doctors Notes repository.
 
-1. **Use development branches!** Never commit anything to master. Create your own development branch any time you want to start working on a new feature or fix. Make sure you give it a name that makes sense, such as `Bryn-Dev`, or `Bryn-Dev-VoxelDeformation` if you want to be specific about the feature you're working on. Don't be afraid to create lots of branches, just make sure you can keep track of them.
+1. **Use development branches!** Never commit anything to master. Create your own development branch any time you want to start working on a new feature or fix. Make sure you give it a name that makes sense, such as `Will-Dev`, or `Will-Dev-VoxelDeformation` if you want to be specific about the feature you're working on. Don't be afraid to create lots of branches, just make sure you can keep track of them.
 1. **Write good commit messages!** Commit messages should be imperative, not descriptive, ie. the commit message should say what the commit *will do* to the repo once it's applied, not what the change *has done* to the repo. For example:
 	1. 'Added new water effects' ❌
 	1. 'Add new water effects' ✅
@@ -21,10 +21,10 @@ If you want to, you are welcome to use a Git GUI, however this guide assumes the
 
 ### The Basics
 #### Setting up the repo
-If you haven't set up the Flavour Cats repo yet, or you just want a fresh start, you can run `git clone https://github.com/swin-sep/2019GP-FlavourCats.git` and the repo will be downloaded into a folder called '2019GP-FlavourCats' in the directory that the command was run.
+If you haven't set up the Doctors Notes repo yet, or you just want a fresh start, you can run `git clone https://github.com/williamklarenbeek/doctorsnotes` and the repo will be downloaded into a folder called 'DoctorsNotes' in the directory that the command was run.
 
 #### Getting the latest changes
-While Git bash is open in the '2019GP-FlavourCats' directory, run `git pull` to get the latest changes. This will pull all changes from the remote repository into your local repository. This will include any changes that are not in your current branch, ie. this command will update *all* branches in your local repo with any changes in the remote repo.
+While Git bash is open in the 'DoctorsNotes' directory, run `git pull` to get the latest changes. This will pull all changes from the remote repository into your local repository. This will include any changes that are not in your current branch, ie. this command will update *all* branches in your local repo with any changes in the remote repo.
 
 *Note:* The 'local repository' and the 'remote repository' differ in only one way - where they are physically stored. The 'remote repository' is stored on GitHub's servers and can be accessed by anyone in the team. The 'local repository' is local to your machine, and is accessible only by you.
 
@@ -55,7 +55,7 @@ Pull requests are the way GitHub handles merging branches together. While this c
 
 Once your change is pushed to the remote repository on your development branch, create a pull request via GitHub. You can do this by doing the following:
 
-1. Go to the Flavour Cats repository on GitHub and navigate to 'Pull Requests'.
+1. Go to the Doctors Notes repository on GitHub and navigate to 'Pull Requests'.
 1. Click 'New Pull Request'.
 1. There should be two dropdowns at the top of the page. Set the 'base' to `master` and the 'compare' to your dev branch. This will display a screen with all the differences between your the two branches.
 1. Click 'Create Pull Request' to create the request and make it visible to the team.
