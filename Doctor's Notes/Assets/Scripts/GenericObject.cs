@@ -9,6 +9,8 @@ public class GenericObject : MonoBehaviour
 
     private Vector3 mOffset;
     private float mZCoord;
+    private RaycastHit hit;
+    private Ray ray;
 
     public Sprite GetItemIcon()
     {
@@ -38,5 +40,15 @@ public class GenericObject : MonoBehaviour
     {
         transform.position = GetMouseWorldPos() + mOffset;
         transform.position = new Vector3(transform.position.x, 1, transform.position.z);
+
+        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+    }
+
+    public void OnMouseUp()
+    {
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, 10) == false)
+        {
+            Destroy(gameObject);
+        }
     }
 }

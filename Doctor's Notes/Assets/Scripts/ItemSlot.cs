@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-public class ItemSlot : MonoBehaviour, IPointerDownHandler, IDragHandler, IEndDragHandler
+public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
 {
     private GameObject worldCamera;
     private GameObject currentItem;
@@ -48,10 +48,5 @@ public class ItemSlot : MonoBehaviour, IPointerDownHandler, IDragHandler, IEndDr
             Debug.Log(hit);
             Instantiate(currentItem, hit.point, Quaternion.identity);
         }
-    }
-
-    public void OnPointerDown(PointerEventData eventData)
-    {
-
     }
 }
