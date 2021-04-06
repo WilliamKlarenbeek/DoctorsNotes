@@ -29,6 +29,8 @@ public class BookScript : MonoBehaviour
             currentItem = Instantiate(iconTemplate, transform.position, Quaternion.identity);
             currentItem.transform.SetParent(transform);
             currentItem.GetComponent<Image>().sprite = item.GetComponent<GenericObject>().GetItemIcon();
+            currentItem.GetComponent<ItemSlot>().SetItem(item);
+
             switch (index)
             {
                 case 0:
