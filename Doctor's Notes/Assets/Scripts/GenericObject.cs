@@ -11,6 +11,7 @@ public class GenericObject : MonoBehaviour
     private float mZCoord;
     private RaycastHit hit;
     private Ray ray;
+    private GameObject parentSlot;
 
     public Sprite GetItemIcon()
     {
@@ -48,7 +49,16 @@ public class GenericObject : MonoBehaviour
     {
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, 10) == false)
         {
+            if(parentSlot != null)
+            {
+                parentSlot.GetComponent<ItemSlot>().AddQuantity(1);
+            }
             Destroy(gameObject);
         }
+    }
+
+    public void SetParentSlot(GameObject aSlot)
+    {
+        parentSlot = aSlot;
     }
 }

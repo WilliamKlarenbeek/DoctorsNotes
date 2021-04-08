@@ -387,7 +387,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bookItems:
-  - {fileID: 8906199493344483774, guid: 62355a28b41bfc844b5b483bcc043ddb, type: 3}
+  - _item: {fileID: 8906199493344483774, guid: 62355a28b41bfc844b5b483bcc043ddb, type: 3}
+    _number: 1
+  - _item: {fileID: 8906199493344483774, guid: 62355a28b41bfc844b5b483bcc043ddb, type: 3}
+    _number: 2
+  - _item: {fileID: 8906199493344483774, guid: 62355a28b41bfc844b5b483bcc043ddb, type: 3}
+    _number: 1
   iconTemplate: {fileID: 384255767590248574, guid: 410b41ac779f56a49a8bb30eef97fa95, type: 3}
 --- !u!1 &914724620
 GameObject:
