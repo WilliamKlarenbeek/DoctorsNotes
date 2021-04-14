@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class Tool : Draggable
 {
     public string state;
-    GameObject output;
+    public string output;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,16 +14,8 @@ public abstract class Tool : Draggable
 
     private void OnTriggerStay(Collider collision)
     {
-        if ((collision.gameObject.GetComponent<Material>() != null) && !(Input.GetMouseButton(0)) && (state == "ready"))
+        if(!(Input.GetMouseButton(0)))
         {
-            Debug.Log("Material Collision");
-            state = "working";
-            PerformAction(collision);
-        }
-        else if ((collision.gameObject.GetComponent<Beaker>() != null) && !(Input.GetMouseButton(0)) && (state == "working"))
-        {
-            Debug.Log("Beaker Collision");
-            state = "ready";
             PerformAction(collision);
         }
     }

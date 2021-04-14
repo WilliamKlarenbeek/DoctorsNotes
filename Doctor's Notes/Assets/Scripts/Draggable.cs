@@ -7,34 +7,43 @@ public abstract class Draggable : MonoBehaviour
     Vector3 dist;
     float posX;
     float posY;
+    Vector3 worldPos;
 
     void OnMouseDown()
     {
         dist = Camera.main.WorldToScreenPoint(transform.position);
         posX = Input.mousePosition.x - dist.x;
         posY = Input.mousePosition.y - dist.y;
-
     }
 
     private void OnMouseDrag()
     {
-        Vector3 curPos = new Vector3(Input.mousePosition.x - posX, Input.mousePosition.y - posY, dist.z);
-        Vector3 worldPos = Camera.main.ScreenToWorldPoint(curPos);
-        if (worldPos.x > 3.5f)
+        Plane plane = new Plane(Vector3.up, 0);
+
+        float distance;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (plane.Raycast(ray, out distance))
         {
-            worldPos.x = 3.5f;
+            worldPos = ray.GetPoint(distance);
         }
-        else if (worldPos.x <  -3.5f)
+
+        worldPos.y = 1;
+
+        if (worldPos.x > 4)
         {
-            worldPos.x = -3.5f;
+            worldPos.x = 4;
         }
-        if (worldPos.z > 8.5f)
+        else if (worldPos.x <  -4)
         {
-            worldPos.z = 8.5f;
+            worldPos.x = -4;
         }
-        else if (worldPos.z < -8.5f)
+        if (worldPos.z > 10)
         {
-            worldPos.z = -8.5f;
+            worldPos.z = 10;
+        }
+        else if (worldPos.z < -10)
+        {
+            worldPos.z = -10;
         }
         transform.position = worldPos;
 
