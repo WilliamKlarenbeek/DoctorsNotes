@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonScript : MonoBehaviour
+public class SoundTestButtonScript : MonoBehaviour
 {
     public bool PlayButton;
     public bool PauseButton;
