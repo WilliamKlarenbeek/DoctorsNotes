@@ -1,0 +1,44 @@
+[	
+	{"A": "So uhhh, we need to talk."},
+	{"B": "Is there a problem officer?"},
+	{"A": "What? I'm not a fucking cop, dude."},
+	{"A": "Whatever."},
+	{"A": "Remember that feral cat you told me you set loose?"},
+	
+	{
+		"BranchStart": 
+		[
+			{ 
+				"ChoiceA":
+					[
+						"No, but go on.",
+						{ "B": "No, but go on." },
+						{ "A": "It was a tiger. It has eaten fourteen people." },
+						{"B":"Well that's unfortunate!"}, 
+						{"B": "Did no one think to feed the poor thing?"},
+						{"A": "Well, in the five hours I left you alone for"},
+						{"A": "you didn't think once."},
+						{"EOD": "EOD"}						
+					]
+					
+			},			
+
+		
+			{	
+				"ChoiceB": 
+				[
+					"You mean the really, really big one?",
+					{"B": "You mean the really, really big one?"},
+					{"A": "Yeah! It's called a tiger, you idiot."},
+					{"A": "And now fourteen people are dead."},
+					{"B": "People die, man. It happens all the time. Let it go."},
+					{"A":"Is this how you cope with another therapist dumping you?"},
+					{"EOD": "EOD"}					
+				]
+			}
+
+		
+		]
+	}
+]
+
