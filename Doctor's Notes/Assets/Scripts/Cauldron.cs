@@ -20,6 +20,7 @@ public class Cauldron : Tool
     {
         if ((collision.gameObject.GetComponent<Material>() != null) && (state == "ready"))
         {
+            timer = 0;
             state = "working";
             if (collision.gameObject.GetComponent<Berry>() != null)
             {
