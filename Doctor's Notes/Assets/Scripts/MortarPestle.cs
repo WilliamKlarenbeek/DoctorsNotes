@@ -23,14 +23,14 @@ public class MortarPestle : Tool
             if ((mouseSpins%2 == 0) && (worldPosition.x < this.transform.position.x - 1))
             {
                 mouseSpins += 1;
+                Debug.Log("Spins: " + mouseSpins);
             }
             else if ((mouseSpins % 2 != 0) && (worldPosition.x > this.transform.position.x + 1))
             {
                 mouseSpins += 1;
+                Debug.Log("Spins: " + mouseSpins);
             }
-            //Debug.Log("Spins: " + mouseSpins);
-            //Debug.Log("My X: " + this.transform.position.x);
-            //Debug.Log("Mouse X: " + worldPosition.x);
+            
         }
     }
 

@@ -29,13 +29,13 @@ public abstract class Draggable : MonoBehaviour
 
         worldPos.y = 1;
 
-        if (worldPos.x > 4)
+        if (worldPos.x > 11)
         {
-            worldPos.x = 4;
+            worldPos.x = 11;
         }
-        else if (worldPos.x <  -4)
+        else if (worldPos.x <  -25)
         {
-            worldPos.x = -4;
+            worldPos.x = -25;
         }
         if (worldPos.z > 10)
         {
