@@ -12,7 +12,7 @@ public class Cauldron : Tool
         if (state == "working")
         {
             timer += Time.deltaTime;
-            //Debug.Log("Brewing for " + timer.ToString());
+            Debug.Log("Brewing for " + timer.ToString());
         }
     }
 
@@ -20,10 +20,11 @@ public class Cauldron : Tool
     {
         if ((collision.gameObject.GetComponent<Material>() != null) && (state == "ready"))
         {
+            timer = 0;
             state = "working";
             if (collision.gameObject.GetComponent<Berry>() != null)
             {
-                output = "Prefabs / Potions / BluePotion";
+                output = "Prefabs/Potions/BluePotion";
             }
             else if (collision.gameObject.GetComponent<RefinedBerry>() != null)
             {

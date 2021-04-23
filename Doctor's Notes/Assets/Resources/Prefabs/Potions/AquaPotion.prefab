@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4043092065751831590}
   - component: {fileID: 7077713228357435081}
   - component: {fileID: 7582109734962941444}
+  - component: {fileID: -2327487844322764032}
   m_Layer: 0
   m_Name: AquaPotion
   m_TagString: Untagged
@@ -93,7 +94,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3971495356917917927}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -127,3 +128,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-2327487844322764032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3971495356917917927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e965d87b6e158f4b805de65aeb78bc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
