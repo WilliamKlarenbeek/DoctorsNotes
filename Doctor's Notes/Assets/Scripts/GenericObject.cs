@@ -11,7 +11,13 @@ public class GenericObject : MonoBehaviour
     private float mZCoord;
     private RaycastHit hit;
     private Ray ray;
-    private GameObject parentSlot;
+    private BookScript.ItemParameters parentSlot;
+    private BookScript Book;
+
+    void Start()
+    {
+        Book = GameObject.Find("Book_UI").GetComponent<BookScript>();
+    }
 
     public Sprite GetItemIcon()
     {
@@ -39,6 +45,8 @@ public class GenericObject : MonoBehaviour
 
     void OnMouseDrag()
     {
+        Debug.Log("Item ID: " + parentSlot.itemID);
+
         transform.position = GetMouseWorldPos() + mOffset;
         transform.position = new Vector3(transform.position.x, 1, transform.position.z);
 
@@ -49,15 +57,16 @@ public class GenericObject : MonoBehaviour
     {
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, 10) == false)
         {
-            if(parentSlot != null)
+            if(parentSlot.item != null)
             {
-                parentSlot.GetComponent<ItemSlot>().AddQuantity(1);
+                Debug.Log("Increased Quantity");
+                Book.IncreaseQuantity(parentSlot.itemID);
             }
             Destroy(gameObject);
         }
     }
 
-    public void SetParentSlot(GameObject aSlot)
+    public void SetParentSlot(BookScript.ItemParameters aSlot)
     {
         parentSlot = aSlot;
     }
