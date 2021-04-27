@@ -2,17 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Potion : Draggable
+public class Potion : GenericObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    private void OnTriggerStay(Collider collision)
+    {
+        if (collision.gameObject.GetComponent<Patient>() != null)
+        {
+            CollidingWithPatient(true);
+        } else
+        {
+            CollidingWithPatient(false);
+        }
+    }
+
+    private void OnTriggerExit(Collider collision)
+    {
+        if (collision.gameObject.GetComponent<Patient>() != null)
+        {
+            CollidingWithPatient(false);
+        }
     }
 }

@@ -6,13 +6,16 @@ using UnityEngine.EventSystems;
 public class GenericObject : MonoBehaviour
 {
     public Sprite itemIcon;
+    public string prefabPath;
 
     private Vector3 mOffset;
     private float mZCoord;
     private RaycastHit hit;
     private Ray ray;
     private BookScript.ItemParameters parentSlot;
-    private BookScript Book;
+
+    protected BookScript Book;
+    protected bool collidingWithPatient;
 
     void Start()
     {
@@ -45,8 +48,6 @@ public class GenericObject : MonoBehaviour
 
     void OnMouseDrag()
     {
-        Debug.Log("Item ID: " + parentSlot.itemID);
-
         transform.position = GetMouseWorldPos() + mOffset;
         transform.position = new Vector3(transform.position.x, 1, transform.position.z);
 
@@ -55,12 +56,14 @@ public class GenericObject : MonoBehaviour
 
     public void OnMouseUp()
     {
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, 10) == false)
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, 10) == false && collidingWithPatient == false)
         {
             if(parentSlot.item != null)
             {
-                Debug.Log("Increased Quantity");
                 Book.IncreaseQuantity(parentSlot.itemID);
+            } else
+            {
+                Book.AddItem(Resources.Load(prefabPath) as GameObject, 1);
             }
             Destroy(gameObject);
         }
@@ -69,5 +72,10 @@ public class GenericObject : MonoBehaviour
     public void SetParentSlot(BookScript.ItemParameters aSlot)
     {
         parentSlot = aSlot;
+    }
+
+    protected void CollidingWithPatient(bool aFlag)
+    {
+        collidingWithPatient = aFlag;
     }
 }

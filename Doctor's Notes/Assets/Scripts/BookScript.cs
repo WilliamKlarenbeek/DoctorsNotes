@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,7 +20,7 @@ public class BookScript : MonoBehaviour
         private int _numberID;
     }
 
-    public ItemParameters[] bookItems;
+    public List<ItemParameters> bookItems;
     public GameObject iconTemplate;
 
     private List<ItemParameters[]> dynamicBookList;
@@ -47,9 +48,11 @@ public class BookScript : MonoBehaviour
         int index = 0;
         int uniqueID = 0;
 
-        foreach (ItemParameters i in bookItems)
+        foreach (ItemParameters i in bookItems.ToArray())
         {
-            bookItems[masterIndex].itemID = uniqueID;
+            var newList = bookItems[masterIndex];
+            newList.itemID = uniqueID;
+            bookItems[masterIndex] = newList;
             masterIndex++;
             uniqueID++;
         }
@@ -69,8 +72,6 @@ public class BookScript : MonoBehaviour
                 index = 0;
             }
         }
-
-        Debug.Log("List Size: " + dynamicBookList[currentPage].Length);
     }
     
     public void ClearPage()
@@ -157,15 +158,55 @@ public class BookScript : MonoBehaviour
         }
     }
 
+    public void AddItem(GameObject aItem, int aQuantity)
+    {
+        bool createNew = true;
+
+        if(bookItems.Exists(element => element.item == aItem))
+        {
+            createNew = false;
+            int index = 0;
+            foreach(ItemParameters i in bookItems.ToArray())
+            {
+                if(i.item == aItem)
+                {
+                    var newList = bookItems[index];
+                    newList.number++;
+                    bookItems[index] = newList;
+                    break;
+                }
+                index++;
+            }
+        }
+        if (createNew)
+        {
+            ItemParameters newItem = new ItemParameters();
+            int newID = 0;
+            newItem.item = aItem;
+            newItem.number = aQuantity;
+
+            while (bookItems.Exists(element => element.itemID == newID))
+            {
+                newID++;
+            }
+            newItem.itemID = newID;
+            bookItems.Add(newItem);
+        }
+
+        CreateListOfItems();
+        ViewPage(currentPage);
+    }
+
     public void IncreaseQuantity(int aItemID)
     {
         int index = 0;
-        foreach (ItemParameters i in bookItems)
+        foreach (ItemParameters i in bookItems.ToArray())
         {
             if (i.item != null && i.itemID == aItemID)
             {
-                bookItems[index].number++;
-                Debug.Log("Quantity: " + bookItems[index].number);
+                var newList = bookItems[index];
+                newList.number++;
+                bookItems[index] = newList;
                 foreach (Transform child in transform)
                 {
                     if (child.name == "Item(Clone)")
@@ -186,12 +227,13 @@ public class BookScript : MonoBehaviour
     public void DecreaseQuantity(int aItemID)
     {
         int index = 0;
-        foreach (ItemParameters i in bookItems)
+        foreach (ItemParameters i in bookItems.ToArray())
         {
             if (i.item != null && i.itemID == aItemID)
             {
-                bookItems[index].number--;
-                Debug.Log("Quantity: " + bookItems[index].number);
+                var newList = bookItems[index];
+                newList.number--;
+                bookItems[index] = newList;
                 foreach (Transform child in transform)
                 {
                     if (child.name == "Item(Clone)")

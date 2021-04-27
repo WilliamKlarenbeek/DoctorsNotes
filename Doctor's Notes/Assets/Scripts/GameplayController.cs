@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class GameplayController : MonoBehaviour, IDropHandler
+public class GameplayController : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -26,20 +26,5 @@ public class GameplayController : MonoBehaviour, IDropHandler
         {
             aObject.SetActive(true);
         }
-    }
-
-    public void OnDrop(PointerEventData eventData) {
-        RectTransform invPanel = transform as RectTransform;
-
-        if(!RectTransformUtility.RectangleContainsScreenPoint(invPanel,
-            Input.mousePosition))
-        {
-            Debug.Log("Dropped?");
-        }
-    }
-
-    public void OnEndDrop(PointerEventData eventData)
-    {
-
     }
 }

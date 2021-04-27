@@ -438,7 +438,7 @@ GameObject:
   - component: {fileID: 3641174669597466564}
   - component: {fileID: 3641174669597466567}
   m_Layer: 0
-  m_Name: Cauldron1
+  m_Name: TestCauldron
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -523,3 +523,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: 5ae653d8ff6f99848b2ef970f549c4f1, type: 3}
+  prefabPath: Prefabs/Debug/TestCauldron
