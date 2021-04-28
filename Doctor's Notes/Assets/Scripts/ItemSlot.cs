@@ -8,7 +8,8 @@ using UnityEngine.EventSystems;
 public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
 {
     private GameObject worldCamera;
-    private GameObject currentItem;
+    private BookScript Book;
+    private BookScript.ItemParameters currentItem;
 
     private Vector3 origin;
     private RaycastHit hit;
@@ -19,6 +20,7 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
 
     void Start()
     {
+        Book = GameObject.Find("Book_UI").GetComponent<BookScript>();
         worldCamera = GameObject.Find("Main Camera");
         origin = transform.position;
 
@@ -31,7 +33,7 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
         AdjustQuantityText();
     }
 
-    public void SetItem(GameObject aObject)
+    public void SetItem(BookScript.ItemParameters aObject)
     {
         currentItem = aObject;
     }
@@ -50,14 +52,19 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
 
         if (Physics.Raycast(ray, out hit, 100.0f) && quantity > 0)
         {
-            var obj = Instantiate(currentItem, hit.point, Quaternion.identity);
-            obj.GetComponent<GenericObject>().SetParentSlot(gameObject);
-            quantity--;
+            var obj = Instantiate(currentItem.item, hit.point, Quaternion.identity);
+            obj.GetComponent<GenericObject>().SetParentSlot(currentItem);
+            Book.DecreaseQuantity(currentItem.itemID);
         }
     }
 
     public void AdjustQuantityText()
     {
+        if (currentItem.item != null)
+        {
+            quantity = currentItem.number;
+        }
+
         if (quantity <= 0)
         {
             quantity = 0;
@@ -69,13 +76,18 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
         quantityText.text = quantity.ToString();
     }
 
-    public void SetQuantity(int aNumber)
+    public void IncreaseQuantityText()
     {
-        quantity = aNumber;
+        currentItem.number++;
     }
 
-    public void AddQuantity(int aNumber)
+    public void DecreaseQuantityText()
     {
-        quantity += aNumber;
+        currentItem.number--;
+    }
+
+    public int GetCurrentItemID()
+    {
+        return currentItem.itemID;
     }
 }

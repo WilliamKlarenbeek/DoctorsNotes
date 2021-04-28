@@ -109,3 +109,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e965d87b6e158f4b805de65aeb78bc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemIcon: {fileID: 21300000, guid: 5ae653d8ff6f99848b2ef970f549c4f1, type: 3}
+  prefabPath: Prefabs/Potions/BurntPotion

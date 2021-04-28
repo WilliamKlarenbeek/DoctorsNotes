@@ -6,12 +6,21 @@ using UnityEngine.EventSystems;
 public class GenericObject : MonoBehaviour
 {
     public Sprite itemIcon;
+    public string prefabPath;
 
     private Vector3 mOffset;
     private float mZCoord;
     private RaycastHit hit;
     private Ray ray;
-    private GameObject parentSlot;
+    private BookScript.ItemParameters parentSlot;
+
+    protected BookScript Book;
+    protected bool collidingWithPatient;
+
+    void Start()
+    {
+        Book = GameObject.Find("Book_UI").GetComponent<BookScript>();
+    }
 
     public Sprite GetItemIcon()
     {
@@ -47,18 +56,26 @@ public class GenericObject : MonoBehaviour
 
     public void OnMouseUp()
     {
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, 10) == false)
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, 10) == false && collidingWithPatient == false)
         {
-            if(parentSlot != null)
+            if(parentSlot.item != null)
             {
-                parentSlot.GetComponent<ItemSlot>().AddQuantity(1);
+                Book.IncreaseQuantity(parentSlot.itemID);
+            } else
+            {
+                Book.AddItem(Resources.Load(prefabPath) as GameObject, 1);
             }
             Destroy(gameObject);
         }
     }
 
-    public void SetParentSlot(GameObject aSlot)
+    public void SetParentSlot(BookScript.ItemParameters aSlot)
     {
         parentSlot = aSlot;
+    }
+
+    protected void CollidingWithPatient(bool aFlag)
+    {
+        collidingWithPatient = aFlag;
     }
 }
