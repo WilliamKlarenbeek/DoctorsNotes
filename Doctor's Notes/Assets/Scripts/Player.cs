@@ -26,5 +26,33 @@ public class Player : MonoBehaviour
             GameDataManager.RemoveMoney(10);
             GameSharedUI.Instance.UpdateMoneyUIText();
         }
+
+        if (Input.GetKey(KeyCode.L))
+        {
+            if(ApprenticeDataManager.CheckScale(Apprentice.Instance))
+            {
+                ApprenticeDataManager.AddApprenticeExperience(1);
+            Debug.Log(ApprenticeDataManager.GetApprenticeExperience());
+            Apprentice.Instance.UpdateApprenticeScale();
+            Debug.Log(ApprenticeDataManager.GetApprenticeExperience());
+            }
+            else
+                Debug.Log("YOU HAVE NO SCALE HERE");
+        }
+
+        if (Input.GetKey(KeyCode.K))
+        {
+            if (ApprenticeDataManager.CheckScale(Apprentice.Instance))
+            {
+                ApprenticeDataManager.RemoveApprenticeExperience(1);
+                Debug.Log(ApprenticeDataManager.GetApprenticeExperience());
+                Apprentice.Instance.UpdateApprenticeScale();
+                Debug.Log(ApprenticeDataManager.GetApprenticeExperience());
+            }
+            else
+                Debug.Log("YOU HAVE NO SCALE HERE");
+        }
+
+
     }
 }
