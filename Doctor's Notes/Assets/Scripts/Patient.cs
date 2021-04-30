@@ -4,22 +4,30 @@ using UnityEngine;
 
 public class Patient : MonoBehaviour
 {
-    private int currHP = 2;
-    private int neededHP = 8;
+    private int currHP = 1;
+    private int neededHP = 4;
+    private bool isColliding;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        isColliding = false;
     }
 
     private void OnTriggerStay(Collider collision)
     {
+        if (isColliding)
+        {
+            return;
+        }
+        isColliding = true;
+
         if (!(Input.GetMouseButton(0)) && (collision.gameObject.GetComponent<Potion>() != null))
         {
             switch (collision.gameObject.name)
@@ -34,7 +42,9 @@ public class Patient : MonoBehaviour
                     currHP -= 1;
                     break;
             }
-            
+
+            Debug.Log("HP: " + currHP);
+
             Destroy(collision.gameObject);
 
             if (currHP <= 0)

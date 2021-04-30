@@ -180,6 +180,7 @@ public class BookScript : MonoBehaviour
         }
         if (createNew)
         {
+            
             ItemParameters newItem = new ItemParameters();
             int newID = 0;
             newItem.item = aItem;

@@ -140,5 +140,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef7d8f110dd907545bd875e28a396541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
   prefabPath: Prefabs/Materials/RefinedBerry
