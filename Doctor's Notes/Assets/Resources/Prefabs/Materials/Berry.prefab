@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5663127369393019305}
   - component: {fileID: 5663127369393019304}
   m_Layer: 0
-  m_Name: Berry1
+  m_Name: Berry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
-  prefabPath: Prefabs/Materials/Berry1
+  prefabPath: Prefabs/Materials/Berry
 --- !u!54 &5663127369393019305
 Rigidbody:
   m_ObjectHideFlags: 0
