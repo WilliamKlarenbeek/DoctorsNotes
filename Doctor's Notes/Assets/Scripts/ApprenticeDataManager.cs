@@ -43,13 +43,13 @@ public class ApprenticeDataManager
         bool scalable = true;
         if (apprentice.maximumExperience < GetApprenticeExperience())
         {
-            Debug.Log("Maximum Size Reached");
+            //Debug.Log("Maximum Size Reached");
             PlayerPrefs.SetFloat("ApprenticeExperience", apprentice.maximumExperience);
             return !scalable;
         }
         else if (apprentice.minimumExperience > GetApprenticeExperience())
         {
-            Debug.Log("Minimum Size Reached");
+            //Debug.Log("Minimum Size Reached");
             PlayerPrefs.SetFloat("ApprenticeExperience", apprentice.minimumExperience);
             return !scalable;
         } else

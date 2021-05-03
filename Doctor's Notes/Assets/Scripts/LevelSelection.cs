@@ -20,12 +20,12 @@ public class LevelSelection : MonoBehaviour
         if(!unlocked) //if level is locked 
         {
             unlockImage.gameObject.SetActive(true);
-            Debug.Log("Level is locked"); 
+            //Debug.Log("Level is locked"); 
         }
         else //if level is unlocked
         {
             unlockImage.gameObject.SetActive(false);
-            Debug.Log("Level is unlocked");
+            //Debug.Log("Level is unlocked");
         }
     }
 
@@ -36,7 +36,7 @@ public class LevelSelection : MonoBehaviour
             // Player icon is displayed only when the level is selected
             playerPositionImage.gameObject.SetActive(true);
             SceneManager.LoadScene(_levelName);
-            Debug.Log("Level selected, loading scene: " + _levelName);
+            //Debug.Log("Level selected, loading scene: " + _levelName);
         }
     }
 }

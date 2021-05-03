@@ -12,6 +12,7 @@ public class DialogueManager : MonoBehaviour
     public GameObject[] buttons; 
     public GameObject characterA;
     public GameObject characterB;
+    public string fileName;
 
     //Data 
     private JsonData dialogue;
@@ -105,8 +106,9 @@ public class DialogueManager : MonoBehaviour
     }
 
    void Start()
-    {   
-        loadDialogue("JSON/Dialogue0");
+    {
+        //loadDialogue("JSON/Dialogue0");
+        loadDialogue(fileName);
         deactivateButtons();
 
     }
