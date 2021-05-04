@@ -12,6 +12,7 @@ public class ItemUI : MonoBehaviour
     [SerializeField] TMP_Text itemCost;
     [SerializeField] TMP_Text itemStock;
     [SerializeField] Button itemPurchaseButton;
+    
     //[Space(20f)];
 
     public void SetItemPosition(Vector2 pos)
