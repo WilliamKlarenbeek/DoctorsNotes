@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class Potion : GenericObject
 {
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerStay(Collider collision)
     {
