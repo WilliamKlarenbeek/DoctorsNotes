@@ -29,6 +29,7 @@ public class LevelSelection : MonoBehaviour
         }
     }
 
+    //Seems outdated.
     public void PressSelection(string _levelName)
     {
         if(unlocked)
