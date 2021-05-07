@@ -161,7 +161,7 @@ public class BookScript : MonoBehaviour
     public void AddItem(GameObject aItem, int aQuantity)
     {
         bool createNew = true;
-
+        
         if(bookItems.Exists(element => element.item == aItem))
         {
             createNew = false;
@@ -180,7 +180,6 @@ public class BookScript : MonoBehaviour
         }
         if (createNew)
         {
-            
             ItemParameters newItem = new ItemParameters();
             int newID = 0;
             newItem.item = aItem;

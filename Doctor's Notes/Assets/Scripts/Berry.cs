@@ -4,10 +4,4 @@ using UnityEngine;
 
 public class Berry : Material
 {
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
