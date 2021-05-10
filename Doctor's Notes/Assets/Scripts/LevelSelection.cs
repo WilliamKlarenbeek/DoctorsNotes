@@ -8,7 +8,6 @@ public class LevelSelection : MonoBehaviour
 {
     [SerializeField] private bool unlocked = false; //By default level is locked
     public Image unlockImage;
-    public Image playerPositionImage; 
 
     private void Update() //check on every frame 
     {
@@ -33,9 +32,8 @@ public class LevelSelection : MonoBehaviour
     {
         if(unlocked)
         {
-            // Player icon is displayed only when the level is selected
-            playerPositionImage.gameObject.SetActive(true);
-            SceneManager.LoadScene(_levelName);
+            StartCoroutine(PlayerIcon.instance.Movement(transform.position));
+            //SceneManager.LoadScene(_levelName);
             Debug.Log("Level selected, loading scene: " + _levelName);
         }
     }
