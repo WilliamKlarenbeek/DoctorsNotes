@@ -20,7 +20,7 @@ public class SoundManager : MonoBehaviour
     private AudioListener Listener;
     private bool fading = false;
 
-    void Start()
+    void Awake()
     {
         Music = gameObject.AddComponent<AudioSource>();
         Channels = new List<AudioSource>();
@@ -28,7 +28,7 @@ public class SoundManager : MonoBehaviour
         Listener = gameObject.AddComponent<AudioListener>();
     }
 
-    public void PlaySound(AudioClip aSound)
+    public void PlaySound(AudioClip aSound, bool aLoop = false)
     {
         if (aSound != null)
         {
@@ -41,6 +41,7 @@ public class SoundManager : MonoBehaviour
                     {
                         soundInQueue = false;
                         channel.clip = aSound;
+                        channel.loop = aLoop;
                         channel.Play();
                         break;
                     }
@@ -53,11 +54,12 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public void PlayMusic(AudioClip aSound = null)
+    public void PlayMusic(AudioClip aSound = null, bool aLoop = false)
     {
         if (aSound != null)
         {
             Music.clip = aSound;
+            Music.loop = aLoop;
         }
 
         if(Music.clip != null)
@@ -81,6 +83,18 @@ public class SoundManager : MonoBehaviour
             if (channel.clip == aSound)
             {
                 channel.Pause();
+                break;
+            }
+        }
+    }
+
+    public void UnpauseSound(AudioClip aSound)
+    {
+        foreach (AudioSource channel in Channels)
+        {
+            if (channel.clip == aSound && channel.isPlaying == false)
+            {
+                channel.UnPause();
                 break;
             }
         }
@@ -548,6 +562,11 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    public void FadeOutMusicCoroutine(float aDuration)
+    {
+        StartCoroutine(FadeOutMusic(aDuration));
+    }
+
     //Coroutines
     public IEnumerator FadeOutMusic(float aDuration)
     {
@@ -569,7 +588,7 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public IEnumerator FadeInMusic(float aDuration, float aVolume)
+    public IEnumerator FadeInMusic(float aDuration, float aVolume, bool aLoop = false)
     {
         if (fading == false)
         {
@@ -577,6 +596,7 @@ public class SoundManager : MonoBehaviour
             float duration = 0f;
             if (!Music.isPlaying)
             {
+                Music.loop = aLoop;
                 Music.Play();
             }
 
@@ -589,6 +609,70 @@ public class SoundManager : MonoBehaviour
 
             Music.volume = aVolume;
             fading = false;
+        }
+    }
+
+    public IEnumerator FadeInSound(AudioClip aSound, float aDuration, float aVolume, bool aLoop = false)
+    {
+        float duration = 0f;
+        if (aSound != null)
+        {
+            soundInQueue = true;
+            while (soundInQueue)
+            {
+                foreach (AudioSource channel in Channels)
+                {
+                    if (!channel.isPlaying)
+                    {
+                        soundInQueue = false;
+                        channel.clip = aSound;
+                        channel.loop = aLoop;
+                        channel.Play();
+
+                        while (duration < aDuration)
+                        {
+                            channel.volume = Mathf.Lerp(0, aVolume, duration / aDuration);
+                            duration += Time.deltaTime;
+                            yield return null;
+                        }
+                        channel.volume = aVolume;
+
+                        break;
+                    }
+                }
+                if (soundInQueue)
+                {
+                    Channels.Add(gameObject.AddComponent<AudioSource>());
+                }
+            }
+        }
+    }
+
+    public IEnumerator FadeOutSound(AudioClip aSound, float aDuration, bool unqueue = false)
+    {
+        float duration = 0f;
+        float initialSoundVolume = 0f;
+        foreach (AudioSource channel in Channels)
+        {
+            if (channel.clip == aSound)
+            {
+                initialSoundVolume = channel.volume;
+
+                while (duration < aDuration)
+                {
+                    channel.volume = Mathf.Lerp(initialSoundVolume, 0, duration / aDuration);
+                    duration += Time.deltaTime;
+                    yield return null;
+                }
+                channel.volume = 0f;
+                channel.Stop();
+
+                if (unqueue)
+                {
+                    channel.clip = null;
+                }
+                break;
+            }
         }
     }
 }

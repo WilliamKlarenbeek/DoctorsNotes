@@ -7,6 +7,8 @@ using UnityEngine.EventSystems;
 
 public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
 {
+    public GameObject Controller;
+
     private GameObject worldCamera;
     private BookScript Book;
     private BookScript.ItemParameters currentItem;
@@ -16,6 +18,7 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
     private Ray ray;
     private int quantity;
     private Text quantityText;
+    private SoundManager sndManager;
     // Start is called before the first frame update
 
     void Start()
@@ -25,6 +28,18 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
         origin = transform.position;
 
         quantityText = gameObject.GetComponentInChildren<Text>();
+
+        if (Controller == null)
+        {
+            Controller = GameObject.Find("Controller");
+        }
+        if (Controller != null)
+        {
+            if (Controller.GetComponent<SoundManager>() != null)
+            {
+                sndManager = Controller.GetComponent<SoundManager>();
+            }
+        }
     }
 
     // Update is called once per frame
@@ -53,7 +68,12 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
         if (Physics.Raycast(ray, out hit, 100.0f) && quantity > 0)
         {
             var obj = Instantiate(currentItem.item, hit.point, Quaternion.identity);
-            obj.GetComponent<GenericObject>().SetParentSlot(currentItem);
+            if(obj.GetComponent<GenericObject>() != null)
+            {
+                GenericObject createdItem = obj.GetComponent<GenericObject>();
+                createdItem.SetParentSlot(currentItem);
+                CreationSound(createdItem);
+            }
             Book.DecreaseQuantity(currentItem.itemID);
         }
     }
@@ -89,5 +109,17 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
     public int GetCurrentItemID()
     {
         return currentItem.itemID;
+    }
+
+    void CreationSound(GenericObject aObject)
+    {
+        if (sndManager != null)
+        {
+            sndManager.PlaySound(aObject.releaseSound);
+        }
+        else
+        {
+            Debug.Log("Sound Manager Does Not Exist!");
+        }
     }
 }

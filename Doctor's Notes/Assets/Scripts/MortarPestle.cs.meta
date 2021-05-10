@@ -3,7 +3,13 @@ guid: d7e6aad93a3199b40908ba205592ae31
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - itemIcon: {instanceID: 0}
+  - grabSound: {fileID: 8300000, guid: 44db885bbf71efd498a85ee9eb48cc20, type: 3}
+  - releaseSound: {fileID: 8300000, guid: b90c8a7e221267d40b3916655408a63c, type: 3}
+  - Controller: {instanceID: 0}
+  - workingSound: {fileID: 8300000, guid: ab5047daa00ff7e4f8f149f283a89779, type: 3}
+  - berrySound: {fileID: 8300000, guid: 4233f3495b86daa46a235a65ec5159c9, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

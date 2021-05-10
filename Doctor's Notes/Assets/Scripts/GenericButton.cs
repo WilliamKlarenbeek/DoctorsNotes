@@ -8,7 +8,7 @@ public class GenericButton : MonoBehaviour
     public AudioClip Audio;
     public GameObject Controller;
 
-    private SoundManager sndManager;
+    protected SoundManager sndManager;
     private Button genericButton;
 
     void Start()
@@ -32,11 +32,10 @@ public class GenericButton : MonoBehaviour
         }
     }
 
-    void TaskOnClick()
+    protected virtual void TaskOnClick()
     {
         if (sndManager != null)
         {
-            //Debug.Log("Playing Sound...");
             sndManager.PlaySound(Audio);
         } else
         {

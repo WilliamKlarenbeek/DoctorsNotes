@@ -113,8 +113,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: 5ae653d8ff6f99848b2ef970f549c4f1, type: 3}
   prefabPath: Prefabs/Tools/Cauldron
+  grabSound: {fileID: 8300000, guid: 714828ab04a3be04aa605444130b1c8f, type: 3}
+  releaseSound: {fileID: 8300000, guid: 8abd29132edc66d4fba5b1401f347a41, type: 3}
+  Controller: {fileID: 0}
   state: 
   output: 
+  workingSound: {fileID: 8300000, guid: 6ec6812817dc6264ca9268efdd8c4b58, type: 3}
+  potionSound: {fileID: 8300000, guid: 3d990bff7eae6824fbe989001b374495, type: 3}
 --- !u!54 &1112470090315653297
 Rigidbody:
   m_ObjectHideFlags: 0

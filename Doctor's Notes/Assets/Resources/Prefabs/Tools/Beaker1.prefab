@@ -113,8 +113,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: 9dda5d55f5b366445b770aa9edb10665, type: 3}
   prefabPath: Prefabs/Tools/Beaker1
+  grabSound: {fileID: 8300000, guid: 6ec4e5896db06a54b9c12a34560cdef7, type: 3}
+  releaseSound: {fileID: 8300000, guid: a15d07adfa0b85a4b9d3de9ac6b723d1, type: 3}
+  Controller: {fileID: 0}
   state: 
   output: 
+  workingSound: {fileID: 0}
 --- !u!65 &573904727979496828
 BoxCollider:
   m_ObjectHideFlags: 0

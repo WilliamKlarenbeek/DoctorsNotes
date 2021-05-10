@@ -11,7 +11,9 @@ public class SceneController
     public static IEnumerator LoadMainScene(float aDuration)
     {
         float frame = 0;
-        while(frame < aDuration)
+        FadeMusic(aDuration);
+
+        while (frame < aDuration)
         {
             frame += Time.deltaTime;
             yield return null;
@@ -22,6 +24,8 @@ public class SceneController
     public static IEnumerator LoadNextScene(float aDuration)
     {
         float frame = 0;
+        FadeMusic(aDuration);
+
         while (frame < aDuration)
         {
             frame += Time.deltaTime;
@@ -38,6 +42,8 @@ public class SceneController
     public static IEnumerator LoadPreviousScene(float aDuration)
     {
         float frame = 0;
+        FadeMusic(aDuration);
+
         while (frame < aDuration)
         {
             frame += Time.deltaTime;
@@ -54,6 +60,8 @@ public class SceneController
     public static IEnumerator LoadScene(int index, float aDuration)
     {
         float frame = 0;
+        FadeMusic(aDuration);
+
         while (frame < aDuration)
         {
             frame += Time.deltaTime;
@@ -65,4 +73,16 @@ public class SceneController
             SceneManager.LoadScene(index);
         }
     }
+
+    static void FadeMusic(float aDuration)
+    {
+        if (GameObject.Find("Controller").GetComponent<GameController>() != null)
+        {
+            GameObject.Find("Controller").GetComponent<GameController>().FadeOutCoroutine(aDuration);
+        }
+        else
+        {
+            Debug.Log("Controller Doesn't Exist");
+        }
+    } 
 }
