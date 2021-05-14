@@ -17,7 +17,7 @@ public class GenericObject : MonoBehaviour
     protected BookScript Book;
     protected bool collidingWithPatient;
 
-    void Start()
+    public virtual void Start()
     {
         Book = GameObject.Find("Book_UI").GetComponent<BookScript>();
     }

@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class Material : GenericObject
 {
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public float red;
+    public float blue;
+    public float green;
+    public float black;
 }

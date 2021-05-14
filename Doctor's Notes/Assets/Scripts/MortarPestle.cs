@@ -7,9 +7,10 @@ public class MortarPestle : Tool
     Vector3 worldPosition;
     int mouseSpins;
     // Update is called once per frame
-    void Update()
+    public override void Update()
     {
-        if(state == "working")
+        base.Update();
+        if (state == "working")
         {
             Plane plane = new Plane(Vector3.up, 0);
 
@@ -36,7 +37,7 @@ public class MortarPestle : Tool
 
     public override void PerformAction(Collider collision)
     {
-        if ((collision.gameObject.GetComponent<Berry>() != null) && (state == "ready"))
+        if ((collision.gameObject.GetComponent<BlueBerry>() != null) && (state == "ready"))
         {
             state = "working";
             Destroy(collision.gameObject);
@@ -47,7 +48,7 @@ public class MortarPestle : Tool
             state = "ready";
             Destroy(collision.gameObject);
             Vector3 dist = Camera.main.WorldToScreenPoint(transform.position);
-            Instantiate(Resources.Load("Prefabs/Materials/RefinedBerry"), Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x - (Input.mousePosition.x - dist.x), Input.mousePosition.y - (Input.mousePosition.y - dist.y), dist.z)), new Quaternion());
+            Instantiate(Resources.Load("Prefabs/Materials/RefinedBlueBerry"), Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x - (Input.mousePosition.x - dist.x), Input.mousePosition.y - (Input.mousePosition.y - dist.y), dist.z)), new Quaternion());
         }
     }
 }

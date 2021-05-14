@@ -5,17 +5,28 @@ using UnityEngine;
 public abstract class Tool : GenericObject
 {
     public string state;
-    public string output;
+    private bool isColliding;
     // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
-        Book = GameObject.Find("Book_UI").GetComponent<BookScript>();
+        base.Start();
         state = "ready";
+    }
+
+    public virtual void Update()
+    {
+        isColliding = false;
     }
 
     private void OnTriggerStay(Collider collision)
     {
-        if(!(Input.GetMouseButton(0)))
+        if (isColliding)
+        {
+            return;
+        }
+        isColliding = true;
+
+        if (!(Input.GetMouseButton(0)))
         {
             PerformAction(collision);
         }

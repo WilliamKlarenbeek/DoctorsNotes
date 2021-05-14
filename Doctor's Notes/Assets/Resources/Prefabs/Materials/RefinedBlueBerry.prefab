@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1168060853988931456}
   - component: {fileID: -4817984065185318994}
   m_Layer: 0
-  m_Name: RefinedBerry
+  m_Name: RefinedBlueBerry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -141,4 +141,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
-  prefabPath: Prefabs/Materials/RefinedBerry
+  prefabPath: Prefabs/Materials/RefinedBlueBerry
+  red: 0
+  blue: 0
+  yellow: 0
+  black: 0
