@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Cauldron : Tool
 {
+    [SerializeField] private AudioClip potionSound;
     float timer = 0;
 
     // Update is called once per frame
@@ -30,6 +31,15 @@ public class Cauldron : Tool
             {
                 output = "Prefabs/Potions/AquaPotion";
             }
+
+            if (sndManager != null)
+            {
+                StartCoroutine(sndManager.FadeInSound(workingSound, 1f, 1f, true));
+            }
+            else
+            {
+                Debug.Log("Sound Manager Does Not Exist!");
+            }
             Destroy(collision.gameObject);
         }
         else if ((collision.gameObject.GetComponent<Beaker>() != null) && (state == "working"))
@@ -43,6 +53,16 @@ public class Cauldron : Tool
             else
             {
                 Instantiate(Resources.Load("Prefabs/Potions/BurntPotion"), Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x - (Input.mousePosition.x - dist.x), Input.mousePosition.y - (Input.mousePosition.y - dist.y), dist.z)), new Quaternion());
+            }
+
+            if (sndManager != null)
+            {
+                sndManager.PlaySound(potionSound);
+                StartCoroutine(sndManager.FadeOutSound(workingSound, 1f, true));
+            }
+            else
+            {
+                Debug.Log("Sound Manager Does Not Exist!");
             }
             Destroy(collision.gameObject);
         }

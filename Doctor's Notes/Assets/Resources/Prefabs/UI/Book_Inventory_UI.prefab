@@ -311,6 +311,7 @@ GameObject:
   - component: {fileID: 6021721429535697166}
   - component: {fileID: 6021721429535697167}
   - component: {fileID: 6021721429535697164}
+  - component: {fileID: 551517412689096853}
   m_Layer: 5
   m_Name: Book_Button
   m_TagString: Untagged
@@ -431,6 +432,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &551517412689096853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6021721429535697162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc53d9467bebb944da532600c6ade777, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Audio: {fileID: 8300000, guid: 42fb12cf96d5917468c8581591f157bd, type: 3}
+  Controller: {fileID: 0}
+  altClick: {fileID: 8300000, guid: a07b7e56d52722b4883fe6e0a280cfc8, type: 3}
 --- !u!1 &6021721429946631934
 GameObject:
   m_ObjectHideFlags: 0

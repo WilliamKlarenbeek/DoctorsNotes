@@ -142,5 +142,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: dcfe7e5dc5fe86a4f8a99f56e8615751, type: 3}
   prefabPath: Prefabs/Tools/MortarPestle
+  grabSound: {fileID: 8300000, guid: 44db885bbf71efd498a85ee9eb48cc20, type: 3}
+  releaseSound: {fileID: 8300000, guid: b90c8a7e221267d40b3916655408a63c, type: 3}
+  Controller: {fileID: 0}
   state: 
   output: 
+  workingSound: {fileID: 8300000, guid: ab5047daa00ff7e4f8f149f283a89779, type: 3}
+  berrySound: {fileID: 8300000, guid: 4233f3495b86daa46a235a65ec5159c9, type: 3}

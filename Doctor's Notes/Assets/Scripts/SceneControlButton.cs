@@ -14,6 +14,7 @@ public class SceneControlButton : MonoBehaviour
     }
 
     [SerializeField] TargetScene targetScene;
+    [SerializeField] float transitionDuration = 1f;
     Button sceneButton;
 
     void Start()
@@ -22,15 +23,15 @@ public class SceneControlButton : MonoBehaviour
         switch (targetScene)
         {
             case TargetScene.MainMenu:
-                sceneButton.onClick.AddListener(() => SceneController.LoadMainScene());
+                sceneButton.onClick.AddListener(() => StartCoroutine(SceneController.LoadMainScene(transitionDuration)));
                 break;
 
             case TargetScene.Next:
-                sceneButton.onClick.AddListener(() => SceneController.LoadNextScene());
+                sceneButton.onClick.AddListener(() => StartCoroutine(SceneController.LoadNextScene(transitionDuration)));
                 break;
 
             case TargetScene.Previous:
-                sceneButton.onClick.AddListener(() => SceneController.LoadPreviousScene());
+                sceneButton.onClick.AddListener(() => StartCoroutine(SceneController.LoadPreviousScene(transitionDuration)));
                 break;
         }
     }

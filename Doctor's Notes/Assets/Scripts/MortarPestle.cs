@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MortarPestle : Tool
 {
+    [SerializeField] private AudioClip berrySound;
+
     Vector3 worldPosition;
     int mouseSpins;
     // Update is called once per frame
@@ -24,13 +26,28 @@ public class MortarPestle : Tool
             {
                 mouseSpins += 1;
                 Debug.Log("Spins: " + mouseSpins);
+                if (sndManager != null)
+                {
+                    sndManager.PlaySound(workingSound);
+                }
+                else
+                {
+                    Debug.Log("Sound Manager Does Not Exist!");
+                }
             }
             else if ((mouseSpins % 2 != 0) && (worldPosition.x > this.transform.position.x + 1))
             {
                 mouseSpins += 1;
                 Debug.Log("Spins: " + mouseSpins);
+                if (sndManager != null)
+                {
+                    sndManager.PlaySound(workingSound);
+                }
+                else
+                {
+                    Debug.Log("Sound Manager Does Not Exist!");
+                }
             }
-            
         }
     }
 
@@ -48,6 +65,15 @@ public class MortarPestle : Tool
             Destroy(collision.gameObject);
             Vector3 dist = Camera.main.WorldToScreenPoint(transform.position);
             Instantiate(Resources.Load("Prefabs/Materials/RefinedBerry"), Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x - (Input.mousePosition.x - dist.x), Input.mousePosition.y - (Input.mousePosition.y - dist.y), dist.z)), new Quaternion());
+
+            if (sndManager != null)
+            {
+                sndManager.PlaySound(berrySound);
+            }
+            else
+            {
+                Debug.Log("Sound Manager Does Not Exist!");
+            }
         }
     }
 }
