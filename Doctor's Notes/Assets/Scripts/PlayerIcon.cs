@@ -1,3 +1,4 @@
+// TODO: Percentage to be calculated on player movement
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
