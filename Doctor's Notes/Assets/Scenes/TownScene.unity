@@ -253,6 +253,7 @@ MonoBehaviour:
   ShopItemContainer: {fileID: 1707188992}
   itemPrefab: {fileID: 7001662278820121873, guid: f2b9ccb10b97d5c4b9701a7d91c9eddc, type: 3}
   itemDB: {fileID: 11400000, guid: d9760ec5cecc7ad40ac2a33b632dfb30, type: 2}
+  inventoryDB: {fileID: 11400000, guid: af88f5fe1e2fa9b499c138a594a44638, type: 2}
   shopUI: {fileID: 1042456620}
   purchaseSuccessSound: {fileID: 8300000, guid: 4d278f773b3cb5b41be82a6d2abcdc7b, type: 3}
   purchaseInvalidSound: {fileID: 8300000, guid: 87c548b619d845f459ca840cbd697856, type: 3}

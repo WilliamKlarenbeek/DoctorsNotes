@@ -11,7 +11,7 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
 
     private GameObject worldCamera;
     private BookScript Book;
-    private BookScript.ItemParameters currentItem;
+    [SerializeField] private InventoryItem currentItem;
 
     private Vector3 origin;
     private RaycastHit hit;
@@ -19,10 +19,13 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
     private int quantity;
     private Text quantityText;
     private SoundManager sndManager;
+    [SerializeField] private Inventory inventoryDB;
     // Start is called before the first frame update
 
     void Start()
     {
+        inventoryDB = Resources.Load("Databases/InventoryDatabase") as Inventory;
+
         Book = GameObject.Find("Book_UI").GetComponent<BookScript>();
         worldCamera = GameObject.Find("Main Camera");
         origin = transform.position;
@@ -48,9 +51,20 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
         AdjustQuantityText();
     }
 
-    public void SetItem(BookScript.ItemParameters aObject)
+    public void SetItem(InventoryItem aObject)
     {
-        currentItem = aObject;
+        inventoryDB = Resources.Load("Databases/InventoryDatabase") as Inventory;
+        foreach (List<InventoryItem> i in inventoryDB.GetInventoryList())
+        {
+            foreach (InventoryItem j in i)
+            {
+                if (aObject.prefabPath == j.prefabPath)
+                {
+                    currentItem = j;
+                    break;
+                }
+            }
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -67,22 +81,22 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
 
         if (Physics.Raycast(ray, out hit, 100.0f) && quantity > 0)
         {
-            var obj = Instantiate(currentItem.item, hit.point, Quaternion.identity);
+            var obj = Instantiate(Resources.Load(currentItem.prefabPath) as GameObject, hit.point, Quaternion.identity);
             if(obj.GetComponent<GenericObject>() != null)
             {
                 GenericObject createdItem = obj.GetComponent<GenericObject>();
-                createdItem.SetParentSlot(currentItem);
+                createdItem.SetPrefabPath(currentItem);
                 CreationSound(createdItem);
             }
-            Book.DecreaseQuantity(currentItem.itemID);
+            Book.DecreaseQuantity(currentItem.prefabPath);
         }
     }
 
     public void AdjustQuantityText()
     {
-        if (currentItem.item != null)
+        if (currentItem != null)
         {
-            quantity = currentItem.number;
+            quantity = currentItem.itemQuantity;
         }
 
         if (quantity <= 0)
@@ -98,17 +112,12 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
 
     public void IncreaseQuantityText()
     {
-        currentItem.number++;
+        currentItem.itemQuantity++;
     }
 
     public void DecreaseQuantityText()
     {
-        currentItem.number--;
-    }
-
-    public int GetCurrentItemID()
-    {
-        return currentItem.itemID;
+        currentItem.itemQuantity--;
     }
 
     void CreationSound(GenericObject aObject)
