@@ -621,6 +621,7 @@ GameObject:
   - component: {fileID: 1283333567}
   - component: {fileID: 1283333566}
   - component: {fileID: 1283333565}
+  - component: {fileID: 1283333568}
   - component: {fileID: 1283333564}
   m_Layer: 0
   m_Name: PlayerIcon
@@ -656,6 +657,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startLevel: {fileID: 1589499919}
+  distPercentage: 0
 --- !u!65 &1283333565
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -719,6 +721,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1283333562}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1283333568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1283333562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a7241cabfa7d447828f1b6231211d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startLevel: {fileID: 0}
+  distPercentage: 0
 --- !u!1 &1399406045
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,7 +11,13 @@ public class PlayerIcon : MonoBehaviour
     //[SerializeField] private GameObject playerIcon; 
     [SerializeField] private GameObject _startLevel;
     //speed the player icon moves at
-    private float speed = 50.0f; 
+    private float speed = 10.0f;
+
+    private Vector3 _targetPos;
+    private Vector3 _startPos;
+    private Vector3 _currentPos;
+    
+    public float distPercentage = 0.0f; 
 
     private void Awake()
     {
@@ -23,26 +29,53 @@ public class PlayerIcon : MonoBehaviour
     {
         //player Icon is set to start level position when the game starts
         //transform.position = new Vector3(295, 568, 0);
-        transform.position = _startLevel.transform.position; 
+        transform.position = _startLevel.transform.position;
+        _startPos = transform.position; 
     }
 
     public IEnumerator Movement(Vector3 targetPos)
     {
         float step = speed * Time.deltaTime;
+        _targetPos = targetPos;
+        _currentPos = _startPos;
 
-        while (true)
+        while (transform.position != targetPos)
         {
+            //distPercentage = ToString("F2");
+            //Debug.Log("Start: " + _startPos.magnitude + "Current: " + _currentPos.magnitude + "Target: " + _targetPos.magnitude);
+            distPercentage = getDistPercentage(_startPos, _currentPos, _targetPos);
+            //Debug.Log("Distance Percentage for Timer: " + distPercentage);
+
             // no movement occurs on z-axis
             //transform.Translate(1 * Time.deltaTime, 1 * Time.deltaTime, 0); 
             transform.position = Vector3.MoveTowards(transform.position, targetPos, step);
-            if (transform.position == targetPos)
-            {
-                yield return StartCoroutine(LevelSelection.levelSelectionInstance.LoadScene(LevelSelection.levelSelectionInstance.getLevelName()));
-            }
-            else
-            {
-                yield return null;
-            }
+            // set the current position to the position of the playerIcon
+            _currentPos = transform.position;
+
+            yield return new WaitForEndOfFrame();
         }
+        yield return StartCoroutine(LevelSelection.levelSelectionInstance.LoadScene(LevelSelection.levelSelectionInstance.getLevelName()));
+    }
+
+    public float getDistPercentage(Vector3 _startPos, Vector3 _currentPos, Vector3 _targetPos)
+    {
+        // icon position is 0 at startlevel 
+        // length between the icon and target position divided by the total length between the start and target position gives us the 
+        float lpercentage = 0.0f;
+        float ldistTravelled = (_currentPos - _startPos).magnitude;
+        float ldistLeft = (_targetPos - _currentPos).magnitude;
+        float ltotalDist = (_targetPos - _startPos).magnitude;
+        Debug.Log("Distance Total for Timer: " + ltotalDist);
+        Debug.Log("Distance Travelled for Timer: " + ldistLeft);
+        // percentage can not be infinity 
+        if (ltotalDist != 0)
+        {
+            lpercentage = ldistLeft / ltotalDist;
+        }
+        /*        if (_currentPos.magnitude > 0.01f)
+                {
+                    lpercentage = (_targetPos - _currentPos).magnitude / _targetPos.magnitude;
+                }*/
+        return lpercentage;
     }
 }   

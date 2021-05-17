@@ -58,6 +58,7 @@ public class LinearTimer : MonoBehaviour
             //Debug.Log(timePlaying);
             string timePlayingStr = timePlaying.ToString("mm':'ss'.'ff");
             timerBar.fillAmount = (float)(elapsedTime / resetTime);
+            //timerBar.fillAmount = PlayerIcon.instance.distPercentage;
 
             if (elapsedTime == resetTime)
                 EndTimer();
