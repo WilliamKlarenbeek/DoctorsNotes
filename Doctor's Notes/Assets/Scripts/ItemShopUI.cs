@@ -19,6 +19,7 @@ public class ItemShopUI : MonoBehaviour
     [SerializeField] GameObject itemPrefab;
     //[Space(20)];
     [SerializeField] ItemShopDatabase itemDB;
+    [SerializeField] Inventory inventoryDB;
 
     [Header("Shop Events")]
     [SerializeField] GameObject shopUI;
@@ -88,8 +89,8 @@ public class ItemShopUI : MonoBehaviour
             {
                 GameDataManager.RemoveMoney(item.itemCost);
                 GameSharedUI.Instance.UpdateMoneyUIText();
-                //Debug.Log("Purchased:" + item.itemName);
                 itemDB.RemoveItemStock(index);
+                inventoryDB.AddItem(item);
 
                 //Re-generate the shop to account for removing one
                 GenerateShopItemsUI();

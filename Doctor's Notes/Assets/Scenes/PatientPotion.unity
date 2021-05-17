@@ -745,6 +745,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 155edb63b34e4984dab18a809b72fc88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &999502662 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1112470090315653262, guid: 5032121d77626e4449d213a55ad44f8e, type: 3}
+  m_PrefabInstance: {fileID: 1112470090800073618}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1143825405
 GameObject:
   m_ObjectHideFlags: 0
@@ -1133,13 +1138,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6021721428901296594, guid: 6774c3e8bb8add9459eba703bb0cede2, type: 3}
+      propertyPath: inventoryDB
+      value: 
+      objectReference: {fileID: 11400000, guid: af88f5fe1e2fa9b499c138a594a44638, type: 2}
+    - target: {fileID: 6021721428901296594, guid: 6774c3e8bb8add9459eba703bb0cede2, type: 3}
       propertyPath: bookItems.Array.size
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6021721428901296594, guid: 6774c3e8bb8add9459eba703bb0cede2, type: 3}
       propertyPath: bookItems.Array.data[0]._item
       value: 
-      objectReference: {fileID: 1112470090315653262, guid: 5032121d77626e4449d213a55ad44f8e, type: 3}
+      objectReference: {fileID: 999502662}
     - target: {fileID: 6021721428901296594, guid: 6774c3e8bb8add9459eba703bb0cede2, type: 3}
       propertyPath: bookItems.Array.data[1]._item
       value: 
@@ -1147,7 +1156,7 @@ PrefabInstance:
     - target: {fileID: 6021721428901296594, guid: 6774c3e8bb8add9459eba703bb0cede2, type: 3}
       propertyPath: bookItems.Array.data[2]._item
       value: 
-      objectReference: {fileID: 5663127369393019319, guid: c007b2a792c371e45937908b6cdb57e3, type: 3}
+      objectReference: {fileID: 573904727979496823, guid: 2277b06f4b4f8514ba7e82c61e19ac99, type: 3}
     - target: {fileID: 6021721428901296594, guid: 6774c3e8bb8add9459eba703bb0cede2, type: 3}
       propertyPath: bookItems.Array.data[3]._item
       value: 
@@ -1162,7 +1171,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6021721428901296594, guid: 6774c3e8bb8add9459eba703bb0cede2, type: 3}
       propertyPath: bookItems.Array.data[2]._number
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6021721428901296594, guid: 6774c3e8bb8add9459eba703bb0cede2, type: 3}
       propertyPath: bookItems.Array.data[3]._number
@@ -1170,7 +1179,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6021721428901296686, guid: 6774c3e8bb8add9459eba703bb0cede2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6774c3e8bb8add9459eba703bb0cede2, type: 3}

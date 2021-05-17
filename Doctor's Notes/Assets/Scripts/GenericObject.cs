@@ -15,7 +15,6 @@ public class GenericObject : MonoBehaviour
     private float mZCoord;
     private RaycastHit hit;
     private Ray ray;
-    private BookScript.ItemParameters parentSlot;
     private bool isGrabbed = false;
 
     protected BookScript Book;
@@ -81,13 +80,8 @@ public class GenericObject : MonoBehaviour
     {
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, 10) == false && collidingWithPatient == false)
         {
-            if(parentSlot.item != null)
-            {
-                Book.IncreaseQuantity(parentSlot.itemID);
-            } else
-            {
-                Book.AddItem(Resources.Load(prefabPath) as GameObject, 1);
-            }
+            Book.IncreaseQuantity(prefabPath);
+
             Destroy(gameObject);
         } 
         else
@@ -98,9 +92,12 @@ public class GenericObject : MonoBehaviour
         }
     }
 
-    public void SetParentSlot(BookScript.ItemParameters aSlot)
+    public void SetPrefabPath(InventoryItem aSlot)
     {
-        parentSlot = aSlot;
+        if(aSlot.prefabPath != null && Resources.Load(aSlot.prefabPath) as GameObject != null)
+        {
+            prefabPath = aSlot.prefabPath;
+        }
     }
 
     protected void CollidingWithPatient(bool aFlag)

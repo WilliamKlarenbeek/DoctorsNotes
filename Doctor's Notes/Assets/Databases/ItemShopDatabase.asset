@@ -13,13 +13,15 @@ MonoBehaviour:
   m_Name: ItemShopDatabase
   m_EditorClassIdentifier: 
   items:
-  - itemImage: {fileID: 21300000, guid: eac1fa1ee243a6f4a80d37cb631eb73a, type: 3}
+  - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
     itemName: Red Berry
     itemCost: 50
-    itemStock: 2
+    itemStock: 0
     itemInStock: 0
-  - itemImage: {fileID: 21300000, guid: 634aa7bdf53d48649a73eb59016ca3a9, type: 3}
+    prefabPath: Prefabs/Materials/Berry
+  - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
     itemName: Black Berry
     itemCost: 30
-    itemStock: 9
+    itemStock: 0
     itemInStock: 0
+    prefabPath: Prefabs/Materials/Berry
