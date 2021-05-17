@@ -11,7 +11,7 @@ public class PlayerIcon : MonoBehaviour
     //[SerializeField] private GameObject playerIcon; 
     [SerializeField] private GameObject _startLevel;
     //speed the player icon moves at
-    private float speed = 10.0f; 
+    private float speed = 50.0f; 
 
     private void Awake()
     {
@@ -26,21 +26,23 @@ public class PlayerIcon : MonoBehaviour
         transform.position = _startLevel.transform.position; 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     public IEnumerator Movement(Vector3 targetPos)
     {
-        float step = speed * Time.deltaTime; 
-        //While the playerIcon reaches the targetPos keeping moving
-        //while(transform.position != targetPos)
+        float step = speed * Time.deltaTime;
+
+        while (true)
         {
-            transform.position = Vector3.MoveTowards(transform.position, targetPos, step);
             // no movement occurs on z-axis
             //transform.Translate(1 * Time.deltaTime, 1 * Time.deltaTime, 0); 
+            transform.position = Vector3.MoveTowards(transform.position, targetPos, step);
+            if (transform.position == targetPos)
+            {
+                yield return StartCoroutine(LevelSelection.levelSelectionInstance.LoadScene(LevelSelection.levelSelectionInstance.getLevelName()));
+            }
+            else
+            {
+                yield return null;
+            }
         }
-        yield return new WaitForSeconds(0.3f); 
     }
 }   
