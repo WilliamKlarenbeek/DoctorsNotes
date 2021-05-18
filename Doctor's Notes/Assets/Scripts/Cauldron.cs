@@ -23,10 +23,10 @@ public class Cauldron : Tool
 
     public override void PerformAction(Collider collision)
     {
-        if ((collision.gameObject.GetComponent<Material>() != null))
+        if ((collision.gameObject.GetComponent<Ingredient>() != null))
         {
             state = "working";
-            Material insertedMaterial = collision.gameObject.GetComponent<Material>();
+            Ingredient insertedMaterial = collision.gameObject.GetComponent<Ingredient>();
             if (insertedMaterial != null)
             {
                 redTotal += insertedMaterial.red;
