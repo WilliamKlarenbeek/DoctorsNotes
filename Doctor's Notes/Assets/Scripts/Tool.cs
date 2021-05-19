@@ -5,12 +5,12 @@ using UnityEngine;
 public abstract class Tool : GenericObject
 {
     public string state;
-    public string output;
-
+    private bool isColliding;
     [SerializeField] protected AudioClip workingSound;
     // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
+        base.Start();
         if (Controller == null)
         {
             Controller = GameObject.Find("Controller");
@@ -27,9 +27,20 @@ public abstract class Tool : GenericObject
         state = "ready";
     }
 
+    public virtual void Update()
+    {
+        isColliding = false;
+    }
+
     private void OnTriggerStay(Collider collision)
     {
-        if(!(Input.GetMouseButton(0)))
+        if (isColliding)
+        {
+            return;
+        }
+        isColliding = true;
+
+        if (!(Input.GetMouseButton(0)))
         {
             PerformAction(collision);
         }

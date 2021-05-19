@@ -6,10 +6,15 @@ public class Cauldron : Tool
 {
     [SerializeField] private AudioClip potionSound;
     float timer = 0;
+    float redTotal;
+    float blueTotal;
+    float greenTotal;
+    float blackTotal;
 
     // Update is called once per frame
-    void Update()
+    public override void Update()
     {
+        base.Update();
         if (state == "working")
         {
             timer += Time.deltaTime;
@@ -19,17 +24,16 @@ public class Cauldron : Tool
 
     public override void PerformAction(Collider collision)
     {
-        if ((collision.gameObject.GetComponent<Material>() != null) && (state == "ready"))
+        if ((collision.gameObject.GetComponent<Ingredient>() != null))
         {
-            timer = 0;
+            Ingredient insertedMaterial = collision.gameObject.GetComponent<Ingredient>();
             state = "working";
-            if (collision.gameObject.GetComponent<Berry>() != null)
+            if (insertedMaterial != null)
             {
-                output = "Prefabs/Potions/BluePotion";
-            }
-            else if (collision.gameObject.GetComponent<RefinedBerry>() != null)
-            {
-                output = "Prefabs/Potions/AquaPotion";
+                redTotal += insertedMaterial.red;
+                blueTotal += insertedMaterial.blue;
+                greenTotal += insertedMaterial.green;
+                blackTotal += insertedMaterial.black;
             }
 
             if (sndManager != null)
@@ -46,14 +50,27 @@ public class Cauldron : Tool
         {
             state = "ready";
             Vector3 dist = Camera.main.WorldToScreenPoint(transform.position);
+            GameObject objectInstance = Instantiate(Resources.Load("Prefabs/Potions/Potion"), Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x - (Input.mousePosition.x - dist.x), Input.mousePosition.y - (Input.mousePosition.y - dist.y), dist.z)), new Quaternion()) as GameObject;
+            Potion newPotion = objectInstance.GetComponent<Potion>();
             if ((timer > 10) && (timer < 30))
             {
-                Instantiate(Resources.Load(output), Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x - (Input.mousePosition.x - dist.x), Input.mousePosition.y - (Input.mousePosition.y - dist.y), dist.z)), new Quaternion());
+                newPotion.Red = redTotal;
+                newPotion.Blue = blueTotal;
+                newPotion.Green = greenTotal;
+                newPotion.Black = blackTotal;
             }
             else
             {
-                Instantiate(Resources.Load("Prefabs/Potions/BurntPotion"), Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x - (Input.mousePosition.x - dist.x), Input.mousePosition.y - (Input.mousePosition.y - dist.y), dist.z)), new Quaternion());
+                newPotion.Red = 0;
+                newPotion.Blue = 0;
+                newPotion.Green = 0;
+                newPotion.Black = 1;
             }
+            redTotal = 0;
+            blueTotal = 0;
+            greenTotal = 0;
+            blackTotal = 0;
+            timer = 0;
 
             if (sndManager != null)
             {
