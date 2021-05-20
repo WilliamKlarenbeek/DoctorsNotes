@@ -15,7 +15,7 @@ MonoBehaviour:
   townFolk:
   - villagerImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
     villagerName: Terry
-    dialogueFileName: TownsFolk()
+    dialogueFileName: JSON/TownsFolk()
   - villagerImage: {fileID: 21300000, guid: 9dda5d55f5b366445b770aa9edb10665, type: 3}
     villagerName: Barry
-    dialogueFileName: Dialogue()
+    dialogueFileName: JSON/TownsFolk()
