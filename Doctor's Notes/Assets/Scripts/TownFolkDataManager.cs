@@ -12,6 +12,8 @@ public class TownFolkDataManager : MonoBehaviour
     [SerializeField] GameObject townFolkPrefab;
     [SerializeField] Transform townFolkCanvas;
 
+    private int x = 0;
+
     private JsonData dialogue;
     private int index;
     private string speaker;
@@ -90,15 +92,17 @@ public class TownFolkDataManager : MonoBehaviour
         //Check not already in a dialogue.
         if (inDialogue)
         {
-            for (int i = 0; i < townFolkDB.TownFolkCount; i++)
+            //for (int i = 0; i < townFolkDB.TownFolkCount; i++)
+            while (x < townFolkDB.TownFolkCount)
             {
                 //Get the current townfolk 
-                TownFolk townFolkDBData = townFolkDB.GetTownFolk(i);
-                TownFolkData townFolkGameObject = GetTownFolkUI(i);
+                TownFolk townFolkDBData = townFolkDB.GetTownFolk(x);
+                TownFolkData townFolkGameObject = GetTownFolkUI(x);
                 townFolkGameObject.EnableTownFolkDialogue(townFolkGameObject);
                 townFolkGameObject.DisableDialogueButtons(townFolkGameObject);
                 if (inDialogue)
                 {
+                    //loadDialogue(townFolkDBData.dialogueFileName);
                     //Go through their lines one by one.
                     JsonData line = currentLayer[index];
                     //townFolkDB.townFolk[1].villagerName;
@@ -111,9 +115,10 @@ public class TownFolkDataManager : MonoBehaviour
 
                     if (speaker == "EOD")
                     {
-                        inDialogue = false;
+                        //inDialogue = false;
                         townFolkGameObject.DisableTownFolkDialogue(townFolkGameObject);
                         index = 0;
+                        x++;
                         Debug.Log("Reached End of File");
                         //townFolkDialogueImage.SetActive(false);
                         //textPrompt.text = "End of Dialogue (restart to be implemented later)";
@@ -124,6 +129,7 @@ public class TownFolkDataManager : MonoBehaviour
                         JsonData options = line[0];
                         //townFolkDialogue.text = "";
                         townFolkGameObject.ClearDialogue(townFolkGameObject);
+                        townFolkGameObject.SetTownFolkName("Doctor");
                         for (int optionsNumber = 0; optionsNumber < options.Count; optionsNumber++)
                         {
                             //activateButton(buttons[optionsNumber], options[optionsNumber]);
@@ -160,6 +166,7 @@ public class TownFolkDataManager : MonoBehaviour
         return false;
     }
 
+
     private void deactivateButtons(TownFolkData townFolkGameObject)
     {
         //foreach (GameObject button in buttons)
@@ -186,6 +193,7 @@ public class TownFolkDataManager : MonoBehaviour
         {
             townFolkGameObject.SetButtonTextB(townFolkGameObject, choice[0][0].ToString());
             townFolkGameObject.SetButtonFunctionalityChoiceB(townFolkGameObject).GetComponent<Button>().onClick.AddListener(delegate { toDoOnClick(choice); });
+
         }
         //townFolkGameObject.townFolkChoiceA.GetComponentInChildren<Text>().text = choice[0][0].ToString();
         //button.GetComponent<Button>().onClick.AddListener(delegate { toDoOnClick(choice); });
