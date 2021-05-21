@@ -21,7 +21,7 @@ public class GenericObject : MonoBehaviour
     protected bool collidingWithPatient;
     protected SoundManager sndManager;
 
-    void Start()
+    public virtual void Start()
     {
         if (Controller == null)
         {

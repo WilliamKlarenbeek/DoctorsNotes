@@ -16,22 +16,22 @@ MonoBehaviour:
   - itemImage: {fileID: 21300000, guid: 5ae653d8ff6f99848b2ef970f549c4f1, type: 3}
     itemName: Cauldron
     prefabPath: Prefabs/Tools/Cauldron
-    itemQuantity: 1
+    itemQuantity: 60
   - itemImage: {fileID: 21300000, guid: dcfe7e5dc5fe86a4f8a99f56e8615751, type: 3}
     itemName: Mortar and Pestle
     prefabPath: Prefabs/Tools/MortarPestle
-    itemQuantity: 1
+    itemQuantity: 60
   - itemImage: {fileID: 21300000, guid: 9dda5d55f5b366445b770aa9edb10665, type: 3}
     itemName: Beaker
     prefabPath: Prefabs/Tools/Beaker1
-    itemQuantity: 1
+    itemQuantity: 60
   materialList:
   - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
-    itemName: Black Berry
-    prefabPath: Prefabs/Materials/Berry
-    itemQuantity: 1
+    itemName: Blue Berry
+    prefabPath: Prefabs/Materials/BlueBerry
+    itemQuantity: 60
   - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
     itemName: RefinedBerry
-    prefabPath: Prefabs/Materials/RefinedBerry
+    prefabPath: Prefabs/Materials/RefinedBlueBerry
     itemQuantity: 0
   otherList: []
