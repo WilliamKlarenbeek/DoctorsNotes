@@ -8,6 +8,7 @@ public class Potion : GenericObject
     public float blue;
     public float green;
     public float black;
+    List<Ingredient> ingredients = new List<Ingredient>();
 
     public override void Start()
     {
@@ -77,6 +78,17 @@ public class Potion : GenericObject
         set
         {
             this.black = value;
+        }
+    }
+    public List<Ingredient> Ingredients
+    {
+        get
+        {
+            return this.ingredients;
+        }
+        set
+        {
+            this.ingredients = value;
         }
     }
 }
