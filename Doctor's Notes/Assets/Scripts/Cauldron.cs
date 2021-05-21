@@ -10,6 +10,7 @@ public class Cauldron : Tool
     float blueTotal;
     float greenTotal;
     float blackTotal;
+    List<Ingredient> ingredientList = new List<Ingredient>();
 
     // Update is called once per frame
     public override void Update()
@@ -27,6 +28,7 @@ public class Cauldron : Tool
         if ((collision.gameObject.GetComponent<Ingredient>() != null))
         {
             Ingredient insertedMaterial = collision.gameObject.GetComponent<Ingredient>();
+            ingredientList.Add(insertedMaterial);
             state = "working";
             if (insertedMaterial != null)
             {
@@ -58,6 +60,7 @@ public class Cauldron : Tool
                 newPotion.Blue = blueTotal;
                 newPotion.Green = greenTotal;
                 newPotion.Black = blackTotal;
+                newPotion.Ingredients = ingredientList;
             }
             else
             {
@@ -71,6 +74,7 @@ public class Cauldron : Tool
             greenTotal = 0;
             blackTotal = 0;
             timer = 0;
+            ingredientList.Clear();
 
             if (sndManager != null)
             {
