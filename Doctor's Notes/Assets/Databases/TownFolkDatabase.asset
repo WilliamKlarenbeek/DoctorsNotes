@@ -22,3 +22,6 @@ MonoBehaviour:
   - villagerImage: {fileID: 21300000, guid: 5ae653d8ff6f99848b2ef970f549c4f1, type: 3}
     villagerName: Tauldron
     dialogueFileName: JSON/TownsFolkTeaker()
+  - villagerImage: {fileID: 21300000, guid: 5ae653d8ff6f99848b2ef970f549c4f1, type: 3}
+    villagerName: Teff
+    dialogueFileName: JSON/Teff()

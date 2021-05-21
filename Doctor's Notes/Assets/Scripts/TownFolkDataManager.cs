@@ -24,10 +24,6 @@ public class TownFolkDataManager : MonoBehaviour
     void Start()
     {
         GenerateTownFolk();
-        //loadDialogue("JSON/Dialogue0");
-        //loadDialogue(fileName);
-        //loadDialogue(townFolk.villagerName);
-        //deactivateButtons();
     }
 
     // Update is called once per frame
@@ -56,114 +52,85 @@ public class TownFolkDataManager : MonoBehaviour
             TownFolkData townFolkGameObject = Instantiate(townFolkPrefab, townFolkCanvas).GetComponent<TownFolkData>();
             //Set the name of the instantiated gameObject.
             townFolkGameObject.gameObject.name = "Villager" + i + townFolkDBData.villagerName;
-
             //Add data to the object one at a time.
             townFolkGameObject.SetTownFolkSprite(townFolkDBData.villagerImage);
             townFolkGameObject.SetTownFolkName(townFolkDBData.villagerName);
             townFolkGameObject.SetTownFolkDialogue(townFolkDBData.dialogueFileName);
-            //Vector3 movePos = new Vector3(0, 0, 93);
-            //transform.Translate(movePos, Space.World);
-            //townFolkGameObject.MoveVillager(movePos);
-            if (loadDialogue(townFolkDBData.dialogueFileName))
-            {
-                townFolkGameObject.DisableTownFolkDialogue(townFolkGameObject);
-                townFolkGameObject.DisableDialogueButtons(townFolkGameObject);
-            }
-            Debug.Log("loadDialogue Failure");
+            townFolkGameObject.DisableTownFolkDialogue(townFolkGameObject);
+            townFolkGameObject.DisableDialogueButtons(townFolkGameObject);
+            inDialogue = false;
         }
     }
 
     public bool loadDialogue(string path)
     { 
-        //if (!inDialogue)
-        //{
-            index = 0;
-            var jsonTextFile = Resources.Load<TextAsset>("Dialogues/" + path);
-            dialogue = JsonMapper.ToObject(jsonTextFile.text);
-            currentLayer = dialogue;
-            inDialogue = true;
-            return true;
-        //}
-        //return false;
+        index = 0;
+        var jsonTextFile = Resources.Load<TextAsset>("Dialogues/" + path);
+        dialogue = JsonMapper.ToObject(jsonTextFile.text);
+        currentLayer = dialogue;
+        return inDialogue = true;      
     }
 
     public bool printLine()
     {
         //Check not already in a dialogue.
-        if (inDialogue)
+        while (x < townFolkDB.TownFolkCount)
         {
-            //for (int i = 0; i < townFolkDB.TownFolkCount; i++)
-            while (x < townFolkDB.TownFolkCount)
+            //Get the current townfolk 
+            TownFolk townFolkDBData = townFolkDB.GetTownFolk(x);
+            TownFolkData townFolkGameObject = GetTownFolkUI(x);
+            if (!inDialogue) 
             {
-                //Get the current townfolk 
-                TownFolk townFolkDBData = townFolkDB.GetTownFolk(x);
-                TownFolkData townFolkGameObject = GetTownFolkUI(x);
-                townFolkGameObject.EnableTownFolkDialogue(townFolkGameObject);
-                townFolkGameObject.DisableDialogueButtons(townFolkGameObject);
-                if (inDialogue)
-                {
-                    //loadDialogue(townFolkDBData.dialogueFileName);
-                    //Go through their lines one by one.
-                    JsonData line = currentLayer[index];
-                    //townFolkDB.townFolk[1].villagerName;
-                    //townFolkGameObject.SetTownFolkName(townFolkDB.townFolk[1].villagerName);
-                    foreach (JsonData key in line.Keys)
-                    {
-                        //Keys in the JSON files are speaker names / dialogue triggers
-                        speaker = key.ToString();
-                    }
-
-                    if (speaker == "EOD")
-                    {
-                        //inDialogue = false;
-                        townFolkGameObject.DisableTownFolkDialogue(townFolkGameObject);
-                        index = 0;
-                        x++;
-                        Debug.Log("Reached End of File");
-                        //townFolkDialogueImage.SetActive(false);
-                        //textPrompt.text = "End of Dialogue (restart to be implemented later)";
-                    }
-                    else if (speaker == "BranchStart")
-                    {
-                        //Gets the count of options available
-                        JsonData options = line[0];
-                        //townFolkDialogue.text = "";
-                        townFolkGameObject.ClearDialogue(townFolkGameObject);
-                        townFolkGameObject.SetTownFolkName("Doctor");
-                        for (int optionsNumber = 0; optionsNumber < options.Count; optionsNumber++)
-                        {
-                            //activateButton(buttons[optionsNumber], options[optionsNumber]);
-                            activateButton(townFolkGameObject, options[optionsNumber], optionsNumber, townFolkDBData);
-                            Debug.Log(speaker);
-                            //Add listeners to the button 
-                        }
-                        Debug.Log("out of loop");
-                        //townFolkChoiceA.gameObject.SetActive(true);                     
-                    }
-                    else if (speaker == "A")
-                    {
-                        //townFolkDialogue.text = line[0].ToString();
-                        townFolkGameObject.PrintDialogueLine(townFolkGameObject, line[0].ToString());
-                        townFolkGameObject.SetTownFolkName(townFolkDBData.villagerName);
-                        //textDialogueB.text = " ";
-                        index++;
-                    }
-
-                    else if (speaker == "B")
-                    {
-                        //townFolkDialogue.text = line[0].ToString();
-                        townFolkGameObject.PrintDialogueLine(townFolkGameObject, line[0].ToString());
-                        townFolkGameObject.SetTownFolkName("Doctor");
-                        index++;
-                    }
-                }
-                return true;
+                    loadDialogue(townFolkDBData.dialogueFileName);
+                    inDialogue = true;
             }
-            Debug.Log("Exceeded Database Count");
+            townFolkGameObject.EnableTownFolkDialogue(townFolkGameObject);
+            townFolkGameObject.DisableDialogueButtons(townFolkGameObject);
+            if (inDialogue)
+            {
+               //Go through their lines one by one.
+               JsonData line = currentLayer[index];
+               foreach (JsonData key in line.Keys)
+               {
+                   //Keys in the JSON files are speaker names / dialogue triggers
+                   speaker = key.ToString();
+               }
+               if (speaker == "EOD")
+               {
+                    inDialogue = false;
+                    townFolkGameObject.DisableTownFolkDialogue(townFolkGameObject);
+                    index = 0;
+                    x++;
+                    Debug.Log("Reached End of File");
+               }
+               else if (speaker == "BranchStart")
+               {
+                    //Gets the count of options available
+                    JsonData options = line[0];
+                    townFolkGameObject.ClearDialogue(townFolkGameObject);
+                    townFolkGameObject.SetTownFolkName("Doctor");
+                    for (int optionsNumber = 0; optionsNumber < options.Count; optionsNumber++)
+                    {
+                        activateButton(townFolkGameObject, options[optionsNumber], optionsNumber, townFolkDBData);
+                    }
+                    Debug.Log("out of loop");                     
+               }
+               else if (speaker == "A")
+               {
+                    townFolkGameObject.PrintDialogueLine(townFolkGameObject, line[0].ToString());
+                    townFolkGameObject.SetTownFolkName(townFolkDBData.villagerName);
+                    index++;
+               }
+               else if (speaker == "B")
+               {
+                    townFolkGameObject.PrintDialogueLine(townFolkGameObject, line[0].ToString());
+                    townFolkGameObject.SetTownFolkName("Doctor");
+                    index++;
+               }
+            }
             return true;
         }
-        Debug.Log("Already in dialogue");
-        return false;
+        return true;
     }
 
 
@@ -180,9 +147,6 @@ public class TownFolkDataManager : MonoBehaviour
     private void activateButton(TownFolkData townFolkGameObject, JsonData choice, int optionNumber, TownFolk townFolkDBData)
     {
         townFolkGameObject.EnableDialogueButtons(townFolkGameObject);
-        //Set the button Text
-
-        //button.SetActive(true);
         if (optionNumber == 0)
         {
             townFolkGameObject.SetButtonTextA(townFolkGameObject, choice[0][0].ToString());            
@@ -193,10 +157,7 @@ public class TownFolkDataManager : MonoBehaviour
         {
             townFolkGameObject.SetButtonTextB(townFolkGameObject, choice[0][0].ToString());
             townFolkGameObject.SetButtonFunctionalityChoiceB(townFolkGameObject).GetComponent<Button>().onClick.AddListener(delegate { toDoOnClick(choice); });
-
         }
-        //townFolkGameObject.townFolkChoiceA.GetComponentInChildren<Text>().text = choice[0][0].ToString();
-        //button.GetComponent<Button>().onClick.AddListener(delegate { toDoOnClick(choice); });
     }
 
     private void toDoOnClick(JsonData choice)
@@ -206,6 +167,5 @@ public class TownFolkDataManager : MonoBehaviour
         index = 1;
         inDialogue = true;
         printLine();
-        //deactivateButtons();
     }
 }
