@@ -9,4 +9,5 @@ public class TownFolk
     public Sprite villagerImage;
     public string villagerName;
     public string dialogueFileName;
+    public string buttonFunction;
 }

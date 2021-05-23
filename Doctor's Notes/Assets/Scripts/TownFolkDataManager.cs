@@ -81,8 +81,11 @@ public class TownFolkDataManager : MonoBehaviour
             TownFolkData townFolkGameObject = GetTownFolkUI(x);
             if (!inDialogue) 
             {
-                    loadDialogue(townFolkDBData.dialogueFileName);
-                    inDialogue = true;
+                loadDialogue(townFolkDBData.dialogueFileName);
+                //Move the Villager Sprite to be equal to be at the window.
+                Vector3 windowPosition = new Vector3(110.0f, 0.0f, 0.0f);
+                townFolkGameObject.MoveVillager(windowPosition, townFolkGameObject);
+                inDialogue = true;
             }
             townFolkGameObject.EnableTownFolkDialogue(townFolkGameObject);
             townFolkGameObject.DisableDialogueButtons(townFolkGameObject);
@@ -101,7 +104,10 @@ public class TownFolkDataManager : MonoBehaviour
                     townFolkGameObject.DisableTownFolkDialogue(townFolkGameObject);
                     index = 0;
                     x++;
-                    Debug.Log("Reached End of File");
+                    //Move the village out of the window frame.
+                    Vector3 windowPosition = new Vector3(150.0f, 0.0f, 0.0f);
+                    townFolkGameObject.MoveVillager(windowPosition, townFolkGameObject);
+                    //Debug.Log("Reached End of File");
                }
                else if (speaker == "BranchStart")
                {
@@ -113,7 +119,7 @@ public class TownFolkDataManager : MonoBehaviour
                     {
                         activateButton(townFolkGameObject, options[optionsNumber], optionsNumber, townFolkDBData);
                     }
-                    Debug.Log("out of loop");                     
+                    //Debug.Log("out of loop");                     
                }
                else if (speaker == "A")
                {
@@ -151,6 +157,7 @@ public class TownFolkDataManager : MonoBehaviour
         {
             townFolkGameObject.SetButtonTextA(townFolkGameObject, choice[0][0].ToString());            
             townFolkGameObject.SetButtonFunctionalityChoiceA(townFolkGameObject).GetComponent<Button>().onClick.AddListener(delegate { toDoOnClick(choice); });
+            townFolkGameObject.SetButtonFunctionalityChoiceA(townFolkGameObject).GetComponent<Button>().onClick.AddListener(delegate { SetButtonFunctionality(townFolkDBData.buttonFunction); });
             //townFolkGameObject.DisableDialogueButtons(townFolkGameObject);
         }
         else if (optionNumber == 1)
@@ -158,6 +165,10 @@ public class TownFolkDataManager : MonoBehaviour
             townFolkGameObject.SetButtonTextB(townFolkGameObject, choice[0][0].ToString());
             townFolkGameObject.SetButtonFunctionalityChoiceB(townFolkGameObject).GetComponent<Button>().onClick.AddListener(delegate { toDoOnClick(choice); });
         }
+    }
+    private void SetButtonFunctionality(string functionality)
+    {
+
     }
 
     private void toDoOnClick(JsonData choice)

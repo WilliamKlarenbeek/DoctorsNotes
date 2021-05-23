@@ -36,9 +36,11 @@ public class TownFolkData : MonoBehaviour
         transform.Translate(spawnPos, Space.World);
     }
 
-    public void MoveVillager(Vector3 movedPosition)
+    public void MoveVillager(Vector3 position, TownFolkData townFolk)
     {
-        transform.Translate(movedPosition, Space.World);
+        //Vector3 windowPosition = new Vector3(100.0f, 0.0f, 0.0f);
+        //transform.Translate(movedPosition, Space.World);
+        townFolk.townFolkSprite.transform.Translate(position, Space.World);
     }
 
     public void DisableTownFolkDialogue(TownFolkData townFolk)
