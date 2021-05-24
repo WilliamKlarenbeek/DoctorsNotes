@@ -18,20 +18,24 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
     private Ray ray;
     private int quantity;
     private Text quantityText;
+    private Text nameText;
     private SoundManager sndManager;
     [SerializeField] private Inventory inventoryDB;
     // Start is called before the first frame update
 
-    void Start()
+    void Awake()
     {
+        quantityText = transform.Find("Quantity").GetComponent<Text>();
+        nameText = transform.Find("Name").GetComponent<Text>();
         inventoryDB = Resources.Load("Databases/InventoryDatabase") as Inventory;
-
         Book = GameObject.Find("Book_UI").GetComponent<BookScript>();
         worldCamera = GameObject.Find("Main Camera");
-        origin = transform.position;
+    }
 
-        quantityText = gameObject.GetComponentInChildren<Text>();
-
+    void Start()
+    {
+        origin = new Vector2(Book.gameObject.GetComponent<RectTransform>().position.x + 300, Book.gameObject.GetComponent<RectTransform>().position.y + 240);
+        transform.position = origin;
         if (Controller == null)
         {
             Controller = GameObject.Find("Controller");
@@ -48,6 +52,7 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
     // Update is called once per frame
     void Update()
     {
+        origin = new Vector2(Book.gameObject.GetComponent<RectTransform>().position.x + 300, Book.gameObject.GetComponent<RectTransform>().position.y + 240);
         AdjustQuantityText();
     }
 
@@ -61,6 +66,7 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
                 if (aObject.prefabPath == j.prefabPath)
                 {
                     currentItem = j;
+                    nameText.text = j.itemName;
                     break;
                 }
             }
@@ -69,26 +75,31 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
 
     public void OnDrag(PointerEventData eventData)
     {
-        transform.position = Input.mousePosition;
-            
-        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if(Book.IsTransitioning() == false)
+        {
+            transform.position = Input.mousePosition;
 
+            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        }
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        transform.position = origin;
-
-        if (Physics.Raycast(ray, out hit, 100.0f) && quantity > 0)
+        if(Book.IsTransitioning() == false)
         {
-            var obj = Instantiate(Resources.Load(currentItem.prefabPath) as GameObject, hit.point, Quaternion.identity);
-            if(obj.GetComponent<GenericObject>() != null)
+            transform.position = origin;
+
+            if (Physics.Raycast(ray, out hit, 100.0f) && quantity > 0)
             {
-                GenericObject createdItem = obj.GetComponent<GenericObject>();
-                createdItem.SetPrefabPath(currentItem);
-                CreationSound(createdItem);
+                var obj = Instantiate(Resources.Load(currentItem.prefabPath) as GameObject, hit.point, Quaternion.identity);
+                if (obj.GetComponent<GenericObject>() != null)
+                {
+                    GenericObject createdItem = obj.GetComponent<GenericObject>();
+                    createdItem.SetPrefabPath(currentItem);
+                    CreationSound(createdItem);
+                }
+                Book.DecreaseQuantity(currentItem.prefabPath);
             }
-            Book.DecreaseQuantity(currentItem.prefabPath);
         }
     }
 

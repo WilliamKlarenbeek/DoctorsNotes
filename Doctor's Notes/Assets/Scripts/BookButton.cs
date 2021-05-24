@@ -1,12 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BookButton : GenericButton
 {
     public AudioClip altClick;
 
     private bool bookOpen = false;
+    [SerializeField] private BookScript Book;
+
+    protected override void Start()
+    {
+        Book = GameObject.Find("Book_UI").GetComponent<BookScript>();
+        GetController();
+    }
+
+    void Update()
+    {
+        if (Book.IsTransitioning())
+        {
+            GetComponent<Button>().interactable = false;
+        } else
+        {
+            GetComponent<Button>().interactable = true;
+        }
+    }
 
     protected override void TaskOnClick()
     {
@@ -15,13 +34,11 @@ public class BookButton : GenericButton
             if(bookOpen == false)
             {
                 sndManager.PlaySound(Audio);
-                Debug.Log("Book Opened");
                 bookOpen = true;
             } 
             else
             {
                 sndManager.PlaySound(altClick);
-                Debug.Log("Book Closed");
                 bookOpen = false;
             }
         }

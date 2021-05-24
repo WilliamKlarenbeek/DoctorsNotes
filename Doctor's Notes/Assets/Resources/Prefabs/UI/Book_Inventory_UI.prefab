@@ -659,7 +659,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -750, y: -74.1}
+  m_AnchoredPosition: {x: -750, y: -75}
   m_SizeDelta: {x: 1500, y: 1000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6021721428901296595
@@ -713,20 +713,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bookItems:
-  - _item: {fileID: 3641174669597466566, guid: 4198428f9bea75f43a5daabe1733cd81, type: 3}
-    _number: 2
-  - _item: {fileID: 3641174669597466566, guid: 4198428f9bea75f43a5daabe1733cd81, type: 3}
-    _number: 2
-  - _item: {fileID: 3641174669597466566, guid: 4198428f9bea75f43a5daabe1733cd81, type: 3}
-    _number: 2
-  - _item: {fileID: 3641174669597466566, guid: 4198428f9bea75f43a5daabe1733cd81, type: 3}
-    _number: 2
-  - _item: {fileID: 3641174669597466566, guid: 4198428f9bea75f43a5daabe1733cd81, type: 3}
-    _number: 2
-  - _item: {fileID: 3641174669597466566, guid: 4198428f9bea75f43a5daabe1733cd81, type: 3}
-    _number: 2
-  - _item: {fileID: 3641174669597466566, guid: 4198428f9bea75f43a5daabe1733cd81, type: 3}
-    _number: 2
+  - itemImage: {fileID: 0}
+    itemName: 
+    prefabPath: 
+    itemQuantity: 0
+  - itemImage: {fileID: 0}
+    itemName: 
+    prefabPath: 
+    itemQuantity: 0
+  - itemImage: {fileID: 0}
+    itemName: 
+    prefabPath: 
+    itemQuantity: 0
+  - itemImage: {fileID: 0}
+    itemName: 
+    prefabPath: 
+    itemQuantity: 0
+  - itemImage: {fileID: 0}
+    itemName: 
+    prefabPath: 
+    itemQuantity: 0
+  - itemImage: {fileID: 0}
+    itemName: 
+    prefabPath: 
+    itemQuantity: 0
+  - itemImage: {fileID: 0}
+    itemName: 
+    prefabPath: 
+    itemQuantity: 0
   iconTemplate: {fileID: 384255767590248574, guid: 410b41ac779f56a49a8bb30eef97fa95, type: 3}
   inventoryDB: {fileID: 0}
 --- !u!1 &6021721429535697162
