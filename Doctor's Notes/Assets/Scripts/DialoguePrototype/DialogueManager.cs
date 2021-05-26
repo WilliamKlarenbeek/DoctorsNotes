@@ -100,7 +100,7 @@ public class DialogueManager : MonoBehaviour
     void toDoOnClick(JsonData choice)
     {
         currentLayer = choice[0];
-        index = 1; 
+        index = 1;
         printLine();
         deactivateButtons();
     }
@@ -110,7 +110,6 @@ public class DialogueManager : MonoBehaviour
         //loadDialogue("JSON/Dialogue0");
         loadDialogue(fileName);
         deactivateButtons();
-
     }
     
     void Update()
