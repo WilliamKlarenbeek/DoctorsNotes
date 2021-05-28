@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class BookScript : MonoBehaviour
 {
-    private const int MAX_ITEM_PER_PAGE = 6;
+    private const int MAX_ITEM_PER_PAGE = 1;
 
     public enum BookCategory
     {
@@ -22,12 +22,16 @@ public class BookScript : MonoBehaviour
     private List<InventoryItem[]> dynamicBookList;
     private int currentPage;
     private BookCategory currentCategory;
+    private bool opened = false;
+    private bool transitioning = false;
+    private Button[] buttons;
     [SerializeField] private Inventory inventoryDB;
 
     // Start is called before the first frame update
     void Start()
     {
         inventoryDB = Resources.Load("Databases/InventoryDatabase") as Inventory;
+        buttons = this.GetComponentsInChildren<Button>(true);
 
         currentCategory = (BookCategory)0;
         CreateListOfItems();
@@ -38,7 +42,7 @@ public class BookScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void CreateListOfItems()
@@ -128,8 +132,9 @@ public class BookScript : MonoBehaviour
                     currentItem.transform.SetParent(transform);
                     currentItem.GetComponent<Image>().sprite = i.itemImage;
                     currentItem.GetComponent<ItemSlot>().SetItem(i);
+                    //currentItem.GetComponent<RectTransform>().anchoredPosition = new Vector2(300, 240);
 
-                    switch (index % 2)
+                    /*switch (index % 2)
                     {
                         case 0:
                             currentItem.GetComponent<RectTransform>().anchoredPosition = new Vector2(150, 240 + YOffset);
@@ -140,7 +145,7 @@ public class BookScript : MonoBehaviour
                             break;
                         default:
                             break;
-                    }
+                    }*/
                     index++;
                 }
             }
@@ -178,33 +183,6 @@ public class BookScript : MonoBehaviour
         ViewPage(currentPage);
     }
 
-    /*public void IncreaseQuantity(int aItemID)
-    {
-        int index = 0;
-        foreach (ItemParameters i in bookItems.ToArray())
-        {
-            if (i.item != null && i.itemID == aItemID)
-            {
-                var newList = bookItems[index];
-                newList.number++;
-                bookItems[index] = newList;
-                foreach (Transform child in transform)
-                {
-                    if (child.name == "Item(Clone)")
-                    {
-                        if(child.GetComponent<ItemSlot>().GetCurrentItemID() == bookItems[index].itemID)
-                        {
-                            child.GetComponent<ItemSlot>().IncreaseQuantityText();
-                        }
-                    }
-                }
-            }
-            index++;
-        }
-
-        CreateListOfItems();
-    }*/
-
     public void IncreaseQuantity(string aPrefabPath)
     {
         bool addNewItem = true;
@@ -228,33 +206,6 @@ public class BookScript : MonoBehaviour
 
         CreateListOfItems();
     }
-
-    /*public void DecreaseQuantity(int aItemID)
-    {
-        int index = 0;
-        foreach (ItemParameters i in bookItems.ToArray())
-        {
-            if (i.item != null && i.itemID == aItemID)
-            {
-                var newList = bookItems[index];
-                newList.number--;
-                bookItems[index] = newList;
-                foreach (Transform child in transform)
-                {
-                    if (child.name == "Item(Clone)")
-                    {
-                        if (child.GetComponent<ItemSlot>().GetCurrentItemID() == bookItems[index].itemID)
-                        {
-                            child.GetComponent<ItemSlot>().DecreaseQuantityText();
-                        }
-                    }
-                }
-            }
-            index++;
-        }
-
-        CreateListOfItems();
-    }*/
 
     public void DecreaseQuantity(string aPrefabPath)
     {
@@ -288,5 +239,86 @@ public class BookScript : MonoBehaviour
             }
             Book.Add(bookItems);
         }
+    }
+
+    public void ToggleActive()
+    {
+        if (opened)
+        {
+            opened = false;
+        } 
+        else
+        {
+            opened = true;
+        }
+
+        if (opened && transitioning == false) {
+            StartCoroutine(OpenBook(1f));
+        }
+        if(opened == false && transitioning == false)
+        {
+            StartCoroutine(CloseBook(1f));
+        }
+    }
+
+    IEnumerator OpenBook(float aDuration)
+    {
+        transitioning = true;
+        foreach(Button i in buttons)
+        {
+            i.interactable = false;
+        }
+        float frame = 0f;
+        float posYOrigin = -1080f;
+        float posYCurrent = posYOrigin;
+        float posYDest = -75f;
+
+        while(frame < aDuration)
+        {
+            posYCurrent = Mathf.Lerp(posYOrigin, posYDest, frame / aDuration);
+            GetComponent<RectTransform>().anchoredPosition = new Vector2(-750, posYCurrent);
+
+            frame+= Time.deltaTime;
+            yield return null;
+        }
+        GetComponent<RectTransform>().anchoredPosition = new Vector2(-750, posYDest);
+        foreach (Button i in buttons)
+        {
+            i.interactable = true;
+        }
+        transitioning = false;
+    }
+
+    IEnumerator CloseBook(float aDuration)
+    {
+        transitioning = true;
+        foreach (Button i in buttons)
+        {
+            i.interactable = false;
+        }
+        float frame = 0f;
+        float posYOrigin = -75f;
+        float posYCurrent = posYOrigin;
+        float posYDest = -1080f;
+
+        while (frame < aDuration)
+        {
+            posYCurrent = Mathf.Lerp(posYOrigin, posYDest, frame / aDuration);
+            GetComponent<RectTransform>().anchoredPosition = new Vector2(-750, posYCurrent);
+
+            frame += Time.deltaTime;
+            yield return null;
+        }
+        GetComponent<RectTransform>().anchoredPosition = new Vector2(-750, posYDest);
+        foreach (Button i in buttons)
+        {
+            i.interactable = true;
+        }
+        transitioning = false;
+    }
+
+    public bool IsTransitioning()
+    {
+        return transitioning;
     }
 }

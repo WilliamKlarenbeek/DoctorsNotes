@@ -11,25 +11,9 @@ public class GenericButton : MonoBehaviour
     protected SoundManager sndManager;
     private Button genericButton;
 
-    void Start()
+    protected virtual void Start()
     {
-        if (Controller == null)
-        {
-            Controller = GameObject.Find("Controller");
-        }
-        if(Controller != null)
-        {
-            if (Controller.GetComponent<SoundManager>() != null)
-            {
-                sndManager = Controller.GetComponent<SoundManager>();
-            }
-        }
-
-        genericButton = GetComponent<Button>();
-        if(genericButton != null)
-        {
-            genericButton.onClick.AddListener(TaskOnClick);
-        }
+        GetController();
     }
 
     protected virtual void TaskOnClick()
@@ -40,6 +24,27 @@ public class GenericButton : MonoBehaviour
         } else
         {
             Debug.Log("Sound Manager Does Not Exist!");
+        }
+    }
+
+    protected void GetController()
+    {
+        if (Controller == null)
+        {
+            Controller = GameObject.Find("Controller");
+        }
+        if (Controller != null)
+        {
+            if (Controller.GetComponent<SoundManager>() != null)
+            {
+                sndManager = Controller.GetComponent<SoundManager>();
+            }
+        }
+
+        genericButton = GetComponent<Button>();
+        if (genericButton != null)
+        {
+            genericButton.onClick.AddListener(TaskOnClick);
         }
     }
 }

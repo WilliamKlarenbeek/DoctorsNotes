@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1290,6 +1290,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6021721428901296593, guid: 6774c3e8bb8add9459eba703bb0cede2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1080
+      objectReference: {fileID: 0}
     - target: {fileID: 6021721428901296594, guid: 6774c3e8bb8add9459eba703bb0cede2, type: 3}
       propertyPath: inventoryDB
       value: 
@@ -1350,8 +1354,43 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6021721429535697164, guid: 6774c3e8bb8add9459eba703bb0cede2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6021721429535697164, guid: 6774c3e8bb8add9459eba703bb0cede2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2020583681}
+    - target: {fileID: 6021721429535697164, guid: 6774c3e8bb8add9459eba703bb0cede2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToggleActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 6021721429535697164, guid: 6774c3e8bb8add9459eba703bb0cede2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: BookScript, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6021721429535697164, guid: 6774c3e8bb8add9459eba703bb0cede2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6021721429535697164, guid: 6774c3e8bb8add9459eba703bb0cede2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6774c3e8bb8add9459eba703bb0cede2, type: 3}
+--- !u!114 &2020583681 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6021721428901296594, guid: 6774c3e8bb8add9459eba703bb0cede2, type: 3}
+  m_PrefabInstance: {fileID: 2017753384}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 137b3deecdab60449b13543356757ec0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &573904727923255701
 PrefabInstance:
   m_ObjectHideFlags: 0
