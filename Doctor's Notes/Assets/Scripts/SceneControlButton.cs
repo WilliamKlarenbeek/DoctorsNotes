@@ -10,6 +10,7 @@ public class SceneControlButton : MonoBehaviour
     {
         Next,
         Previous,
+        Quit,
         MainMenu
     }
 
@@ -31,11 +32,15 @@ public class SceneControlButton : MonoBehaviour
                 case TargetScene.Next:
                     sceneButton.onClick.AddListener(() => StartCoroutine(SceneController.LoadNextScene(transitionDuration)));
                     break;
-
                 case TargetScene.Previous:
                     sceneButton.onClick.AddListener(() => StartCoroutine(SceneController.LoadPreviousScene(transitionDuration)));
                     break;
-            }
+                case TargetScene.Quit:
+                    //Quit actual application
+                    sceneButton.onClick.AddListener(() => Application.Quit());
+                    //Quit unity editor playtesting
+                    sceneButton.onClick.AddListener(() => UnityEditor.EditorApplication.isPlaying = false);
+                    break;
         }
     }
 }
