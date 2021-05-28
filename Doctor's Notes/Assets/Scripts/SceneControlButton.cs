@@ -20,26 +20,27 @@ public class SceneControlButton : MonoBehaviour
 
     void Start()
     {
-        sceneButton = GetComponent<Button> ();
-        switch (targetScene)
+        sceneButton = GetComponent<Button>();
+        if(sceneButton != null)
         {
-            case TargetScene.MainMenu:
-                sceneButton.onClick.AddListener(() => StartCoroutine(SceneController.LoadMainScene(transitionDuration)));
-                break;
+            switch (targetScene)
+            {
+                case TargetScene.MainMenu:
+                    sceneButton.onClick.AddListener(() => StartCoroutine(SceneController.LoadMainScene(transitionDuration)));
+                    break;
 
-            case TargetScene.Next:
-                sceneButton.onClick.AddListener(() => StartCoroutine(SceneController.LoadNextScene(transitionDuration)));
-                break;
-
-            case TargetScene.Previous:
-                sceneButton.onClick.AddListener(() => StartCoroutine(SceneController.LoadPreviousScene(transitionDuration)));
-                break;
-            case TargetScene.Quit:
-                //Quit actual application
-                sceneButton.onClick.AddListener(() => Application.Quit());
-                //Quit unity editor playtesting
-                sceneButton.onClick.AddListener(() => UnityEditor.EditorApplication.isPlaying = false);
-                break;
+                case TargetScene.Next:
+                    sceneButton.onClick.AddListener(() => StartCoroutine(SceneController.LoadNextScene(transitionDuration)));
+                    break;
+                case TargetScene.Previous:
+                    sceneButton.onClick.AddListener(() => StartCoroutine(SceneController.LoadPreviousScene(transitionDuration)));
+                    break;
+                case TargetScene.Quit:
+                    //Quit actual application
+                    sceneButton.onClick.AddListener(() => Application.Quit());
+                    //Quit unity editor playtesting
+                    sceneButton.onClick.AddListener(() => UnityEditor.EditorApplication.isPlaying = false);
+                    break;
         }
     }
 }
