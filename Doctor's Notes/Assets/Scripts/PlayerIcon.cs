@@ -39,6 +39,7 @@ public class PlayerIcon : MonoBehaviour
         float step = speed * Time.deltaTime;
         _targetPos = targetPos;
         _currentPos = _startPos;
+        LinearTimer.instance.BeginTimer();
 
         while (transform.position != targetPos)
         {
@@ -55,7 +56,8 @@ public class PlayerIcon : MonoBehaviour
 
             yield return new WaitForEndOfFrame();
         }
-        yield return StartCoroutine(LevelSelection.levelSelectionInstance.LoadScene(LevelSelection.levelSelectionInstance.getLevelName()));
+        LinearTimer.instance.EndTimer();
+        yield return StartCoroutine(SceneController.LoadScene(LevelSelection.levelSelectionInstance.getLevelIndex(), 2f));
     }
 
     public float getDistPercentage(Vector3 _startPos, Vector3 _currentPos, Vector3 _targetPos)

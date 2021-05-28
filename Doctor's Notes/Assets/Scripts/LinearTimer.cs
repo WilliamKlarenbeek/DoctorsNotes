@@ -31,10 +31,9 @@ public class LinearTimer : MonoBehaviour
     {
         timerBar = GetComponent<Image>();
         timerGoing = false;
-        BeginTimer();
     }
 
-    private void BeginTimer()
+    public void BeginTimer()
     {
         timerGoing = true;
         elapsedTime = 0f;

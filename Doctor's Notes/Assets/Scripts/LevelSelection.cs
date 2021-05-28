@@ -9,7 +9,7 @@ public class LevelSelection : MonoBehaviour
     [SerializeField] private bool unlocked = false; //By default level is locked
     public static LevelSelection levelSelectionInstance; 
     public Image unlockImage;
-    private string levelName; 
+    private int levelIndex; 
 
     private void Awake()
     {
@@ -35,26 +35,25 @@ public class LevelSelection : MonoBehaviour
         }
     }
 
-    public string getLevelName()
+    public int getLevelIndex()
     {
-        return levelName;
+        return levelIndex;
     }
 
-    public void PressSelection(string _levelName)
+    public void PressSelection(int aIndex)
     {
         if(unlocked)
         {
-            levelName = _levelName;
+            levelIndex = aIndex;
             // Once the player Icon moves to the selected location then 
             // Load Scene coroutine is called from the Movement Coroutine inside the PlayerIcon
             StartCoroutine(PlayerIcon.instance.Movement(transform.position));
-            Debug.Log("Level selected, loading scene: " + _levelName);
+            Debug.Log("Level selected, loading scene: " + aIndex);
         }
     }
 
-    public IEnumerator LoadScene(string _levelName)
+    public void LoadScene(int aIndex)
     {
-        SceneManager.LoadScene(_levelName);
-        yield return null; 
+        SceneManager.LoadScene(aIndex);
     }
 }

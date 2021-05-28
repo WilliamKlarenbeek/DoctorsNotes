@@ -716,7 +716,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1283333562}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07a7241cabfa7d447828f1b6231211d0, type: 3}
   m_Name: 
@@ -1183,7 +1183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 429881b46bcc88e42a016f860e55f827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unlocked: 0
+  unlocked: 1
   unlockImage: {fileID: 1399406047}
 --- !u!114 &1673677573
 MonoBehaviour:
@@ -1232,11 +1232,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1673677572}
         m_TargetAssemblyTypeName: LevelSelection, Assembly-CSharp
         m_MethodName: PressSelection
-        m_Mode: 5
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 1
           m_BoolArgument: 0
@@ -1286,7 +1286,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1673677570}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7fea19e520bbc91468ae34fd2242e0c4, type: 3}
   m_Name: 
