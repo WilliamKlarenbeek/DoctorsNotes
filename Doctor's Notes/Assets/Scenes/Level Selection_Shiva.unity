@@ -1009,7 +1009,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d34585d7f22ff1f4ea3366f011c5bd55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resetTime: 25
+  resetTime: 100
 --- !u!114 &1594474916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1101,7 +1101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 429881b46bcc88e42a016f860e55f827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unlocked: 1
+  unlocked: 0
   unlockImage: {fileID: 1399406047}
 --- !u!114 &1673677573
 MonoBehaviour:
