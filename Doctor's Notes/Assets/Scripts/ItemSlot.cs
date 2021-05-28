@@ -7,62 +7,107 @@ using UnityEngine.EventSystems;
 
 public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
 {
+    public GameObject Controller;
+
     private GameObject worldCamera;
     private BookScript Book;
-    private BookScript.ItemParameters currentItem;
+    [SerializeField] private InventoryItem currentItem;
 
     private Vector3 origin;
     private RaycastHit hit;
     private Ray ray;
     private int quantity;
     private Text quantityText;
+    private Text nameText;
+    private SoundManager sndManager;
+    [SerializeField] private Inventory inventoryDB;
     // Start is called before the first frame update
+
+    void Awake()
+    {
+        quantityText = transform.Find("Quantity").GetComponent<Text>();
+        nameText = transform.Find("Name").GetComponent<Text>();
+        inventoryDB = Resources.Load("Databases/InventoryDatabase") as Inventory;
+        Book = GameObject.Find("Book_UI").GetComponent<BookScript>();
+        worldCamera = GameObject.Find("Main Camera");
+    }
 
     void Start()
     {
-        Book = GameObject.Find("Book_UI").GetComponent<BookScript>();
-        worldCamera = GameObject.Find("Main Camera");
-        origin = transform.position;
-
-        quantityText = gameObject.GetComponentInChildren<Text>();
+        origin = new Vector2(Book.gameObject.GetComponent<RectTransform>().position.x + 300, Book.gameObject.GetComponent<RectTransform>().position.y + 240);
+        transform.position = origin;
+        if (Controller == null)
+        {
+            Controller = GameObject.Find("Controller");
+        }
+        if (Controller != null)
+        {
+            if (Controller.GetComponent<SoundManager>() != null)
+            {
+                sndManager = Controller.GetComponent<SoundManager>();
+            }
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        origin = new Vector2(Book.gameObject.GetComponent<RectTransform>().position.x + 300, Book.gameObject.GetComponent<RectTransform>().position.y + 240);
         AdjustQuantityText();
     }
 
-    public void SetItem(BookScript.ItemParameters aObject)
+    public void SetItem(InventoryItem aObject)
     {
-        currentItem = aObject;
+        inventoryDB = Resources.Load("Databases/InventoryDatabase") as Inventory;
+        foreach (List<InventoryItem> i in inventoryDB.GetInventoryList())
+        {
+            foreach (InventoryItem j in i)
+            {
+                if (aObject.prefabPath == j.prefabPath)
+                {
+                    currentItem = j;
+                    nameText.text = j.itemName;
+                    break;
+                }
+            }
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        transform.position = Input.mousePosition;
-            
-        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if(Book.IsTransitioning() == false)
+        {
+            transform.position = Input.mousePosition;
 
+            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        }
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        transform.position = origin;
-
-        if (Physics.Raycast(ray, out hit, 100.0f) && quantity > 0)
+        if(Book.IsTransitioning() == false)
         {
-            var obj = Instantiate(currentItem.item, hit.point, Quaternion.identity);
-            obj.GetComponent<GenericObject>().SetParentSlot(currentItem);
-            Book.DecreaseQuantity(currentItem.itemID);
+            transform.position = origin;
+
+            if (Physics.Raycast(ray, out hit, 100.0f) && quantity > 0)
+            {
+                var obj = Instantiate(Resources.Load(currentItem.prefabPath) as GameObject, hit.point, Quaternion.identity);
+                if (obj.GetComponent<GenericObject>() != null)
+                {
+                    GenericObject createdItem = obj.GetComponent<GenericObject>();
+                    createdItem.SetPrefabPath(currentItem);
+                    CreationSound(createdItem);
+                }
+                Book.DecreaseQuantity(currentItem.prefabPath);
+            }
         }
     }
 
     public void AdjustQuantityText()
     {
-        if (currentItem.item != null)
+        if (currentItem != null)
         {
-            quantity = currentItem.number;
+            quantity = currentItem.itemQuantity;
         }
 
         if (quantity <= 0)
@@ -78,16 +123,23 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
 
     public void IncreaseQuantityText()
     {
-        currentItem.number++;
+        currentItem.itemQuantity++;
     }
 
     public void DecreaseQuantityText()
     {
-        currentItem.number--;
+        currentItem.itemQuantity--;
     }
 
-    public int GetCurrentItemID()
+    void CreationSound(GenericObject aObject)
     {
-        return currentItem.itemID;
+        if (sndManager != null)
+        {
+            sndManager.PlaySound(aObject.releaseSound);
+        }
+        else
+        {
+            Debug.Log("Sound Manager Does Not Exist!");
+        }
     }
 }

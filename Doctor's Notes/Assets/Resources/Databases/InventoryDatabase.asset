@@ -1,0 +1,125 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82d9b737559bb664c8c67dece055d4d0, type: 3}
+  m_Name: InventoryDatabase
+  m_EditorClassIdentifier: 
+  toolList:
+  - itemImage: {fileID: 21300000, guid: 5ae653d8ff6f99848b2ef970f549c4f1, type: 3}
+    itemName: Cauldron
+    prefabPath: Prefabs/Tools/Cauldron
+    itemQuantity: 51
+  - itemImage: {fileID: 21300000, guid: dcfe7e5dc5fe86a4f8a99f56e8615751, type: 3}
+    itemName: Mortar and Pestle
+    prefabPath: Prefabs/Tools/MortarPestle
+    itemQuantity: 56
+  - itemImage: {fileID: 21300000, guid: 9dda5d55f5b366445b770aa9edb10665, type: 3}
+    itemName: Beaker
+    prefabPath: Prefabs/Tools/Beaker1
+    itemQuantity: 46
+  materialList:
+  - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
+    itemName: Lavender
+    prefabPath: Prefabs/Materials/Lavender
+    itemQuantity: 43
+  - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
+    itemName: RefinedLavender
+    prefabPath: Prefabs/Materials/RefinedLavender
+    itemQuantity: 0
+  - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
+    itemName: Insatiate Sod
+    prefabPath: Prefabs/Materials/InsatiateSod
+    itemQuantity: 49
+  - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
+    itemName: Insatiate Sod
+    prefabPath: Prefabs/Materials/RefinedInsatiateSod
+    itemQuantity: 0
+  - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
+    itemName: Holy Water
+    prefabPath: Prefabs/Materials/HolyWater
+    itemQuantity: 48
+  - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
+    itemName: Bud of the Solstice Bloom
+    prefabPath: Prefabs/Materials/BudoftheSolsticeBloom
+    itemQuantity: 48
+  - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
+    itemName: Elecampane
+    prefabPath: Prefabs/Materials/Elecampane
+    itemQuantity: 49
+  - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
+    itemName: Refined Elecampane
+    prefabPath: Prefabs/Materials/RefinedElecampane
+    itemQuantity: 0
+  - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
+    itemName: French Rose
+    prefabPath: Prefabs/Materials/FrenchRose
+    itemQuantity: 58
+  - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
+    itemName: RefinedFrenchRose
+    prefabPath: Prefabs/Materials/RefinedFrenchRose
+    itemQuantity: 0
+  - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
+    itemName: Lemon Balm
+    prefabPath: Prefabs/Materials/LemonBalm
+    itemQuantity: 59
+  - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
+    itemName: Refined Lemon Balm
+    prefabPath: Prefabs/Materials/RefinedLemonBalm
+    itemQuantity: 0
+  - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
+    itemName: Lovage
+    prefabPath: Prefabs/Materials/Lovage
+    itemQuantity: 58
+  - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
+    itemName: Refined Lovage
+    prefabPath: Prefabs/Materials/RefinedLovage
+    itemQuantity: 0
+  - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
+    itemName: Meadowsweet
+    prefabPath: Prefabs/Materials/Meadowsweet
+    itemQuantity: 58
+  - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
+    itemName: Refined Meadowsweet
+    prefabPath: Prefabs/Materials/RefinedMeadowsweet
+    itemQuantity: 0
+  - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
+    itemName: Oakmoss
+    prefabPath: Prefabs/Materials/Oakmoss
+    itemQuantity: 58
+  - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
+    itemName: Refined Oakmoss
+    prefabPath: Prefabs/Materials/RefinedOakmoss
+    itemQuantity: 0
+  - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
+    itemName: Plague Vine
+    prefabPath: Prefabs/Materials/PlagueVine
+    itemQuantity: 59
+  - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
+    itemName: Refined Plague Vine
+    prefabPath: Prefabs/Materials/RefinedPlagueVine
+    itemQuantity: 0
+  - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
+    itemName: RedRose
+    prefabPath: Prefabs/Materials/RedRose
+    itemQuantity: 59
+  - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
+    itemName: Refined RedRose
+    prefabPath: Prefabs/Materials/RefinedRedRose
+    itemQuantity: 0
+  - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
+    itemName: InsatiateSod
+    prefabPath: Prefabs/Materials/InsatiateSod
+    itemQuantity: 51
+  - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
+    itemName: RefinedInsatiateSod
+    prefabPath: Prefabs/Materials/RefinedInsatiateSod
+    itemQuantity: 0
+  otherList: []

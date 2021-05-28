@@ -1,0 +1,33 @@
+[	
+	{"A": "I'm Teff."},
+	{"B": "You have no pants."},
+	{"A": "Oops."},
+	
+	{
+		"BranchStart": 
+		[
+			{ 
+				"ChoiceA":
+					[
+						"Very well, lead me to him.",
+						{ "A": "Thankyou, healer." },
+						{"EOD": "EOD"}						
+					]
+					
+			},			
+
+		
+			{	
+				"ChoiceB": 
+				[
+					"I have no time, return tomorrow if he makes it through the night",
+					{"A": "You are a walking curse upon this land."},
+					{"EOD": "EOD"}					
+				]
+			}
+
+		
+		]
+	}
+]
+

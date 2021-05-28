@@ -29,15 +29,14 @@ public class Player : MonoBehaviour
 
         if (Input.GetKey(KeyCode.L))
         {
-            if(ApprenticeDataManager.CheckScale(Apprentice.Instance))
+            if (ApprenticeDataManager.CheckScale(Apprentice.Instance))
             {
                 ApprenticeDataManager.AddApprenticeExperience(1);
-            Debug.Log(ApprenticeDataManager.GetApprenticeExperience());
-            Apprentice.Instance.UpdateApprenticeScale();
-            Debug.Log(ApprenticeDataManager.GetApprenticeExperience());
+                //Debug.Log(ApprenticeDataManager.GetApprenticeExperience());
+                Apprentice.Instance.UpdateApprenticeScale();
+                //Debug.Log(ApprenticeDataManager.GetApprenticeExperience());
             }
-            else
-                Debug.Log("YOU HAVE NO SCALE HERE");
+                //Debug.Log("YOU HAVE NO SCALE HERE");
         }
 
         if (Input.GetKey(KeyCode.K))
@@ -45,12 +44,11 @@ public class Player : MonoBehaviour
             if (ApprenticeDataManager.CheckScale(Apprentice.Instance))
             {
                 ApprenticeDataManager.RemoveApprenticeExperience(1);
-                Debug.Log(ApprenticeDataManager.GetApprenticeExperience());
+                //Debug.Log(ApprenticeDataManager.GetApprenticeExperience());
                 Apprentice.Instance.UpdateApprenticeScale();
-                Debug.Log(ApprenticeDataManager.GetApprenticeExperience());
+                //Debug.Log(ApprenticeDataManager.GetApprenticeExperience());
             }
-            else
-                Debug.Log("YOU HAVE NO SCALE HERE");
+                //Debug.Log("YOU HAVE NO SCALE HERE");
         }
 
 

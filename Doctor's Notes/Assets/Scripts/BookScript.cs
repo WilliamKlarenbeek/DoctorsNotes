@@ -6,29 +6,34 @@ using UnityEngine.UI;
 
 public class BookScript : MonoBehaviour
 {
-    private const int MAX_ITEM_PER_PAGE = 6;
+    private const int MAX_ITEM_PER_PAGE = 1;
 
-    [System.Serializable]
-    public struct ItemParameters
+    public enum BookCategory
     {
-        public GameObject item { set { _item = value; } get { return _item; } }
-        public int number { set { _number = value; }  get { return _number; } }
-        public int itemID { set { _numberID = value; } get { return _numberID; } }
-
-        [SerializeField] private GameObject _item;
-        [SerializeField] private int _number;
-        private int _numberID;
+        Tool,
+        Material,
+        Other
     }
 
-    public List<ItemParameters> bookItems;
+    public List<List<InventoryItem>> Book;
+    public List<InventoryItem> bookItems;
     public GameObject iconTemplate;
 
-    private List<ItemParameters[]> dynamicBookList;
+    private List<InventoryItem[]> dynamicBookList;
     private int currentPage;
+    private BookCategory currentCategory;
+    private bool opened = false;
+    private bool transitioning = false;
+    private Button[] buttons;
+    [SerializeField] private Inventory inventoryDB;
 
     // Start is called before the first frame update
     void Start()
     {
+        inventoryDB = Resources.Load("Databases/InventoryDatabase") as Inventory;
+        buttons = this.GetComponentsInChildren<Button>(true);
+
+        currentCategory = (BookCategory)0;
         CreateListOfItems();
         currentPage = 0;
         ViewPage(currentPage);
@@ -37,37 +42,33 @@ public class BookScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void CreateListOfItems()
     {
-        dynamicBookList = new List<ItemParameters[]>();
+        UnloadDatabase();
+        CreateDynamicPage();
+    }
+
+    void CreateDynamicPage()
+    {
+        dynamicBookList = new List<InventoryItem[]>();
         int bookListIndex = 0;
-        int masterIndex = 0;
         int index = 0;
-        int uniqueID = 0;
 
-        foreach (ItemParameters i in bookItems.ToArray())
+        foreach (InventoryItem i in Book[Convert.ToInt32(currentCategory)])
         {
-            var newList = bookItems[masterIndex];
-            newList.itemID = uniqueID;
-            bookItems[masterIndex] = newList;
-            masterIndex++;
-            uniqueID++;
-        }
-
-        foreach (ItemParameters i in bookItems)
-        {
-            if(index == 0)
+            if (index == 0)
             {
-                dynamicBookList.Add(new ItemParameters[MAX_ITEM_PER_PAGE]);
+                dynamicBookList.Add(new InventoryItem[MAX_ITEM_PER_PAGE]);
             }
 
             dynamicBookList[bookListIndex][index] = i;
             index++;
 
-            if (index >= MAX_ITEM_PER_PAGE) {
+            if (index >= MAX_ITEM_PER_PAGE)
+            {
                 bookListIndex++;
                 index = 0;
             }
@@ -103,6 +104,15 @@ public class BookScript : MonoBehaviour
         ViewPage(currentPage);
     }
 
+    public void SelectCategory(int aCategory)
+    {
+        currentPage = 0;
+        currentCategory = (BookCategory)aCategory;
+
+        CreateDynamicPage();
+        ViewPage(currentPage);
+    }
+
     void ViewPage(int aPageNumber)
     {
         ClearPage();
@@ -110,19 +120,21 @@ public class BookScript : MonoBehaviour
         int index = 0;
         float YOffset = 0;
         GameObject currentItem;
+        //GameObject prefabItem;
 
         if (aPageNumber < dynamicBookList.Count && aPageNumber > -1)
         {
-            foreach (ItemParameters i in dynamicBookList[aPageNumber])
+            foreach (InventoryItem i in dynamicBookList[aPageNumber])
             {
-                if(i.item != null)
+                if(i != null)
                 {
                     currentItem = Instantiate(iconTemplate, transform.position, Quaternion.identity);
                     currentItem.transform.SetParent(transform);
-                    currentItem.GetComponent<Image>().sprite = i.item.GetComponent<GenericObject>().GetItemIcon();
+                    currentItem.GetComponent<Image>().sprite = i.itemImage;
                     currentItem.GetComponent<ItemSlot>().SetItem(i);
+                    //currentItem.GetComponent<RectTransform>().anchoredPosition = new Vector2(300, 240);
 
-                    switch (index % 2)
+                    /*switch (index % 2)
                     {
                         case 0:
                             currentItem.GetComponent<RectTransform>().anchoredPosition = new Vector2(150, 240 + YOffset);
@@ -133,7 +145,7 @@ public class BookScript : MonoBehaviour
                             break;
                         default:
                             break;
-                    }
+                    }*/
                     index++;
                 }
             }
@@ -160,95 +172,153 @@ public class BookScript : MonoBehaviour
 
     public void AddItem(GameObject aItem, int aQuantity)
     {
-        bool createNew = true;
-
-        if(bookItems.Exists(element => element.item == aItem))
+        GenericObject argItem = aItem.GetComponent<GenericObject>();
+        if(argItem != null)
         {
-            createNew = false;
-            int index = 0;
-            foreach(ItemParameters i in bookItems.ToArray())
-            {
-                if(i.item == aItem)
-                {
-                    var newList = bookItems[index];
-                    newList.number++;
-                    bookItems[index] = newList;
-                    break;
-                }
-                index++;
-            }
-        }
-        if (createNew)
-        {
-            
-            ItemParameters newItem = new ItemParameters();
-            int newID = 0;
-            newItem.item = aItem;
-            newItem.number = aQuantity;
-
-            while (bookItems.Exists(element => element.itemID == newID))
-            {
-                newID++;
-            }
-            newItem.itemID = newID;
-            bookItems.Add(newItem);
+            Item newItem = new Item(argItem.itemIcon, aItem.name, argItem.prefabPath);
+            inventoryDB.AddItem(newItem);
         }
 
         CreateListOfItems();
         ViewPage(currentPage);
     }
 
-    public void IncreaseQuantity(int aItemID)
+    public void IncreaseQuantity(string aPrefabPath)
     {
-        int index = 0;
-        foreach (ItemParameters i in bookItems.ToArray())
+        bool addNewItem = true;
+        foreach(List<InventoryItem> i in inventoryDB.GetInventoryList())
         {
-            if (i.item != null && i.itemID == aItemID)
+            foreach(InventoryItem j in i)
             {
-                var newList = bookItems[index];
-                newList.number++;
-                bookItems[index] = newList;
-                foreach (Transform child in transform)
+                if(j.prefabPath == aPrefabPath)
                 {
-                    if (child.name == "Item(Clone)")
-                    {
-                        if(child.GetComponent<ItemSlot>().GetCurrentItemID() == bookItems[index].itemID)
-                        {
-                            child.GetComponent<ItemSlot>().IncreaseQuantityText();
-                        }
-                    }
+                    j.itemQuantity++;
+                    addNewItem = false;
+                    break;
                 }
             }
-            index++;
+        }
+
+        if (addNewItem)
+        {
+            AddItem(Resources.Load(aPrefabPath) as GameObject, 1);
         }
 
         CreateListOfItems();
     }
 
-    public void DecreaseQuantity(int aItemID)
+    public void DecreaseQuantity(string aPrefabPath)
     {
-        int index = 0;
-        foreach (ItemParameters i in bookItems.ToArray())
+        foreach (List<InventoryItem> i in inventoryDB.GetInventoryList())
         {
-            if (i.item != null && i.itemID == aItemID)
+            foreach (InventoryItem j in i)
             {
-                var newList = bookItems[index];
-                newList.number--;
-                bookItems[index] = newList;
-                foreach (Transform child in transform)
+                if (j.prefabPath == aPrefabPath)
                 {
-                    if (child.name == "Item(Clone)")
-                    {
-                        if (child.GetComponent<ItemSlot>().GetCurrentItemID() == bookItems[index].itemID)
-                        {
-                            child.GetComponent<ItemSlot>().DecreaseQuantityText();
-                        }
-                    }
+                    j.itemQuantity--;
                 }
             }
-            index++;
         }
 
         CreateListOfItems();
+    }
+
+    void UnloadDatabase()
+    {
+        Book = new List<List<InventoryItem>>();
+
+        foreach (List<InventoryItem> i in inventoryDB.GetInventoryList())
+        {
+            bookItems = new List<InventoryItem>();
+            foreach (InventoryItem j in i)
+            {
+                InventoryItem newItem = new InventoryItem(j.prefabPath);
+                newItem.itemQuantity = j.itemQuantity;
+
+                bookItems.Add(newItem);
+            }
+            Book.Add(bookItems);
+        }
+    }
+
+    public void ToggleActive()
+    {
+        if (opened)
+        {
+            opened = false;
+        } 
+        else
+        {
+            opened = true;
+        }
+
+        if (opened && transitioning == false) {
+            StartCoroutine(OpenBook(1f));
+        }
+        if(opened == false && transitioning == false)
+        {
+            StartCoroutine(CloseBook(1f));
+        }
+    }
+
+    IEnumerator OpenBook(float aDuration)
+    {
+        transitioning = true;
+        foreach(Button i in buttons)
+        {
+            i.interactable = false;
+        }
+        float frame = 0f;
+        float posYOrigin = -1080f;
+        float posYCurrent = posYOrigin;
+        float posYDest = -75f;
+
+        while(frame < aDuration)
+        {
+            posYCurrent = Mathf.Lerp(posYOrigin, posYDest, frame / aDuration);
+            GetComponent<RectTransform>().anchoredPosition = new Vector2(-750, posYCurrent);
+
+            frame+= Time.deltaTime;
+            yield return null;
+        }
+        GetComponent<RectTransform>().anchoredPosition = new Vector2(-750, posYDest);
+        foreach (Button i in buttons)
+        {
+            i.interactable = true;
+        }
+        transitioning = false;
+    }
+
+    IEnumerator CloseBook(float aDuration)
+    {
+        transitioning = true;
+        foreach (Button i in buttons)
+        {
+            i.interactable = false;
+        }
+        float frame = 0f;
+        float posYOrigin = -75f;
+        float posYCurrent = posYOrigin;
+        float posYDest = -1080f;
+
+        while (frame < aDuration)
+        {
+            posYCurrent = Mathf.Lerp(posYOrigin, posYDest, frame / aDuration);
+            GetComponent<RectTransform>().anchoredPosition = new Vector2(-750, posYCurrent);
+
+            frame += Time.deltaTime;
+            yield return null;
+        }
+        GetComponent<RectTransform>().anchoredPosition = new Vector2(-750, posYDest);
+        foreach (Button i in buttons)
+        {
+            i.interactable = true;
+        }
+        transitioning = false;
+    }
+
+    public bool IsTransitioning()
+    {
+        return transitioning;
     }
 }
