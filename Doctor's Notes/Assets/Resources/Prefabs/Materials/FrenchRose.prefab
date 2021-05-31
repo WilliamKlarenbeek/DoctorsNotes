@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
-  prefabPath: Prefabs/Materials/Berry
+  prefabPath: Prefabs/Materials/FrenchRose
   grabSound: {fileID: 8300000, guid: 0c992b8377f39c7409bb8838a52ac01d, type: 3}
   releaseSound: {fileID: 8300000, guid: 783c652dddff98041aa9b3d7e0edd34a, type: 3}
   Controller: {fileID: 0}
@@ -120,7 +120,7 @@ MonoBehaviour:
   blue: 0
   green: 0.4
   black: 0.3
-  refinedVersion: RefinedInsatiateSod
+  refinedVersion: RefinedIFrenchRose
 --- !u!54 &6801218595995094309
 Rigidbody:
   m_ObjectHideFlags: 0
