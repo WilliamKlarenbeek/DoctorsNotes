@@ -21,7 +21,7 @@ public class SceneControlButton : MonoBehaviour
     void Start()
     {
         sceneButton = GetComponent<Button>();
-        if(sceneButton != null)
+        if (sceneButton != null)
         {
             switch (targetScene)
             {
@@ -41,6 +41,7 @@ public class SceneControlButton : MonoBehaviour
                     //Quit unity editor playtesting
                     sceneButton.onClick.AddListener(() => UnityEditor.EditorApplication.isPlaying = false);
                     break;
+            }
         }
     }
 }
