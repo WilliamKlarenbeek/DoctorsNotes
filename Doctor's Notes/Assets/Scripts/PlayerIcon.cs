@@ -18,6 +18,7 @@ public class PlayerIcon : MonoBehaviour
     private Vector3 _targetPos;
     private Vector3 _startPos;
     private Vector3 _currentPos;
+    private bool moving = false;
     
     public float distPercentage = 0.0f; 
 
@@ -46,6 +47,7 @@ public class PlayerIcon : MonoBehaviour
         _targetPos = targetPos;
         _currentPos = _startPos;
         LinearTimer.instance.BeginTimer();
+        moving = true;
 
         while (transform.position != targetPos)
         {
@@ -62,6 +64,7 @@ public class PlayerIcon : MonoBehaviour
 
             yield return new WaitForEndOfFrame();
         }
+        moving = false;
         LinearTimer.instance.EndTimer();
         mapSelectionDB.SetCurrentLocation(GetComponent<RectTransform>().anchoredPosition);
         yield return StartCoroutine(SceneController.LoadScene(LevelSelection.levelSelectionInstance.getLevelIndex(), 2f));
@@ -88,9 +91,13 @@ public class PlayerIcon : MonoBehaviour
                 }*/
         return lpercentage;
     }
-
     void OnApplicationQuit()
     {
         mapSelectionDB.SetGameBeginFlag(true);
+    }
+    
+    public bool isMoving()
+    {
+        return moving;
     }
 }   

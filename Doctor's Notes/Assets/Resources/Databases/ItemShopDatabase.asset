@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
-    itemName: Red Berry
+    itemName: Oak Moss
+    prefabPath: Prefabs/Materials/Oakmoss
     itemCost: 50
-    itemStock: 0
+    itemStock: 10
     itemInStock: 0
-    prefabPath: Prefabs/Materials/Berry
   - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
-    itemName: Black Berry
-    itemCost: 30
-    itemStock: 0
+    itemName: Holy Water
+    prefabPath: Prefabs/Materials/HolyWater
+    itemCost: 333
+    itemStock: 10
     itemInStock: 0
-    prefabPath: Prefabs/Materials/Berry
