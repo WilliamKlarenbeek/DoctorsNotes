@@ -19,7 +19,8 @@ public class LinearTimer : MonoBehaviour
     private float elapsedTime;
     //reset time is the number of seconds that we want to keep in a day
     //or however long we want the game's day to be.
-    public float resetTime; 
+    public float resetTime;
+    [SerializeField] private MapSelection mapSelectionDB;
 
     private void Awake()
     {
@@ -29,15 +30,21 @@ public class LinearTimer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (mapSelectionDB.isGameBegin() || mapSelectionDB.GetCurrentLocation() == null)
+        {
+            mapSelectionDB.SetCurrentTimer(0f);
+            mapSelectionDB.SetGameBeginFlag(false);
+        }
+
+        elapsedTime = mapSelectionDB.GetCurrentTimer(); 
         timerBar = GetComponent<Image>();
+        timerBar.fillAmount = (float)(elapsedTime / resetTime);
         timerGoing = false;
     }
 
     public void BeginTimer()
     {
         timerGoing = true;
-        elapsedTime = 0f;
-        timerBar.fillAmount = elapsedTime; 
 
         StartCoroutine(UpdateTimer()); 
     }
@@ -64,7 +71,14 @@ public class LinearTimer : MonoBehaviour
                 EndTimer();
             //Debug.Log(timeplayingStr);
 
+            mapSelectionDB.SetCurrentTimer(elapsedTime);
+
             yield return null;
         }
+    }
+
+    void OnApplicationQuit()
+    {
+        mapSelectionDB.SetGameBeginFlag(true);
     }
 }

@@ -687,7 +687,6 @@ GameObject:
   - component: {fileID: 1283333566}
   - component: {fileID: 1283333565}
   - component: {fileID: 1283333568}
-  - component: {fileID: 1283333564}
   m_Layer: 0
   m_Name: PlayerIcon
   m_TagString: Untagged
@@ -695,34 +694,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1283333563
-Transform:
+--- !u!224 &1283333563
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1283333562}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 55, y: 235, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 50, y: 50, z: 1}
   m_Children: []
   m_Father: {fileID: 17904636}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1283333564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1283333562}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07a7241cabfa7d447828f1b6231211d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _startLevel: {fileID: 1589499919}
-  distPercentage: 0
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 55, y: 235}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!65 &1283333565
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -799,6 +789,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startLevel: {fileID: 1589499919}
+  mapSelectionDB: {fileID: 11400000, guid: a6c4a8ed8070a2147a59151a111384d7, type: 2}
   distPercentage: 0
 --- !u!1 &1399406045
 GameObject:
@@ -1106,6 +1097,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resetTime: 100
+  mapSelectionDB: {fileID: 11400000, guid: a6c4a8ed8070a2147a59151a111384d7, type: 2}
 --- !u!114 &1594474916
 MonoBehaviour:
   m_ObjectHideFlags: 0
