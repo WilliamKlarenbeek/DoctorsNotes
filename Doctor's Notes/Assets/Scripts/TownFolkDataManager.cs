@@ -11,6 +11,7 @@ public class TownFolkDataManager : MonoBehaviour
     [SerializeField] TownFolkDatabase townFolkDB;
     [SerializeField] GameObject townFolkPrefab;
     [SerializeField] Transform townFolkCanvas;
+    [SerializeField] GameObject townBell;
 
     private int x = 0;
 
@@ -29,9 +30,14 @@ public class TownFolkDataManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.D))
+        Ray ray;
+        RaycastHit hit;
+
+        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out hit))
         {
-            printLine();
+            if (Input.GetMouseButtonDown(0))
+                printLine();
         }
     }
     public TownFolkData GetTownFolkUI(int index)
@@ -83,7 +89,7 @@ public class TownFolkDataManager : MonoBehaviour
             {
                 loadDialogue(townFolkDBData.dialogueFileName);
                 //Move the Villager Sprite to be equal to be at the window.
-                Vector3 windowPosition = new Vector3(110.0f, 0.0f, 0.0f);
+                Vector3 windowPosition = new Vector3(190.0f, 0.0f, 0.0f);
                 townFolkGameObject.MoveVillager(windowPosition, townFolkGameObject);
                 inDialogue = true;
             }
@@ -105,7 +111,7 @@ public class TownFolkDataManager : MonoBehaviour
                     index = 0;
                     x++;
                     //Move the village out of the window frame.
-                    Vector3 windowPosition = new Vector3(150.0f, 0.0f, 0.0f);
+                    Vector3 windowPosition = new Vector3(200.0f, 0.0f, 0.0f);
                     townFolkGameObject.MoveVillager(windowPosition, townFolkGameObject);
                     //Debug.Log("Reached End of File");
                }

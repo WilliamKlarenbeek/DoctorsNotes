@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
         //Press M for free money
         if (Input.GetKey(KeyCode.M))
         {
-            GameDataManager.AddMoney(100);
+            GameDataManager.AddMoney(10);
             GameSharedUI.Instance.UpdateMoneyUIText();
         }
 
