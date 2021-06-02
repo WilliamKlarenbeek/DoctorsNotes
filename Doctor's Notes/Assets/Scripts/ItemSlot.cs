@@ -19,6 +19,7 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
     private int quantity;
     private Text quantityText;
     private Text nameText;
+    private Text descriptionText;
     private SoundManager sndManager;
     [SerializeField] private Inventory inventoryDB;
     // Start is called before the first frame update
@@ -27,6 +28,7 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
     {
         quantityText = transform.Find("Quantity").GetComponent<Text>();
         nameText = transform.Find("Name").GetComponent<Text>();
+        descriptionText = transform.Find("Description").GetComponent<Text>();
         inventoryDB = Resources.Load("Databases/InventoryDatabase") as Inventory;
         Book = GameObject.Find("Book_UI").GetComponent<BookScript>();
         worldCamera = GameObject.Find("Main Camera");
@@ -67,6 +69,7 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
                 {
                     currentItem = j;
                     nameText.text = j.itemName;
+                    descriptionText.text = j.itemDescription;
                     break;
                 }
             }
