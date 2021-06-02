@@ -11,9 +11,8 @@ GameObject:
   - component: {fileID: 2611948878050707245}
   - component: {fileID: 2611948878050707218}
   - component: {fileID: 2611948878050707219}
-  - component: {fileID: 2611948878050707216}
+  - component: {fileID: 2535970596703290503}
   - component: {fileID: 2611948878050707217}
-  - component: {fileID: 2611948878050707222}
   - component: {fileID: 2611948878050707244}
   m_Layer: 0
   m_Name: MortarPestle
@@ -30,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2611948878050707223}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.09, y: 1, z: 3.73}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: 6.1656, y: 0.44, z: -6.739693}
+  m_LocalScale: {x: 0.027151117, y: 0.027151117, z: 0.027151117}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -43,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2611948878050707223}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 3270257551557877816, guid: db498677a62a135499416430e7c697d7, type: 3}
 --- !u!23 &2611948878050707219
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -64,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5575067070902a84abccda1f352118bf, type: 2}
+  - {fileID: 2100000, guid: 02e6938424a92e348ad7874cb1924869, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -86,8 +85,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2611948878050707216
-BoxCollider:
+--- !u!64 &2535970596703290503
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -96,9 +95,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3270257551557877816, guid: db498677a62a135499416430e7c697d7, type: 3}
 --- !u!54 &2611948878050707217
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -115,19 +115,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &2611948878050707222
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2611948878050707223}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2611948878050707244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,6 +133,5 @@ MonoBehaviour:
   releaseSound: {fileID: 8300000, guid: b90c8a7e221267d40b3916655408a63c, type: 3}
   Controller: {fileID: 0}
   state: 
-  output: 
   workingSound: {fileID: 8300000, guid: ab5047daa00ff7e4f8f149f283a89779, type: 3}
   berrySound: {fileID: 8300000, guid: 4233f3495b86daa46a235a65ec5159c9, type: 3}
