@@ -83,7 +83,7 @@ public class GenericObject : MonoBehaviour
             Book.IncreaseQuantity(prefabPath);
 
             Destroy(gameObject);
-        } 
+        }
         else
         {
             Debug.Log("Released Object Onto Table");

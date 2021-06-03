@@ -1,22 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class MortarPestle : Tool
 {
     [SerializeField] private AudioClip berrySound;
+
     Vector3 worldPosition;
     int mouseSpins;
     string output;
-    private TMP_Text spinsText;
-
-    public override void Start()
-    {
-        base.Start();
-        spinsText = transform.Find("SpinsCounter").GetComponent<TMP_Text>();
-    }
-
     // Update is called once per frame
     public override void Update()
     {
@@ -35,7 +27,7 @@ public class MortarPestle : Tool
             if ((mouseSpins%2 == 0) && (worldPosition.x < this.transform.position.x - 1))
             {
                 mouseSpins += 1;
-                spinsText.text = mouseSpins.ToString() + "/10";
+                Debug.Log("Spins: " + mouseSpins);
                 if (sndManager != null)
                 {
                     sndManager.PlaySound(workingSound);
@@ -48,7 +40,7 @@ public class MortarPestle : Tool
             else if ((mouseSpins % 2 != 0) && (worldPosition.x > this.transform.position.x + 1))
             {
                 mouseSpins += 1;
-                spinsText.text = mouseSpins.ToString() + "/10";
+                Debug.Log("Spins: " + mouseSpins);
                 if (sndManager != null)
                 {
                     sndManager.PlaySound(workingSound);
@@ -69,9 +61,8 @@ public class MortarPestle : Tool
             output = collision.gameObject.GetComponent<IngredientBasic>().refinedVersion;
             Destroy(collision.gameObject);
             mouseSpins = 0;
-            spinsText.text = mouseSpins.ToString() + "/10";
         }
-        else if ((collision.gameObject.GetComponent<Beaker>() != null) && (mouseSpins > 10) && (state == "working"))
+        else if ((collision.gameObject.GetComponent<Beaker>() != null) && (mouseSpins > 8) && (state == "working"))
         {
             state = "ready";
             Destroy(collision.gameObject);
@@ -86,7 +77,6 @@ public class MortarPestle : Tool
             {
                 Debug.Log("Sound Manager Does Not Exist!");
             }
-            spinsText.text = "";
         }
     }
 }

@@ -13,12 +13,10 @@ public class PlayerIcon : MonoBehaviour
     [SerializeField] private GameObject _startLevel;
     //speed the player icon moves at
     private float speed = 10.0f;
-    [SerializeField] private MapSelection mapSelectionDB;
 
     private Vector3 _targetPos;
     private Vector3 _startPos;
     private Vector3 _currentPos;
-    private bool moving = false;
     
     public float distPercentage = 0.0f; 
 
@@ -30,15 +28,10 @@ public class PlayerIcon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (mapSelectionDB.isGameBegin() || mapSelectionDB.GetCurrentLocation() == null)
-        {
-            mapSelectionDB.SetCurrentLocation(_startLevel.GetComponent<RectTransform>().anchoredPosition);
-            mapSelectionDB.SetGameBeginFlag(false);
-        }
         //player Icon is set to start level position when the game starts
         //transform.position = new Vector3(295, 568, 0);
-        GetComponent<RectTransform>().anchoredPosition = mapSelectionDB.GetCurrentLocation();
-        _startPos = GetComponent<RectTransform>().anchoredPosition;
+        transform.position = _startLevel.transform.position;
+        _startPos = transform.position; 
     }
 
     public IEnumerator Movement(Vector3 targetPos)
@@ -47,7 +40,6 @@ public class PlayerIcon : MonoBehaviour
         _targetPos = targetPos;
         _currentPos = _startPos;
         LinearTimer.instance.BeginTimer();
-        moving = true;
 
         while (transform.position != targetPos)
         {
@@ -64,9 +56,7 @@ public class PlayerIcon : MonoBehaviour
 
             yield return new WaitForEndOfFrame();
         }
-        moving = false;
         LinearTimer.instance.EndTimer();
-        mapSelectionDB.SetCurrentLocation(GetComponent<RectTransform>().anchoredPosition);
         yield return StartCoroutine(SceneController.LoadScene(LevelSelection.levelSelectionInstance.getLevelIndex(), 2f));
     }
 
@@ -90,14 +80,5 @@ public class PlayerIcon : MonoBehaviour
                     lpercentage = (_targetPos - _currentPos).magnitude / _targetPos.magnitude;
                 }*/
         return lpercentage;
-    }
-    void OnApplicationQuit()
-    {
-        mapSelectionDB.SetGameBeginFlag(true);
-    }
-    
-    public bool isMoving()
-    {
-        return moving;
     }
 }   

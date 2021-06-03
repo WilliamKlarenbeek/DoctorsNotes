@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 //Apply to buttons for moving between scenes, MainMenu is 0.
 public class SceneControlButton : MonoBehaviour

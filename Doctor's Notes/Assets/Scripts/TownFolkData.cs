@@ -6,6 +6,7 @@ using UnityEngine.Events;
 using TMPro;
 using LitJson;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class TownFolkData : MonoBehaviour
 {
