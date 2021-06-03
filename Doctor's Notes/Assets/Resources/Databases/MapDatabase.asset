@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: MapDatabase
   m_EditorClassIdentifier: 
   gameBegin: 1
-  currentLevel: {fileID: 0}
+  currentCoords: {x: 0, y: 0}
   currentTimer: 0
