@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
+<<<<<<< HEAD:Doctor's Notes/Assets/Databases/ItemShopDatabase.asset
     itemName: Red Berry
     prefabPath: Prefabs/Materials/Berry
     itemCost: 50
@@ -24,4 +25,16 @@ MonoBehaviour:
     prefabPath: Prefabs/Materials/Berry
     itemCost: 30
     itemStock: 9
+=======
+    itemName: Oak Moss
+    prefabPath: Prefabs/Materials/Oakmoss
+    itemCost: 50
+    itemStock: 10
+    itemInStock: 0
+  - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
+    itemName: Holy Water
+    prefabPath: Prefabs/Materials/HolyWater
+    itemCost: 333
+    itemStock: 10
+>>>>>>> dev:Doctor's Notes/Assets/Resources/Databases/ItemShopDatabase.asset
     itemInStock: 0

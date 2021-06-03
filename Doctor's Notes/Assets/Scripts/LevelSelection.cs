@@ -9,16 +9,27 @@ public class LevelSelection : MonoBehaviour
     [SerializeField] private bool unlocked = false; //By default level is locked
     public static LevelSelection levelSelectionInstance; 
     public Image unlockImage;
-    private int levelIndex; 
+    private int levelIndex;
+    private PlayerIcon player;
 
     private void Awake()
     {
+        if (GameObject.Find("PlayerIcon") != null)
+        {
+            player = GameObject.Find("PlayerIcon").GetComponent<PlayerIcon>();
+        }
         levelSelectionInstance = this; 
     }
 
     private void Update() //check on every frame 
     {
-        UpdateLevelImage(); 
+        UpdateLevelImage();
+        if (player.isMoving()) {
+            GetComponent<Button>().enabled = false;
+        } else
+        {
+            GetComponent<Button>().enabled = true;
+        }
     }
 
     private void UpdateLevelImage()
@@ -42,7 +53,7 @@ public class LevelSelection : MonoBehaviour
 
     public void PressSelection(int aIndex)
     {
-        if(unlocked)
+        if(unlocked && player.isMoving() == false)
         {
             levelIndex = aIndex;
             // Once the player Icon moves to the selected location then 

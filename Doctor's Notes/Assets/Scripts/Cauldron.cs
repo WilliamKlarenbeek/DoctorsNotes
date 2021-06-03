@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Cauldron : Tool
 {
@@ -10,7 +11,14 @@ public class Cauldron : Tool
     float blueTotal;
     float greenTotal;
     float blackTotal;
+    private TMP_Text brewingText;
     List<Ingredient> ingredientList = new List<Ingredient>();
+
+    public override void Start()
+    {
+        base.Start();
+        brewingText = transform.Find("BrewingCounter").GetComponent<TMP_Text>();
+    }
 
     // Update is called once per frame
     public override void Update()
@@ -19,7 +27,7 @@ public class Cauldron : Tool
         if (state == "working")
         {
             timer += Time.deltaTime;
-            Debug.Log("Brewing for " + timer.ToString());
+            brewingText.text = ((int)timer).ToString();
         }
     }
 
@@ -85,6 +93,7 @@ public class Cauldron : Tool
             {
                 Debug.Log("Sound Manager Does Not Exist!");
             }
+            brewingText.text = "";
             Destroy(collision.gameObject);
         }
     }
