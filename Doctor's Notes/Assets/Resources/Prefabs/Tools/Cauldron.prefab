@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 1112470090315653298}
   - component: {fileID: 1112470090315653261}
   - component: {fileID: 1112470090315653260}
-  - component: {fileID: 1112470090315653263}
-  - component: {fileID: 1112470090315653299}
   - component: {fileID: 1112470090315653297}
-  - component: {fileID: 1112470090315653296}
+  - component: {fileID: 4855442586388228335}
+  - component: {fileID: 2121135086267247353}
   m_Layer: 0
   m_Name: Cauldron
   m_TagString: Untagged
@@ -29,14 +28,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1112470090315653262}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.87, y: 1, z: 3.73}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalRotation: {x: 0, y: -0.20645185, z: 0, w: 0.97845674}
+  m_LocalPosition: {x: 4.26, y: 0.45, z: -6.6}
+  m_LocalScale: {x: 0.047578756, y: 0.047578756, z: 0.047578756}
   m_Children:
   - {fileID: 679552703593608756}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -23.829, z: 0}
 --- !u!33 &1112470090315653261
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -44,7 +43,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1112470090315653262}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 72713781330414003, guid: 81511494348aa0f4a85416172734608a, type: 3}
 --- !u!23 &1112470090315653260
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -65,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2c326eced8ed51948b8915d33b0f7ca9, type: 2}
+  - {fileID: 2100000, guid: 12bf939d1288e1545b678e61af07dfbc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -87,39 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1112470090315653263
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1112470090315653262}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1112470090315653299
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1112470090315653262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 570cd1106d1269244927bd6cb629b246, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemIcon: {fileID: 21300000, guid: 5ae653d8ff6f99848b2ef970f549c4f1, type: 3}
-  prefabPath: Prefabs/Tools/Cauldron
-  grabSound: {fileID: 8300000, guid: 714828ab04a3be04aa605444130b1c8f, type: 3}
-  releaseSound: {fileID: 8300000, guid: 8abd29132edc66d4fba5b1401f347a41, type: 3}
-  Controller: {fileID: 0}
-  state: 
-  workingSound: {fileID: 8300000, guid: 6ec6812817dc6264ca9268efdd8c4b58, type: 3}
-  potionSound: {fileID: 8300000, guid: 3d990bff7eae6824fbe989001b374495, type: 3}
 --- !u!54 &1112470090315653297
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -136,8 +102,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &1112470090315653296
-BoxCollider:
+--- !u!64 &4855442586388228335
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -146,9 +112,30 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 72713781330414003, guid: 81511494348aa0f4a85416172734608a, type: 3}
+--- !u!114 &2121135086267247353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112470090315653262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 393fe1918559ce640a64cde3cf412762, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemIcon: {fileID: 21300000, guid: 5ae653d8ff6f99848b2ef970f549c4f1, type: 3}
+  prefabPath: Prefabs/Tools/Cauldron
+  grabSound: {fileID: 8300000, guid: 714828ab04a3be04aa605444130b1c8f, type: 3}
+  releaseSound: {fileID: 8300000, guid: 8abd29132edc66d4fba5b1401f347a41, type: 3}
+  Controller: {fileID: 0}
+  state: 
+  workingSound: {fileID: 8300000, guid: 6ec6812817dc6264ca9268efdd8c4b58, type: 3}
+  potionSound: {fileID: 8300000, guid: 3d990bff7eae6824fbe989001b374495, type: 3}
 --- !u!1 &6887506113476506711
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,16 +161,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6887506113476506711}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 1.86}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalRotation: {x: 0.6919995, y: 0.1453846, z: -0.14538454, w: 0.69199955}
+  m_LocalPosition: {x: 0, y: 0, z: 38.4}
+  m_LocalScale: {x: 21.01778, y: 21.017784, z: 21.017784}
   m_Children: []
   m_Father: {fileID: 1112470090315653298}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: -23.73}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.69, y: 0.48}
+  m_AnchoredPosition: {x: 105.5, y: 48.3}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &5126448364137762389
