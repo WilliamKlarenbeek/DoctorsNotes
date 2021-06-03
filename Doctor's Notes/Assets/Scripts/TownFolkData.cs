@@ -12,8 +12,8 @@ public class TownFolkData : MonoBehaviour
 {
     [SerializeField] GameObject townFolkDialogueImage;
     [SerializeField] Image townFolkSprite;
-    [SerializeField] TMP_Text townFolkName;
-    [SerializeField] TMP_Text townFolkDialogue;
+    [SerializeField] Text townFolkName;
+    [SerializeField] Text townFolkDialogue;
     [SerializeField] Button townFolkChoiceA;
     [SerializeField] Button townFolkChoiceB;
 

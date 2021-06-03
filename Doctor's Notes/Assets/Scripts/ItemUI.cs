@@ -8,9 +8,9 @@ using TMPro;
 public class ItemUI : MonoBehaviour
 {
     [SerializeField] Image itemImage;
-    [SerializeField] TMP_Text itemName;
-    [SerializeField] TMP_Text itemCost;
-    [SerializeField] TMP_Text itemStock;
+    [SerializeField] Text itemName;
+    [SerializeField] Text itemCost;
+    [SerializeField] Text itemStock;
     [SerializeField] Button itemPurchaseButton;
     
     //[Space(20f)];
@@ -49,6 +49,8 @@ public class ItemUI : MonoBehaviour
     public void OnItemPurchase(int itemIndex, UnityAction<int> action)
     {
         itemPurchaseButton.onClick.RemoveAllListeners();
-        itemPurchaseButton.onClick.AddListener(() => action.Invoke(itemIndex));
+        itemPurchaseButton.onClick.AddListener(delegate { action.Invoke(itemIndex); });
+        //itemPurchaseButton.onClick.AddListener(delegate { action.Invoke(itemIndex); });
+        //itemPurchaseButton.onClick.AddListener(() => action.Invoke(itemIndex));
     }
 }

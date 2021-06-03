@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class GameSharedUI : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class GameSharedUI : MonoBehaviour
     #endregion
 
     //For updating all text UIs needed.
-    [SerializeField] TMP_Text[] moneyUIText;
+    [SerializeField] Text[] moneyUIText;
 
     private void Start()
     {
@@ -35,7 +36,7 @@ public class GameSharedUI : MonoBehaviour
         }
     }
 
-    void SetMoneyText(TMP_Text moneyTextMesh, int moneyValue)
+    void SetMoneyText(Text moneyTextMesh, int moneyValue)
     {
         moneyTextMesh.text = moneyValue.ToString();
     }

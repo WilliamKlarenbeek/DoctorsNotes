@@ -40,7 +40,7 @@ public class SceneControlButton : MonoBehaviour
                     //Quit actual application
                     sceneButton.onClick.AddListener(() => Application.Quit());
                     //Quit unity editor playtesting
-                    sceneButton.onClick.AddListener(() => UnityEditor.EditorApplication.isPlaying = false);
+                    //sceneButton.onClick.AddListener(() => UnityEditor.EditorApplication.isPlaying = false);
                     break;
             }
         }

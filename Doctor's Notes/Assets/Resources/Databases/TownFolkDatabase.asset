@@ -19,11 +19,11 @@ MonoBehaviour:
     buttonFunction: patient
   - villagerImage: {fileID: 21300000, guid: 2a5cc1b2d29084a4eafdc8672ab4e82f, type: 3}
     villagerName: Teaker
-    dialogueFileName: JSON/TownsFolk()
+    dialogueFileName: JSON/TownsFolkTeaker()
     buttonFunction: patient
   - villagerImage: {fileID: 21300000, guid: d72bfe7787183bb439aaaebe53b15976, type: 3}
     villagerName: Tauldron
-    dialogueFileName: JSON/TownsFolkTeaker()
+    dialogueFileName: JSON/Tauldron()
     buttonFunction: patient
   - villagerImage: {fileID: 21300000, guid: a36075e8e2329ad4a9e239df7e9910fc, type: 3}
     villagerName: Teff
