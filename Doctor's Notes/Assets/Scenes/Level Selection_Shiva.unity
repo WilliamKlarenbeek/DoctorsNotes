@@ -5512,7 +5512,6 @@ GameObject:
   - component: {fileID: 1283333566}
   - component: {fileID: 1283333565}
   - component: {fileID: 1283333568}
-  - component: {fileID: 1283333569}
   m_Layer: 0
   m_Name: PlayerIcon
   m_TagString: Untagged
@@ -5615,6 +5614,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startLevel: {fileID: 1589499919}
+  mapSelectionDB: {fileID: 11400000, guid: a6c4a8ed8070a2147a59151a111384d7, type: 2}
   distPercentage: 0
 --- !u!223 &1283333569
 Canvas:
@@ -5945,6 +5945,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resetTime: 120
   blightEffect: {fileID: 1025540136}
+  mapSelectionDB: {fileID: 11400000, guid: a6c4a8ed8070a2147a59151a111384d7, type: 2}
 --- !u!114 &1594474916
 MonoBehaviour:
   m_ObjectHideFlags: 0
