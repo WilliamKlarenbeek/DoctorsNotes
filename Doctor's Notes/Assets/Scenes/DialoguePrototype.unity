@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -193,9 +193,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Vaughan
-
-'
+  m_Text: Doctor (Player)
 --- !u!222 &151795280
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -502,6 +500,7 @@ MonoBehaviour:
   - {fileID: 1850500031}
   characterA: {fileID: 1976034860}
   characterB: {fileID: 1972668559}
+  fileName: 
 --- !u!224 &1265368761
 RectTransform:
   m_ObjectHideFlags: 0
@@ -850,7 +849,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Jack
+  m_Text: Jane Doe (NPC)
 --- !u!222 &1612047502
 CanvasRenderer:
   m_ObjectHideFlags: 0

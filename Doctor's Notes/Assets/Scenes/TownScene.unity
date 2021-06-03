@@ -1771,7 +1771,7 @@ MonoBehaviour:
   - {fileID: 1649183857}
   characterA: {fileID: 1255057907}
   characterB: {fileID: 109106622}
-  fileName: JSON/TownsFolk()
+  fileName: JSON/TownsFolkTeaker()
 --- !u!224 &605589915
 RectTransform:
   m_ObjectHideFlags: 0
