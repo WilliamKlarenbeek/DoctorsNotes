@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6575692648367659497}
   - component: {fileID: 1112470090315653299}
   - component: {fileID: 1112470090315653297}
+  - component: {fileID: 7129205221272754800}
   m_Layer: 0
   m_Name: Cauldron
   m_TagString: Untagged
@@ -135,3 +136,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &7129205221272754800
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112470090315653262}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 64.6289, y: 49.79822, z: 63.25865}
+  m_Center: {x: 0.013586046, y: 25.70621, z: 0.001987458}

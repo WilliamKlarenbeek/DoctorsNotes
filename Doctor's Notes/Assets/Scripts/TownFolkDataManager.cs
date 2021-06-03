@@ -5,6 +5,7 @@ using TMPro;
 using LitJson;
 using System.Linq;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TownFolkDataManager : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class TownFolkDataManager : MonoBehaviour
     [SerializeField] GameObject townBell;
 
     private int x = 0;
+    private string buttonFunction;
 
     private JsonData dialogue;
     private int index;
@@ -110,6 +112,7 @@ public class TownFolkDataManager : MonoBehaviour
                     townFolkGameObject.DisableTownFolkDialogue(townFolkGameObject);
                     index = 0;
                     x++;
+                    ButtonFunction();
                     //Move the village out of the window frame.
                     Vector3 windowPosition = new Vector3(200.0f, 0.0f, 0.0f);
                     townFolkGameObject.MoveVillager(windowPosition, townFolkGameObject);
@@ -163,18 +166,36 @@ public class TownFolkDataManager : MonoBehaviour
         {
             townFolkGameObject.SetButtonTextA(townFolkGameObject, choice[0][0].ToString());            
             townFolkGameObject.SetButtonFunctionalityChoiceA(townFolkGameObject).GetComponent<Button>().onClick.AddListener(delegate { toDoOnClick(choice); });
-            townFolkGameObject.SetButtonFunctionalityChoiceA(townFolkGameObject).GetComponent<Button>().onClick.AddListener(delegate { SetButtonFunctionality(townFolkDBData.buttonFunction); });
+            townFolkGameObject.SetButtonFunctionalityChoiceA(townFolkGameObject).GetComponent<Button>().onClick.AddListener(delegate { buttonFunction = townFolkDBData.buttonFunction; });
             //townFolkGameObject.DisableDialogueButtons(townFolkGameObject);
         }
         else if (optionNumber == 1)
         {
             townFolkGameObject.SetButtonTextB(townFolkGameObject, choice[0][0].ToString());
             townFolkGameObject.SetButtonFunctionalityChoiceB(townFolkGameObject).GetComponent<Button>().onClick.AddListener(delegate { toDoOnClick(choice); });
+            buttonFunction = "nothing";
         }
     }
-    private void SetButtonFunctionality(string functionality)
+    private void ButtonFunction()
     {
+        switch (buttonFunction)
+        {
+            case "patient":
+                Debug.Log("Patient Scene");
+                int currentScene = SceneManager.GetActiveScene().buildIndex;
+                if (currentScene < SceneManager.sceneCountInBuildSettings)
+                {
+                    SceneManager.LoadScene(currentScene + 1);
+                }
+                break;
+            case "nothing":
+                Debug.Log("Nothing");
+                break;
+            default:
+                Debug.Log("no button function");
+                break;
 
+        }
     }
 
     private void toDoOnClick(JsonData choice)

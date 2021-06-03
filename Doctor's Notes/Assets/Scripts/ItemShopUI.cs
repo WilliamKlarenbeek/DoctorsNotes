@@ -83,7 +83,7 @@ public class ItemShopUI : MonoBehaviour
         Item item = itemDB.GetItem(index);
         ItemUI uiItem = GetItemUI(index);
         //Debug.Log(GameDataManager.GetMoney());
-        if (item.itemStock > 0)
+        if (item.itemStock > 1)
         {
             if (GameDataManager.CanPurchase(item.itemCost))
             {

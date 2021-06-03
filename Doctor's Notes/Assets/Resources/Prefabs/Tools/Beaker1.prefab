@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 573904727979496829}
   - component: {fileID: 4486919390789948345}
   - component: {fileID: 573904727979496818}
+  - component: {fileID: 4447210728403049235}
   m_Layer: 0
   m_Name: Beaker1
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 573904727979496823}
-  m_LocalRotation: {x: -0.000000021855692, y: 0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.117628, y: 0.437, z: -8.1688595}
   m_LocalScale: {x: 0.027983353, y: 0.027983353, z: 0.027983353}
   m_Children: []
@@ -134,3 +135,16 @@ MonoBehaviour:
   Controller: {fileID: 0}
   state: 
   workingSound: {fileID: 0}
+--- !u!65 &4447210728403049235
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 573904727979496823}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 36.333263, y: 71.79173, z: 31.606998}
+  m_Center: {x: 0, y: 35.895866, z: 0}

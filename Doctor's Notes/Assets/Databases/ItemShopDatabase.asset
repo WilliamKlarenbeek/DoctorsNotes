@@ -15,13 +15,13 @@ MonoBehaviour:
   items:
   - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
     itemName: Red Berry
-    itemCost: 50
-    itemStock: 0
-    itemInStock: 0
     prefabPath: Prefabs/Materials/Berry
+    itemCost: 50
+    itemStock: 13
+    itemInStock: 0
   - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
     itemName: Black Berry
-    itemCost: 30
-    itemStock: 0
-    itemInStock: 0
     prefabPath: Prefabs/Materials/Berry
+    itemCost: 30
+    itemStock: 9
+    itemInStock: 0
