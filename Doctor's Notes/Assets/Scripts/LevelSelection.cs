@@ -7,12 +7,29 @@ using UnityEngine.SceneManagement;
 public class LevelSelection : MonoBehaviour
 {
     [SerializeField] private bool unlocked = false; //By default level is locked
+    public static LevelSelection levelSelectionInstance; 
     public Image unlockImage;
-    public Image playerPositionImage; 
+    private int levelIndex;
+    private PlayerIcon player;
+
+    private void Awake()
+    {
+        if (GameObject.Find("PlayerIcon") != null)
+        {
+            player = GameObject.Find("PlayerIcon").GetComponent<PlayerIcon>();
+        }
+        levelSelectionInstance = this; 
+    }
 
     private void Update() //check on every frame 
     {
-        UpdateLevelImage(); 
+        UpdateLevelImage();
+        if (player.isMoving()) {
+            GetComponent<Button>().enabled = false;
+        } else
+        {
+            GetComponent<Button>().enabled = true;
+        }
     }
 
     private void UpdateLevelImage()
@@ -29,14 +46,25 @@ public class LevelSelection : MonoBehaviour
         }
     }
 
-    public void PressSelection(string _levelName)
+    public int getLevelIndex()
     {
-        if(unlocked)
+        return levelIndex;
+    }
+
+    public void PressSelection(int aIndex)
+    {
+        if(unlocked && player.isMoving() == false)
         {
-            // Player icon is displayed only when the level is selected
-            playerPositionImage.gameObject.SetActive(true);
-            SceneManager.LoadScene(_levelName);
-            //Debug.Log("Level selected, loading scene: " + _levelName);
+            levelIndex = aIndex;
+            // Once the player Icon moves to the selected location then 
+            // Load Scene coroutine is called from the Movement Coroutine inside the PlayerIcon
+            StartCoroutine(PlayerIcon.instance.Movement(transform.position));
+            Debug.Log("Level selected, loading scene: " + aIndex);
         }
+    }
+
+    public void LoadScene(int aIndex)
+    {
+        SceneManager.LoadScene(aIndex);
     }
 }

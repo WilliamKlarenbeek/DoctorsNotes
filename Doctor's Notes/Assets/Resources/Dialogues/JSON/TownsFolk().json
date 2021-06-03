@@ -21,7 +21,7 @@
 				"ChoiceB": 
 				[
 					"I have no time, return tomorrow if he makes it through the night",
-					{"B": "You are a walking curse on this land."},
+					{"A": "You are a walking curse upon this land."},
 					{"EOD": "EOD"}					
 				]
 			}

@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class ItemShopUI : MonoBehaviour
 {
+    private SoundManager sndManager;
+    private GameObject Controller;
+
     [Header("Layout Settings")]
     [SerializeField] float itemSpacing = .05f;
     float itemHeight;
@@ -16,13 +19,27 @@ public class ItemShopUI : MonoBehaviour
     [SerializeField] GameObject itemPrefab;
     //[Space(20)];
     [SerializeField] ItemShopDatabase itemDB;
+    [SerializeField] Inventory inventoryDB;
 
     [Header("Shop Events")]
     [SerializeField] GameObject shopUI;
 
+    [SerializeField] AudioClip purchaseSuccessSound;
+    [SerializeField] AudioClip purchaseInvalidSound;
+
     void Start()
     {
         GenerateShopItemsUI();
+
+
+        Controller = GameObject.Find("Controller");
+        if (Controller != null)
+        {
+            if (Controller.GetComponent<SoundManager>() != null)
+            {
+                sndManager = Controller.GetComponent<SoundManager>();
+            }
+        }
     }
 
     void GenerateShopItemsUI()
@@ -72,16 +89,25 @@ public class ItemShopUI : MonoBehaviour
             {
                 GameDataManager.RemoveMoney(item.itemCost);
                 GameSharedUI.Instance.UpdateMoneyUIText();
-                //Debug.Log("Purchased:" + item.itemName);
                 itemDB.RemoveItemStock(index);
+                inventoryDB.AddItem(item);
 
                 //Re-generate the shop to account for removing one
                 GenerateShopItemsUI();
+
+                if(sndManager != null)
+                {
+                    sndManager.PlaySound(purchaseSuccessSound);
+                }
             }
             else
             {
                 //uiItem.OnItemPurchase(index, OnItemPurchased);
                 Debug.Log("You poor, not enough cash");
+                if (sndManager != null)
+                {
+                    sndManager.PlaySound(purchaseInvalidSound);
+                }
             }
         }
         else
