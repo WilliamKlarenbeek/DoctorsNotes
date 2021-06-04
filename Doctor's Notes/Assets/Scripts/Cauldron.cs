@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class Cauldron : Tool
 {
@@ -11,13 +10,13 @@ public class Cauldron : Tool
     float blueTotal;
     float greenTotal;
     float blackTotal;
-    private TMP_Text brewingText;
+    private TextMesh brewingText;
     List<Ingredient> ingredientList = new List<Ingredient>();
 
     public override void Start()
     {
         base.Start();
-        brewingText = transform.Find("BrewingCounter").GetComponent<TMP_Text>();
+        brewingText = transform.Find("BrewingCounter").GetComponent<TextMesh>();
     }
 
     // Update is called once per frame
