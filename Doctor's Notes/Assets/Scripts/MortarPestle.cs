@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class MortarPestle : Tool
 {
@@ -9,12 +8,12 @@ public class MortarPestle : Tool
     Vector3 worldPosition;
     int mouseSpins;
     string output;
-    private TMP_Text spinsText;
+    private TextMesh spinsText;
 
     public override void Start()
     {
         base.Start();
-        spinsText = transform.Find("SpinsCounter").GetComponent<TMP_Text>();
+        spinsText = transform.Find("SpinsCounter").GetComponent<TextMesh>();
     }
 
     // Update is called once per frame
