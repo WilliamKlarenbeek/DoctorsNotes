@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private AudioClip SceneMusic;
     private SoundManager sndManager;
     private GameObject blackCanvas;
+    [SerializeField] private MapSelection mapSelectionDB;
 
     void Start()
     {
@@ -80,5 +81,10 @@ public class GameController : MonoBehaviour
             yield return null;
         }
         blackCanvas.SetActive(false);
+    }
+
+    void OnApplicationQuit()
+    {
+        mapSelectionDB.SetGameBeginFlag(true);
     }
 }

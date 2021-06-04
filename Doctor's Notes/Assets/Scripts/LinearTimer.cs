@@ -52,7 +52,6 @@ public class LinearTimer : MonoBehaviour
         if (mapSelectionDB.isGameBegin() || mapSelectionDB.GetCurrentLocation() == null)
         {
             mapSelectionDB.SetCurrentTimer(0f);
-            mapSelectionDB.SetGameBeginFlag(false);
         }
 
         elapsedTime = mapSelectionDB.GetCurrentTimer(); 
@@ -98,10 +97,5 @@ public class LinearTimer : MonoBehaviour
 
             yield return null;
         }
-    }
-
-    void OnApplicationQuit()
-    {
-        mapSelectionDB.SetGameBeginFlag(true);
     }
 }

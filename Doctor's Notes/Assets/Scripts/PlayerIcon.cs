@@ -91,10 +91,6 @@ public class PlayerIcon : MonoBehaviour
                 }*/
         return lpercentage;
     }
-    void OnApplicationQuit()
-    {
-        mapSelectionDB.SetGameBeginFlag(true);
-    }
     
     public bool isMoving()
     {
