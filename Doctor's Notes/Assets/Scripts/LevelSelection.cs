@@ -21,6 +21,13 @@ public class LevelSelection : MonoBehaviour
         levelSelectionInstance = this; 
     }
 
+    private void Start()
+    {
+        // debugger called
+        Debugger.debuggerInstance.WriteString();
+        Debugger.debuggerInstance.WriteToUnityConsole();
+    }
+
     private void Update() //check on every frame 
     {
         UpdateLevelImage();
