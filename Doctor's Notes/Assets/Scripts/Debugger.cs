@@ -11,7 +11,7 @@ using System.IO;
 
 public class Debugger : MonoBehaviour
 {
-    const string PATH = @"Assets\Resources\test.txt";
+    const string PATH = @"Assets\Resources\Log.txt";
     // Debugger will only have one instance so it is being implemented as singleton 
     public static Debugger debuggerInstance; 
 
@@ -46,5 +46,10 @@ public class Debugger : MonoBehaviour
         StreamReader reader = new StreamReader(PATH);
         Debug.Log(reader.ReadToEnd());
         reader.Close(); 
+    }
+
+    public void ClearAll()
+    {
+        AssetDatabase.DeleteAsset(PATH); 
     }
 }

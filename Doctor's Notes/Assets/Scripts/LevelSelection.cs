@@ -24,12 +24,11 @@ public class LevelSelection : MonoBehaviour
 
     private void Start()
     {
+        Debugger.debuggerInstance.ClearAll(); 
         // debugger called
-        /*Debugger.debuggerInstance.WriteString();*/
         Debugger.debuggerInstance.WriteToFile("[LevelSelection]: LevelSelection test...");
-        /*Debugger.debuggerInstance.WriteFileToUnityConsole();*/
         Debugger.debuggerInstance.ReadFile(); 
-    }
+        }
 
     private void Update() //check on every frame 
     {
