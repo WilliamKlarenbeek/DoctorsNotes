@@ -15,24 +15,36 @@ public class Debugger : MonoBehaviour
     // Debugger will only have one instance so it is being implemented as singleton 
     public static Debugger debuggerInstance; 
 
+    // constructor
+    public Debugger()
+    {
+        WriteToFile("[Debugger]: PATH: " + PATH); 
+    }
+
     public void Awake()
     {
         debuggerInstance = this; 
     }
 
+    public void WriteToFile(string s)
+    {
+        StreamWriter writer = new StreamWriter(PATH, true);
+        writer.WriteLine(s);
+        writer.Close(); 
+    }
+
     public void WriteString()
     {
-
         StreamWriter writer = new StreamWriter(PATH, true); 
         writer.WriteLine("[Debugger]: StreamWriter writer initialized....");
         writer.Close();  
     }
 
-    public void WriteToUnityConsole()
+    // Read the file and log it in the Unity Console
+    public void ReadFile()
     {
-        AssetDatabase.ImportAsset(PATH);
-        TextAsset asset = (TextAsset)Resources.Load("test");
-
-        Debug.Log(asset.text); 
-    } 
+        StreamReader reader = new StreamReader(PATH);
+        Debug.Log(reader.ReadToEnd());
+        reader.Close(); 
+    }
 }

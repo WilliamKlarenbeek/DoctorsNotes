@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement; 
+using UnityEngine.SceneManagement;
+using System.IO; 
 
 public class LevelSelection : MonoBehaviour
 {
@@ -24,8 +25,10 @@ public class LevelSelection : MonoBehaviour
     private void Start()
     {
         // debugger called
-        Debugger.debuggerInstance.WriteString();
-        Debugger.debuggerInstance.WriteToUnityConsole();
+        /*Debugger.debuggerInstance.WriteString();*/
+        Debugger.debuggerInstance.WriteToFile("[LevelSelection]: LevelSelection test...");
+        /*Debugger.debuggerInstance.WriteFileToUnityConsole();*/
+        Debugger.debuggerInstance.ReadFile(); 
     }
 
     private void Update() //check on every frame 
