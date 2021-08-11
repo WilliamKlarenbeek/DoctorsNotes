@@ -10,8 +10,9 @@ public class BookScript : MonoBehaviour
 
     public enum BookCategory
     {
-        Tool,
-        Material,
+        Red,
+        Green,
+        Blue,
         Other
     }
 
@@ -245,7 +246,7 @@ public class BookScript : MonoBehaviour
     {
         Book = new List<List<InventoryItem>>();
 
-        for(int i = 0; i < 3; i++)
+        for(int i = 0; i < 4; i++)
         {
             List<InventoryItem> blankList = new List<InventoryItem>();
             Book.Add(blankList);
@@ -282,6 +283,11 @@ public class BookScript : MonoBehaviour
                 {
                     bestCategory = 2;
                     currentValue = currentIngredient.blue;
+                }
+                if(Mathf.Abs(currentIngredient.black) > currentValue)
+                {
+                    bestCategory = 3;
+                    currentValue = currentIngredient.black;
                 }
 
                 Book[bestCategory].Add(newItem);
