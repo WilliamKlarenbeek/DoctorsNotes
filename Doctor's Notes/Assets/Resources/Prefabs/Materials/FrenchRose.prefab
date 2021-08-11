@@ -55,7 +55,6 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -117,10 +116,10 @@ MonoBehaviour:
   releaseSound: {fileID: 8300000, guid: 783c652dddff98041aa9b3d7e0edd34a, type: 3}
   Controller: {fileID: 0}
   red: 0
-  blue: 0
   green: 0.4
+  blue: 0
   black: 0.3
-  refinedVersion: RefinedIFrenchRose
+  refinedVersion: RefinedFrenchRose
 --- !u!54 &6801218595995094309
 Rigidbody:
   m_ObjectHideFlags: 0
