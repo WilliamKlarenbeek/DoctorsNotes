@@ -24,9 +24,11 @@ public class LevelSelection : MonoBehaviour
 
     private void Start()
     {
-        Debugger.debuggerInstance.ClearAll(); 
+        Debugger.debuggerInstance.ClearAll();
+        Debugger.debuggerInstance.DebugInfoToFile(); 
         // debugger called
-        Debugger.debuggerInstance.WriteToFile("[LevelSelection]: LevelSelection test...");
+        Debugger.debuggerInstance.WriteToFileTag("levelSelection"); 
+        Debugger.debuggerInstance.WriteToFile(" LevelSelection test...");
         Debugger.debuggerInstance.ReadFile(); 
         }
 

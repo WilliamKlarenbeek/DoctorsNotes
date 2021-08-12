@@ -3,8 +3,6 @@
  * Author: Shiva Gupta[102262514] 
  * Project: Doctor's Notes 
  */ 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor; 
 using System.IO; 
@@ -15,29 +13,31 @@ public class Debugger : MonoBehaviour
     // Debugger will only have one instance so it is being implemented as singleton 
     public static Debugger debuggerInstance; 
 
-    // constructor
-    public Debugger()
-    {
-        WriteToFile("[Debugger]: PATH: " + PATH); 
-    }
-
     public void Awake()
     {
-        debuggerInstance = this; 
+        debuggerInstance = this;
     }
 
-    public void WriteToFile(string s)
+    // in keyword is used here to provide readonly access to the passed in variables 
+    public void WriteToFileTag(in string tag)
     {
         StreamWriter writer = new StreamWriter(PATH, true);
+        writer.WriteLine("[" + tag.ToUpper() + "]");
+        writer.Close();
+    }
+
+    public void WriteToFile(in string s)
+    {
+        StreamWriter writer = new StreamWriter(PATH, true); 
         writer.WriteLine(s);
         writer.Close(); 
     }
 
-    public void WriteString()
+
+    public void WriteToFile(in Vector3 vector3)
     {
         StreamWriter writer = new StreamWriter(PATH, true); 
-        writer.WriteLine("[Debugger]: StreamWriter writer initialized....");
-        writer.Close();  
+        writer.WriteLine("(x, y, z): " + "(" + vector3.x + ", " + vector3.y + ", " + vector3.z + ")"); 
     }
 
     // Read the file and log it in the Unity Console
@@ -51,5 +51,12 @@ public class Debugger : MonoBehaviour
     public void ClearAll()
     {
         AssetDatabase.DeleteAsset(PATH); 
+    }
+
+    public void DebugInfoToFile()
+    {
+        WriteToFileTag("Debugger");
+        WriteToFile(PATH);
+        WriteToFile("StreamWriter writer initialized....");
     }
 }
