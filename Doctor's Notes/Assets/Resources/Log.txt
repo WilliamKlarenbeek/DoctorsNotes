@@ -2,4 +2,12 @@
 Assets\Resources\Log.txt
 StreamWriter writer initialized....
 [LEVELSELECTION]
- LevelSelection test...
+Level selected, loading scene: 2
+[GAMECONTROLLER]
+[PLAYER]
+[GAMECONTROLLER]
+[BOOKBUTTON]
+[PATIENT]
+bookOpenTrue
+[COULDRON]
+bookOpenFalse

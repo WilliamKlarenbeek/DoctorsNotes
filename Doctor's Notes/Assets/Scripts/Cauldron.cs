@@ -17,6 +17,7 @@ public class Cauldron : Tool
     {
         base.Start();
         brewingText = transform.Find("BrewingCounter").GetComponent<TextMesh>();
+        Debugger.debuggerInstance.WriteToFileTag("Couldron"); 
     }
 
     // Update is called once per frame

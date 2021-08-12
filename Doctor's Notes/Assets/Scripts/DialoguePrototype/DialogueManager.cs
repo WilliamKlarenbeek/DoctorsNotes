@@ -110,6 +110,8 @@ public class DialogueManager : MonoBehaviour
         //loadDialogue("JSON/Dialogue0");
         loadDialogue(fileName);
         deactivateButtons();
+        // debugger 
+        Debugger.debuggerInstance.WriteToFileTag("DialogueManager"); 
     }
     
     void Update()

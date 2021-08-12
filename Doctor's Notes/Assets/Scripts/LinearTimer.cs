@@ -58,6 +58,7 @@ public class LinearTimer : MonoBehaviour
         timerBar = GetComponent<Image>();
         timerBar.fillAmount = (float)(elapsedTime / resetTime);
         timerGoing = false;
+        Debugger.debuggerInstance.WriteToFileTag("LinearTimer"); 
     }
 
     public void BeginTimer()
