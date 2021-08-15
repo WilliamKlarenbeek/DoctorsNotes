@@ -10,8 +10,9 @@ public class BookScript : MonoBehaviour
 
     public enum BookCategory
     {
-        Tool,
-        Material,
+        Red,
+        Green,
+        Blue,
         Other
     }
 
@@ -223,7 +224,7 @@ public class BookScript : MonoBehaviour
         CreateListOfItems();
     }
 
-    void UnloadDatabase()
+    /*void UnloadDatabaseOld()
     {
         Book = new List<List<InventoryItem>>();
 
@@ -238,6 +239,59 @@ public class BookScript : MonoBehaviour
                 bookItems.Add(newItem);
             }
             Book.Add(bookItems);
+        }
+    }*/
+
+    void UnloadDatabase()
+    {
+        Book = new List<List<InventoryItem>>();
+
+        for(int i = 0; i < 4; i++)
+        {
+            List<InventoryItem> blankList = new List<InventoryItem>();
+            Book.Add(blankList);
+        }
+
+        List<List<InventoryItem>> masterList = inventoryDB.GetInventoryList();
+        List<InventoryItem> materialList = masterList[1];
+        GameObject currentObject = null;
+        Ingredient currentIngredient = null;
+        float currentValue = 0;
+        int bestCategory = 0;
+
+        foreach(InventoryItem i in materialList)
+        {
+            //Create New Items for Book
+            InventoryItem newItem = new InventoryItem(i.prefabPath);
+            newItem.itemQuantity = i.itemQuantity;
+
+            //To Test if the current object has Ingredient.
+            currentObject = Resources.Load(newItem.prefabPath) as GameObject;
+
+            if (currentObject.GetComponent<Ingredient>() != null)
+            {
+                currentIngredient = currentObject.GetComponent<Ingredient>();
+                bestCategory = 0;
+                currentValue = currentIngredient.red;
+
+                if(currentIngredient.green > currentValue)
+                {
+                    bestCategory = 1;
+                    currentValue = currentIngredient.green;
+                }
+                if(currentIngredient.blue > currentValue)
+                {
+                    bestCategory = 2;
+                    currentValue = currentIngredient.blue;
+                }
+                if(Mathf.Abs(currentIngredient.black) > currentValue)
+                {
+                    bestCategory = 3;
+                    currentValue = currentIngredient.black;
+                }
+
+                Book[bestCategory].Add(newItem);
+            }
         }
     }
 
