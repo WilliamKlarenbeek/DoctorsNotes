@@ -61,7 +61,7 @@ public class Cauldron : Tool
             Vector3 dist = Camera.main.WorldToScreenPoint(transform.position);
             GameObject objectInstance = Instantiate(Resources.Load("Prefabs/Potions/Potion"), Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x - (Input.mousePosition.x - dist.x), Input.mousePosition.y - (Input.mousePosition.y - dist.y), dist.z)), new Quaternion()) as GameObject;
             Potion newPotion = objectInstance.GetComponent<Potion>();
-            if ((timer > 10) && (timer < 30))
+            if ((timer >= 10) && (timer <= 25))
             {
                 newPotion.Red = redTotal;
                 newPotion.Blue = blueTotal;
@@ -69,12 +69,19 @@ public class Cauldron : Tool
                 newPotion.Black = blackTotal;
                 newPotion.Ingredients = ingredientList;
             }
-            else
+            else if (timer < 10)
             {
                 newPotion.Red = 0;
                 newPotion.Blue = 0;
                 newPotion.Green = 0;
                 newPotion.Black = 1;
+            }
+            else
+            {
+                newPotion.Red = redTotal;
+                newPotion.Blue = blueTotal;
+                newPotion.Green = greenTotal;
+                newPotion.Black = blackTotal + (timer-25)/10;
             }
             redTotal = 0;
             blueTotal = 0;
