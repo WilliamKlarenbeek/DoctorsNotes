@@ -5,7 +5,7 @@ using UnityEngine;
 public class Ingredient : GenericObject
 {
     public float red;
-    public float blue;
     public float green;
+    public float blue;
     public float black;
 }
