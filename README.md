@@ -2,7 +2,7 @@
 ### The TL;DR
 If you already know how to use Git, here's what you need to know about working with the Doctors Notes repository.
 
-1. **Use development branches!** Never commit anything to master. Create your own development branch any time you want to start working on a new feature or fix. Make sure you give it a name that makes sense, such as `Will-Dev`, or `Will-Dev-VoxelDeformation` if you want to be specific about the feature you're working on. Don't be afraid to create lots of branches, just make sure you can keep track of them.
+1. **Use development branches!** Never commit anything to master. Create your own development branch any time you want to start working on a new feature or fix. Make sure you give it a name that makes sense, such as `Dev-VoxelDeformation` if you want to be specific about the feature you're working on. Don't be afraid to create lots of branches, just make sure you can keep track of them.
 1. **Write good commit messages!** Commit messages should be imperative, not descriptive, ie. the commit message should say what the commit *will do* to the repo once it's applied, not what the change *has done* to the repo. For example:
 	1. 'Added new water effects' ❌
 	1. 'Add new water effects' ✅

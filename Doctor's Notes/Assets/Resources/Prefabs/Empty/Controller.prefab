@@ -58,3 +58,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicVolume: 0.25
   SceneMusic: {fileID: 0}
+  mapSelectionDB: {fileID: 11400000, guid: a6c4a8ed8070a2147a59151a111384d7, type: 2}

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 //Apply to buttons for moving between scenes, MainMenu is 0.
 public class SceneControlButton : MonoBehaviour
@@ -39,7 +40,7 @@ public class SceneControlButton : MonoBehaviour
                     //Quit actual application
                     sceneButton.onClick.AddListener(() => Application.Quit());
                     //Quit unity editor playtesting
-                    sceneButton.onClick.AddListener(() => UnityEditor.EditorApplication.isPlaying = false);
+                    //sceneButton.onClick.AddListener(() => UnityEditor.EditorApplication.isPlaying = false);
                     break;
             }
         }

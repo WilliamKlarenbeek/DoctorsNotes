@@ -13,15 +13,19 @@ MonoBehaviour:
   m_Name: TownFolkDatabase
   m_EditorClassIdentifier: 
   townFolk:
-  - villagerImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
+  - villagerImage: {fileID: 21300000, guid: 14137f8a51550c04ca8393a2b0f55e57, type: 3}
     villagerName: Terry
     dialogueFileName: JSON/TownsFolk()
-  - villagerImage: {fileID: 21300000, guid: 9dda5d55f5b366445b770aa9edb10665, type: 3}
+    buttonFunction: patient
+  - villagerImage: {fileID: 21300000, guid: 2a5cc1b2d29084a4eafdc8672ab4e82f, type: 3}
     villagerName: Teaker
-    dialogueFileName: JSON/TownsFolk()
-  - villagerImage: {fileID: 21300000, guid: 5ae653d8ff6f99848b2ef970f549c4f1, type: 3}
-    villagerName: Tauldron
     dialogueFileName: JSON/TownsFolkTeaker()
-  - villagerImage: {fileID: 21300000, guid: 5ae653d8ff6f99848b2ef970f549c4f1, type: 3}
+    buttonFunction: patient
+  - villagerImage: {fileID: 21300000, guid: d72bfe7787183bb439aaaebe53b15976, type: 3}
+    villagerName: Tauldron
+    dialogueFileName: JSON/Tauldron()
+    buttonFunction: patient
+  - villagerImage: {fileID: 21300000, guid: a36075e8e2329ad4a9e239df7e9910fc, type: 3}
     villagerName: Teff
     dialogueFileName: JSON/Teff()
+    buttonFunction: patient

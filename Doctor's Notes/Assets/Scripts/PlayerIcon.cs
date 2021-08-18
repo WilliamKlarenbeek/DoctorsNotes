@@ -54,6 +54,10 @@ public class PlayerIcon : MonoBehaviour
             //distPercentage = ToString("F2");
             //Debug.Log("Start: " + _startPos.magnitude + "Current: " + _currentPos.magnitude + "Target: " + _targetPos.magnitude);
             distPercentage = getDistPercentage(_startPos, _currentPos, _targetPos);
+            if(distPercentage <= 0.01)
+            {
+                break;
+            }
             //Debug.Log("Distance Percentage for Timer: " + distPercentage);
 
             // no movement occurs on z-axis
@@ -61,6 +65,8 @@ public class PlayerIcon : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, targetPos, step);
             // set the current position to the position of the playerIcon
             _currentPos = transform.position;
+
+            Debug.Log(distPercentage);
 
             yield return new WaitForEndOfFrame();
         }
@@ -78,8 +84,8 @@ public class PlayerIcon : MonoBehaviour
         float ldistTravelled = (_currentPos - _startPos).magnitude;
         float ldistLeft = (_targetPos - _currentPos).magnitude;
         float ltotalDist = (_targetPos - _startPos).magnitude;
-        Debug.Log("Distance Total for Timer: " + ltotalDist);
-        Debug.Log("Distance Travelled for Timer: " + ldistLeft);
+        //Debug.Log("Distance Total for Timer: " + ltotalDist);
+        //Debug.Log("Distance Travelled for Timer: " + ldistLeft);
         // percentage can not be infinity 
         if (ltotalDist != 0)
         {
@@ -90,10 +96,6 @@ public class PlayerIcon : MonoBehaviour
                     lpercentage = (_targetPos - _currentPos).magnitude / _targetPos.magnitude;
                 }*/
         return lpercentage;
-    }
-    void OnApplicationQuit()
-    {
-        mapSelectionDB.SetGameBeginFlag(true);
     }
     
     public bool isMoving()

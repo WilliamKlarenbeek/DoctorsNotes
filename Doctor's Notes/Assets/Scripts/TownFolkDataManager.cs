@@ -5,14 +5,17 @@ using TMPro;
 using LitJson;
 using System.Linq;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TownFolkDataManager : MonoBehaviour
 {
     [SerializeField] TownFolkDatabase townFolkDB;
     [SerializeField] GameObject townFolkPrefab;
     [SerializeField] Transform townFolkCanvas;
+    [SerializeField] GameObject townBell;
 
     private int x = 0;
+    private string buttonFunction;
 
     private JsonData dialogue;
     private int index;
@@ -29,9 +32,14 @@ public class TownFolkDataManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.D))
+        Ray ray;
+        RaycastHit hit;
+
+        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out hit))
         {
-            printLine();
+            if (Input.GetMouseButtonDown(0))
+                printLine();
         }
     }
     public TownFolkData GetTownFolkUI(int index)
@@ -83,7 +91,7 @@ public class TownFolkDataManager : MonoBehaviour
             {
                 loadDialogue(townFolkDBData.dialogueFileName);
                 //Move the Villager Sprite to be equal to be at the window.
-                Vector3 windowPosition = new Vector3(110.0f, 0.0f, 0.0f);
+                Vector3 windowPosition = new Vector3(120.0f, 0.0f, 0.0f);
                 townFolkGameObject.MoveVillager(windowPosition, townFolkGameObject);
                 inDialogue = true;
             }
@@ -104,8 +112,9 @@ public class TownFolkDataManager : MonoBehaviour
                     townFolkGameObject.DisableTownFolkDialogue(townFolkGameObject);
                     index = 0;
                     x++;
+                    ButtonFunction();
                     //Move the village out of the window frame.
-                    Vector3 windowPosition = new Vector3(150.0f, 0.0f, 0.0f);
+                    Vector3 windowPosition = new Vector3(200.0f, 0.0f, 0.0f);
                     townFolkGameObject.MoveVillager(windowPosition, townFolkGameObject);
                     //Debug.Log("Reached End of File");
                }
@@ -157,18 +166,36 @@ public class TownFolkDataManager : MonoBehaviour
         {
             townFolkGameObject.SetButtonTextA(townFolkGameObject, choice[0][0].ToString());            
             townFolkGameObject.SetButtonFunctionalityChoiceA(townFolkGameObject).GetComponent<Button>().onClick.AddListener(delegate { toDoOnClick(choice); });
-            townFolkGameObject.SetButtonFunctionalityChoiceA(townFolkGameObject).GetComponent<Button>().onClick.AddListener(delegate { SetButtonFunctionality(townFolkDBData.buttonFunction); });
+            townFolkGameObject.SetButtonFunctionalityChoiceA(townFolkGameObject).GetComponent<Button>().onClick.AddListener(delegate { buttonFunction = townFolkDBData.buttonFunction; });
             //townFolkGameObject.DisableDialogueButtons(townFolkGameObject);
         }
         else if (optionNumber == 1)
         {
             townFolkGameObject.SetButtonTextB(townFolkGameObject, choice[0][0].ToString());
             townFolkGameObject.SetButtonFunctionalityChoiceB(townFolkGameObject).GetComponent<Button>().onClick.AddListener(delegate { toDoOnClick(choice); });
+            buttonFunction = "nothing";
         }
     }
-    private void SetButtonFunctionality(string functionality)
+    private void ButtonFunction()
     {
+        switch (buttonFunction)
+        {
+            case "patient":
+                Debug.Log("Patient Scene");
+                int currentScene = SceneManager.GetActiveScene().buildIndex;
+                if (currentScene < SceneManager.sceneCountInBuildSettings)
+                {
+                    SceneManager.LoadScene(currentScene + 1);
+                }
+                break;
+            case "nothing":
+                Debug.Log("Nothing");
+                break;
+            default:
+                Debug.Log("no button function");
+                break;
 
+        }
     }
 
     private void toDoOnClick(JsonData choice)

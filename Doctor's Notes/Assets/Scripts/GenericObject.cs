@@ -13,13 +13,15 @@ public class GenericObject : MonoBehaviour
 
     private Vector3 mOffset;
     private float mZCoord;
-    private RaycastHit hit;
     private Ray ray;
-    private bool isGrabbed = false;
+    
 
     protected BookScript Book;
     protected bool collidingWithPatient;
     protected SoundManager sndManager;
+    protected Vector3 prevValidPosition;
+    protected RaycastHit hit;
+    protected bool isGrabbed = false;
 
     public virtual void Start()
     {
@@ -69,6 +71,7 @@ public class GenericObject : MonoBehaviour
             Debug.Log("Grabbing Object");
             PlayObjectSound(grabSound);
             isGrabbed = true;
+            prevValidPosition = transform.position;
         }
         transform.position = GetMouseWorldPos() + mOffset;
         transform.position = new Vector3(transform.position.x, 1, transform.position.z);
@@ -83,10 +86,9 @@ public class GenericObject : MonoBehaviour
             Book.IncreaseQuantity(prefabPath);
 
             Destroy(gameObject);
-        } 
+        }
         else
         {
-            Debug.Log("Released Object Onto Table");
             PlayObjectSound(releaseSound);
             isGrabbed = false;
         }

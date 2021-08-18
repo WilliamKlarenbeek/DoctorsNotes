@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class Patient : MonoBehaviour
 {
@@ -9,6 +11,8 @@ public class Patient : MonoBehaviour
     private float yellowLevels = 0;
     private float blackLevels = 0;
     private bool isColliding;
+
+    [SerializeField] Button resultButton;
 
     // Start is called before the first frame update
     void Start()
@@ -48,11 +52,15 @@ public class Patient : MonoBehaviour
             if (blackLevels >= 1)
             {
                 Debug.Log("Dead");
+                resultButton.gameObject.SetActive(true);
+                resultButton.gameObject.GetComponentInChildren<Text>().text = "Patient has Died";
             }
             else if ((redLevels <= 0) && (blueLevels <= 0) && (yellowLevels <= 0))
             {
                 Debug.Log("Cured");
                 PlayerPrefs.SetInt("money", (PlayerPrefs.GetInt("money") + 50));
+                resultButton.gameObject.SetActive(true);
+                resultButton.gameObject.GetComponentInChildren<Text>().text = "Patient has been Cured";
             }
         }
     }
