@@ -17,7 +17,7 @@ public class Patient : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        Debugger.debuggerInstance.WriteToFileTag("Patient"); 
     }
 
     // Update is called once per frame

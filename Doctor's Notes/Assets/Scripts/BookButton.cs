@@ -13,6 +13,7 @@ public class BookButton : GenericButton
     protected override void Start()
     {
         Book = GameObject.Find("Book_UI").GetComponent<BookScript>();
+        Debugger.debuggerInstance.WriteToFileTag("bookbutton");
         GetController();
     }
 
@@ -35,11 +36,13 @@ public class BookButton : GenericButton
             {
                 sndManager.PlaySound(Audio);
                 bookOpen = true;
+                Debugger.debuggerInstance.WriteToFile("bookOpen" + bookOpen); 
             } 
             else
             {
                 sndManager.PlaySound(altClick);
                 bookOpen = false;
+                Debugger.debuggerInstance.WriteToFile("bookOpen" + bookOpen);
             }
         }
         else
