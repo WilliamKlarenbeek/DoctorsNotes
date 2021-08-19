@@ -1,0 +1,13 @@
+[DEBUGGER]
+Assets\Resources\Log.txt
+StreamWriter writer initialized....
+[LEVELSELECTION]
+Level selected, loading scene: 2
+[GAMECONTROLLER]
+[PLAYER]
+[GAMECONTROLLER]
+[BOOKBUTTON]
+[PATIENT]
+bookOpenTrue
+[COULDRON]
+bookOpenFalse

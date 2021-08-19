@@ -84,8 +84,10 @@ public class PlayerIcon : MonoBehaviour
         float ldistTravelled = (_currentPos - _startPos).magnitude;
         float ldistLeft = (_targetPos - _currentPos).magnitude;
         float ltotalDist = (_targetPos - _startPos).magnitude;
+
         //Debug.Log("Distance Total for Timer: " + ltotalDist);
         //Debug.Log("Distance Travelled for Timer: " + ldistLeft);
+
         // percentage can not be infinity 
         if (ltotalDist != 0)
         {

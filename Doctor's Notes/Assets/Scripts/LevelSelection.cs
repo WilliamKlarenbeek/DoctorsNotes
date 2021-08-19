@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement; 
+using UnityEngine.SceneManagement;
+using System.IO; 
 
 public class LevelSelection : MonoBehaviour
 {
@@ -19,6 +20,15 @@ public class LevelSelection : MonoBehaviour
             player = GameObject.Find("PlayerIcon").GetComponent<PlayerIcon>();
         }
         levelSelectionInstance = this; 
+    }
+
+    private void Start()
+    {
+        // debugger called
+        Debugger.debuggerInstance.ClearAll();
+        Debugger.debuggerInstance.DebugInfoToFile(); 
+        Debugger.debuggerInstance.WriteToFileTag("levelSelection"); 
+        Debugger.debuggerInstance.ReadFile(); 
     }
 
     private void Update() //check on every frame 
@@ -60,6 +70,7 @@ public class LevelSelection : MonoBehaviour
             // Load Scene coroutine is called from the Movement Coroutine inside the PlayerIcon
             StartCoroutine(PlayerIcon.instance.Movement(transform.position));
             Debug.Log("Level selected, loading scene: " + aIndex);
+            Debugger.debuggerInstance.WriteToFile("Level selected, loading scene: " + aIndex);
         }
     }
 

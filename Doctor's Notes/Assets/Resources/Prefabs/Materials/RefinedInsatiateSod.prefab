@@ -146,6 +146,6 @@ MonoBehaviour:
   releaseSound: {fileID: 8300000, guid: 783c652dddff98041aa9b3d7e0edd34a, type: 3}
   Controller: {fileID: 0}
   red: 0.6
-  blue: 0
-  green: 0
+  green: 0.6
+  blue: 0.6
   black: 0.1
