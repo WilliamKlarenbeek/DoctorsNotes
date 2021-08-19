@@ -33,6 +33,16 @@ MonoBehaviour:
       and cauldron.
   materialList:
   - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
+    itemName: French Rose
+    prefabPath: Prefabs/Materials/FrenchRose
+    itemQuantity: 56
+    itemDescription: 'Red: 0.3, Blue: 0, Green: 0, Black: 0.2'
+  - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
+    itemName: RefinedFrenchRose
+    prefabPath: Prefabs/Materials/RefinedFrenchRose
+    itemQuantity: 0
+    itemDescription: 'Red: 0.5, Blue: 0, Green: 0, Black: 0.1'
+  - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
     itemName: Lavender
     prefabPath: Prefabs/Materials/Lavender
     itemQuantity: 38
@@ -41,17 +51,27 @@ MonoBehaviour:
     itemName: RefinedLavender
     prefabPath: Prefabs/Materials/RefinedLavender
     itemQuantity: 0
-    itemDescription: 'Red: 0, Blue: 0.5, Green: 0, Black: 0'
+    itemDescription: 'Red: 0, Blue: 0.5, Green: 0, Black: 0.1'
+  - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
+    itemName: Oakmoss
+    prefabPath: Prefabs/Materials/Oakmoss
+    itemQuantity: 48
+    itemDescription: 'Red: 0, Blue: 0, Green: 0.3, Black: 0.2'
+  - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
+    itemName: Refined Oakmoss
+    prefabPath: Prefabs/Materials/RefinedOakmoss
+    itemQuantity: 0
+    itemDescription: 'Red: 0, Blue: 0, Green: 0.5, Black: 0.1'
   - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
     itemName: Insatiate Sod
     prefabPath: Prefabs/Materials/InsatiateSod
     itemQuantity: 49
-    itemDescription: 'Red: 0.1, Blue: 0, Green: 0, Black: 0.7'
+    itemDescription: 'Red: 0.1, Blue: 0.1, Green: 0.1, Black: 0.7'
   - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
     itemName: Refined Insatiate Sod
     prefabPath: Prefabs/Materials/RefinedInsatiateSod
     itemQuantity: 0
-    itemDescription: 'Red: 0.6, Blue: 0, Green: 0, Black: 0.1'
+    itemDescription: 'Red: 0.6, Blue: 0.6, Green: 0.6, Black: 0.1'
   - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
     itemName: Holy Water
     prefabPath: Prefabs/Materials/HolyWater
@@ -62,84 +82,4 @@ MonoBehaviour:
     prefabPath: Prefabs/Materials/BudoftheSolsticeBloom
     itemQuantity: 48
     itemDescription: 'Red: 0.3, Blue: 0.3, Green: 0.3, Black: 0'
-  - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
-    itemName: Elecampane
-    prefabPath: Prefabs/Materials/Elecampane
-    itemQuantity: 49
-    itemDescription: 'Red: 0.2, Blue: 0.2, Green: 0, Black: 0.1'
-  - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
-    itemName: Refined Elecampane
-    prefabPath: Prefabs/Materials/RefinedElecampane
-    itemQuantity: 0
-    itemDescription: 'Red: 0.3, Blue: 0.2, Green: 0, Black: 0'
-  - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
-    itemName: French Rose
-    prefabPath: Prefabs/Materials/FrenchRose
-    itemQuantity: 58
-    itemDescription: 'Red: 0, Blue: 0, Green: 0.4, Black: 0.3'
-  - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
-    itemName: RefinedFrenchRose
-    prefabPath: Prefabs/Materials/RefinedFrenchRose
-    itemQuantity: 0
-    itemDescription: 'Red: 0, Blue: 0, Green: 0.6, Black: 0.1'
-  - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
-    itemName: Lemon Balm
-    prefabPath: Prefabs/Materials/LemonBalm
-    itemQuantity: 59
-    itemDescription: 'Red: 0.2, Blue: 0, Green: 0.2, Black: 0.1'
-  - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
-    itemName: Refined Lemon Balm
-    prefabPath: Prefabs/Materials/RefinedLemonBalm
-    itemQuantity: 0
-    itemDescription: 'Red: 0.2, Blue: 0.3, Green: 0, Black: 0.1'
-  - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
-    itemName: Lovage
-    prefabPath: Prefabs/Materials/Lovage
-    itemQuantity: 58
-    itemDescription: 'Red: 0.2, Blue: 0, Green: 0.2, Black: 0.2'
-  - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
-    itemName: Refined Lovage
-    prefabPath: Prefabs/Materials/RefinedLovage
-    itemQuantity: 0
-    itemDescription: 'Red: 0.2, Blue: 0, Green: 0.3, Black: 0'
-  - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
-    itemName: Meadowsweet
-    prefabPath: Prefabs/Materials/Meadowsweet
-    itemQuantity: 58
-    itemDescription: 'Red: 0.2, Blue: -0.1, Green: 0.2, Black: 0.1'
-  - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
-    itemName: Refined Meadowsweet
-    prefabPath: Prefabs/Materials/RefinedMeadowsweet
-    itemQuantity: 0
-    itemDescription: 'Red: 0.3, Blue: -0.1, Green: 0.2, Black: 0'
-  - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
-    itemName: Oakmoss
-    prefabPath: Prefabs/Materials/Oakmoss
-    itemQuantity: 58
-    itemDescription: 'Red: -0.2, Blue: 0, Green: 0.4, Black: 0.1'
-  - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
-    itemName: Refined Oakmoss
-    prefabPath: Prefabs/Materials/RefinedOakmoss
-    itemQuantity: 0
-    itemDescription: 'Red: -0., Blue: 0, Green: 0.7, Black: 0'
-  - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
-    itemName: Plague Vine
-    prefabPath: Prefabs/Materials/PlagueVine
-    itemQuantity: 59
-    itemDescription: 'Red: 0, Blue: 0, Green: 0.4, Black: 0.5'
-  - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
-    itemName: Refined Plague Vine
-    prefabPath: Prefabs/Materials/RefinedPlagueVine
-    itemQuantity: 0
-    itemDescription: 'Red: 0, Blue: 0, Green: 0.6, Black: 0.4'
-  - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
-    itemName: RedRose
-    prefabPath: Prefabs/Materials/RedRose
-    itemQuantity: 59
-    itemDescription: 'Red: 0, Blue: 0.2, Green: 0.2, Black: 0.2'
-  - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
-    itemName: Refined RedRose
-    prefabPath: Prefabs/Materials/RefinedRedRose
-    itemQuantity: 0
-    itemDescription: 'Red: 0, Blue: 0.2, Green: 0.3, Black: 0.2'
   otherList: []
