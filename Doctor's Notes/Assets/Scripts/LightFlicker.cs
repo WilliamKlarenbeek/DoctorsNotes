@@ -28,4 +28,9 @@ public class LightFlicker : MonoBehaviour
             frame = 0;
         }
     }
+
+    public void SetColor(float red, float green, float blue)
+    {
+        myLight.color = new Color(red, green, blue);
+    }
 }

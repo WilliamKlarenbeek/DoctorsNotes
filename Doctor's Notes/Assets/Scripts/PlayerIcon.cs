@@ -66,7 +66,7 @@ public class PlayerIcon : MonoBehaviour
             // set the current position to the position of the playerIcon
             _currentPos = transform.position;
 
-            Debug.Log(distPercentage);
+            //Debug.Log(distPercentage);
 
             yield return new WaitForEndOfFrame();
         }
