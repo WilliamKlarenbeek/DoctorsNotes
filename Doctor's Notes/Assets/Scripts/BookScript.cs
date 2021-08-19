@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 public class BookScript : MonoBehaviour
 {
@@ -292,6 +293,34 @@ public class BookScript : MonoBehaviour
 
                 Book[bestCategory].Add(newItem);
             }
+        }
+
+        SortInventoryItems();
+    }
+
+    void SortInventoryItems()
+    {
+        List<InventoryItem> SortedList = null;
+        List<List<InventoryItem>> oldBook = new List<List<InventoryItem>>();
+        oldBook = Book;
+        int index = 0;
+
+        /*foreach (List<InventoryItem> i in oldBook)
+        {
+            SortedList = new List<InventoryItem>();
+            SortedList = i.OrderBy(o=>o.itemName).ToList();
+            Book[index] = SortedList;
+
+            index++;
+        }*/
+
+        while(index < oldBook.Count)
+        {
+            SortedList = new List<InventoryItem>();
+            SortedList = oldBook[index].OrderBy(o => o.itemName).ToList();
+            Book[index] = SortedList;
+
+            index++;
         }
     }
 
