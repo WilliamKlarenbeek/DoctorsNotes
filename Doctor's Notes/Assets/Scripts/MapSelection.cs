@@ -9,6 +9,7 @@ public class MapSelection : ScriptableObject
 
     public Vector2 currentCoords;
     public float currentTimer = 0;
+    public int currentDay = 1;
 
     public void SetCurrentLocation(Vector2 aCoords)
     {
@@ -28,6 +29,16 @@ public class MapSelection : ScriptableObject
     public float GetCurrentTimer()
     {
         return currentTimer;
+    }
+
+    public void SetCurrentDay(int aDay)
+    {
+        currentDay = aDay;
+    }
+
+    public int GetCurrentDay()
+    {
+        return currentDay;
     }
 
     public bool isGameBegin()
