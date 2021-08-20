@@ -5,24 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: Assets/Scenes/1.unity
-    guid: 21d743d78b7cf3149979d41b181d821d
-  - enabled: 0
-    path: Assets/Scenes/2.unity
-    guid: 28c83e3c9814c25439c200d9949676c5
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: 086b5258504844c4b9ad19b79f38e94e
-  - enabled: 1
-    path: Assets/Scenes/Level Selection_Shiva.unity
-    guid: f5f03ec5ccfbdf244979895498028b56
-  - enabled: 1
-    path: Assets/Scenes/TownScene.unity
-    guid: a4929723ba2f4864cab310c95d796d61
+    path: Assets/Scenes/MapScene.unity
+    guid: 6894dc09a9d34ee489568c642b008cee
   - enabled: 1
     path: Assets/Scenes/PatientPotion.unity
     guid: 666713e9acd96aa44a2e90f007d2586c
