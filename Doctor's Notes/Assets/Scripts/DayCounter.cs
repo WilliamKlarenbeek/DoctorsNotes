@@ -11,11 +11,11 @@ public class DayCounter : MonoBehaviour
     void Start()
     {
         dayText = gameObject.GetComponent<Text>();
-        dayText.text = "Day: " + mapSelectionDB.GetCurrentDay();
+        dayText.text = "Day: " + mapSelectionDB.GetCurrentDay() + "/" + mapSelectionDB.GetMaxDay();
     }
 
     void Update()
     {
-        dayText.text = "Day: " + mapSelectionDB.GetCurrentDay();
+        dayText.text = "Day: " + mapSelectionDB.GetCurrentDay() + "/" + mapSelectionDB.GetMaxDay();
     }
 }
