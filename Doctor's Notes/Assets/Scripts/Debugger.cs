@@ -2,10 +2,11 @@
  * Debugger class is a singleton class that provides functionality to write debug statements to a file. 
  * Author: Shiva Gupta[102262514] 
  * Project: Doctor's Notes 
- */ 
+ */
 using UnityEngine;
-using UnityEditor; 
-using System.IO; 
+using UnityEditor;
+using System.IO;
+
 
 public class Debugger : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class Debugger : MonoBehaviour
     public void Awake()
     {
         debuggerInstance = this;
+        ClearAll();
+        DebugInfoToFile(); 
     }
 
     // in keyword is used here to provide readonly access to the passed in variables 
@@ -33,7 +36,6 @@ public class Debugger : MonoBehaviour
         writer.Close(); 
     }
 
-
     public void WriteToFile(in Vector3 vector3)
     {
         StreamWriter writer = new StreamWriter(PATH, true); 
@@ -44,10 +46,7 @@ public class Debugger : MonoBehaviour
     public void ReadFile()
     {
         StreamReader reader = new StreamReader(PATH);
-        
-        
-        
-        (reader.ReadToEnd());
+        reader.ReadToEnd();
         reader.Close(); 
     }
 
@@ -61,5 +60,18 @@ public class Debugger : MonoBehaviour
         WriteToFileTag("Debugger");
         WriteToFile(PATH);
         WriteToFile("StreamWriter writer initialized....");
+    }
+    public void UserSystemInfo()
+    {
+        WriteToFileTag("SystemInfo");
+        WriteToFile("User's device information");
+        WriteToFile("Device Model: " + SystemInfo.deviceModel); 
+        WriteToFile("Device Name: " + SystemInfo.deviceName); 
+        WriteToFile("Device Type: " + SystemInfo.deviceType);
+        WriteToFile("Operating System: " + SystemInfo.operatingSystem);
+        WriteToFile("Processor Count: " + SystemInfo.processorCount);
+        WriteToFile("Processor Type: " + SystemInfo.processorType);
+        WriteToFile("Supports Audio: " + SystemInfo.supportsAudio);
+        WriteToFile("Supports 3D Textures: " + SystemInfo.supports3DTextures);
     }
 }

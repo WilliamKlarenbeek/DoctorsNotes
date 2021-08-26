@@ -136,7 +136,7 @@ public class LinearTimer : MonoBehaviour
             {
                 map.color = new Color((Mathf.Cos(((elapsedTime / resetTime) * 360) * Mathf.Deg2Rad) / 3) + 0.66f, (Mathf.Cos(((elapsedTime / resetTime) * 360) * Mathf.Deg2Rad) / 3) + 0.5f, 0.33f);
             }
-            Debug.Log((Mathf.Cos(((elapsedTime / resetTime) * 360) * Mathf.Deg2Rad) / 4) + 0.5f);
+            //Debug.Log((Mathf.Cos(((elapsedTime / resetTime) * 360) * Mathf.Deg2Rad) / 4) + 0.5f);
 
             mapSelectionDB.SetCurrentTimer(elapsedTime);
             mapSelectionDB.SetCurrentDay(currentDay);
