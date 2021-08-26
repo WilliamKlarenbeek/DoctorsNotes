@@ -6,3 +6,7 @@ StreamWriter writer initialized....
 [LEVELSELECTION]
 [LEVELSELECTION]
 Level selected, loading scene: 2
+[GAMECONTROLLER]
+[BOOKBUTTON]
+[COULDRON]
+[PATIENT]
