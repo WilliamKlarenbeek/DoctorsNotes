@@ -1,8 +1,9 @@
 <h1>
  <p align="center">Debugger</p>
 </h1>
-
 A class that provides functionality to write debug statements to a file and read them in Unity console. 
+
+To use the Debugger we need to create a game object and add the debugger script component to it.
 
 | Functions                       | Usage                                                        |
 | :------------------------------ | ------------------------------------------------------------ |
