@@ -13,6 +13,7 @@ To use the Debugger we need to create a game object and add the debugger script 
 | `ReadFile()`                    | Reads the file and prints it to the unity log.               |
 | `ClearAll()`                    | Clears the contents of the file by deleting the file from `AssesDatabase`. |
 | `DebugInfoToFile()`             | Prints debug info like the file path to the file.            |
+| `UserSystemInfo()`              | Prints user's system information to the file.                |
 
 
 
@@ -22,8 +23,6 @@ To use the Debugger we need to create a game object and add the debugger script 
     private void Start()
     {
         // debugger called
-        Debugger.debuggerInstance.ClearAll();
-        Debugger.debuggerInstance.DebugInfoToFile(); 
         Debugger.debuggerInstance.WriteToFileTag("levelSelection"); 
         Debugger.debuggerInstance.ReadFile(); 
     }
@@ -33,5 +32,5 @@ To use the Debugger we need to create a game object and add the debugger script 
 
 ### Example Output
 
-<a href="https://imgbb.com/"><img src="https://i.ibb.co/Qf3Hd7f/Log-File-Example.png" alt="Log-File-Example" border="0" ></a>
+![](D:\Semester 2 2021\SWE40002 - SEPB\DoctorsNotes\Snips\debugger_log.PNG)</a>
 

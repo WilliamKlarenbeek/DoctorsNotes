@@ -18,7 +18,8 @@ public class Debugger : MonoBehaviour
     {
         debuggerInstance = this;
         ClearAll();
-        DebugInfoToFile(); 
+        DebugInfoToFile();
+        UserSystemInfo(); 
     }
 
     // in keyword is used here to provide readonly access to the passed in variables 
@@ -64,7 +65,6 @@ public class Debugger : MonoBehaviour
     public void UserSystemInfo()
     {
         WriteToFileTag("SystemInfo");
-        WriteToFile("User's device information");
         WriteToFile("Device Model: " + SystemInfo.deviceModel); 
         WriteToFile("Device Name: " + SystemInfo.deviceName); 
         WriteToFile("Device Type: " + SystemInfo.deviceType);
