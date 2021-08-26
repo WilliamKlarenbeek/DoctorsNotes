@@ -28,7 +28,7 @@ public class LevelSelection : MonoBehaviour
         Debugger.debuggerInstance.ClearAll();
         Debugger.debuggerInstance.DebugInfoToFile(); 
         Debugger.debuggerInstance.WriteToFileTag("levelSelection"); 
-        Debugger.debuggerInstance.ReadFile(); 
+        /*Debugger.debuggerInstance.ReadFile(); */
     }
 
     private void Update() //check on every frame 

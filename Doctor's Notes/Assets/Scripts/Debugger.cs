@@ -44,7 +44,10 @@ public class Debugger : MonoBehaviour
     public void ReadFile()
     {
         StreamReader reader = new StreamReader(PATH);
-        Debug.Log(reader.ReadToEnd());
+        
+        
+        
+        (reader.ReadToEnd());
         reader.Close(); 
     }
 
