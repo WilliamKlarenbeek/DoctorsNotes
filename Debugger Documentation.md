@@ -1,8 +1,9 @@
 <h1>
  <p align="center">Debugger</p>
 </h1>
-
 A class that provides functionality to write debug statements to a file and read them in Unity console. 
+
+To use the Debugger we need to create a game object and add the debugger script component to it.
 
 | Functions                       | Usage                                                        |
 | :------------------------------ | ------------------------------------------------------------ |
@@ -12,6 +13,7 @@ A class that provides functionality to write debug statements to a file and read
 | `ReadFile()`                    | Reads the file and prints it to the unity log.               |
 | `ClearAll()`                    | Clears the contents of the file by deleting the file from `AssesDatabase`. |
 | `DebugInfoToFile()`             | Prints debug info like the file path to the file.            |
+| `UserSystemInfo()`              | Prints user's system information to the file.                |
 
 
 
@@ -21,8 +23,6 @@ A class that provides functionality to write debug statements to a file and read
     private void Start()
     {
         // debugger called
-        Debugger.debuggerInstance.ClearAll();
-        Debugger.debuggerInstance.DebugInfoToFile(); 
         Debugger.debuggerInstance.WriteToFileTag("levelSelection"); 
         Debugger.debuggerInstance.ReadFile(); 
     }
@@ -32,5 +32,5 @@ A class that provides functionality to write debug statements to a file and read
 
 ### Example Output
 
-<a href="https://imgbb.com/"><img src="https://i.ibb.co/Qf3Hd7f/Log-File-Example.png" alt="Log-File-Example" border="0" ></a>
+![](D:\Semester 2 2021\SWE40002 - SEPB\DoctorsNotes\Snips\debugger_log.PNG)</a>
 
