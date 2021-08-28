@@ -2227,6 +2227,10 @@ PrefabInstance:
       propertyPath: lightObject
       value: 
       objectReference: {fileID: 1078388684}
+    - target: {fileID: 3625949855571540498, guid: 969b064ddbc7e1844a1c2d4723bd43f0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3625949855571540501, guid: 969b064ddbc7e1844a1c2d4723bd43f0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 1

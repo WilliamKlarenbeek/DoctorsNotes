@@ -53,7 +53,7 @@ public class Debugger : MonoBehaviour
 
     public void ClearAll()
     {
-        AssetDatabase.DeleteAsset(PATH); 
+        //AssetDatabase.DeleteAsset(PATH); 
     }
 
     public void DebugInfoToFile()
