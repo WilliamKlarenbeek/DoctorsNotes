@@ -12,7 +12,7 @@ public class PlayerIcon : MonoBehaviour
     //[SerializeField] private GameObject playerIcon; 
     [SerializeField] private GameObject _startLevel;
     //speed the player icon moves at
-    private float speed = 10.0f;
+    private float speed = 0.05f;
     [SerializeField] private MapSelection mapSelectionDB;
     [SerializeField] private GameObject eventHandlerObject;
     private MapEventHandler eventHandler;

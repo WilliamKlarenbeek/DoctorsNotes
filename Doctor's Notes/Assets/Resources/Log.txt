@@ -2,20 +2,52 @@
 Assets\Resources\Log.txt
 StreamWriter writer initialized....
 [SYSTEMINFO]
-Device Model: Predator PH315-51 (Acer)
-Device Name: DESKTOP-T7EUHG4
+Device Model: X570 AORUS ELITE WIFI (Gigabyte Technology Co., Ltd.)
+Device Name: DESKTOP-GKTLGDO
 Device Type: Desktop
-Operating System: Windows 10  (10.0.19043) 64bit
-Processor Count: 8
-Processor Type: Intel(R) Core(TM) i5-8300H CPU @ 2.30GHz
+Operating System: Windows 10  (10.0.19042) 64bit
+Processor Count: 16
+Processor Type: AMD Ryzen 7 3700X 8-Core Processor 
 Supports Audio: True
 Supports 3D Textures: True
 [GAMECONTROLLER]
 [LINEARTIMER]
 [LEVELSELECTION]
 [LEVELSELECTION]
-Level selected, loading scene: 2
-[GAMECONTROLLER]
-[BOOKBUTTON]
-[COULDRON]
-[PATIENT]
+Level selected, loading scene: 1
+Level selected, loading scene: 1
+Level selected, loading scene: 1
+Level selected, loading scene: 1
+Level selected, loading scene: 1
+Level selected, loading scene: 1
+Level selected, loading scene: 1
+Level selected, loading scene: 1
+Level selected, loading scene: 1
+Level selected, loading scene: 1
+Level selected, loading scene: 1
+Level selected, loading scene: 1
+Level selected, loading scene: 1
+Level selected, loading scene: 1
+Level selected, loading scene: 1
+Level selected, loading scene: 1
+Level selected, loading scene: 1
+Level selected, loading scene: 1
+Level selected, loading scene: 1
+Level selected, loading scene: 1
+Level selected, loading scene: 1
+Level selected, loading scene: 1
+Level selected, loading scene: 1
+Level selected, loading scene: 1
+Level selected, loading scene: 1
+Level selected, loading scene: 1
+Level selected, loading scene: 1
+Level selected, loading scene: 1
+Level selected, loading scene: 1
+Level selected, loading scene: 1
+Level selected, loading scene: 1
+Level selected, loading scene: 1
+Level selected, loading scene: 1
+Level selected, loading scene: 1
+Level selected, loading scene: 1
+Level selected, loading scene: 1
+Level selected, loading scene: 1

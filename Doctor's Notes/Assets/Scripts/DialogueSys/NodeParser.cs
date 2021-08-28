@@ -41,8 +41,8 @@ public class NodeParser : MonoBehaviour
             speaker.text = dataParts[1];
             dialogue.text = dataParts[2];
             speakerImage.sprite = b.GetSprite();
-            yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
-            yield return new WaitUntil(() => Input.GetMouseButtonUp(0));
+            yield return new WaitUntil(() => Input.GetKeyDown("space"));
+            yield return new WaitUntil(() => Input.GetKeyUp("space"));
             NextNode("exit");
         }
     }
