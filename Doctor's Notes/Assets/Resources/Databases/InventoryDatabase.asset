@@ -35,7 +35,7 @@ MonoBehaviour:
   - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
     itemName: French Rose
     prefabPath: Prefabs/Materials/FrenchRose
-    itemQuantity: 56
+    itemQuantity: 54
     itemDescription: 'Red: 0.3, Blue: 0, Green: 0, Black: 0.2'
   - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
     itemName: RefinedFrenchRose
@@ -45,7 +45,7 @@ MonoBehaviour:
   - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
     itemName: Lavender
     prefabPath: Prefabs/Materials/Lavender
-    itemQuantity: 38
+    itemQuantity: 50
     itemDescription: 'Red: 0, Blue: 0.3, Green: 0, Black: 0.2'
   - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
     itemName: RefinedLavender
@@ -55,7 +55,7 @@ MonoBehaviour:
   - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
     itemName: Oakmoss
     prefabPath: Prefabs/Materials/Oakmoss
-    itemQuantity: 48
+    itemQuantity: 50
     itemDescription: 'Red: 0, Blue: 0, Green: 0.3, Black: 0.2'
   - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
     itemName: Refined Oakmoss
@@ -65,7 +65,7 @@ MonoBehaviour:
   - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
     itemName: Insatiate Sod
     prefabPath: Prefabs/Materials/InsatiateSod
-    itemQuantity: 49
+    itemQuantity: 50
     itemDescription: 'Red: 0.1, Blue: 0.1, Green: 0.1, Black: 0.7'
   - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
     itemName: Refined Insatiate Sod
@@ -75,11 +75,11 @@ MonoBehaviour:
   - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
     itemName: Holy Water
     prefabPath: Prefabs/Materials/HolyWater
-    itemQuantity: 48
+    itemQuantity: 50
     itemDescription: 'Red: 0, Blue: 0, Green: 0, Black: -0.5'
   - itemImage: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
     itemName: Bud of the Solstice Bloom
     prefabPath: Prefabs/Materials/BudoftheSolsticeBloom
-    itemQuantity: 48
+    itemQuantity: 50
     itemDescription: 'Red: 0.3, Blue: 0.3, Green: 0.3, Black: 0'
   otherList: []
