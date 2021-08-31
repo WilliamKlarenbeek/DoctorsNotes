@@ -68,7 +68,6 @@ public class GenericObject : MonoBehaviour
     {
         if(isGrabbed == false)
         {
-            Debug.Log("Grabbing Object");
             PlayObjectSound(grabSound);
             isGrabbed = true;
             prevValidPosition = transform.position;

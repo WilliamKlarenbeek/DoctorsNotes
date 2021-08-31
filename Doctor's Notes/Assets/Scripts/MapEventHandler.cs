@@ -131,7 +131,7 @@ public class MapEventHandler : MonoBehaviour
 
     public void CloseEvent()
     {
-        StartCoroutine(SceneController.LoadScene(LevelSelection.levelSelectionInstance.getLevelIndex(), 2f));
+        StartCoroutine(SceneController.LoadScene(1, 2f));
 
         eventBox.SetActive(false);
     }

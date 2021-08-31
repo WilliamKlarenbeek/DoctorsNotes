@@ -29,7 +29,7 @@ public class GameController : MonoBehaviour
         blackCanvas = Instantiate((GameObject)Resources.Load("Prefabs/UI/BlackCanvas"), transform);
         blackCanvas.SetActive(false);
 
-        FadeInCoroutine(1f, 0.25f, true);
+        FadeInCoroutine(1f, musicVolume, true);
         Debugger.debuggerInstance.WriteToFileTag("GameController"); 
     }
 
