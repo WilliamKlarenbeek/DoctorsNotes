@@ -5,19 +5,28 @@ using UnityEngine;
 public class Cauldron : Tool
 {
     [SerializeField] private AudioClip potionSound;
+    public GameObject liquidObject;
+    public GameObject fumesObject;
     float timer = 0;
     float redTotal;
     float blueTotal;
     float greenTotal;
     float blackTotal;
     private TextMesh brewingText;
+    private Renderer renderer;
+    private Color brewingColor;
+    private CauldronLiquid liquid;
+    private CauldronFumes fumes;
     List<Ingredient> ingredientList = new List<Ingredient>();
 
     public override void Start()
     {
         base.Start();
         brewingText = transform.Find("BrewingCounter").GetComponent<TextMesh>();
-        Debugger.debuggerInstance.WriteToFileTag("Couldron"); 
+        //Debugger.debuggerInstance.WriteToFileTag("Couldron");
+        renderer = GetComponent<Renderer>();
+        liquid = liquidObject.GetComponent<CauldronLiquid>();
+        fumes = fumesObject.GetComponent<CauldronFumes>();
     }
 
     // Update is called once per frame
@@ -28,6 +37,27 @@ public class Cauldron : Tool
         {
             timer += Time.deltaTime;
             brewingText.text = ((int)timer).ToString();
+
+            brewingColor = new Color(Mathf.Clamp(redTotal - blackTotal, 0, 1), Mathf.Clamp(greenTotal - blackTotal, 0, 1), Mathf.Clamp(blueTotal - blackTotal, 0, 1));
+            if(renderer != null)
+            {
+                liquidObject.SetActive(true);
+                renderer.material.color = brewingColor;
+                liquid.ChangeColor(redTotal, greenTotal, blueTotal, blackTotal);
+                fumes.StartParticles();
+                fumes.ChangeColor(redTotal, greenTotal, blueTotal, blackTotal);
+            }
+        } else
+        {
+            brewingColor = new Color(1, 1, 1);
+            if (renderer != null)
+            {
+                renderer.material.color = brewingColor;
+                liquid.ChangeColor(1, 1, 1, 0);
+                liquidObject.SetActive(false);
+                fumes.StopParticles();
+                fumes.ChangeColor(1, 1, 1, 0);
+            }
         }
     }
 
