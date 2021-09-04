@@ -883,7 +883,7 @@ MonoBehaviour:
     itemQuantity: 0
     itemDescription: 
   iconTemplate: {fileID: 384255767590248574, guid: 410b41ac779f56a49a8bb30eef97fa95, type: 3}
-  inventoryDB: {fileID: 0}
+  inventoryDB: {fileID: 11400000, guid: af88f5fe1e2fa9b499c138a594a44638, type: 2}
 --- !u!1 &6021721429535697162
 GameObject:
   m_ObjectHideFlags: 0
