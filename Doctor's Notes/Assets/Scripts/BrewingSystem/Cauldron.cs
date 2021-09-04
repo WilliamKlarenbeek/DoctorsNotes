@@ -13,6 +13,10 @@ public class Cauldron : Tool
     private TextMesh brewingText;
     List<Ingredient> ingredientList = new List<Ingredient>();
 
+    public Texture2D cursorHover;
+    public Texture2D cursorClick;
+    public Texture2D cursorDefault;
+
     public override void Start()
     {
         base.Start();
@@ -104,4 +108,20 @@ public class Cauldron : Tool
             Destroy(collision.gameObject);
         }
     }
+
+    private void OnMouseOver()
+    {
+        Cursor.SetCursor(cursorHover, Vector2.zero, CursorMode.Auto);
+    }
+
+    private void OnMouseDown()
+    {
+        Cursor.SetCursor(cursorClick, Vector2.zero, CursorMode.Auto);
+    }
+
+    private void OnMouseExit()
+    {
+        Cursor.SetCursor(cursorDefault, Vector2.zero, CursorMode.Auto);
+    }
+
 }
