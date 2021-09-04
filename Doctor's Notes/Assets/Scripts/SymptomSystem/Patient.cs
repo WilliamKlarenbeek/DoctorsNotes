@@ -8,111 +8,68 @@ public class Patient : MonoBehaviour
 {
     [SerializeField] Button resultButton;
 
-    private bool isColliding;
     private Color symptomColour;
-    public GameObject patient;
+    bool cured = false;
+    float blackLevels;
 
-    //Objects representing symptoms in the scene 
-    public GameObject[] symptomObj;
-
+    //Objects representing symptoms in the scene
+    private List<Symptom> symptoms = new List<Symptom>();
+    int symptomAmount;
 
     //Lists to match the dynamic nature of symptom object adding
-    private List<float> redLevels = new List<float>();
-    private List<float> greenLevels = new List<float>();
-    private List<float> blueLevels = new List<float>();
-    private List<float> blackLevels = new List<float>();
+    private List<List<float>> symptomValues = new List<List<float>>();
 
-    //Saved colour variables for potions to work with
-    private List<float> redValues = new List<float>();
-    private List<float> blueValues = new List<float>();
-    private List<float> greenValues = new List<float>();
-    private List<float> blackValues = new List<float>();
+    private List<float> tempList = new List<float>();
 
 
-    // Start is called before the first frame update
-    void Start()
+    public void recordValues(Symptom symp, float red, float blue, float green, float black)
     {
-        GenerateSymptoms();
+        tempList.Add(red);
+        tempList.Add(blue);
+        tempList.Add(green);
+        tempList.Add(black);
+        symptomValues.Add(new List<float>(tempList));
+        tempList.Clear();
+        symp.GetComponent<Renderer>().material.color = new Color(red, green, blue, 1);
+        symp.ID = symptomAmount;
+        symptomAmount++;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void updateValues(Symptom symp, int id,  float redChange, float blueChange, float greenChange, float blackChange)
     {
-        isColliding = false;
-    }
+        symptomValues[id][0] = symptomValues[id][0] - redChange;
+        symptomValues[id][1] = symptomValues[id][1] - blueChange;
+        symptomValues[id][2] = symptomValues[id][2] - greenChange;
+        symptomValues[id][3] = symptomValues[id][3] + blackChange;
+        symp.GetComponent<Renderer>().material.color = new Color(symptomValues[id][0], symptomValues[id][2], symptomValues[id][1], 1);
+        Debug.Log("Red: " + symptomValues[id][0]);
+        Debug.Log("Blue: " + symptomValues[id][1]);
+        Debug.Log("Green: " + symptomValues[id][2]);
+        Debug.Log("Black: " + symptomValues[id][3]);
 
-    private void GenerateSymptoms()
-    {
-        int symptomNum = symptomObj.Length;
-
-        //Randomly generate an RBG value for each symptom game object 
-        for (int i = 0; i < symptomNum; i++)
+        cured = true;
+        blackLevels = 0;
+        for(int x = 0; x < symptomValues.Count; x++)
         {
-            redLevels.Add(Random.Range(0.5f, 1));
-            greenLevels.Add(Random.Range(0.5f, 1));
-            blueLevels.Add(Random.Range(0.5f, 1));
+            blackLevels += symptomValues[x][3];
+            if(symptomValues[x][0] > 0 || symptomValues[x][1] > 0 || symptomValues[x][2] > 0)
+            {
+                cured = false;
+            }
+        }
 
-            redValues.Add(redLevels[i]);
-            greenValues.Add(greenLevels[i]);
-            blueValues.Add(greenLevels[i]);
-
-            symptomColour = new Color(redLevels[i], greenLevels[i], blueLevels[i], 1);
-            symptomObj[i].GetComponent<Renderer>().material.color = symptomColour;
+        if (blackLevels >= 2)
+        {
+            Debug.Log("Dead");
+            resultButton.gameObject.SetActive(true);
+            resultButton.gameObject.GetComponentInChildren<Text>().text = "Patient has Died";
+        }
+        else if (cured == true)
+        {
+            Debug.Log("Cured");
+            PlayerPrefs.SetInt("money", (PlayerPrefs.GetInt("money") + 50));
+            resultButton.gameObject.SetActive(true);
+            resultButton.gameObject.GetComponentInChildren<Text>().text = "Patient has been Cured";
         }
     }
-
-    //  private void OnTriggerStay(Collider collision)
-    //     {
-    //         for (int i = 0; i < symptomNum; i++)
-    //         {
-    //              if (collision.symptomObj[i] ==true)
-    //              {
-    //                  Debug.Log("hello " + symptomObj[i]); 
-    //              }
-    //         }
-
-    //     }
-    // }
-
-
-    //     private void OnTriggerStay(Collider collision)
-    //     {
-    //         if (isColliding)
-    //         {
-    //             return;
-    //         }
-    //         isColliding = true;
-
-    //         if (!(Input.GetMouseButton(0)) && (collision.gameObject.GetComponent<Potion>() != null))
-    //         {
-    //             Potion givenPotion = collision.gameObject.GetComponent<Potion>();
-
-
-    //             redLevels -= givenPotion.Red;
-    //             blueLevels -= givenPotion.Blue;
-    //             yellowLevels -= givenPotion.Green;
-    //             blackLevels += givenPotion.Black;
-
-    //             Debug.Log("Red left: " + redLevels);
-    //             Debug.Log("Blue left: " + blueLevels);
-    //             Debug.Log("Yellow left: " + yellowLevels);
-    //             Debug.Log("Black buildup: " + blackLevels);
-
-    //             Destroy(collision.gameObject);
-
-    //             if (blackLevels >= 1)
-    //             {
-    //                 Debug.Log("Dead");
-    //                 resultButton.gameObject.SetActive(true);
-    //                 resultButton.gameObject.GetComponentInChildren<Text>().text = "Patient has Died";
-    //             }
-    //             else if ((redLevels <= 0) && (blueLevels <= 0) && (yellowLevels <= 0))
-    //             {
-    //                 Debug.Log("Cured");
-    //                 PlayerPrefs.SetInt("money", (PlayerPrefs.GetInt("money") + 50));
-    //                 resultButton.gameObject.SetActive(true);
-    //                 resultButton.gameObject.GetComponentInChildren<Text>().text = "Patient has been Cured";
-    //             }
-    //         }
-    //     }
 }
