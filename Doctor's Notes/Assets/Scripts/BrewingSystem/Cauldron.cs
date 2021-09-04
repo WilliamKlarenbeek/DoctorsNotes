@@ -5,6 +5,7 @@ using UnityEngine;
 public class Cauldron : Tool
 {
     [SerializeField] private AudioClip potionSound;
+
     float timer = 0;
     float redTotal;
     float blueTotal;
