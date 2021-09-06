@@ -1071,6 +1071,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2117406345876697610, guid: 051c469718945ec47b7f5652ed47ec44, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e457ffd414cd92cac9fd36ceeb918cfa, type: 2}
     - target: {fileID: 2117406345876697612, guid: 051c469718945ec47b7f5652ed47ec44, type: 3}
       propertyPath: m_Name
       value: SymptomA
@@ -1912,6 +1916,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2117406345876697610, guid: 051c469718945ec47b7f5652ed47ec44, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e457ffd414cd92cac9fd36ceeb918cfa, type: 2}
     - target: {fileID: 2117406345876697612, guid: 051c469718945ec47b7f5652ed47ec44, type: 3}
       propertyPath: m_Name
       value: SymptomB
@@ -2251,6 +2259,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2315968916926304863, guid: 5032121d77626e4449d213a55ad44f8e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e457ffd414cd92cac9fd36ceeb918cfa, type: 2}
     - target: {fileID: 3917435186568582499, guid: 5032121d77626e4449d213a55ad44f8e, type: 3}
       propertyPath: m_RootOrder
       value: 1
