@@ -32,6 +32,6 @@ public class CauldronFumes : MonoBehaviour
     public void ChangeColor(float red, float green, float blue, float black)
     {
         var main = particles.main;
-        main.startColor = new Color(Mathf.Clamp(red - black, 0, 1), Mathf.Clamp(green - black, 0, 1), Mathf.Clamp(blue - black, 0, 1), 1);
+        main.startColor = new Color(Mathf.Clamp(red * (2 - black), 0, 1), Mathf.Clamp(green * (2 - black), 0, 1), Mathf.Clamp(blue * (2 - black), 0, 1), 1);
     }
 }

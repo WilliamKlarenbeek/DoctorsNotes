@@ -13,7 +13,7 @@ public class Potion : GenericObject
     public override void Start()
     {
         base.Start();
-        gameObject.GetComponent<Renderer>().material.color = new Color(red - black, green - black, blue - black, 1);
+        gameObject.GetComponent<Renderer>().material.color = new Color(red * (2 - black), green * (2 - black), blue * (2 - black), 1);
     }
 
     private void OnTriggerStay(Collider collision)

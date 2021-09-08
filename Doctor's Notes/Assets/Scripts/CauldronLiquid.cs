@@ -19,6 +19,6 @@ public class CauldronLiquid : MonoBehaviour
 
     public void ChangeColor(float red, float green, float blue, float black)
     {
-        renderer.material.color = new Color(Mathf.Clamp(red - black, 0, 1), Mathf.Clamp(green - black, 0, 1), Mathf.Clamp(blue - black, 0, 1));
+        renderer.material.color = new Color(Mathf.Clamp(red * (2 - black), 0, 1), Mathf.Clamp(green * (2 - black), 0, 1), Mathf.Clamp(blue * (2 - black), 0, 1));
     }
 }
