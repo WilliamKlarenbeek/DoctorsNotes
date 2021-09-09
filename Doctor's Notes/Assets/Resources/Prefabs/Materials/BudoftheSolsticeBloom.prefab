@@ -140,12 +140,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef7d8f110dd907545bd875e28a396541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemIcon: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
+  itemIcon: {fileID: 21300000, guid: 837b1c80cbbc42c408ae10e094062996, type: 3}
   prefabPath: Prefabs/Materials/BudoftheSolstace
   grabSound: {fileID: 8300000, guid: 0c992b8377f39c7409bb8838a52ac01d, type: 3}
   releaseSound: {fileID: 8300000, guid: 783c652dddff98041aa9b3d7e0edd34a, type: 3}
   Controller: {fileID: 0}
   red: 0.3
-  blue: 0.3
   green: 0.3
+  blue: 0.3
   black: 0

@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d96ad5fc2613ff47a39ba52dc3e3ad2, type: 3}
+  m_Name: EventDatabase
+  m_EditorClassIdentifier: 
+  eventList:
+  - eventType: 0
+    eventOutcome: 0
+    eventName: Ingredients Discovered!
+    eventDesc: On your way to the next town you found some useful ingredients!
+    eventChance: 1
+  - eventType: 1
+    eventOutcome: 0
+    eventName: Ingredients Stolen!
+    eventDesc: Unbeknownst to you, some bandits stole some ingredients from you!
+    eventChance: 1
+  - eventType: 0
+    eventOutcome: 1
+    eventName: Plague Slowed Down!
+    eventDesc: It would seem the plague has been setback in its progression.
+    eventChance: 1
+  - eventType: 1
+    eventOutcome: 1
+    eventName: Plague Progressed!
+    eventDesc: You caravan broke down and needed to be repaired! As a result, you've
+      wasted precious days!
+    eventChance: 1

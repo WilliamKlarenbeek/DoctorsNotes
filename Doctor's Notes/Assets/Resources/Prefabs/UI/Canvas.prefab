@@ -5693,6 +5693,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startLevel: {fileID: 8597017378851726428}
   mapSelectionDB: {fileID: 11400000, guid: a6c4a8ed8070a2147a59151a111384d7, type: 2}
+  eventHandlerObject: {fileID: 0}
   distPercentage: 0
 --- !u!65 &8597017379245799414
 BoxCollider:

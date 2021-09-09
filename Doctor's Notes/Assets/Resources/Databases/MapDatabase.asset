@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: MapDatabase
   m_EditorClassIdentifier: 
   gameBegin: 1
-  currentCoords: {x: -200, y: 225}
-  currentTimer: 1.9635497
-  currentDay: 2
+  currentCoords: {x: 51.76822, y: 229.78607}
+  currentTimer: 2.096259
+  currentDay: 3
+  maxDay: 30

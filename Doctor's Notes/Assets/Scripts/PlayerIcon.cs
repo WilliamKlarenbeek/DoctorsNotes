@@ -12,8 +12,10 @@ public class PlayerIcon : MonoBehaviour
     //[SerializeField] private GameObject playerIcon; 
     [SerializeField] private GameObject _startLevel;
     //speed the player icon moves at
-    private float speed = 10.0f;
+    private float speed = 20f;
     [SerializeField] private MapSelection mapSelectionDB;
+    [SerializeField] private GameObject eventHandlerObject;
+    private MapEventHandler eventHandler;
 
     private Vector3 _targetPos;
     private Vector3 _startPos;
@@ -33,8 +35,12 @@ public class PlayerIcon : MonoBehaviour
         if (mapSelectionDB.isGameBegin() || mapSelectionDB.GetCurrentLocation() == null)
         {
             mapSelectionDB.SetCurrentLocation(_startLevel.GetComponent<RectTransform>().anchoredPosition);
+            mapSelectionDB.SetCurrentTimer(0f);
+            mapSelectionDB.SetCurrentDay(1);
+            mapSelectionDB.SetMaxDay(30);
             mapSelectionDB.SetGameBeginFlag(false);
         }
+        eventHandler = eventHandlerObject.GetComponent<MapEventHandler>();
         //player Icon is set to start level position when the game starts
         //transform.position = new Vector3(295, 568, 0);
         GetComponent<RectTransform>().anchoredPosition = mapSelectionDB.GetCurrentLocation();
@@ -43,6 +49,7 @@ public class PlayerIcon : MonoBehaviour
 
     public IEnumerator Movement(Vector3 targetPos)
     {
+        speed = 20f * (transform.parent.gameObject.GetComponentInParent<RectTransform>().localScale.x);
         float step = speed * Time.deltaTime;
         _targetPos = targetPos;
         _currentPos = _startPos;
@@ -54,7 +61,8 @@ public class PlayerIcon : MonoBehaviour
             //distPercentage = ToString("F2");
             //Debug.Log("Start: " + _startPos.magnitude + "Current: " + _currentPos.magnitude + "Target: " + _targetPos.magnitude);
             distPercentage = getDistPercentage(_startPos, _currentPos, _targetPos);
-            if(distPercentage <= 0.01)
+            Debug.Log(distPercentage <= 0.01 * (transform.parent.gameObject.GetComponentInParent<RectTransform>().localScale.x));
+            if (distPercentage <= 0.01 * (transform.parent.gameObject.GetComponentInParent<RectTransform>().localScale.x))
             {
                 break;
             }
@@ -73,7 +81,9 @@ public class PlayerIcon : MonoBehaviour
         moving = false;
         LinearTimer.instance.EndTimer();
         mapSelectionDB.SetCurrentLocation(GetComponent<RectTransform>().anchoredPosition);
-        yield return StartCoroutine(SceneController.LoadScene(LevelSelection.levelSelectionInstance.getLevelIndex(), 2f));
+        eventHandler.RandomEvent();
+        //yield return StartCoroutine(SceneController.LoadScene(1, 2f));
+        //yield return StartCoroutine(SceneController.LoadScene(LevelSelection.levelSelectionInstance.getLevelIndex(), 2f));
     }
 
     public float getDistPercentage(Vector3 _startPos, Vector3 _currentPos, Vector3 _targetPos)

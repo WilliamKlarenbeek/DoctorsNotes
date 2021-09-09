@@ -10,6 +10,7 @@ public class MapSelection : ScriptableObject
     public Vector2 currentCoords;
     public float currentTimer = 0;
     public int currentDay = 1;
+    public int maxDay = 30;
 
     public void SetCurrentLocation(Vector2 aCoords)
     {
@@ -39,6 +40,16 @@ public class MapSelection : ScriptableObject
     public int GetCurrentDay()
     {
         return currentDay;
+    }
+
+    public void SetMaxDay(int aDay)
+    {
+        maxDay = aDay;
+    }
+
+    public int GetMaxDay()
+    {
+        return maxDay;
     }
 
     public bool isGameBegin()

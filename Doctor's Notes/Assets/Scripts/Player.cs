@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         //Debug Menu Key Options
         //Press M for free money
         if (Input.GetKey(KeyCode.M))
