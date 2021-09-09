@@ -7,6 +7,7 @@ public class MortarPestle : Tool
     [SerializeField] private AudioClip berrySound;
     Vector3 worldPosition;
     int mouseSpins;
+    int rotationQuad;
     string output;
     private TextMesh spinsText;
 
@@ -46,9 +47,10 @@ public class MortarPestle : Tool
                 }
                 spinsText.text = "";
             }
-            else if ((mouseSpins%2 == 0) && (worldPosition.x < this.transform.position.x - 1))
+            //Up and left check
+            else if ((rotationQuad == 0) && (worldPosition.x < this.transform.position.x - 1) && (worldPosition.z > this.transform.position.z - 1))
             {
-                mouseSpins += 1;
+                rotationQuad = 1;
                 spinsText.text = mouseSpins.ToString() + "/10";
                 if (sndManager != null)
                 {
@@ -59,8 +61,38 @@ public class MortarPestle : Tool
                     Debug.Log("Sound Manager Does Not Exist!");
                 }
             }
-            else if ((mouseSpins % 2 != 0) && (worldPosition.x > this.transform.position.x + 1))
+            //Up and right check
+            else if ((rotationQuad == 1) && (worldPosition.x > this.transform.position.x - 1) && (worldPosition.z > this.transform.position.z - 1))
             {
+                rotationQuad = 2;
+                spinsText.text = mouseSpins.ToString() + "/10";
+                if (sndManager != null)
+                {
+                    sndManager.PlaySound(workingSound);
+                }
+                else
+                {
+                    Debug.Log("Sound Manager Does Not Exist!");
+                }
+            }
+            //Down and right check
+            else if ((rotationQuad == 2) && (worldPosition.x > this.transform.position.x - 1) && (worldPosition.z < this.transform.position.z - 1))
+            {
+                rotationQuad = 3;
+                spinsText.text = mouseSpins.ToString() + "/10";
+                if (sndManager != null)
+                {
+                    sndManager.PlaySound(workingSound);
+                }
+                else
+                {
+                    Debug.Log("Sound Manager Does Not Exist!");
+                }
+            }
+            //Down and left check
+            else if ((rotationQuad == 3) && (worldPosition.x < this.transform.position.x - 1) && (worldPosition.y < this.transform.position.y - 1))
+            {
+                rotationQuad = 0;
                 mouseSpins += 1;
                 spinsText.text = mouseSpins.ToString() + "/10";
                 if (sndManager != null)
