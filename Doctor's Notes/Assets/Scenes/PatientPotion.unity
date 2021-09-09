@@ -808,7 +808,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08a6d9d0f40e7ed418fd36db53badf5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &924157312
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -865,7 +864,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2277b06f4b4f8514ba7e82c61e19ac99, type: 3}
---- !u!1 &1143825405
 
 GameObject:
   m_ObjectHideFlags: 0
