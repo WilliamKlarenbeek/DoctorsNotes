@@ -20,10 +20,12 @@ public class Potion : GenericObject
     {
         if (collision.gameObject.GetComponent<Patient>() != null)
         {
+            Debug.Log("Colliding with patient?");
             CollidingWithPatient(true);
         }
         else
         {
+            Debug.Log("Not colliding with patient?");
             CollidingWithPatient(false);
         }
     }
@@ -33,6 +35,19 @@ public class Potion : GenericObject
         if (collision.gameObject.GetComponent<Patient>() != null)
         {
             CollidingWithPatient(false);
+        }
+    }
+
+    public void OnMouseUp()
+    {
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, 10) == false && collidingWithPatient == false)
+        {
+            transform.position = prevValidPosition;
+        }
+        else
+        {
+            PlayObjectSound(releaseSound);
+            isGrabbed = false;
         }
     }
 

@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a4d5bd239c9bc7c4f9d46ba667435a25, type: 2}
+  - {fileID: 2100000, guid: 341221f95cd0a0b4b89392c346ea9776, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef7d8f110dd907545bd875e28a396541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemIcon: {fileID: 21300000, guid: d80701ddff761eb4eaedf7ea0b3877ce, type: 3}
+  itemIcon: {fileID: 21300000, guid: 58ceb92e55f60d34bb08405c296d12ca, type: 3}
   prefabPath: Prefabs/Materials/RefinedOakmoss
   grabSound: {fileID: 8300000, guid: 0c992b8377f39c7409bb8838a52ac01d, type: 3}
   releaseSound: {fileID: 8300000, guid: 783c652dddff98041aa9b3d7e0edd34a, type: 3}

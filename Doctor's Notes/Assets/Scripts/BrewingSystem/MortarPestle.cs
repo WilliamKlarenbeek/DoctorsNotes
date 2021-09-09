@@ -30,8 +30,23 @@ public class MortarPestle : Tool
             {
                 worldPosition = ray.GetPoint(distance);
             }
+            if (mouseSpins == 10)
+            {
+                state = "ready";
+                Vector3 dist = Camera.main.WorldToScreenPoint(transform.position);
+                Instantiate(Resources.Load("Prefabs/Materials/" + output), Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x - (Input.mousePosition.x - dist.x), Input.mousePosition.y - (Input.mousePosition.y - dist.y), dist.z)), new Quaternion());
 
-            if ((mouseSpins%2 == 0) && (worldPosition.x < this.transform.position.x - 1))
+                if (sndManager != null)
+                {
+                    sndManager.PlaySound(berrySound);
+                }
+                else
+                {
+                    Debug.Log("Sound Manager Does Not Exist!");
+                }
+                spinsText.text = "";
+            }
+            else if ((mouseSpins%2 == 0) && (worldPosition.x < this.transform.position.x - 1))
             {
                 mouseSpins += 1;
                 spinsText.text = mouseSpins.ToString() + "/10";
@@ -69,23 +84,6 @@ public class MortarPestle : Tool
             Destroy(collision.gameObject);
             mouseSpins = 0;
             spinsText.text = mouseSpins.ToString() + "/10";
-        }
-        else if ((collision.gameObject.GetComponent<Beaker>() != null) && (mouseSpins > 10) && (state == "working"))
-        {
-            state = "ready";
-            Destroy(collision.gameObject);
-            Vector3 dist = Camera.main.WorldToScreenPoint(transform.position);
-            Instantiate(Resources.Load("Prefabs/Materials/" + output), Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x - (Input.mousePosition.x - dist.x), Input.mousePosition.y - (Input.mousePosition.y - dist.y), dist.z)), new Quaternion());
-
-            if (sndManager != null)
-            {
-                sndManager.PlaySound(berrySound);
-            }
-            else
-            {
-                Debug.Log("Sound Manager Does Not Exist!");
-            }
-            spinsText.text = "";
         }
     }
 }
