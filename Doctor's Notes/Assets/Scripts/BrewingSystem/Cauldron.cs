@@ -38,7 +38,7 @@ public class Cauldron : Tool
             timer += Time.deltaTime;
             brewingText.text = ((int)timer).ToString();
 
-            brewingColor = new Color(Mathf.Clamp(redTotal - blackTotal, 0, 1), Mathf.Clamp(greenTotal - blackTotal, 0, 1), Mathf.Clamp(blueTotal - blackTotal, 0, 1));
+            brewingColor = new Color(Mathf.Clamp(redTotal * (2 - blackTotal), 0, 1), Mathf.Clamp(greenTotal * (2 - blackTotal), 0, 1), Mathf.Clamp(blueTotal * (2 - blackTotal), 0, 1));
             if (renderer != null)
             {
                 liquidObject.SetActive(true);
