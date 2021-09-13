@@ -32,10 +32,10 @@ public class LinearTimer : MonoBehaviour
     private ParticleSystem.EmissionModule blightParticleSystemEmission;
 
     //The initial values of the blight effect (when the timer is zero)
-    private float blightOriginPointY = 4f;
+    private float blightOriginPointY = 1.12f;
     private float blightOriginScaleY = 0f;
     private float blightOriginEmission = 20f;
-    private float blightMaxYScale = 6f;
+    private float blightMaxYScale = 1.5f;
 
     //Light
     [SerializeField] private GameObject lightObject;
@@ -103,8 +103,8 @@ public class LinearTimer : MonoBehaviour
 
     private void UpdateBlightFX()
     {
-        blightParticleSystemShape.position = new Vector2(0, Mathf.Lerp(blightOriginPointY, 0, ((float)mapSelectionDB.currentDay / (float)mapSelectionDB.maxDay)));
-        blightParticleSystemShape.scale = new Vector3(10, Mathf.Lerp(blightOriginScaleY, blightMaxYScale, ((float)mapSelectionDB.currentDay / (float)mapSelectionDB.maxDay)), 1);
+        blightParticleSystemShape.position = new Vector2(0, Mathf.Lerp(blightOriginPointY, 0.5f, ((float)mapSelectionDB.currentDay / (float)mapSelectionDB.maxDay)));
+        blightParticleSystemShape.scale = new Vector3(2.5f, Mathf.Lerp(blightOriginScaleY, blightMaxYScale, ((float)mapSelectionDB.currentDay / (float)mapSelectionDB.maxDay)), 1);
         blightParticleSystemEmission.rateOverTime = Mathf.Lerp(blightOriginEmission, 100f, ((float)mapSelectionDB.currentDay / (float)mapSelectionDB.maxDay));
         Debug.Log("Current Day: " + currentDay);
         Debug.Log("End Day: " + endDay);
