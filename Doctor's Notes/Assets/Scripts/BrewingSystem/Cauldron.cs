@@ -7,6 +7,7 @@ public class Cauldron : Tool
     [SerializeField] private AudioClip potionSound;
     public GameObject liquidObject;
     public GameObject fumesObject;
+    public GameObject flameLightObject;
     float timer = 0;
     float redTotal;
     float blueTotal;
@@ -27,6 +28,7 @@ public class Cauldron : Tool
         renderer = GetComponent<Renderer>();
         liquid = liquidObject.GetComponent<CauldronLiquid>();
         fumes = fumesObject.GetComponent<CauldronFumes>();
+        flameLightObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -47,6 +49,7 @@ public class Cauldron : Tool
                 fumes.StartParticles();
                 fumes.ChangeColor(redTotal, greenTotal, blueTotal, blackTotal);
             }
+            flameLightObject.SetActive(true);
         }
         else
         {
@@ -59,7 +62,18 @@ public class Cauldron : Tool
                 fumes.StopParticles();
                 fumes.ChangeColor(1, 1, 1, 0);
             }
+            flameLightObject.SetActive(false);
         }
+    }
+
+    void OnMouseDrag()
+    {
+
+    }
+
+    public void OnMouseUp()
+    {
+        
     }
 
     public override void PerformAction(Collider collision)
