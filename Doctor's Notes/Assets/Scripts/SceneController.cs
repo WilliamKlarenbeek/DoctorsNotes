@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 //File --> Build Settings --> Drag in and order scenes according to requirements.
 public class SceneController
 {
+    static public List<string> patientScenes = new List<string>();
+
     static int mainScene = 0;
 
     public static IEnumerator LoadMainScene(float aDuration)
@@ -57,7 +59,7 @@ public class SceneController
         }
     }
 
-    public static IEnumerator LoadScene(int index, float aDuration)
+    public static IEnumerator LoadScene(string index, float aDuration)
     {
         float frame = 0;
         FadeMusic(aDuration);
@@ -68,10 +70,7 @@ public class SceneController
             yield return null;
         }
 
-        if (index >= 0 && index < SceneManager.sceneCountInBuildSettings)
-        {
-            SceneManager.LoadScene(index);
-        }
+        SceneManager.LoadScene(index);
     }
 
     static void FadeMusic(float aDuration)
