@@ -225,6 +225,38 @@ public class BookScript : MonoBehaviour
         CreateListOfItems();
     }
 
+    public string GetDescription(string aPrefabPath)
+    {
+        foreach (List<InventoryItem> i in inventoryDB.GetInventoryList())
+        {
+            foreach (InventoryItem j in i)
+            {
+                if (j.prefabPath == aPrefabPath)
+                {
+                    return (j.itemDescription);
+                }
+            }
+        }
+        return null;
+    }
+
+    public void ChangeDescription(string aPrefabPath, string red, string blue, string green, string black)
+    {
+        foreach (List<InventoryItem> i in inventoryDB.GetInventoryList())
+        {
+            foreach (InventoryItem j in i)
+            {
+                if (j.prefabPath == aPrefabPath)
+                {
+                    j.itemDescription = "Red: " + red + ", Blue: " + blue + ", Green: " + green + ", Black: " + black;
+                }
+            }
+        }
+
+        CreateListOfItems();
+        ViewPage(currentPage);
+    }
+
     /*void UnloadDatabaseOld()
     {
         Book = new List<List<InventoryItem>>();
