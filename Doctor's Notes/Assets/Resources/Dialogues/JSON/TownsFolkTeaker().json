@@ -1,0 +1,33 @@
+[	
+	{"A": "Doctor! You must come to help my brother. He is frightfully ill. Please!"},
+	{"B": "In these troubling times the sick outnumber the fit. I'm afraid necessity has made my prices steep..."},
+	{"A": "I will pay whatever the cost!"},
+	
+	{
+		"BranchStart": 
+		[
+			{ 
+				"ChoiceA":
+					[
+						"Aye. Well. Lead me to the patient, but I make no promises.",
+						{ "A": "Bless you, doctor! Right this way, quickly!" },
+						{"EOD": "EOD"}						
+					]
+					
+			},			
+
+		
+			{	
+				"ChoiceB": 
+				[
+					"I cannot. Return later if he doesn't recover on his own...",
+					{"A": "Nobody recovers on their own! I hope this plague takes you!"},
+					{"EOD": "EOD"}					
+				]
+			}
+
+		
+		]
+	}
+]
+

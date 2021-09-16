@@ -1,0 +1,33 @@
+[	
+	{"A": "I have a growing sickness."},
+	{"B": "I can see, you'll be dead within the day."},
+	{"A": "Please save me."},
+	
+	{
+		"BranchStart": 
+		[
+			{ 
+				"ChoiceA":
+					[
+						"I shall do my best.",
+						{ "A": "Thankyou, healer." },
+						{"EOD": "EOD"}						
+					]
+					
+			},			
+
+		
+			{	
+				"ChoiceB": 
+				[
+					"Better you die in the forest away from others",
+					{"A": "I'll be waiting for you beyond this world."},
+					{"EOD": "EOD"}					
+				]
+			}
+
+		
+		]
+	}
+]
+
