@@ -18,7 +18,10 @@ public class Cauldron : Tool
     private Color brewingColor;
     private CauldronLiquid liquid;
     private CauldronFumes fumes;
+    private BookScript book;
     List<Ingredient> ingredientList = new List<Ingredient>();
+    List<Ingredient> knownIngredients = new List<Ingredient>();
+    List<Ingredient> unknownIngredients = new List<Ingredient>();
 
     public override void Start()
     {
@@ -114,6 +117,29 @@ public class Cauldron : Tool
                 newPotion.Green = greenTotal;
                 newPotion.Black = blackTotal;
                 newPotion.Ingredients = ingredientList;
+                book = GameObject.Find("Book_UI").GetComponent<BookScript>();
+                for (int i = 0; i < ingredientList.Count; i++)
+                {
+                    if(book.GetDescription(ingredientList[i].prefabPath) == "")
+                    {
+                        unknownIngredients.Add(ingredientList[i]);
+                    }
+                    else
+                    {
+                        knownIngredients.Add(ingredientList[i]);
+                    }
+                }
+                if(unknownIngredients.Count == 1)
+                {
+                    for (int i = 0; i < knownIngredients.Count; i++)
+                    {
+                        redTotal -= knownIngredients[i].red;
+                        blueTotal -= knownIngredients[i].blue;
+                        greenTotal -= knownIngredients[i].green;
+                        blackTotal -= knownIngredients[i].black;
+                    }
+                    book.ChangeDescription(unknownIngredients[0].prefabPath, redTotal.ToString(), blueTotal.ToString(), greenTotal.ToString(), blackTotal.ToString());
+                }
             }
             else if (timer < 10)
             {
@@ -127,7 +153,7 @@ public class Cauldron : Tool
                 newPotion.Red = redTotal;
                 newPotion.Blue = blueTotal;
                 newPotion.Green = greenTotal;
-                newPotion.Black = blackTotal + (timer - 25) / 10;
+                newPotion.Black = blackTotal + ((timer - 25) / 10);
             }
             redTotal = 0;
             blueTotal = 0;
@@ -135,6 +161,8 @@ public class Cauldron : Tool
             blackTotal = 0;
             timer = 0;
             ingredientList.Clear();
+            knownIngredients.Clear();
+            unknownIngredients.Clear();
 
             if (sndManager != null)
             {
