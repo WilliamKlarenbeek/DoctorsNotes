@@ -10,6 +10,7 @@ public class MapEventHandler : MonoBehaviour
     public Inventory inventoryDB;
     public MapSelection mapSelectionDB;
     public GameObject eventBox;
+    public List<string> patientScenes = new List<string>();
 
     private Text eventNameText;
     private Text eventDescText;
@@ -131,7 +132,10 @@ public class MapEventHandler : MonoBehaviour
 
     public void CloseEvent()
     {
-        StartCoroutine(SceneController.LoadScene(1, 2f));
+        int randIndex = Mathf.RoundToInt(Random.Range(0, patientScenes.Count));
+        Debug.Log("Index: " + randIndex);
+
+        StartCoroutine(SceneController.LoadScene(patientScenes[randIndex],2f));
 
         eventBox.SetActive(false);
     }

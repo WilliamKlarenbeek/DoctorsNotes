@@ -7,6 +7,7 @@ using TMPro;
 public class Patient : MonoBehaviour
 {
     [SerializeField] Button resultButton;
+    public PatientDatabase patientDB;
 
     private Color symptomColour;
     bool cured = false;
@@ -21,6 +22,10 @@ public class Patient : MonoBehaviour
 
     private List<float> tempList = new List<float>();
 
+    void Start()
+    {
+        gameObject.GetComponent<SpriteRenderer>().sprite = patientDB.getRandomImage();
+    }
 
     public void recordValues(Symptom symp, float red, float blue, float green, float black)
     {

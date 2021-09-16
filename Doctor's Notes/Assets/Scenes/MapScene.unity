@@ -1899,6 +1899,11 @@ MonoBehaviour:
   inventoryDB: {fileID: 11400000, guid: af88f5fe1e2fa9b499c138a594a44638, type: 2}
   mapSelectionDB: {fileID: 11400000, guid: a6c4a8ed8070a2147a59151a111384d7, type: 2}
   eventBox: {fileID: 206623589}
+  patientScenes:
+  - PatientPotion
+  - PatientPotion2
+  - PatientPotion3
+  - PatientPotion4
 --- !u!114 &1719904886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2473,6 +2478,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 3D Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3625949856069780200, guid: 969b064ddbc7e1844a1c2d4723bd43f0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3625949856069780203, guid: 969b064ddbc7e1844a1c2d4723bd43f0, type: 3}
       propertyPath: m_Camera
       value: 
@@ -2572,6 +2581,46 @@ PrefabInstance:
     - target: {fileID: 3625949856069780204, guid: 969b064ddbc7e1844a1c2d4723bd43f0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3625949856270037305, guid: 969b064ddbc7e1844a1c2d4723bd43f0, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3625949856270037305, guid: 969b064ddbc7e1844a1c2d4723bd43f0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3625949856270037305, guid: 969b064ddbc7e1844a1c2d4723bd43f0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3625949856270037305, guid: 969b064ddbc7e1844a1c2d4723bd43f0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -340
+      objectReference: {fileID: 0}
+    - target: {fileID: 3625949856270037306, guid: 969b064ddbc7e1844a1c2d4723bd43f0, type: 3}
+      propertyPath: m_RenderMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3625949856270037306, guid: 969b064ddbc7e1844a1c2d4723bd43f0, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3625949856270037307, guid: 969b064ddbc7e1844a1c2d4723bd43f0, type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3625949856270037307, guid: 969b064ddbc7e1844a1c2d4723bd43f0, type: 3}
+      propertyPath: ShapeModule.m_Position.y
+      value: 1.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3625949856270037307, guid: 969b064ddbc7e1844a1c2d4723bd43f0, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3625949856270037307, guid: 969b064ddbc7e1844a1c2d4723bd43f0, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 0.005
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 969b064ddbc7e1844a1c2d4723bd43f0, type: 3}
