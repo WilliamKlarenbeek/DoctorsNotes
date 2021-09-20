@@ -6,6 +6,7 @@ using UnityEngine;
 public class MapSelection : ScriptableObject
 {
     [SerializeField] private bool gameBegin = true;
+    [SerializeField] public Town[] towns;
 
     public Vector2 currentCoords;
     public float currentTimer = 0;
@@ -60,5 +61,15 @@ public class MapSelection : ScriptableObject
     public void SetGameBeginFlag(bool aFlag)
     {
         gameBegin = aFlag;
+    }
+
+    public int TownsCount
+    {
+        get { return towns.Length; }
+    }
+
+    public Town GetTown(int index)
+    {
+        return towns[index];
     }
 }
