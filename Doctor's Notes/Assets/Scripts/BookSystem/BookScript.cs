@@ -392,7 +392,6 @@ public class BookScript : MonoBehaviour
         {
             posYCurrent = Mathf.Lerp(posYOrigin, posYDest, frame / aDuration);
             GetComponent<RectTransform>().anchoredPosition = new Vector2(-750, posYCurrent);
-
             frame+= Time.deltaTime;
             yield return null;
         }

@@ -8,6 +8,7 @@ using UnityEngine.EventSystems;
 public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
 {
     public GameObject Controller;
+    public GameObject mouseoverGlow; 
 
     private GameObject worldCamera;
     private BookScript Book;
@@ -22,6 +23,7 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
     private Text descriptionText;
     private SoundManager sndManager;
     [SerializeField] private Inventory inventoryDB;
+
     // Start is called before the first frame update
 
     void Awake()
@@ -56,6 +58,8 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
     {
         origin = new Vector2(Book.gameObject.GetComponent<RectTransform>().position.x + 300, Book.gameObject.GetComponent<RectTransform>().position.y + 240);
         AdjustQuantityText();
+        OnMouseover();
+
     }
 
     public void SetItem(InventoryItem aObject)
@@ -74,6 +78,11 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
                 }
             }
         }
+    }
+
+    public void OnMouseover()
+    {
+
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -105,6 +114,7 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
             }
         }
     }
+
 
     public void AdjustQuantityText()
     {
