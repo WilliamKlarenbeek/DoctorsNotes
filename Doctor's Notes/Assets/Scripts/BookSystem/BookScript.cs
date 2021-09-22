@@ -359,11 +359,11 @@ public class BookScript : MonoBehaviour
         while(frame < aDuration)
         {
             posYCurrent = Mathf.Lerp(posYOrigin, posYDest, frame / aDuration);
-            GetComponent<RectTransform>().anchoredPosition = new Vector2(-650, posYCurrent);
+            GetComponent<RectTransform>().anchoredPosition = new Vector2(-750, posYCurrent);
             frame+= Time.deltaTime;
             yield return null;
         }
-        GetComponent<RectTransform>().anchoredPosition = new Vector2(-650, posYDest);
+        GetComponent<RectTransform>().anchoredPosition = new Vector2(-750, posYDest);
         foreach (Button i in buttons)
         {
             i.interactable = true;

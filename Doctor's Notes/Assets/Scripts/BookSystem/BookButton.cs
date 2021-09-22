@@ -8,7 +8,8 @@ public class BookButton : GenericButton
     public AudioClip altClick;
 
     private bool bookOpen = false;
-    [SerializeField] private BookScript Book;
+    [SerializeField] private BookScript Book; 
+
 
     protected override void Start()
     {
@@ -21,7 +22,9 @@ public class BookButton : GenericButton
     {
         if (Book.IsTransitioning())
         {
-            GetComponent<Button>().interactable = false;
+            GetComponent<Button>().interactable = false; 
+
+
         } else
         {
             GetComponent<Button>().interactable = true;
