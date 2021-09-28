@@ -17,14 +17,101 @@ public class Patient : MonoBehaviour
     private List<Symptom> symptoms = new List<Symptom>();
     int symptomAmount;
 
+    int rngVal;
+    private List<int> symptomLocations = new List<int>();
+    float rgbMax;
+    float rgbMin;
+
     //Lists to match the dynamic nature of symptom object adding
     private List<List<float>> symptomValues = new List<List<float>>();
 
     private List<float> tempList = new List<float>();
 
+    [SerializeField] private MapSelection mapDB;
+
     void Start()
     {
         gameObject.GetComponent<SpriteRenderer>().sprite = patientDB.getRandomImage();
+
+        rgbMin = 0.1f;
+        rgbMax = 0.6f;
+
+        for (int i = 0; i < mapDB.GetCurrentDay(); i = i + 5)
+        {
+            if (symptomLocations.Count == 0)
+            {
+                rngVal = 2;
+            }
+            else if ((symptomLocations.Count == 3) && (rgbMax - rgbMin <= 0.5))
+            {
+                rngVal = 1;
+            }
+            else if (symptomLocations.Count == 3)
+            {
+                rngVal = Mathf.RoundToInt(Random.Range(0, 2));
+            }
+            else if (rgbMax - rgbMin <= 0.5)
+            {
+                rngVal = Mathf.RoundToInt(Random.Range(1, 3));
+            }
+            else
+            {
+                rngVal = Mathf.RoundToInt(Random.Range(0, 3));
+            }
+
+            //increase symptoms by 1, increase rgb max by 0.5, increase rgb min by 0.5
+            if (rngVal == 2) //increase symptoms by 1, to a max of 3
+            {
+                rngVal = Mathf.RoundToInt(Random.Range(0, 3));
+                while ((symptomLocations.Contains(rngVal)))
+                {
+                    rngVal = Mathf.RoundToInt(Random.Range(0, 3));
+                }
+                if (rngVal == 2) //head symptom
+                {
+                    symptomLocations.Add(2);
+                }
+                else if (rngVal == 1) //arm symptom
+                {
+                    symptomLocations.Add(1);
+                }
+                else //leg symptom
+                {
+                    symptomLocations.Add(0);
+                }
+            }
+            else if (rngVal == 1) //increase rbgMax by 0.5
+            {
+                rgbMax += 0.5f;
+            }
+            else //increase rbgMin by 0.5
+            {
+                rgbMin += 0.5f;
+            }
+        }
+        for (int i = 0; i < symptomLocations.Count; i++)
+        {
+            if (symptomLocations[i] == 2) //make head symptom
+            {
+                GameObject objectInstance = Instantiate(Resources.Load("Prefabs/SpriteSymptomPrefab"), new Vector3(-6f, 1.97f, 4.91f), Quaternion.Euler(new Vector3(0, 0, 0)), gameObject.transform) as GameObject;
+                Symptom newSymptom = objectInstance.GetComponent<Symptom>();
+                newSymptom.calculateValues(rgbMin, rgbMax);
+            }
+            else if (symptomLocations[i] == 1) //make arm symptom
+            {
+                GameObject objectInstance = Instantiate(Resources.Load("Prefabs/SpriteSymptomPrefab"), new Vector3(-7.24f, 1.785f, 1.355f), Quaternion.Euler(new Vector3(0, -77.27f, 0)), gameObject.transform) as GameObject;
+                Symptom newSymptom = objectInstance.GetComponent<Symptom>();
+                newSymptom.calculateValues(rgbMin, rgbMax);
+            }
+            else //make leg symptom
+            {
+                GameObject objectInstance = Instantiate(Resources.Load("Prefabs/SpriteSymptomPrefab"), new Vector3(-5.72f, 1.97f, -0.835f), Quaternion.Euler(new Vector3(-180, 150.768f, -180)), gameObject.transform) as GameObject;
+                Symptom newSymptom = objectInstance.GetComponent<Symptom>();
+                newSymptom.calculateValues(rgbMin, rgbMax);
+            }
+        }
+
+        symptomLocations.Clear();
     }
 
     public void recordValues(Symptom symp, float red, float blue, float green, float black)

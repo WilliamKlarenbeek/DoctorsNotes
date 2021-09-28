@@ -18,7 +18,7 @@ public class Potion : GenericObject
 
     private void OnTriggerStay(Collider collision)
     {
-        if (collision.gameObject.GetComponent<Patient>() != null)
+        if (collision.gameObject.GetComponent<Symptom>() != null)
         {
             Debug.Log("Colliding with patient?");
             CollidingWithPatient(true);
@@ -32,7 +32,7 @@ public class Potion : GenericObject
 
     private void OnTriggerExit(Collider collision)
     {
-        if (collision.gameObject.GetComponent<Patient>() != null)
+        if (collision.gameObject.GetComponent<Symptom>() != null)
         {
             CollidingWithPatient(false);
         }
