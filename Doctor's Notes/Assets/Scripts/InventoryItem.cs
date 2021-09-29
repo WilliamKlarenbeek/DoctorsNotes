@@ -5,6 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class InventoryItem
 {
+    public GameObject itemPrefab;
     public Sprite itemImage;
     public string itemName;
     public string prefabPath;

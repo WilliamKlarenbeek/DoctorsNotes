@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 
 public class GenericObject : MonoBehaviour
 {
+    public GameObject itemPrefab;
     public Sprite itemIcon;
     public string prefabPath;
     public AudioClip grabSound;
