@@ -7,6 +7,7 @@ public class GenericObject : MonoBehaviour
 {
     public GameObject itemPrefab;
     public Sprite itemIcon;
+    public Sprite itemIconHighlight;
     public string prefabPath;
     public AudioClip grabSound;
     public AudioClip releaseSound;
