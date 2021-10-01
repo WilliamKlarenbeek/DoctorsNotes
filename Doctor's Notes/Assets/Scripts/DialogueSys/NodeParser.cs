@@ -11,7 +11,7 @@ public class NodeParser : MonoBehaviour
     public Text speaker;
     public Text dialogue;
     public Image speakerImage;
-    public GameObject dialoguePanel; 
+    public GameObject dialoguePanel;
 
     private void Start()
     {
@@ -48,6 +48,9 @@ public class NodeParser : MonoBehaviour
         }
         if (dataParts[0] == "End")
         {
+            /*animationController.SetBool("closePanel", true);*/
+/*            _animationController.Play("Base Layer.Close");
+            _animationController.SetBool("closePanel", true);*/
             dialoguePanel.gameObject.SetActive(false);
         }
     }
