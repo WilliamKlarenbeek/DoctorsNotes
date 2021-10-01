@@ -406,6 +406,7 @@ MonoBehaviour:
   - {fileID: 3251223059423091294}
   - {fileID: 2068199706885415168}
   - {fileID: 7893458362394153538}
+  - {fileID: 4824040428946624195}
   current: {fileID: 7893458362394153538}
 --- !u!114 &2068199706885415168
 MonoBehaviour:
@@ -603,6 +604,37 @@ MonoBehaviour:
   dialogueLine: '"Now place it on the brewing table so we can begin to create the
     remedy." (Drag ingredient icons from the book onto the table to begin using them.) '
   sprite: {fileID: 21300000, guid: e447e1137cf3402439f50d36a02ca3b1, type: 3}
+--- !u!114 &4824040428946624195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beb364519f1b3ae49944bfb626ff92e2, type: 3}
+  m_Name: End
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 88, y: 488}
+  ports:
+    keys:
+    - Entry
+    values:
+    - _fieldName: Entry
+      _node: {fileID: 4824040428946624195}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: 7893458362394153538}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Entry: 0
 --- !u!114 &5110743761066065780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -785,7 +817,10 @@ MonoBehaviour:
       _node: {fileID: 7893458362394153538}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections: []
+      connections:
+      - fieldName: Entry
+        node: {fileID: 4824040428946624195}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0

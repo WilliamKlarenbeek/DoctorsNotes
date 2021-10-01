@@ -11,6 +11,7 @@ public class NodeParser : MonoBehaviour
     public Text speaker;
     public Text dialogue;
     public Image speakerImage;
+    public GameObject dialoguePanel; 
 
     private void Start()
     {
@@ -44,6 +45,10 @@ public class NodeParser : MonoBehaviour
             yield return new WaitUntil(() => Input.GetKeyDown("space"));
             yield return new WaitUntil(() => Input.GetKeyUp("space"));
             NextNode("exit");
+        }
+        if (dataParts[0] == "End")
+        {
+            dialoguePanel.gameObject.SetActive(false);
         }
     }
 
