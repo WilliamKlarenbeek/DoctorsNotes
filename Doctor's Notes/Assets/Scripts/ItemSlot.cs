@@ -103,7 +103,7 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
 
             if (Physics.Raycast(ray, out hit, 100.0f) && quantity > 0)
             {
-                var obj = Instantiate(Resources.Load(currentItem.prefabPath) as GameObject, hit.point, Quaternion.identity);
+                var obj = Instantiate(Resources.Load(currentItem.prefabPath) as GameObject, hit.point + new Vector3(0,1,0), Quaternion.Euler(new Vector3(80, 0, 0)));
                 if (obj.GetComponent<GenericObject>() != null)
                 {
                     GenericObject createdItem = obj.GetComponent<GenericObject>();
