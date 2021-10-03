@@ -51,6 +51,7 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
                 sndManager = Controller.GetComponent<SoundManager>();
             }
         }
+        gameObject.GetComponent<Image>().sprite = currentItem.itemImage;
     }
 
     // Update is called once per frame
@@ -58,8 +59,6 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
     {
         origin = new Vector2(Book.gameObject.GetComponent<RectTransform>().position.x + 300, Book.gameObject.GetComponent<RectTransform>().position.y + 240);
         AdjustQuantityText();
-        OnMouseover();
-
     }
 
     public void SetItem(InventoryItem aObject)
@@ -80,9 +79,14 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
         }
     }
 
-    public void OnMouseover()
+    public void OnMouseOver()
     {
+        gameObject.GetComponent<Image>().sprite = currentItem.itemImageHighlight;
+    }
 
+    public void OnMouseExit()
+    {
+        gameObject.GetComponent<Image>().sprite = currentItem.itemImage;
     }
 
     public void OnDrag(PointerEventData eventData)

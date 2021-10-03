@@ -132,7 +132,7 @@ public class BookScript : MonoBehaviour
                 {
                     currentItem = Instantiate(iconTemplate, transform.position, Quaternion.identity);
                     currentItem.transform.SetParent(transform);
-                    currentItem.GetComponent<Image>().sprite = i.itemImage;
+                    //currentItem.GetComponent<Image>().sprite = i.itemImage;
                     currentItem.GetComponent<ItemSlot>().SetItem(i);
                     index++;
                 }

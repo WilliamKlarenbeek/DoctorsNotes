@@ -5,7 +5,9 @@ using UnityEngine;
 [System.Serializable]
 public class InventoryItem
 {
+    public GameObject itemPrefab;
     public Sprite itemImage;
+    public Sprite itemImageHighlight;
     public string itemName;
     public string prefabPath;
     public int itemQuantity;
@@ -29,6 +31,7 @@ public class InventoryItem
             if(NewGenericObject != null)
             {
                 itemImage = NewGenericObject.itemIcon;
+                itemImageHighlight = NewGenericObject.itemIconHighlight;
                 itemName = newObject.name;
                 prefabPath = aPrefabPath;
                 itemQuantity++;

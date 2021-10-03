@@ -3,7 +3,13 @@ guid: ef7d8f110dd907545bd875e28a396541
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - itemPrefab: {instanceID: 0}
+  - itemIcon: {instanceID: 0}
+  - itemIconHighlight: {instanceID: 0}
+  - grabSound: {instanceID: 0}
+  - releaseSound: {instanceID: 0}
+  - Controller: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
