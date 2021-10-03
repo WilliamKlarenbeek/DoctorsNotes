@@ -2551,6 +2551,10 @@ PrefabInstance:
       propertyPath: lightObject
       value: 
       objectReference: {fileID: 1078388684}
+    - target: {fileID: 3625949854716913921, guid: 969b064ddbc7e1844a1c2d4723bd43f0, type: 3}
+      propertyPath: unlocked
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3625949855178501000, guid: 969b064ddbc7e1844a1c2d4723bd43f0, type: 3}
       propertyPath: m_Sprite
       value: 

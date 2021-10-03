@@ -38,6 +38,7 @@ public class PlayerIcon : MonoBehaviour
             mapSelectionDB.SetCurrentTimer(0f);
             mapSelectionDB.SetCurrentDay(1);
             mapSelectionDB.SetMaxDay(30);
+            mapSelectionDB.ResetLockedLocations();
             mapSelectionDB.SetGameBeginFlag(false);
         }
         eventHandler = eventHandlerObject.GetComponent<MapEventHandler>();
@@ -45,18 +46,20 @@ public class PlayerIcon : MonoBehaviour
         //transform.position = new Vector3(295, 568, 0);
         GetComponent<RectTransform>().anchoredPosition = mapSelectionDB.GetCurrentLocation();
         _startPos = GetComponent<RectTransform>().anchoredPosition;
+
+        mapSelectionDB.UpdateLockedLocations();
     }
 
-    public IEnumerator Movement(Vector3 targetPos)
+    public IEnumerator Movement(GameObject targetPos)
     {
         speed = 20f * (transform.parent.gameObject.GetComponentInParent<RectTransform>().localScale.x);
         float step = speed * Time.deltaTime;
-        _targetPos = targetPos;
+        _targetPos = targetPos.transform.position;
         _currentPos = _startPos;
         LinearTimer.instance.BeginTimer();
         moving = true;
 
-        while (transform.position != targetPos)
+        while (transform.position != _targetPos)
         {
             //distPercentage = ToString("F2");
             //Debug.Log("Start: " + _startPos.magnitude + "Current: " + _currentPos.magnitude + "Target: " + _targetPos.magnitude);
@@ -70,7 +73,7 @@ public class PlayerIcon : MonoBehaviour
 
             // no movement occurs on z-axis
             //transform.Translate(1 * Time.deltaTime, 1 * Time.deltaTime, 0); 
-            transform.position = Vector3.MoveTowards(transform.position, targetPos, step);
+            transform.position = Vector3.MoveTowards(transform.position, _targetPos, step);
             // set the current position to the position of the playerIcon
             _currentPos = transform.position;
 
@@ -81,6 +84,7 @@ public class PlayerIcon : MonoBehaviour
         moving = false;
         LinearTimer.instance.EndTimer();
         mapSelectionDB.SetCurrentLocation(GetComponent<RectTransform>().anchoredPosition);
+        mapSelectionDB.AddLockedLocation(targetPos);
         eventHandler.RandomEvent();
         //yield return StartCoroutine(SceneController.LoadScene(1, 2f));
         //yield return StartCoroutine(SceneController.LoadScene(LevelSelection.levelSelectionInstance.getLevelIndex(), 2f));

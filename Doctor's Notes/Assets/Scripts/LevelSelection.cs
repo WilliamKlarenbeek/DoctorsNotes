@@ -66,7 +66,7 @@ public class LevelSelection : MonoBehaviour
             levelIndex = aIndex;
             // Once the player Icon moves to the selected location then 
             // Load Scene coroutine is called from the Movement Coroutine inside the PlayerIcon
-            StartCoroutine(PlayerIcon.instance.Movement(transform.position));
+            StartCoroutine(PlayerIcon.instance.Movement(gameObject));
             Debug.Log("Level selected, loading scene: " + aIndex);
             Debugger.debuggerInstance.WriteToFile("Level selected, loading scene: " + aIndex);
         }
@@ -75,5 +75,10 @@ public class LevelSelection : MonoBehaviour
     public void LoadScene(int aIndex)
     {
         SceneManager.LoadScene(aIndex);
+    }
+
+    public void SetLocked(bool aFlag)
+    {
+        unlocked = aFlag;
     }
 }
