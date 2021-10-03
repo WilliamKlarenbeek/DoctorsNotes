@@ -372,16 +372,16 @@ public class BookScript : MonoBehaviour
         float frame = 0f;
         float posYOrigin = -1080f;
         float posYCurrent = posYOrigin;
-        float posYDest = -75f;
+        float posYDest = -75;
 
         while(frame < aDuration)
         {
             posYCurrent = Mathf.Lerp(posYOrigin, posYDest, frame / aDuration);
-            GetComponent<RectTransform>().anchoredPosition = new Vector2(-750, posYCurrent);
+            GetComponent<RectTransform>().anchoredPosition = new Vector2(-222, posYCurrent);
             frame+= Time.deltaTime;
             yield return null;
         }
-        GetComponent<RectTransform>().anchoredPosition = new Vector2(-750, posYDest);
+        GetComponent<RectTransform>().anchoredPosition = new Vector2(-222, posYDest);
         foreach (Button i in buttons)
         {
             i.interactable = true;
@@ -399,17 +399,17 @@ public class BookScript : MonoBehaviour
         float frame = 0f;
         float posYOrigin = -75f;
         float posYCurrent = posYOrigin;
-        float posYDest = -1080f;
+        float posYDest = -1080;
 
         while (frame < aDuration)
         {
             posYCurrent = Mathf.Lerp(posYOrigin, posYDest, frame / aDuration);
-            GetComponent<RectTransform>().anchoredPosition = new Vector2(-750, posYCurrent);
+            GetComponent<RectTransform>().anchoredPosition = new Vector2(-222, posYCurrent);
 
             frame += Time.deltaTime;
             yield return null;
         }
-        GetComponent<RectTransform>().anchoredPosition = new Vector2(-750, posYDest);
+        GetComponent<RectTransform>().anchoredPosition = new Vector2(-222, posYDest);
         foreach (Button i in buttons)
         {
             i.interactable = true;
