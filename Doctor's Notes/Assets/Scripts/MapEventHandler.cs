@@ -19,6 +19,7 @@ public class MapEventHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("Entered Map Scene");
         UpdateEventList();
 
         if(eventBox != null)
@@ -126,14 +127,11 @@ public class MapEventHandler : MonoBehaviour
         eventNameText.text = aEvent.eventName;
         eventDescText.text = aEvent.eventDesc;
         eventResultText.text = aOutcome;
-
-        Debug.Log("Success?");
     }
 
     public void CloseEvent()
     {
         int randIndex = Mathf.RoundToInt(Random.Range(0, patientScenes.Count));
-        Debug.Log("Index: " + randIndex);
 
         StartCoroutine(SceneController.LoadScene(patientScenes[randIndex],2f));
 

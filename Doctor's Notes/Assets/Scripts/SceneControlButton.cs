@@ -11,6 +11,7 @@ public class SceneControlButton : MonoBehaviour
     {
         Next,
         Previous,
+        Map,
         Quit,
         MainMenu
     }
@@ -29,7 +30,9 @@ public class SceneControlButton : MonoBehaviour
                 case TargetScene.MainMenu:
                     sceneButton.onClick.AddListener(() => StartCoroutine(SceneController.LoadMainScene(transitionDuration)));
                     break;
-
+                case TargetScene.Map:
+                    sceneButton.onClick.AddListener(() => StartCoroutine(SceneController.LoadScene("MapScene", transitionDuration)));
+                    break;
                 case TargetScene.Next:
                     sceneButton.onClick.AddListener(() => StartCoroutine(SceneController.LoadNextScene(transitionDuration)));
                     break;

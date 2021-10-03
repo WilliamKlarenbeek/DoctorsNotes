@@ -88,4 +88,9 @@ public class GameController : MonoBehaviour
     {
         mapSelectionDB.SetGameBeginFlag(true);
     }
+
+    public MapSelection GetMapDatabase()
+    {
+        return mapSelectionDB;
+    }
 }
