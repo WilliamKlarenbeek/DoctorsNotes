@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2713058936310999669}
   - component: {fileID: 6673759285141405021}
   m_Layer: 0
-  m_Name: RefinedInsatateSod
+  m_Name: RefinedInsatiateSod
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,12 +75,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 837b1c80cbbc42c408ae10e094062996, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8f47a884c9b161342800d0a05e6dad6f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 10.24, y: 10.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -127,7 +127,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef7d8f110dd907545bd875e28a396541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemPrefab: {fileID: 0}
   itemIcon: {fileID: 21300000, guid: 837b1c80cbbc42c408ae10e094062996, type: 3}
+  itemIconHighlight: {fileID: 0}
   prefabPath: Prefabs/Materials/RefinedInsatiateSod
   grabSound: {fileID: 8300000, guid: 0c992b8377f39c7409bb8838a52ac01d, type: 3}
   releaseSound: {fileID: 8300000, guid: 783c652dddff98041aa9b3d7e0edd34a, type: 3}
