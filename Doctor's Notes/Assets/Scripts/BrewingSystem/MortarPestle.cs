@@ -5,6 +5,8 @@ using UnityEngine;
 public class MortarPestle : Tool
 {
     [SerializeField] private AudioClip berrySound;
+    [SerializeField] private Animator animator;
+    List<string> animationBacklog = new List<string>();
     Vector3 worldPosition;
     int mouseSpins;
     int rotationQuad;
@@ -15,6 +17,7 @@ public class MortarPestle : Tool
     {
         base.Start();
         spinsText = transform.Find("SpinsCounter").GetComponent<TextMesh>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -35,7 +38,9 @@ public class MortarPestle : Tool
             {
                 state = "ready";
                 Vector3 dist = Camera.main.WorldToScreenPoint(transform.position);
-                Instantiate(Resources.Load("Prefabs/Materials/" + output), Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x - (Input.mousePosition.x - dist.x), Input.mousePosition.y - (Input.mousePosition.y - dist.y) + 1, dist.z)), Quaternion.Euler(new Vector3(80, 0, 0)));
+                Instantiate(Resources.Load("Prefabs/Materials/" + output), Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x - (Input.mousePosition.x - dist.x), Input.mousePosition.y - (Input.mousePosition.y - dist.y) + 1, dist.z)) + new Vector3(0,1,0), Quaternion.Euler(new Vector3(80, 0, 0)));
+                animationBacklog.Clear();
+                animator.Play("idle");
 
                 if (sndManager != null)
                 {
@@ -54,7 +59,9 @@ public class MortarPestle : Tool
                 spinsText.text = mouseSpins.ToString() + "/10";
                 if (sndManager != null)
                 {
+                    animationBacklog.Add("0-90");
                     sndManager.PlaySound(workingSound);
+                    
                 }
                 else
                 {
@@ -68,6 +75,7 @@ public class MortarPestle : Tool
                 spinsText.text = mouseSpins.ToString() + "/10";
                 if (sndManager != null)
                 {
+                    animationBacklog.Add("90-180");
                     sndManager.PlaySound(workingSound);
                 }
                 else
@@ -82,6 +90,7 @@ public class MortarPestle : Tool
                 spinsText.text = mouseSpins.ToString() + "/10";
                 if (sndManager != null)
                 {
+                    animationBacklog.Add("180-270");
                     sndManager.PlaySound(workingSound);
                 }
                 else
@@ -97,11 +106,21 @@ public class MortarPestle : Tool
                 spinsText.text = mouseSpins.ToString() + "/10";
                 if (sndManager != null)
                 {
+                    animationBacklog.Add("270-360");
                     sndManager.PlaySound(workingSound);
                 }
                 else
                 {
                     Debug.Log("Sound Manager Does Not Exist!");
+                }
+            }
+
+            if (animationBacklog.Count != 0)
+            {
+                if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
+                {
+                    animator.Play(animationBacklog[0]);
+                    animationBacklog.RemoveAt(0);
                 }
             }
         }
