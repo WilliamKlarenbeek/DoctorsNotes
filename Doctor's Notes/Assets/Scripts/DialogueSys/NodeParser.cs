@@ -46,6 +46,15 @@ public class NodeParser : MonoBehaviour
             yield return new WaitUntil(() => Input.GetKeyUp("space"));
             NextNode("exit");
         }
+        if (dataParts[0] == "DialogueResponseNode")
+        {
+            speaker.text = dataParts[1];
+            dialogue.text = dataParts[2];
+            speakerImage.sprite = b.GetSprite();
+            /*            yield return new WaitUntil(() => (Input.GetKeyDown("1") || Input.GetKeyDown("2")));
+                        NextNode("exit2"); */
+            yield return new WaitUntil(() => ChooseOne());   
+        }
         if (dataParts[0] == "End")
         {
             /*animationController.SetBool("closePanel", true);*/
@@ -53,6 +62,22 @@ public class NodeParser : MonoBehaviour
             _animationController.SetBool("closePanel", true);*/
             dialoguePanel.gameObject.SetActive(false);
         }
+    }
+
+    bool ChooseOne()
+    {
+        bool selection = false; 
+        if (Input.GetKeyDown("1"))
+        {
+            NextNode("exit1");
+            selection = true; 
+        }
+        else if (Input.GetKeyDown("2"))
+        {
+            NextNode("exit2");
+            selection = true;
+        }
+        return selection;
     }
 
     public void NextNode(string fieldName)
