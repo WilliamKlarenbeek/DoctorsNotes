@@ -407,7 +407,7 @@ MonoBehaviour:
   - {fileID: 2068199706885415168}
   - {fileID: 7893458362394153538}
   - {fileID: 4824040428946624195}
-  current: {fileID: 7893458362394153538}
+  current: {fileID: 4824040428946624195}
 --- !u!114 &2068199706885415168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -731,7 +731,7 @@ MonoBehaviour:
   exit: 0
   speakerName: Master Doctor
   dialogueLine: '"Today my pupil is the first day of medicinal training you shall
-    receive." (Press ''Space'' to progress dialogue).'
+    receive." (Space).'
   sprite: {fileID: 21300000, guid: e447e1137cf3402439f50d36a02ca3b1, type: 3}
 --- !u!114 &7774392122276222463
 MonoBehaviour:
