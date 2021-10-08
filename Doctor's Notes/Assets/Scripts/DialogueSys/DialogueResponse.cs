@@ -8,12 +8,13 @@ public class DialogueResponseNode : BaseNode {
     [Output] public int exit1;
     [Output] public int exit2; 
     public string speakerName;
-    public string dialogueLine;
+    public string dialogueLineA;
+    public string dialogueLineB; 
     public Sprite sprite;
 
     public override string GetString()
     {
-        return "DialogueResponseNode/" + speakerName + "/" + dialogueLine;
+        return "DialogueResponseNode/" + speakerName + "/" + dialogueLineA + "/" + dialogueLineB;
     }
 
     public override Sprite GetSprite()

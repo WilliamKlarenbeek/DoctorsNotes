@@ -74,7 +74,10 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit2
-        node: {fileID: -1811086088931934568}
+        node: {fileID: 0}
+        reroutePoints: []
+      - fieldName: exit2
+        node: {fileID: -6353241749389645340}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -273,6 +276,69 @@ MonoBehaviour:
   dialogueLine: '"The patient has minor plague symptoms on their right arm, if left
     unattended the growth will engulf the body and turn it to rot."'
   sprite: {fileID: 21300000, guid: e447e1137cf3402439f50d36a02ca3b1, type: 3}
+--- !u!114 &-6353241749389645340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Dialogue Response
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueResponseNode
+  graph: {fileID: 11400000}
+  position: {x: -504, y: -744}
+  ports:
+    keys:
+    - entry
+    - exit1
+    - exit2
+    values:
+    - _fieldName: entry
+      _node: {fileID: -6353241749389645340}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: 6260842281396817870}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit1
+      _node: {fileID: -6353241749389645340}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -5552018797198486588}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit2
+      _node: {fileID: -6353241749389645340}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -8713311888830656055}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit1: 0
+  exit2: 0
+  speakerName: FooBar
+  dialogueLineA: Choose A
+  dialogueLineB: Choose B
+  sprite: {fileID: 0}
 --- !u!114 &-5552018797198486588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,7 +364,10 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit1
-        node: {fileID: -1811086088931934568}
+        node: {fileID: 0}
+        reroutePoints: []
+      - fieldName: exit1
+        node: {fileID: -6353241749389645340}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -611,7 +680,8 @@ MonoBehaviour:
   exit1: 0
   exit2: 0
   speakerName: FooBar
-  dialogueLine: Choose One
+  dialogueLineA: 
+  dialogueLineB: 
   sprite: {fileID: 0}
 --- !u!114 &-488059777629173894
 MonoBehaviour:
@@ -692,12 +762,13 @@ MonoBehaviour:
   - {fileID: 2068199706885415168}
   - {fileID: 7893458362394153538}
   - {fileID: 4824040428946624195}
-  - {fileID: -1811086088931934568}
+  - {fileID: 0}
   - {fileID: -5552018797198486588}
   - {fileID: -8713311888830656055}
   - {fileID: -5382221829584201357}
   - {fileID: -488059777629173894}
   - {fileID: -5096212133867834726}
+  - {fileID: -6353241749389645340}
   current: {fileID: 4824040428946624195}
 --- !u!114 &2068199706885415168
 MonoBehaviour:
@@ -1012,7 +1083,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: -1811086088931934568}
+        node: {fileID: -6353241749389645340}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
