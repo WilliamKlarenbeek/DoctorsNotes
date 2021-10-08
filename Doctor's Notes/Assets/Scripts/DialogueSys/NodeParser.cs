@@ -16,6 +16,9 @@ public class NodeParser : MonoBehaviour
     public Image speakerImage;
     public GameObject dialoguePanel;
 
+    private bool _buttonASelected = false; 
+    private bool _buttonBSelected = false; 
+
     private void Start()
     {
         foreach (BaseNode b in graph.nodes)
@@ -45,7 +48,7 @@ public class NodeParser : MonoBehaviour
         if (dataParts[0] == "DialogueNode")
         {
             //Disable unused UI elements
-            DisableUIElements(); 
+            DisableUIElements();
 
             //Run dialogue process to display key info
             speaker.text = dataParts[1];
@@ -58,13 +61,17 @@ public class NodeParser : MonoBehaviour
         if (dataParts[0] == "DialogueResponseNode")
         {
             //Enabke the UI elements before populating
-            EnableUIElements(); 
+            EnableUIElements();
+
+            buttonA.onClick.AddListener(() => _buttonASelected = true); 
+            buttonB.onClick.AddListener(() => _buttonBSelected = true); 
 
             //Populate the UI elements
             speaker.text = dataParts[1];
             dialogueA.text = dataParts[2];
             dialogueB.text = dataParts[3]; 
             speakerImage.sprite = b.GetSprite();
+
             yield return new WaitUntil(() => ChooseOne());   
         }
         if (dataParts[0] == "End")
@@ -81,13 +88,15 @@ public class NodeParser : MonoBehaviour
 
     bool ChooseOne()
     {
-        bool selection = false; 
-        if (Input.GetKeyDown("1"))
+        bool selection = false;
+        // The condition can be replaced by Input.GetKeyDown("1") for debugging purposes
+        if (_buttonASelected)
         {
             NextNode("exit1");
             selection = true; 
         }
-        else if (Input.GetKeyDown("2"))
+        // The condition can be replaced by Input.GetKeyDown("2") for debugging purposes
+        else if (_buttonBSelected)
         {
             NextNode("exit2");
             selection = true;
