@@ -14,7 +14,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   patientImageList:
   - {fileID: 21300000, guid: 22251ae05026bdb4e91e53169def9451, type: 3}
-  - {fileID: 21300000, guid: 2ba4f138b5628b44bac8e3b969df814d, type: 3}
-  - {fileID: 21300000, guid: 71febeb3f5afaed4a81cffeed415bf51, type: 3}
-  - {fileID: 21300000, guid: 5d4f3d183eaa3b144a3ba6ad53b74e76, type: 3}
-  - {fileID: 21300000, guid: a36075e8e2329ad4a9e239df7e9910fc, type: 3}

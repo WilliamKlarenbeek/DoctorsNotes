@@ -19,6 +19,7 @@ public class NodeParser : MonoBehaviour
     private bool _buttonASelected = false; 
     private bool _buttonBSelected = false; 
 
+
     private void Start()
     {
         foreach (BaseNode b in graph.nodes)
@@ -58,6 +59,7 @@ public class NodeParser : MonoBehaviour
             yield return new WaitUntil(() => Input.GetKeyUp("space"));
             NextNode("exit");
         }
+
         if (dataParts[0] == "DialogueResponseNode")
         {
             //Enabke the UI elements before populating
@@ -74,11 +76,11 @@ public class NodeParser : MonoBehaviour
 
             yield return new WaitUntil(() => ChooseOne());   
         }
+        
         if (dataParts[0] == "End")
         {
             //Disable unused UI elements
             DisableUIElements();
-
             /*animationController.SetBool("closePanel", true);*/
             /*            _animationController.Play("Base Layer.Close");
                         _animationController.SetBool("closePanel", true);*/

@@ -10,7 +10,7 @@ public class Symptom : MonoBehaviour
     private bool isColliding;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         symptomManager = GameObject.Find("Patient").GetComponent<Patient>();
         symptomManager.recordValues(this, Random.Range(0, 2.5f), Random.Range(0, 2.5f), Random.Range(0, 2.5f), 0);
@@ -36,6 +36,11 @@ public class Symptom : MonoBehaviour
             Destroy(collision.gameObject);
             symptomManager.updateValues(this, id, givenPotion.Red, givenPotion.Blue, givenPotion.Green, givenPotion.Black);
         }
+    }
+
+    public void calculateValues(float min, float max)
+    {
+        symptomManager.recordValues(this, (Mathf.Round(Random.Range(min, max) * 100f) / 100f), Random.Range(min, max), Random.Range(min, max), 0);
     }
 
     public int ID

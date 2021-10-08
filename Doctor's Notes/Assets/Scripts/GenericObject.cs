@@ -5,7 +5,9 @@ using UnityEngine.EventSystems;
 
 public class GenericObject : MonoBehaviour
 {
+    public GameObject itemPrefab;
     public Sprite itemIcon;
+    public Sprite itemIconHighlight;
     public string prefabPath;
     public AudioClip grabSound;
     public AudioClip releaseSound;
@@ -73,14 +75,14 @@ public class GenericObject : MonoBehaviour
             prevValidPosition = transform.position;
         }
         transform.position = GetMouseWorldPos() + mOffset;
-        transform.position = new Vector3(transform.position.x, 1.25f, transform.position.z);
+        transform.position = new Vector3(transform.position.x, 2.25f, transform.position.z);
 
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
     }
 
     public void OnMouseUp()
     {
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, 10) == false && collidingWithPatient == false)
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 10) == false && collidingWithPatient == false)
         {
             Book.IncreaseQuantity(prefabPath);
 

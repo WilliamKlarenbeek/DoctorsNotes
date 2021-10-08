@@ -51,6 +51,7 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
                 sndManager = Controller.GetComponent<SoundManager>();
             }
         }
+        gameObject.GetComponent<Image>().sprite = currentItem.itemImage;
     }
 
     // Update is called once per frame
@@ -58,8 +59,6 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
     {
         origin = new Vector2(Book.gameObject.GetComponent<RectTransform>().position.x + 300, Book.gameObject.GetComponent<RectTransform>().position.y + 240);
         AdjustQuantityText();
-        OnMouseover();
-
     }
 
     public void SetItem(InventoryItem aObject)
@@ -80,9 +79,14 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
         }
     }
 
-    public void OnMouseover()
+    public void OnMouseOver()
     {
+        gameObject.GetComponent<Image>().sprite = currentItem.itemImageHighlight;
+    }
 
+    public void OnMouseExit()
+    {
+        gameObject.GetComponent<Image>().sprite = currentItem.itemImage;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -103,7 +107,7 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
 
             if (Physics.Raycast(ray, out hit, 100.0f) && quantity > 0)
             {
-                var obj = Instantiate(Resources.Load(currentItem.prefabPath) as GameObject, hit.point, Quaternion.identity);
+                var obj = Instantiate(Resources.Load(currentItem.prefabPath) as GameObject, hit.point + new Vector3(0,1,0), Quaternion.Euler(new Vector3(80, 0, 0)));
                 if (obj.GetComponent<GenericObject>() != null)
                 {
                     GenericObject createdItem = obj.GetComponent<GenericObject>();

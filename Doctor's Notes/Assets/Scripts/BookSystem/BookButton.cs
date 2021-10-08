@@ -14,7 +14,7 @@ public class BookButton : GenericButton
     protected override void Start()
     {
         Book = GameObject.Find("Book_UI").GetComponent<BookScript>();
-        Debugger.debuggerInstance.WriteToFileTag("bookbutton");
+        //Debugger.debuggerInstance.WriteToFileTag("bookbutton");
         GetController();
     }
 

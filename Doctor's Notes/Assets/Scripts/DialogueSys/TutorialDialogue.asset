@@ -149,7 +149,7 @@ MonoBehaviour:
   dialogueLine: '"Placing ingredients within cauldrons will cause it to begin cooking,
     succesful potions should be brewed between 15-20 seconds, any shorter or longer
     and it will have the opposite intended effect."'
-  sprite: {fileID: 21300000, guid: e447e1137cf3402439f50d36a02ca3b1, type: 3}
+  sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
 --- !u!114 &-8346433567157486704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,7 +229,7 @@ MonoBehaviour:
   speakerName: Master Doctor
   dialogueLine: '"Each ingredient within the book has unique properties, select one
     that best matches the color of the patients symptom."'
-  sprite: {fileID: 21300000, guid: e447e1137cf3402439f50d36a02ca3b1, type: 3}
+  sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
 --- !u!114 &-7076966099985609702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -472,6 +472,7 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
   Entry: 0
+
 --- !u!114 &-4795645527894859454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,7 +521,7 @@ MonoBehaviour:
   speakerName: Master Doctor
   dialogueLine: '"As a novice, you only have access to the cauldron and pestle and
     mortar tools. I will teach you now how to effectively use both."'
-  sprite: {fileID: 21300000, guid: e447e1137cf3402439f50d36a02ca3b1, type: 3}
+  sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
 --- !u!114 &-4062653543701434620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -570,6 +571,37 @@ MonoBehaviour:
   dialogueLine: '"In the brewing process there are many paths you can take to concocting
     the correct remedy. You can also make dire mistakes, killing the patient."'
   sprite: {fileID: 21300000, guid: e447e1137cf3402439f50d36a02ca3b1, type: 3}
+--- !u!114 &-3457948571127149258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beb364519f1b3ae49944bfb626ff92e2, type: 3}
+  m_Name: End
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 65.5, y: 569.5}
+  ports:
+    keys:
+    - Entry
+    values:
+    - _fieldName: Entry
+      _node: {fileID: -3457948571127149258}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: 7893458362394153538}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Entry: 0
 --- !u!114 &-2922067987535729036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -818,7 +850,7 @@ MonoBehaviour:
   speakerName: Master Doctor
   dialogueLine: '"Remember a cauldron can have many ingredients placed within it
     while brewing, mixing ingredients is essential in curing harder symptoms."'
-  sprite: {fileID: 21300000, guid: e447e1137cf3402439f50d36a02ca3b1, type: 3}
+  sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
 --- !u!114 &3251223059423091294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -867,7 +899,7 @@ MonoBehaviour:
   speakerName: Master Doctor
   dialogueLine: '"To retrieve your concotion from the cauldron use a bottle. (Drag
     a potion bottle over the cauldron)."'
-  sprite: {fileID: 21300000, guid: e447e1137cf3402439f50d36a02ca3b1, type: 3}
+  sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
 --- !u!114 &4086192916431549361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -916,7 +948,7 @@ MonoBehaviour:
   speakerName: Master Doctor
   dialogueLine: '"Firstly the Pestle and Mortar will refine ingredients making them
     far more potent and removing any dangerous components."'
-  sprite: {fileID: 21300000, guid: e447e1137cf3402439f50d36a02ca3b1, type: 3}
+  sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
 --- !u!114 &4588762321666322669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1045,7 +1077,7 @@ MonoBehaviour:
   speakerName: Master Doctor
   dialogueLine: '"The first step is to look closely at the symptom, the color of
     which will reveal the remedy you will need to create."'
-  sprite: {fileID: 21300000, guid: e447e1137cf3402439f50d36a02ca3b1, type: 3}
+  sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
 --- !u!114 &6260842281396817870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1143,7 +1175,7 @@ MonoBehaviour:
   speakerName: Master Doctor
   dialogueLine: '"We must create a remedy in order to treat it. It is imperative
     to utilize the correct herbs to concoct an acceptable medicinal brew."'
-  sprite: {fileID: 21300000, guid: e447e1137cf3402439f50d36a02ca3b1, type: 3}
+  sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
 --- !u!114 &7893458362394153538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1193,7 +1225,7 @@ MonoBehaviour:
   dialogueLine: '"Once you believe you have made an acceptable cure, apply the finished
     potion to the patients symptom. Assuming you don''t kill them another attempt
     can be made."'
-  sprite: {fileID: 21300000, guid: e447e1137cf3402439f50d36a02ca3b1, type: 3}
+  sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
 --- !u!114 &7894754343535808691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1242,4 +1274,4 @@ MonoBehaviour:
   speakerName: Master Doctor
   dialogueLine: ' "Now to select the appropriate ingredients from your notes."(To
     open your Doctors Notes, select the button in the top left.)'
-  sprite: {fileID: 21300000, guid: e447e1137cf3402439f50d36a02ca3b1, type: 3}
+  sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}

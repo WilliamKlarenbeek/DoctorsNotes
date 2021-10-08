@@ -30,7 +30,7 @@ public class GameController : MonoBehaviour
         blackCanvas.SetActive(false);
 
         FadeInCoroutine(1f, musicVolume, true);
-        Debugger.debuggerInstance.WriteToFileTag("GameController"); 
+        //Debugger.debuggerInstance.WriteToFileTag("GameController"); 
     }
 
     public void FadeOutCoroutine(float aDuration)

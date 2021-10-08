@@ -35,7 +35,7 @@ public class MortarPestle : Tool
             {
                 state = "ready";
                 Vector3 dist = Camera.main.WorldToScreenPoint(transform.position);
-                Instantiate(Resources.Load("Prefabs/Materials/" + output), Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x - (Input.mousePosition.x - dist.x), Input.mousePosition.y - (Input.mousePosition.y - dist.y), dist.z)), new Quaternion());
+                Instantiate(Resources.Load("Prefabs/Materials/" + output), Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x - (Input.mousePosition.x - dist.x), Input.mousePosition.y - (Input.mousePosition.y - dist.y) + 1, dist.z)), Quaternion.Euler(new Vector3(80, 0, 0)));
 
                 if (sndManager != null)
                 {

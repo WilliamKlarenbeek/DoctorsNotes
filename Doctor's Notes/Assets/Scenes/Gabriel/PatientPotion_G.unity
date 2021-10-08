@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44721353, g: 0.4971391, b: 0.57517254, a: 1}
+  m_IndirectSpecularColor: {r: 0.44721383, g: 0.4971397, b: 0.57517344, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1199,6 +1199,7 @@ MonoBehaviour:
   speaker: {fileID: 317796461}
   dialogue: {fileID: 1366102327}
   speakerImage: {fileID: 791458657}
+  dialoguePanel: {fileID: 0}
 --- !u!4 &516429598
 Transform:
   m_ObjectHideFlags: 0
@@ -2812,6 +2813,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resultButton: {fileID: 1522195368}
+  patientDB: {fileID: 0}
+  mapDB: {fileID: 0}
 --- !u!54 &1730606929
 Rigidbody:
   m_ObjectHideFlags: 0
