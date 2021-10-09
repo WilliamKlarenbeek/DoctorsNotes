@@ -1,0 +1,112 @@
+[DEBUGGER]
+Assets\Resources\Log.txt
+StreamWriter writer initialized....
+[SYSTEMINFO]
+Device Model: PC
+Device Name: gabriel-MS-7918
+Device Type: Desktop
+Operating System: Linux 5.11 Ubuntu 20.04 64bit
+Processor Count: 4
+Processor Type: Intel(R) Core(TM) i5-4460  CPU @ 3.20GHz
+Supports Audio: True
+Supports 3D Textures: True
+[LINEARTIMER]
+[LEVELSELECTION]
+[LEVELSELECTION]
+[GAMECONTROLLER]
+[DEBUGGER]
+Assets\Resources\Log.txt
+StreamWriter writer initialized....
+[SYSTEMINFO]
+Device Model: PC
+Device Name: gabriel-MS-7918
+Device Type: Desktop
+Operating System: Linux 5.11 Ubuntu 20.04 64bit
+Processor Count: 4
+Processor Type: Intel(R) Core(TM) i5-4460  CPU @ 3.20GHz
+Supports Audio: True
+Supports 3D Textures: True
+[LINEARTIMER]
+[LEVELSELECTION]
+[LEVELSELECTION]
+[GAMECONTROLLER]
+[DEBUGGER]
+Assets\Resources\Log.txt
+StreamWriter writer initialized....
+[SYSTEMINFO]
+Device Model: PC
+Device Name: gabriel-MS-7918
+Device Type: Desktop
+Operating System: Linux 5.11 Ubuntu 20.04 64bit
+Processor Count: 4
+Processor Type: Intel(R) Core(TM) i5-4460  CPU @ 3.20GHz
+Supports Audio: True
+Supports 3D Textures: True
+[LINEARTIMER]
+[LEVELSELECTION]
+[LEVELSELECTION]
+[GAMECONTROLLER]
+[DEBUGGER]
+Assets\Resources\Log.txt
+StreamWriter writer initialized....
+[SYSTEMINFO]
+Device Model: PC
+Device Name: gabriel-MS-7918
+Device Type: Desktop
+Operating System: Linux 5.11 Ubuntu 20.04 64bit
+Processor Count: 4
+Processor Type: Intel(R) Core(TM) i5-4460  CPU @ 3.20GHz
+Supports Audio: True
+Supports 3D Textures: True
+[LINEARTIMER]
+[LEVELSELECTION]
+[LEVELSELECTION]
+[GAMECONTROLLER]
+[DEBUGGER]
+Assets\Resources\Log.txt
+StreamWriter writer initialized....
+[SYSTEMINFO]
+Device Model: PC
+Device Name: gabriel-MS-7918
+Device Type: Desktop
+Operating System: Linux 5.11 Ubuntu 20.04 64bit
+Processor Count: 4
+Processor Type: Intel(R) Core(TM) i5-4460  CPU @ 3.20GHz
+Supports Audio: True
+Supports 3D Textures: True
+[LINEARTIMER]
+[LEVELSELECTION]
+[LEVELSELECTION]
+[GAMECONTROLLER]
+[DEBUGGER]
+Assets\Resources\Log.txt
+StreamWriter writer initialized....
+[SYSTEMINFO]
+Device Model: PC
+Device Name: gabriel-MS-7918
+Device Type: Desktop
+Operating System: Linux 5.11 Ubuntu 20.04 64bit
+Processor Count: 4
+Processor Type: Intel(R) Core(TM) i5-4460  CPU @ 3.20GHz
+Supports Audio: True
+Supports 3D Textures: True
+[LINEARTIMER]
+[LEVELSELECTION]
+[LEVELSELECTION]
+[GAMECONTROLLER]
+[DEBUGGER]
+Assets\Resources\Log.txt
+StreamWriter writer initialized....
+[SYSTEMINFO]
+Device Model: PC
+Device Name: gabriel-MS-7918
+Device Type: Desktop
+Operating System: Linux 5.11 Ubuntu 20.04 64bit
+Processor Count: 4
+Processor Type: Intel(R) Core(TM) i5-4460  CPU @ 3.20GHz
+Supports Audio: True
+Supports 3D Textures: True
+[LINEARTIMER]
+[LEVELSELECTION]
+[LEVELSELECTION]
+[GAMECONTROLLER]
