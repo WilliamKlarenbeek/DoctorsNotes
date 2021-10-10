@@ -75,7 +75,14 @@ public class GenericObject : MonoBehaviour
             prevValidPosition = transform.position;
         }
         transform.position = GetMouseWorldPos() + mOffset;
-        transform.position = new Vector3(transform.position.x, 2.25f, transform.position.z);
+        if(gameObject.GetComponent<Ingredient>())
+        {
+            transform.position = new Vector3(transform.position.x, 2.25f, transform.position.z);
+        }
+        else
+        {
+            transform.position = new Vector3(transform.position.x, 1.25f, transform.position.z);
+        }
 
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
     }
