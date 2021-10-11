@@ -7,6 +7,9 @@ public class IngredientRefined : Ingredient
     public override void Start()
     {
         base.Start();
-        gameObject.GetComponent<Renderer>().material.color = new Color(red * (2 - black), green * (2 - black), blue * (2 - black), 2 - black);
+        if(!(gameObject.name.Contains("Bud")) && (!(gameObject.name.Contains("Holy"))))
+        {
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(red * (2 - black), green * (2 - black), blue * (2 - black), 2 - black);
+        }
     }
 }

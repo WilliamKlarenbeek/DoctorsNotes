@@ -133,7 +133,16 @@ public class Patient : MonoBehaviour
         symptomValues[id][1] = symptomValues[id][1] - blueChange;
         symptomValues[id][2] = symptomValues[id][2] - greenChange;
         symptomValues[id][3] = symptomValues[id][3] + blackChange;
-        symp.GetComponent<Renderer>().material.color = new Color(symptomValues[id][0], symptomValues[id][2], symptomValues[id][1], 1);
+
+        if (symptomValues[id][0] <= 0 || symptomValues[id][1] <= 0 || symptomValues[id][2] <= 0)
+        {
+            symptomValues[id][3] = 0;
+            symp.destroySelf();
+        }
+        else
+        {
+            symp.GetComponent<Renderer>().material.color = new Color(symptomValues[id][0], symptomValues[id][2], symptomValues[id][1], 1);
+        }
         Debug.Log("Red: " + symptomValues[id][0]);
         Debug.Log("Blue: " + symptomValues[id][1]);
         Debug.Log("Green: " + symptomValues[id][2]);
@@ -144,7 +153,7 @@ public class Patient : MonoBehaviour
         for(int x = 0; x < symptomValues.Count; x++)
         {
             blackLevels += symptomValues[x][3];
-            if(symptomValues[x][0] > 0 || symptomValues[x][1] > 0 || symptomValues[x][2] > 0)
+            if (symptomValues[x][0] > 0 || symptomValues[x][1] > 0 || symptomValues[x][2] > 0)
             {
                 cured = false;
             }

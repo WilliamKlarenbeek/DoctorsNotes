@@ -13,7 +13,6 @@ public class Symptom : MonoBehaviour
     void Awake()
     {
         symptomManager = GameObject.Find("Patient").GetComponent<Patient>();
-        symptomManager.recordValues(this, Random.Range(0, 2.5f), Random.Range(0, 2.5f), Random.Range(0, 2.5f), 0);
     }
 
     // Update is called once per frame
@@ -41,6 +40,10 @@ public class Symptom : MonoBehaviour
     public void calculateValues(float min, float max)
     {
         symptomManager.recordValues(this, (Mathf.Round(Random.Range(min, max) * 100f) / 100f), Random.Range(min, max), Random.Range(min, max), 0);
+    }
+    public void destroySelf()
+    {
+        Destroy(gameObject);
     }
 
     public int ID
