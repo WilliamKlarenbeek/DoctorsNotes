@@ -48,7 +48,67 @@ MonoBehaviour:
   speakerName: Master Doctor
   dialogueLine: '"Secondly the Cauldron is what will turn your ingredients into an
     appliable concoction and is essential for using more than one ingredient."'
-  sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
+  sprite: {fileID: 21300000, guid: e447e1137cf3402439f50d36a02ca3b1, type: 3}
+--- !u!114 &-8713311888830656055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a3f811d5aa14d243a14c4c99ae942ad, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -248, y: -632}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -8713311888830656055}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit2
+        node: {fileID: 0}
+        reroutePoints: []
+      - fieldName: exit2
+        node: {fileID: 0}
+        reroutePoints: []
+      - fieldName: exit2
+        node: {fileID: 0}
+        reroutePoints: []
+      - fieldName: exit2
+        node: {fileID: 0}
+        reroutePoints: []
+      - fieldName: exit2
+        node: {fileID: -6353241749389645340}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -8713311888830656055}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -488059777629173894}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  speakerName: Foo B
+  dialogueLine: bar B
+  sprite: {fileID: 0}
 --- !u!114 &-8535296603830849992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,7 +158,7 @@ MonoBehaviour:
   dialogueLine: '"Placing ingredients within cauldrons will cause it to begin cooking,
     succesful potions should be brewed between 15-20 seconds, any shorter or longer
     and it will have the opposite intended effect."'
-  sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
+  sprite: {fileID: 21300000, guid: e447e1137cf3402439f50d36a02ca3b1, type: 3}
 --- !u!114 &-8346433567157486704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,7 +238,7 @@ MonoBehaviour:
   speakerName: Master Doctor
   dialogueLine: '"Each ingredient within the book has unique properties, select one
     that best matches the color of the patients symptom."'
-  sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
+  sprite: {fileID: 21300000, guid: e447e1137cf3402439f50d36a02ca3b1, type: 3}
 --- !u!114 &-7076966099985609702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,10 +262,7 @@ MonoBehaviour:
       _node: {fileID: -7076966099985609702}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: exit
-        node: {fileID: 6260842281396817870}
-        reroutePoints: []
+      connections: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
@@ -227,7 +284,212 @@ MonoBehaviour:
   speakerName: Master Doctor
   dialogueLine: '"The patient has minor plague symptoms on their right arm, if left
     unattended the growth will engulf the body and turn it to rot."'
-  sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
+  sprite: {fileID: 21300000, guid: e447e1137cf3402439f50d36a02ca3b1, type: 3}
+--- !u!114 &-6353241749389645340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Dialogue Response
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueResponseNode
+  graph: {fileID: 11400000}
+  position: {x: -552, y: -792}
+  ports:
+    keys:
+    - entry
+    - exit1
+    - exit2
+    values:
+    - _fieldName: entry
+      _node: {fileID: -6353241749389645340}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: 6260842281396817870}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit1
+      _node: {fileID: -6353241749389645340}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -5552018797198486588}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit2
+      _node: {fileID: -6353241749389645340}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -8713311888830656055}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit1: 0
+  exit2: 0
+  speakerName: FooBar
+  dialogueLineA: Choose A
+  dialogueLineB: Choose B
+  sprite: {fileID: 0}
+--- !u!114 &-5552018797198486588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a3f811d5aa14d243a14c4c99ae942ad, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -251, y: -802.5}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -5552018797198486588}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit1
+        node: {fileID: 0}
+        reroutePoints: []
+      - fieldName: exit1
+        node: {fileID: 0}
+        reroutePoints: []
+      - fieldName: exit1
+        node: {fileID: 0}
+        reroutePoints: []
+      - fieldName: exit1
+        node: {fileID: 0}
+        reroutePoints: []
+      - fieldName: exit1
+        node: {fileID: -6353241749389645340}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -5552018797198486588}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -5382221829584201357}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  speakerName: Foo A
+  dialogueLine: bar A
+  sprite: {fileID: 0}
+--- !u!114 &-5382221829584201357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a3f811d5aa14d243a14c4c99ae942ad, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -8, y: -808}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -5382221829584201357}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -5552018797198486588}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -5382221829584201357}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: Entry
+        node: {fileID: -5096212133867834726}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  speakerName: Foo A
+  dialogueLine: bar A
+  sprite: {fileID: 0}
+--- !u!114 &-5096212133867834726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beb364519f1b3ae49944bfb626ff92e2, type: 3}
+  m_Name: End
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 264, y: -680}
+  ports:
+    keys:
+    - Entry
+    values:
+    - _fieldName: Entry
+      _node: {fileID: -5096212133867834726}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -5382221829584201357}
+        reroutePoints: []
+      - fieldName: exit
+        node: {fileID: -488059777629173894}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Entry: 0
 --- !u!114 &-4795645527894859454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,7 +538,7 @@ MonoBehaviour:
   speakerName: Master Doctor
   dialogueLine: '"As a novice, you only have access to the cauldron and pestle and
     mortar tools. I will teach you now how to effectively use both."'
-  sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
+  sprite: {fileID: 21300000, guid: e447e1137cf3402439f50d36a02ca3b1, type: 3}
 --- !u!114 &-4062653543701434620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,37 +588,6 @@ MonoBehaviour:
   dialogueLine: '"In the brewing process there are many paths you can take to concocting
     the correct remedy. You can also make dire mistakes, killing the patient."'
   sprite: {fileID: 21300000, guid: e447e1137cf3402439f50d36a02ca3b1, type: 3}
---- !u!114 &-3457948571127149258
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: beb364519f1b3ae49944bfb626ff92e2, type: 3}
-  m_Name: End
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: 65.5, y: 569.5}
-  ports:
-    keys:
-    - Entry
-    values:
-    - _fieldName: Entry
-      _node: {fileID: -3457948571127149258}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: exit
-        node: {fileID: 7893458362394153538}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-  Entry: 0
 --- !u!114 &-2922067987535729036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -406,7 +637,55 @@ MonoBehaviour:
   dialogueLine: '"Simply place the desired ingredient within the pestle and mortar
     and crush the ingredient repeatedly, this will return a refined version." (Rotate
     your mouse around until completion)'
-  sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
+  sprite: {fileID: 21300000, guid: e447e1137cf3402439f50d36a02ca3b1, type: 3}
+--- !u!114 &-488059777629173894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a3f811d5aa14d243a14c4c99ae942ad, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -8, y: -632}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -488059777629173894}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -8713311888830656055}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -488059777629173894}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: Entry
+        node: {fileID: -5096212133867834726}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  speakerName: Foo B
+  dialogueLine: bar B
+  sprite: {fileID: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -437,7 +716,13 @@ MonoBehaviour:
   - {fileID: 3251223059423091294}
   - {fileID: 2068199706885415168}
   - {fileID: 7893458362394153538}
-  - {fileID: -3457948571127149258}
+  - {fileID: 4824040428946624195}
+  - {fileID: -5552018797198486588}
+  - {fileID: -8713311888830656055}
+  - {fileID: -5382221829584201357}
+  - {fileID: -488059777629173894}
+  - {fileID: -5096212133867834726}
+  - {fileID: -6353241749389645340}
   current: {fileID: 6260842281396817870}
 --- !u!114 &2068199706885415168
 MonoBehaviour:
@@ -487,7 +772,7 @@ MonoBehaviour:
   speakerName: Master Doctor
   dialogueLine: '"Remember a cauldron can have many ingredients placed within it
     while brewing, mixing ingredients is essential in curing harder symptoms."'
-  sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
+  sprite: {fileID: 21300000, guid: e447e1137cf3402439f50d36a02ca3b1, type: 3}
 --- !u!114 &3251223059423091294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -536,7 +821,7 @@ MonoBehaviour:
   speakerName: Master Doctor
   dialogueLine: '"To retrieve your concotion from the cauldron use a bottle. (Drag
     a potion bottle over the cauldron)."'
-  sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
+  sprite: {fileID: 21300000, guid: e447e1137cf3402439f50d36a02ca3b1, type: 3}
 --- !u!114 &4086192916431549361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -585,7 +870,7 @@ MonoBehaviour:
   speakerName: Master Doctor
   dialogueLine: '"Firstly the Pestle and Mortar will refine ingredients making them
     far more potent and removing any dangerous components."'
-  sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
+  sprite: {fileID: 21300000, guid: e447e1137cf3402439f50d36a02ca3b1, type: 3}
 --- !u!114 &4588762321666322669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -634,7 +919,38 @@ MonoBehaviour:
   speakerName: Master Doctor
   dialogueLine: '"Now place it on the brewing table so we can begin to create the
     remedy." (Drag ingredient icons from the book onto the table to begin using them.) '
-  sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
+  sprite: {fileID: 21300000, guid: e447e1137cf3402439f50d36a02ca3b1, type: 3}
+--- !u!114 &4824040428946624195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beb364519f1b3ae49944bfb626ff92e2, type: 3}
+  m_Name: End
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 88, y: 488}
+  ports:
+    keys:
+    - Entry
+    values:
+    - _fieldName: Entry
+      _node: {fileID: 4824040428946624195}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: 7893458362394153538}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Entry: 0
 --- !u!114 &5110743761066065780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -683,7 +999,7 @@ MonoBehaviour:
   speakerName: Master Doctor
   dialogueLine: '"The first step is to look closely at the symptom, the color of
     which will reveal the remedy you will need to create."'
-  sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
+  sprite: {fileID: 21300000, guid: e447e1137cf3402439f50d36a02ca3b1, type: 3}
 --- !u!114 &6260842281396817870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -721,7 +1037,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: -7076966099985609702}
+        node: {fileID: -6353241749389645340}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -731,8 +1047,8 @@ MonoBehaviour:
   exit: 0
   speakerName: Master Doctor
   dialogueLine: '"Today my pupil is the first day of medicinal training you shall
-    receive." (Press ''Space'' to progress dialogue).'
-  sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
+    receive." (Space).'
+  sprite: {fileID: 21300000, guid: e447e1137cf3402439f50d36a02ca3b1, type: 3}
 --- !u!114 &7774392122276222463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -781,7 +1097,7 @@ MonoBehaviour:
   speakerName: Master Doctor
   dialogueLine: '"We must create a remedy in order to treat it. It is imperative
     to utilize the correct herbs to concoct an acceptable medicinal brew."'
-  sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
+  sprite: {fileID: 21300000, guid: e447e1137cf3402439f50d36a02ca3b1, type: 3}
 --- !u!114 &7893458362394153538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -819,7 +1135,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: Entry
-        node: {fileID: -3457948571127149258}
+        node: {fileID: 4824040428946624195}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -831,7 +1147,7 @@ MonoBehaviour:
   dialogueLine: '"Once you believe you have made an acceptable cure, apply the finished
     potion to the patients symptom. Assuming you don''t kill them another attempt
     can be made."'
-  sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
+  sprite: {fileID: 21300000, guid: e447e1137cf3402439f50d36a02ca3b1, type: 3}
 --- !u!114 &7894754343535808691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -880,4 +1196,4 @@ MonoBehaviour:
   speakerName: Master Doctor
   dialogueLine: ' "Now to select the appropriate ingredients from your notes."(To
     open your Doctors Notes, select the button in the top left.)'
-  sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
+  sprite: {fileID: 21300000, guid: e447e1137cf3402439f50d36a02ca3b1, type: 3}
