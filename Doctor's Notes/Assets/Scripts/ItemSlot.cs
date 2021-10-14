@@ -38,7 +38,7 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
 
     void Start()
     {
-        origin = new Vector2(Book.gameObject.GetComponent<RectTransform>().position.x + 300, Book.gameObject.GetComponent<RectTransform>().position.y + 240);
+        origin = new Vector2(Book.gameObject.GetComponent<RectTransform>().position.x + 180, Book.gameObject.GetComponent<RectTransform>().position.y + 180);
         transform.position = origin;
         if (Controller == null)
         {
@@ -57,7 +57,7 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
     // Update is called once per frame
     void Update()
     {
-        origin = new Vector2(Book.gameObject.GetComponent<RectTransform>().position.x + 300, Book.gameObject.GetComponent<RectTransform>().position.y + 240);
+        origin = new Vector2(Book.gameObject.GetComponent<RectTransform>().position.x + 180, Book.gameObject.GetComponent<RectTransform>().position.y + 180);
         AdjustQuantityText();
     }
 

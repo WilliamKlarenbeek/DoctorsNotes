@@ -39,13 +39,13 @@ public class BookButton : GenericButton
             {
                 sndManager.PlaySound(Audio);
                 bookOpen = true;
-                Debugger.debuggerInstance.WriteToFile("bookOpen" + bookOpen); 
+                //Debugger.debuggerInstance.WriteToFile("bookOpen" + bookOpen); 
             } 
             else
             {
                 sndManager.PlaySound(altClick);
                 bookOpen = false;
-                Debugger.debuggerInstance.WriteToFile("bookOpen" + bookOpen);
+                //Debugger.debuggerInstance.WriteToFile("bookOpen" + bookOpen);
             }
         }
         else
