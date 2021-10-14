@@ -9,11 +9,14 @@ public class Potion : GenericObject
     public float green;
     public float black;
     List<Ingredient> ingredients = new List<Ingredient>();
-
+    
     public override void Start()
     {
         base.Start();
         gameObject.GetComponent<Renderer>().material.color = new Color(red * (2 - black), green * (2 - black), blue * (2 - black), 1);
+        // Color potionColor = new Color(red * (2 - black), green * (2 - black), blue * (2 - black), 1);
+        // gameObject.GetComponent<Renderer>().material.SetColor("_BaseColour", potionColor);
+        
     }
 
     private void OnTriggerStay(Collider collision)
