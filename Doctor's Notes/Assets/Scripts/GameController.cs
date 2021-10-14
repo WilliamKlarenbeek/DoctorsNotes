@@ -84,6 +84,11 @@ public class GameController : MonoBehaviour
         blackCanvas.SetActive(false);
     }
 
+    public MapSelection GetMapDatabase()
+    {
+        return mapSelectionDB;
+    }
+
     void OnApplicationQuit()
     {
         mapSelectionDB.SetGameBeginFlag(true);

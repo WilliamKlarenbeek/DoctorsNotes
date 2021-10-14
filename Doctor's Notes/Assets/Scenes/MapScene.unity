@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &206623590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1164,6 +1164,7 @@ GameObject:
   - component: {fileID: 1002592043}
   - component: {fileID: 1002592042}
   - component: {fileID: 1002592041}
+  - component: {fileID: 1002592044}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1285,6 +1286,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1002592039}
   m_CullTransparentMesh: 1
+--- !u!114 &1002592044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002592039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fae103a4b481834e8aa3baf65010f20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Audio: {fileID: 8300000, guid: a537e1bf8ee133c43bb7f692133f30b5, type: 3}
+  Controller: {fileID: 0}
 --- !u!1 &1078388684
 GameObject:
   m_ObjectHideFlags: 0
@@ -2564,6 +2579,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3625949855571540500, guid: 969b064ddbc7e1844a1c2d4723bd43f0, type: 3}
+      propertyPath: genericLockImage
+      value: 
+      objectReference: {fileID: -3612360273905304128, guid: f983d856f74a9aa46918e1ebe31f80d2, type: 3}
     - target: {fileID: 3625949855571540501, guid: 969b064ddbc7e1844a1c2d4723bd43f0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: PressSelection

@@ -346,6 +346,7 @@ public class BookScript : MonoBehaviour
         float posYOrigin = -150f;
         float posYCurrent = posYOrigin;
         float posYDest = 220;
+        Debug.Log("Opening");
 
         while(frame < aDuration)
         {
@@ -370,9 +371,10 @@ public class BookScript : MonoBehaviour
             i.interactable = false;
         }
         float frame = 0f;
-        float posYOrigin = -150f;
+        float posYOrigin = 220f;
         float posYCurrent = posYOrigin;
-        float posYDest = 220;
+        float posYDest = -150;
+        Debug.Log("Closing");
 
         while (frame < aDuration)
         {
