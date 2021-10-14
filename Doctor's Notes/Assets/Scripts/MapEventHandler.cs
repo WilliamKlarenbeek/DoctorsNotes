@@ -15,10 +15,20 @@ public class MapEventHandler : MonoBehaviour
     private Text eventNameText;
     private Text eventDescText;
     private Text eventResultText;
+    private GameController Controller;
+    private bool endState = false;
+    private int endingNumber = -1;
 
     // Start is called before the first frame update
     void Start()
     {
+        Controller = GameObject.Find("Controller").GetComponent<GameController>();
+        if(mapSelectionDB.EndStateCheck() != -1)
+        {
+            endState = true;
+            endingNumber = mapSelectionDB.EndStateCheck();
+        }
+
         UpdateEventList();
 
         if(eventBox != null)
@@ -34,7 +44,11 @@ public class MapEventHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Controller.isTransitioning() == false && endState == true)
+        {
+            EndingEvent();
+            endState = false;
+        }
     }
 
     public void RandomEvent()
@@ -126,17 +140,19 @@ public class MapEventHandler : MonoBehaviour
         eventNameText.text = aEvent.eventName;
         eventDescText.text = aEvent.eventDesc;
         eventResultText.text = aOutcome;
-
-        Debug.Log("Success?");
     }
 
     public void CloseEvent()
     {
         int randIndex = Mathf.RoundToInt(Random.Range(0, patientScenes.Count));
-        Debug.Log("Index: " + randIndex);
 
-        StartCoroutine(SceneController.LoadScene(patientScenes[randIndex],2f));
-
+        if(endingNumber == -1)
+        {
+            StartCoroutine(SceneController.LoadScene(patientScenes[randIndex], 2f));
+        } else
+        {
+            StartCoroutine(SceneController.LoadScene("Ending" + endingNumber, 2f));
+        }
         eventBox.SetActive(false);
     }
 
@@ -150,5 +166,47 @@ public class MapEventHandler : MonoBehaviour
                 eventList.Add(i);
             }
         }
+    }
+
+    //0 - Out of Time Ending
+    //1 - Most People Dead Ending
+    //2 - Most People Saved Ending
+    public void EndingEvent()
+    {
+        Debug.Log("End State Reached");
+
+        string endingName = "";
+        string endingDesc = "";
+        string endingOutcome = "";
+
+        eventBox.SetActive(true);
+
+        switch (endingNumber)
+        {
+            case 0:
+                endingName = "Game Over!";
+                endingDesc = "The plague has consumed the entire country. Seems you were too late in preventing its total eradication...";
+                endingOutcome = "Bad Ending";
+                break;
+            case 1:
+                endingName = "Most Towns Saved!";
+                endingDesc = "Most of the towns of the country have been saved from the spread of this deadly plague!";
+                endingOutcome = "Ending 1";
+                break;
+            case 2:
+                endingName = "Most Towns Dead!";
+                endingDesc = "Most of the towns of the country that have been infected, have unfortunately died out...";
+                endingOutcome = "Ending 2";
+                break;
+            default:
+                endingName = "Game Over!";
+                endingDesc = "The plague has consumed the entire country. Seems you were too late in preventing its total eradication...";
+                endingOutcome = "Bad Ending";
+                break;
+        }
+
+        eventNameText.text = endingName;
+        eventDescText.text = endingDesc;
+        eventResultText.text = endingOutcome;
     }
 }

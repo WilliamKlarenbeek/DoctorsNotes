@@ -27,6 +27,23 @@ public class MapSelection : ScriptableObject
     public int currentDay = 1;
     public int maxDay = 30;
 
+    public int EndStateCheck()
+    {
+        if(lockedLocations.Count >= MAXIMUM_LOCKED_LOCATIONS)
+        {
+            if(healedLocations.Count >= deadLocations.Count)
+            {
+                return 1;
+            } else
+            {
+                return 2;
+            }
+        } else
+        {
+            return -1;
+        }
+    }
+
     public void SetCurrentLocation(Vector2 aCoords)
     {
         currentCoords = aCoords;

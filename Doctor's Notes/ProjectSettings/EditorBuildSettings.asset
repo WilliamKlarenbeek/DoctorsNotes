@@ -14,4 +14,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PatientPotion.unity
     guid: 666713e9acd96aa44a2e90f007d2586c
+  - enabled: 1
+    path: Assets/Scenes/Ending0.unity
+    guid: abc1a1f61301e4d4f9f42abd4f42d314
+  - enabled: 1
+    path: Assets/Scenes/Ending1.unity
+    guid: fd58a7b94981eb64ab8aed91984a58bd
+  - enabled: 1
+    path: Assets/Scenes/Ending2.unity
+    guid: c3fe5c1937913164bba8734ada5392d4
   m_configObjects: {}
