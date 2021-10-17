@@ -6,7 +6,15 @@ using TMPro;
 
 public class Patient : MonoBehaviour
 {
-    [SerializeField] Button resultButton;
+    enum DebugMode
+    {
+        None,
+        AutoWin,
+        AutoLose
+    }
+
+    //[SerializeField] Button resultButton;
+    [SerializeField] PatientSceneHandler patientSceneController;
     public PatientDatabase patientDB;
 
     private Color symptomColour;
@@ -27,10 +35,22 @@ public class Patient : MonoBehaviour
 
     private List<float> tempList = new List<float>();
 
+    //For Debugging Purposes. Auto-Win
+    [SerializeField] DebugMode debugMode = DebugMode.None;
+
     [SerializeField] private MapSelection mapDB;
 
     void Start()
     {
+        if (patientSceneController == null)
+        {
+            patientSceneController = GameObject.Find("Controller").GetComponent<PatientSceneHandler>();
+        }
+        if (mapDB == null && patientSceneController != null)
+        {
+            mapDB = patientSceneController.gameObject.GetComponent<GameController>().GetMapDatabase();
+        }
+
         gameObject.GetComponent<SpriteRenderer>().sprite = patientDB.getRandomImage();
 
         rgbMin = 0.1f;
@@ -134,7 +154,25 @@ public class Patient : MonoBehaviour
         symptomValues[id][2] = symptomValues[id][2] - greenChange;
         symptomValues[id][3] = symptomValues[id][3] + blackChange;
 
-        if (symptomValues[id][0] <= 0 || symptomValues[id][1] <= 0 || symptomValues[id][2] <= 0)
+        switch (debugMode)
+        {
+            case DebugMode.AutoWin:
+                symptomValues[id][0] = 0;
+                symptomValues[id][1] = 0;
+                symptomValues[id][2] = 0;
+                symptomValues[id][3] = 0;
+                break;
+            case DebugMode.AutoLose:
+                symptomValues[id][0] = 1;
+                symptomValues[id][1] = 1;
+                symptomValues[id][2] = 1;
+                symptomValues[id][3] = 2;
+                break;
+            default:
+                break;
+        }
+
+        if (symptomValues[id][0] <= 0 && symptomValues[id][1] <= 0 && symptomValues[id][2] <= 0)
         {
             symptomValues[id][3] = 0;
             symp.destroySelf();
@@ -155,6 +193,7 @@ public class Patient : MonoBehaviour
             blackLevels += symptomValues[x][3];
             if (symptomValues[x][0] > 0 || symptomValues[x][1] > 0 || symptomValues[x][2] > 0)
             {
+                Debug.Log("Not Yet Cured.");
                 cured = false;
             }
         }
@@ -162,15 +201,19 @@ public class Patient : MonoBehaviour
         if (blackLevels >= 2)
         {
             Debug.Log("Dead");
-            resultButton.gameObject.SetActive(true);
-            resultButton.gameObject.GetComponentInChildren<Text>().text = "Patient has Died";
+            mapDB.SetWinFlag(false);
+            patientSceneController.PrintEvent(false, 0);
+            //resultButton.gameObject.SetActive(true);
+            //resultButton.gameObject.GetComponentInChildren<Text>().text = "Patient has Died";
         }
         else if (cured == true)
         {
             Debug.Log("Cured");
+            mapDB.SetWinFlag(true);
             PlayerPrefs.SetInt("money", (PlayerPrefs.GetInt("money") + 50));
-            resultButton.gameObject.SetActive(true);
-            resultButton.gameObject.GetComponentInChildren<Text>().text = "Patient has been Cured";
+            patientSceneController.PrintEvent(cured, 50);
+            //resultButton.gameObject.SetActive(true);
+            //resultButton.gameObject.GetComponentInChildren<Text>().text = "Patient has been Cured";
         }
     }
 }

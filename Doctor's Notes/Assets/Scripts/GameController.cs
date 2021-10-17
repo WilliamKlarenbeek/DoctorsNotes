@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour
     private SoundManager sndManager;
     private GameObject blackCanvas;
     [SerializeField] private MapSelection mapSelectionDB;
+    private bool transitioning = false;
 
     void Start()
     {
@@ -54,6 +55,7 @@ public class GameController : MonoBehaviour
         Color c = blackScreen.color;
         c.a = 0;
         blackScreen.color = c;
+        transitioning = true;
 
         while (frame < aDuration)
         {
@@ -63,6 +65,7 @@ public class GameController : MonoBehaviour
             frame += Time.deltaTime;
             yield return null;
         }
+        transitioning = false;
     }
 
     IEnumerator FadeIn(float aDuration)
@@ -72,6 +75,7 @@ public class GameController : MonoBehaviour
         Color c = blackScreen.color;
         c.a = 1;
         blackScreen.color = c;
+        transitioning = true;
 
         while (frame < aDuration)
         {
@@ -81,11 +85,22 @@ public class GameController : MonoBehaviour
             frame += Time.deltaTime;
             yield return null;
         }
+        transitioning = false;
         blackCanvas.SetActive(false);
+    }
+
+    public MapSelection GetMapDatabase()
+    {
+        return mapSelectionDB;
     }
 
     void OnApplicationQuit()
     {
         mapSelectionDB.SetGameBeginFlag(true);
+    }
+
+    public bool isTransitioning()
+    {
+        return transitioning;
     }
 }

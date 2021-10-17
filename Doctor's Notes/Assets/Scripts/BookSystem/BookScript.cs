@@ -243,24 +243,6 @@ public class BookScript : MonoBehaviour
         ViewPage(currentPage);
     }
 
-    /*void UnloadDatabaseOld()
-    {
-        Book = new List<List<InventoryItem>>();
-
-        foreach (List<InventoryItem> i in inventoryDB.GetInventoryList())
-        {
-            bookItems = new List<InventoryItem>();
-            foreach (InventoryItem j in i)
-            {
-                InventoryItem newItem = new InventoryItem(j.prefabPath);
-                newItem.itemQuantity = j.itemQuantity;
-
-                bookItems.Add(newItem);
-            }
-            Book.Add(bookItems);
-        }
-    }*/
-
     void UnloadDatabase()
     {
         Book = new List<List<InventoryItem>>();
@@ -323,15 +305,6 @@ public class BookScript : MonoBehaviour
         oldBook = Book;
         int index = 0;
 
-        /*foreach (List<InventoryItem> i in oldBook)
-        {
-            SortedList = new List<InventoryItem>();
-            SortedList = i.OrderBy(o=>o.itemName).ToList();
-            Book[index] = SortedList;
-
-            index++;
-        }*/
-
         while(index < oldBook.Count)
         {
             SortedList = new List<InventoryItem>();
@@ -370,18 +343,19 @@ public class BookScript : MonoBehaviour
             i.interactable = false;
         }
         float frame = 0f;
-        float posYOrigin = -1080f;
+        float posYOrigin = -150f;
         float posYCurrent = posYOrigin;
-        float posYDest = -75;
+        float posYDest = 220;
+        Debug.Log("Opening");
 
         while(frame < aDuration)
         {
             posYCurrent = Mathf.Lerp(posYOrigin, posYDest, frame / aDuration);
-            GetComponent<RectTransform>().anchoredPosition = new Vector2(-222, posYCurrent);
+            GetComponent<RectTransform>().anchoredPosition = new Vector2(-220, posYCurrent);
             frame+= Time.deltaTime;
             yield return null;
         }
-        GetComponent<RectTransform>().anchoredPosition = new Vector2(-222, posYDest);
+        GetComponent<RectTransform>().anchoredPosition = new Vector2(-220, posYDest);
         foreach (Button i in buttons)
         {
             i.interactable = true;
@@ -397,19 +371,20 @@ public class BookScript : MonoBehaviour
             i.interactable = false;
         }
         float frame = 0f;
-        float posYOrigin = -75f;
+        float posYOrigin = 220f;
         float posYCurrent = posYOrigin;
-        float posYDest = -1080;
+        float posYDest = -150;
+        Debug.Log("Closing");
 
         while (frame < aDuration)
         {
             posYCurrent = Mathf.Lerp(posYOrigin, posYDest, frame / aDuration);
-            GetComponent<RectTransform>().anchoredPosition = new Vector2(-222, posYCurrent);
+            GetComponent<RectTransform>().anchoredPosition = new Vector2(-220, posYCurrent);
 
             frame += Time.deltaTime;
             yield return null;
         }
-        GetComponent<RectTransform>().anchoredPosition = new Vector2(-222, posYDest);
+        GetComponent<RectTransform>().anchoredPosition = new Vector2(-220, posYDest);
         foreach (Button i in buttons)
         {
             i.interactable = true;

@@ -1149,3 +1149,300 @@ Supports 3D Textures: True
 Level selected, loading scene: 2
 [GAMECONTROLLER]
 [BOOKBUTTON]
+[DEBUGGER]
+Assets\Resources\Log.txt
+StreamWriter writer initialized....
+[SYSTEMINFO]
+Device Model: MS-7B44 (Micro-Star International Co., Ltd.)
+Device Name: DESKTOP-EVA61MS
+Device Type: Desktop
+Operating System: Windows 10  (10.0.19042) 64bit
+Processor Count: 12
+Processor Type: Intel(R) Core(TM) i7-8700 CPU @ 3.20GHz
+Supports Audio: True
+Supports 3D Textures: True
+[LINEARTIMER]
+[LEVELSELECTION]
+[LEVELSELECTION]
+Level selected, loading scene: 2
+[DEBUGGER]
+Assets\Resources\Log.txt
+StreamWriter writer initialized....
+[SYSTEMINFO]
+Device Model: MS-7B44 (Micro-Star International Co., Ltd.)
+Device Name: DESKTOP-EVA61MS
+Device Type: Desktop
+Operating System: Windows 10  (10.0.19042) 64bit
+Processor Count: 12
+Processor Type: Intel(R) Core(TM) i7-8700 CPU @ 3.20GHz
+Supports Audio: True
+Supports 3D Textures: True
+[LINEARTIMER]
+[LEVELSELECTION]
+[LEVELSELECTION]
+Level selected, loading scene: 2
+[DEBUGGER]
+Assets\Resources\Log.txt
+StreamWriter writer initialized....
+[SYSTEMINFO]
+Device Model: MS-7B44 (Micro-Star International Co., Ltd.)
+Device Name: DESKTOP-EVA61MS
+Device Type: Desktop
+Operating System: Windows 10  (10.0.19042) 64bit
+Processor Count: 12
+Processor Type: Intel(R) Core(TM) i7-8700 CPU @ 3.20GHz
+Supports Audio: True
+Supports 3D Textures: True
+[LINEARTIMER]
+[LEVELSELECTION]
+[LEVELSELECTION]
+Level selected, loading scene: 2
+[DEBUGGER]
+Assets\Resources\Log.txt
+StreamWriter writer initialized....
+[SYSTEMINFO]
+Device Model: MS-7B44 (Micro-Star International Co., Ltd.)
+Device Name: DESKTOP-EVA61MS
+Device Type: Desktop
+Operating System: Windows 10  (10.0.19042) 64bit
+Processor Count: 12
+Processor Type: Intel(R) Core(TM) i7-8700 CPU @ 3.20GHz
+Supports Audio: True
+Supports 3D Textures: True
+[LEVELSELECTION]
+[LEVELSELECTION]
+[LINEARTIMER]
+Level selected, loading scene: 2
+[DEBUGGER]
+Assets\Resources\Log.txt
+StreamWriter writer initialized....
+[SYSTEMINFO]
+Device Model: MS-7B44 (Micro-Star International Co., Ltd.)
+Device Name: DESKTOP-EVA61MS
+Device Type: Desktop
+Operating System: Windows 10  (10.0.19042) 64bit
+Processor Count: 12
+Processor Type: Intel(R) Core(TM) i7-8700 CPU @ 3.20GHz
+Supports Audio: True
+Supports 3D Textures: True
+[LEVELSELECTION]
+[LEVELSELECTION]
+[LINEARTIMER]
+[DEBUGGER]
+Assets\Resources\Log.txt
+StreamWriter writer initialized....
+[SYSTEMINFO]
+Device Model: MS-7B44 (Micro-Star International Co., Ltd.)
+Device Name: DESKTOP-EVA61MS
+Device Type: Desktop
+Operating System: Windows 10  (10.0.19042) 64bit
+Processor Count: 12
+Processor Type: Intel(R) Core(TM) i7-8700 CPU @ 3.20GHz
+Supports Audio: True
+Supports 3D Textures: True
+[LINEARTIMER]
+[LEVELSELECTION]
+[LEVELSELECTION]
+[DEBUGGER]
+Assets\Resources\Log.txt
+StreamWriter writer initialized....
+[SYSTEMINFO]
+Device Model: MS-7B44 (Micro-Star International Co., Ltd.)
+Device Name: DESKTOP-EVA61MS
+Device Type: Desktop
+Operating System: Windows 10  (10.0.19042) 64bit
+Processor Count: 12
+Processor Type: Intel(R) Core(TM) i7-8700 CPU @ 3.20GHz
+Supports Audio: True
+Supports 3D Textures: True
+[LINEARTIMER]
+[LEVELSELECTION]
+[LEVELSELECTION]
+Level selected, loading scene: 2
+[DEBUGGER]
+Assets\Resources\Log.txt
+StreamWriter writer initialized....
+[SYSTEMINFO]
+Device Model: MS-7B44 (Micro-Star International Co., Ltd.)
+Device Name: DESKTOP-EVA61MS
+Device Type: Desktop
+Operating System: Windows 10  (10.0.19042) 64bit
+Processor Count: 12
+Processor Type: Intel(R) Core(TM) i7-8700 CPU @ 3.20GHz
+Supports Audio: True
+Supports 3D Textures: True
+[LEVELSELECTION]
+[LEVELSELECTION]
+[LINEARTIMER]
+Level selected, loading scene: 2
+[DEBUGGER]
+Assets\Resources\Log.txt
+StreamWriter writer initialized....
+[SYSTEMINFO]
+Device Model: MS-7B44 (Micro-Star International Co., Ltd.)
+Device Name: DESKTOP-EVA61MS
+Device Type: Desktop
+Operating System: Windows 10  (10.0.19042) 64bit
+Processor Count: 12
+Processor Type: Intel(R) Core(TM) i7-8700 CPU @ 3.20GHz
+Supports Audio: True
+Supports 3D Textures: True
+[LINEARTIMER]
+[LEVELSELECTION]
+[LEVELSELECTION]
+[DEBUGGER]
+Assets\Resources\Log.txt
+StreamWriter writer initialized....
+[SYSTEMINFO]
+Device Model: MS-7B44 (Micro-Star International Co., Ltd.)
+Device Name: DESKTOP-EVA61MS
+Device Type: Desktop
+Operating System: Windows 10  (10.0.19042) 64bit
+Processor Count: 12
+Processor Type: Intel(R) Core(TM) i7-8700 CPU @ 3.20GHz
+Supports Audio: True
+Supports 3D Textures: True
+[LINEARTIMER]
+[LEVELSELECTION]
+[LEVELSELECTION]
+Level selected, loading scene: 2
+[DEBUGGER]
+Assets\Resources\Log.txt
+StreamWriter writer initialized....
+[SYSTEMINFO]
+Device Model: MS-7B44 (Micro-Star International Co., Ltd.)
+Device Name: DESKTOP-EVA61MS
+Device Type: Desktop
+Operating System: Windows 10  (10.0.19042) 64bit
+Processor Count: 12
+Processor Type: Intel(R) Core(TM) i7-8700 CPU @ 3.20GHz
+Supports Audio: True
+Supports 3D Textures: True
+[LEVELSELECTION]
+[LEVELSELECTION]
+[LINEARTIMER]
+Level selected, loading scene: 2
+[DEBUGGER]
+Assets\Resources\Log.txt
+StreamWriter writer initialized....
+[SYSTEMINFO]
+Device Model: MS-7B44 (Micro-Star International Co., Ltd.)
+Device Name: DESKTOP-EVA61MS
+Device Type: Desktop
+Operating System: Windows 10  (10.0.19042) 64bit
+Processor Count: 12
+Processor Type: Intel(R) Core(TM) i7-8700 CPU @ 3.20GHz
+Supports Audio: True
+Supports 3D Textures: True
+[LINEARTIMER]
+[LEVELSELECTION]
+[LEVELSELECTION]
+Level selected, loading scene: 2
+[DEBUGGER]
+Assets\Resources\Log.txt
+StreamWriter writer initialized....
+[SYSTEMINFO]
+Device Model: MS-7B44 (Micro-Star International Co., Ltd.)
+Device Name: DESKTOP-EVA61MS
+Device Type: Desktop
+Operating System: Windows 10  (10.0.19042) 64bit
+Processor Count: 12
+Processor Type: Intel(R) Core(TM) i7-8700 CPU @ 3.20GHz
+Supports Audio: True
+Supports 3D Textures: True
+[LEVELSELECTION]
+[LEVELSELECTION]
+[LINEARTIMER]
+Level selected, loading scene: 2
+[DEBUGGER]
+Assets\Resources\Log.txt
+StreamWriter writer initialized....
+[SYSTEMINFO]
+Device Model: MS-7B44 (Micro-Star International Co., Ltd.)
+Device Name: DESKTOP-EVA61MS
+Device Type: Desktop
+Operating System: Windows 10  (10.0.19042) 64bit
+Processor Count: 12
+Processor Type: Intel(R) Core(TM) i7-8700 CPU @ 3.20GHz
+Supports Audio: True
+Supports 3D Textures: True
+[LEVELSELECTION]
+[LEVELSELECTION]
+[LINEARTIMER]
+[DEBUGGER]
+Assets\Resources\Log.txt
+StreamWriter writer initialized....
+[SYSTEMINFO]
+Device Model: MS-7B44 (Micro-Star International Co., Ltd.)
+Device Name: DESKTOP-EVA61MS
+Device Type: Desktop
+Operating System: Windows 10  (10.0.19042) 64bit
+Processor Count: 12
+Processor Type: Intel(R) Core(TM) i7-8700 CPU @ 3.20GHz
+Supports Audio: True
+Supports 3D Textures: True
+[LINEARTIMER]
+[LEVELSELECTION]
+[LEVELSELECTION]
+[DEBUGGER]
+Assets\Resources\Log.txt
+StreamWriter writer initialized....
+[SYSTEMINFO]
+Device Model: MS-7B44 (Micro-Star International Co., Ltd.)
+Device Name: DESKTOP-EVA61MS
+Device Type: Desktop
+Operating System: Windows 10  (10.0.19042) 64bit
+Processor Count: 12
+Processor Type: Intel(R) Core(TM) i7-8700 CPU @ 3.20GHz
+Supports Audio: True
+Supports 3D Textures: True
+[LINEARTIMER]
+[LEVELSELECTION]
+[LEVELSELECTION]
+[DEBUGGER]
+Assets\Resources\Log.txt
+StreamWriter writer initialized....
+[SYSTEMINFO]
+Device Model: MS-7B44 (Micro-Star International Co., Ltd.)
+Device Name: DESKTOP-EVA61MS
+Device Type: Desktop
+Operating System: Windows 10  (10.0.19042) 64bit
+Processor Count: 12
+Processor Type: Intel(R) Core(TM) i7-8700 CPU @ 3.20GHz
+Supports Audio: True
+Supports 3D Textures: True
+[LINEARTIMER]
+[LEVELSELECTION]
+[LEVELSELECTION]
+Level selected, loading scene: 2
+[DEBUGGER]
+Assets\Resources\Log.txt
+StreamWriter writer initialized....
+[SYSTEMINFO]
+Device Model: MS-7B44 (Micro-Star International Co., Ltd.)
+Device Name: DESKTOP-EVA61MS
+Device Type: Desktop
+Operating System: Windows 10  (10.0.19042) 64bit
+Processor Count: 12
+Processor Type: Intel(R) Core(TM) i7-8700 CPU @ 3.20GHz
+Supports Audio: True
+Supports 3D Textures: True
+[LEVELSELECTION]
+[LINEARTIMER]
+[LEVELSELECTION]
+Level selected, loading scene: 2
+[DEBUGGER]
+Assets\Resources\Log.txt
+StreamWriter writer initialized....
+[SYSTEMINFO]
+Device Model: MS-7B44 (Micro-Star International Co., Ltd.)
+Device Name: DESKTOP-EVA61MS
+Device Type: Desktop
+Operating System: Windows 10  (10.0.19042) 64bit
+Processor Count: 12
+Processor Type: Intel(R) Core(TM) i7-8700 CPU @ 3.20GHz
+Supports Audio: True
+Supports 3D Textures: True
+[LEVELSELECTION]
+[LINEARTIMER]
+[LEVELSELECTION]

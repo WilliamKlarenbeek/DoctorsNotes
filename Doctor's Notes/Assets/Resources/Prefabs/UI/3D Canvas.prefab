@@ -144,6 +144,7 @@ GameObject:
   - component: {fileID: 3625949854716913923}
   - component: {fileID: 3625949854716913922}
   - component: {fileID: 3625949854716913921}
+  - component: {fileID: 1636975422189466382}
   m_Layer: 5
   m_Name: 1
   m_TagString: Untagged
@@ -279,7 +280,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unlocked: 1
-  unlockImage: {fileID: 3625949855897955878}
+  lockObject: {fileID: 3625949855897955876}
+  genericLockImage: {fileID: -3612360273905304128, guid: f983d856f74a9aa46918e1ebe31f80d2, type: 3}
+  winLockImage: {fileID: 21300000, guid: d3da9a1c4ef199e4681726feae3a609e, type: 3}
+  loseLockImage: {fileID: 21300000, guid: 2ad3b12dba0d3d542bd5b053782e6fd3, type: 3}
+--- !u!114 &1636975422189466382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3625949854716913951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fae103a4b481834e8aa3baf65010f20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Audio: {fileID: 8300000, guid: a537e1bf8ee133c43bb7f692133f30b5, type: 3}
+  Controller: {fileID: 0}
 --- !u!1 &3625949854755392717
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,7 +310,7 @@ GameObject:
   - component: {fileID: 3625949854755392752}
   - component: {fileID: 3625949854755392719}
   m_Layer: 0
-  m_Name: Lock Image
+  m_Name: Lock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -761,7 +779,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unlocked: 1
-  unlockImage: {fileID: 3625949854755392719}
+  lockObject: {fileID: 3625949854755392717}
+  genericLockImage: {fileID: -3612360273905304128, guid: f983d856f74a9aa46918e1ebe31f80d2, type: 3}
+  winLockImage: {fileID: 21300000, guid: d3da9a1c4ef199e4681726feae3a609e, type: 3}
+  loseLockImage: {fileID: 21300000, guid: 2ad3b12dba0d3d542bd5b053782e6fd3, type: 3}
 --- !u!114 &3625949855571540505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -969,7 +990,7 @@ GameObject:
   - component: {fileID: 3625949855897955879}
   - component: {fileID: 3625949855897955878}
   m_Layer: 0
-  m_Name: Lock Image
+  m_Name: Lock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
