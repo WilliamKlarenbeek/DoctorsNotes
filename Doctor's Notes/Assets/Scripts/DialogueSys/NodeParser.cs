@@ -46,31 +46,83 @@ public class NodeParser : MonoBehaviour
             yield return new WaitUntil(() => Input.GetKeyUp("space"));
             NextNode("exit");
         }
-        if (dataParts[0] == "End")
+        if (dataParts[0] == "TutorialNode")
         {
-            /*animationController.SetBool("closePanel", true);*/
-            /*            _animationController.Play("Base Layer.Close");
-                        _animationController.SetBool("closePanel", true);*/
-            dialoguePanel.gameObject.SetActive(false);
+            //Run dialogue process to display key info
+            speaker.text = dataParts[1];
+            dialogue.text = dataParts[2];
+            string dialogueObjectName = dataParts[3];
+            speakerImage.sprite = b.GetSprite();
+            //StartCoroutine(DialogueTutorialObject(dialogueObjectName));
+
+            //var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            //RaycastHit hit;
+            //if (Physics.Raycast(ray, out hit))
+            //{
+            //    var selection = hit.transform;
+            //    if (dataParts[3] == selection.gameObject.name)
+            //    {
+            //        Debug.Log("Hit" + selection.gameObject.name);
+            //        yield return new WaitUntil(() => Input.GetKeyDown("space"));
+            //        yield return new WaitUntil(() => Input.GetKeyUp("space"));
+            //        NextNode("exit");
+            //    }
+            //}
+            yield return new WaitUntil(() => Input.GetKeyDown("space"));
+            yield return new WaitUntil(() => Input.GetKeyUp("space"));
+            NextNode("exit");
+            if (dataParts[0] == "End")
+            {
+                /*animationController.SetBool("closePanel", true);*/
+                /*            _animationController.Play("Base Layer.Close");
+                            _animationController.SetBool("closePanel", true);*/
+                dialoguePanel.gameObject.SetActive(false);
+            }
         }
     }
 
-    public void NextNode(string fieldName)
+    IEnumerator DialogueTutorialObject(string dialogueObjectName)
     {
-        if (_parser != null)
-        {
-            StopCoroutine(_parser);
-            _parser = null;
-        }
-        foreach (NodePort p in graph.current.Ports)
-        {
-            if (p.fieldName == fieldName)
+        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        Debug.Log("Hit made it here");
+            if (Physics.Raycast(ray, out hit))
             {
-                graph.current = p.Connection.node as BaseNode;
-                break;
+                Debug.Log("Hit made it here02");
+                var selection = hit.transform;
+                while (dialogueObjectName != selection.gameObject.name)
+                {
+                    Debug.Log("is not the same");
+                    //Debug.Log("Hit" + selection.gameObject.name);
+                    //yield return new WaitUntil(() => dialogueObjectName == selection.gameObject.name);
+                    ////yield return new WaitUntil(() => Input.GetKeyUp("space"));
+                    //NextNode("exit");
+                }
+                Debug.Log("Hit" + selection.gameObject.name);
+
+                yield return new WaitUntil(() => dialogueObjectName == selection.gameObject.name);
+                //yield return new WaitUntil(() => Input.GetKeyUp("space"));
+                NextNode("exit");
             }
-        }
-        _parser = StartCoroutine(ParseNode());
+        Debug.Log("Hit made it here04");
     }
+
+    public void NextNode(string fieldName)
+        {
+            if (_parser != null)
+            {
+                StopCoroutine(_parser);
+                _parser = null;
+            }
+            foreach (NodePort p in graph.current.Ports)
+            {
+                if (p.fieldName == fieldName)
+                {
+                    graph.current = p.Connection.node as BaseNode;
+                    break;
+                }
+            }
+            _parser = StartCoroutine(ParseNode());
+        }
 }
 
