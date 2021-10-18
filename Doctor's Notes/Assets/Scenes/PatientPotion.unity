@@ -4752,6 +4752,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resultBox: {fileID: 1893318839}
+  goodEventStinger: {fileID: 8300000, guid: 8194b6ccbcd68d849aa0c87c017a2216, type: 3}
+  badEventStinger: {fileID: 8300000, guid: 3029f07f501d78041bcb513773ec277d, type: 3}
 --- !u!224 &6786574933549205901
 RectTransform:
   m_ObjectHideFlags: 0

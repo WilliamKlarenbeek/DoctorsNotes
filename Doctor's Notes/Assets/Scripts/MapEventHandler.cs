@@ -11,6 +11,10 @@ public class MapEventHandler : MonoBehaviour
     public MapSelection mapSelectionDB;
     public GameObject eventBox;
     public List<string> patientScenes = new List<string>();
+    public AudioClip goodEventStinger;
+    public AudioClip badEventStinger;
+    public AudioClip goodEndingStinger;
+    public AudioClip badEndingStinger;
 
     private Text eventNameText;
     private Text eventDescText;
@@ -18,15 +22,23 @@ public class MapEventHandler : MonoBehaviour
     private GameController Controller;
     private bool endState = false;
     private int endingNumber = -1;
+    private SoundManager sndManager;
 
     // Start is called before the first frame update
     void Start()
     {
         Controller = GameObject.Find("Controller").GetComponent<GameController>();
-        if(mapSelectionDB.EndStateCheck() != -1)
+
+        if (Controller.GetComponent<SoundManager>() != null)
+        {
+            sndManager = Controller.GetComponent<SoundManager>();
+        }
+
+        if (mapSelectionDB.EndStateCheck() != -1)
         {
             endState = true;
             endingNumber = mapSelectionDB.EndStateCheck();
+            sndManager.StopMusic(true);
         }
 
         UpdateEventList();
@@ -89,6 +101,7 @@ public class MapEventHandler : MonoBehaviour
             case (MapEvent.EventType)0:
                 inventoryDB.materialList[randIndex].itemQuantity += amount;
                 resultMessage = "You gained " + amount + " " + inventoryDB.materialList[randIndex].itemName;
+                sndManager.PlaySound(goodEventStinger);
                 break;
             case (MapEvent.EventType)1:
                 inventoryDB.materialList[randIndex].itemQuantity -= amount;
@@ -97,6 +110,7 @@ public class MapEventHandler : MonoBehaviour
                     inventoryDB.materialList[randIndex].itemQuantity = 0;
                 }
                 resultMessage = "You lost " + amount + " " + inventoryDB.materialList[randIndex].itemName;
+                sndManager.PlaySound(badEventStinger);
                 break;
             default:
                 break;
@@ -117,6 +131,7 @@ public class MapEventHandler : MonoBehaviour
             case (MapEvent.EventType)0:
                 mapSelectionDB.maxDay += amount;
                 resultMessage = "The plague slowed down by " + amount + " days.";
+                sndManager.PlaySound(goodEventStinger);
                 break;
             case (MapEvent.EventType)1:
                 mapSelectionDB.currentDay += amount;
@@ -125,6 +140,7 @@ public class MapEventHandler : MonoBehaviour
                     mapSelectionDB.currentDay = mapSelectionDB.maxDay;
                 }
                 resultMessage = "You stalled for " + amount + " days.";
+                sndManager.PlaySound(badEventStinger);
                 break;
             default:
                 break;
@@ -187,21 +203,25 @@ public class MapEventHandler : MonoBehaviour
                 endingName = "Game Over!";
                 endingDesc = "The plague has consumed the entire country. Seems you were too late in preventing its total eradication...";
                 endingOutcome = "Bad Ending";
+                sndManager.PlayMusic(badEndingStinger);
                 break;
             case 1:
                 endingName = "Most Towns Saved!";
                 endingDesc = "Most of the towns of the country have been saved from the spread of this deadly plague!";
                 endingOutcome = "Ending 1";
+                sndManager.PlayMusic(goodEndingStinger);
                 break;
             case 2:
                 endingName = "Most Towns Dead!";
                 endingDesc = "Most of the towns of the country that have been infected, have unfortunately died out...";
                 endingOutcome = "Ending 2";
+                sndManager.PlayMusic(badEndingStinger);
                 break;
             default:
                 endingName = "Game Over!";
                 endingDesc = "The plague has consumed the entire country. Seems you were too late in preventing its total eradication...";
                 endingOutcome = "Bad Ending";
+                sndManager.PlayMusic(badEndingStinger);
                 break;
         }
 

@@ -2009,6 +2009,10 @@ MonoBehaviour:
   eventBox: {fileID: 206623589}
   patientScenes:
   - PatientPotion
+  goodEventStinger: {fileID: 8300000, guid: 8194b6ccbcd68d849aa0c87c017a2216, type: 3}
+  badEventStinger: {fileID: 8300000, guid: 3029f07f501d78041bcb513773ec277d, type: 3}
+  goodEndingStinger: {fileID: 8300000, guid: 9e3821e3badea0245bb83af47e398603, type: 3}
+  badEndingStinger: {fileID: 8300000, guid: 550f8ef6544e6ec4ba6aa3fb6c7cd667, type: 3}
 --- !u!114 &1719904886
 MonoBehaviour:
   m_ObjectHideFlags: 0

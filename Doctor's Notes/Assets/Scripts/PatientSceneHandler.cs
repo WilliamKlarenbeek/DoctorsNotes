@@ -11,6 +11,9 @@ public class PatientSceneHandler : MonoBehaviour
     private Text resultDescText;
     private Text resultResultText;
     private GameController Controller;
+    private SoundManager sndManager;
+    public AudioClip goodEventStinger;
+    public AudioClip badEventStinger;
 
     void Start()
     {
@@ -18,6 +21,11 @@ public class PatientSceneHandler : MonoBehaviour
         resultDescText = resultBox.transform.Find("ResultDesc").GetComponent<Text>();
         resultResultText = resultBox.transform.Find("Result").GetComponent<Text>();
         Controller = gameObject.GetComponent<GameController>();
+
+        if (Controller.GetComponent<SoundManager>() != null)
+        {
+            sndManager = Controller.GetComponent<SoundManager>();
+        }
 
         resultBox.SetActive(false);
     }
@@ -31,12 +39,14 @@ public class PatientSceneHandler : MonoBehaviour
             resultNameText.text = "Healed!";
             resultDescText.text = "You have cured your patient successfully!";
             resultResultText.text = "You earned " + aMoney + " Gold.";
+            sndManager.PlaySound(goodEventStinger);
         } 
         else
         {
             resultNameText.text = "Failed!";
             resultDescText.text = "Your patient has died!";
             resultResultText.text = "";
+            sndManager.PlaySound(badEventStinger);
         }
     }
 }
