@@ -75,13 +75,13 @@ public class GenericObject : MonoBehaviour
             prevValidPosition = transform.position;
         }
         transform.position = GetMouseWorldPos() + mOffset;
-        if(gameObject.GetComponent<Ingredient>())
+        if(gameObject.GetComponent<Ingredient>() || gameObject.GetComponent<IngredientRefined>())
         {
-            transform.position = new Vector3(transform.position.x, 2.25f, transform.position.z);
+            transform.position = new Vector3(transform.position.x, 2.35f, transform.position.z);
         }
         else
         {
-            transform.position = new Vector3(transform.position.x, 1.25f, transform.position.z);
+            transform.position = new Vector3(transform.position.x, 1.35f, transform.position.z);
         }
 
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -97,6 +97,7 @@ public class GenericObject : MonoBehaviour
         }
         else
         {
+            transform.position += new Vector3(0, -0.1f, 0);
             PlayObjectSound(releaseSound);
             isGrabbed = false;
         }

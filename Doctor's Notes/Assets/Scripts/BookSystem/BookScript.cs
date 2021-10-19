@@ -285,7 +285,7 @@ public class BookScript : MonoBehaviour
                     bestCategory = 2;
                     currentValue = currentIngredient.blue;
                 }
-                if(Mathf.Abs(currentIngredient.black) > currentValue)
+                if((Mathf.Abs(currentIngredient.black) > currentValue) || ((Mathf.Abs(currentIngredient.red) == Mathf.Abs(currentIngredient.blue)) && ((Mathf.Abs(currentIngredient.red) == Mathf.Abs(currentIngredient.green)))))
                 {
                     bestCategory = 3;
                     currentValue = currentIngredient.black;
