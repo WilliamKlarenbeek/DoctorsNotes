@@ -3161,28 +3161,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: e457ffd414cd92cac9fd36ceeb918cfa, type: 2}
     - target: {fileID: 3184199233679081691, guid: 5032121d77626e4449d213a55ad44f8e, type: 3}
-      propertyPath: ColorModule.enabled
-      value: 0
+      propertyPath: RotationModule.x.minMaxState
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3184199233679081691, guid: 5032121d77626e4449d213a55ad44f8e, type: 3}
-      propertyPath: ShapeModule.enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3184199233679081691, guid: 5032121d77626e4449d213a55ad44f8e, type: 3}
-      propertyPath: EmissionModule.enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3184199233679081691, guid: 5032121d77626e4449d213a55ad44f8e, type: 3}
-      propertyPath: VelocityModule.enabled
-      value: 0
+      propertyPath: RotationModule.y.minMaxState
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3917435186568582499, guid: 5032121d77626e4449d213a55ad44f8e, type: 3}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8464625592295352077, guid: 5032121d77626e4449d213a55ad44f8e, type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5032121d77626e4449d213a55ad44f8e, type: 3}

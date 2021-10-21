@@ -2575,6 +2575,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3625949854855672996, guid: 969b064ddbc7e1844a1c2d4723bd43f0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -578.11
+      objectReference: {fileID: 0}
     - target: {fileID: 3625949855178501000, guid: 969b064ddbc7e1844a1c2d4723bd43f0, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -2741,7 +2745,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3625949856270037307, guid: 969b064ddbc7e1844a1c2d4723bd43f0, type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3625949856270037307, guid: 969b064ddbc7e1844a1c2d4723bd43f0, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
