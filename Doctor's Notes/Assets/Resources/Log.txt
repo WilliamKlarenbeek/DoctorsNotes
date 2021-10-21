@@ -1446,3 +1446,66 @@ Supports 3D Textures: True
 [LEVELSELECTION]
 [LINEARTIMER]
 [LEVELSELECTION]
+[DEBUGGER]
+Assets\Resources\Log.txt
+StreamWriter writer initialized....
+[SYSTEMINFO]
+Device Model: X570 AORUS ELITE WIFI (Gigabyte Technology Co., Ltd.)
+Device Name: DESKTOP-GKTLGDO
+Device Type: Desktop
+Operating System: Windows 10  (10.0.19042) 64bit
+Processor Count: 16
+Processor Type: AMD Ryzen 7 3700X 8-Core Processor 
+Supports Audio: True
+Supports 3D Textures: True
+[LINEARTIMER]
+[LEVELSELECTION]
+[LEVELSELECTION]
+Level selected, loading scene: 2
+[DEBUGGER]
+Assets\Resources\Log.txt
+StreamWriter writer initialized....
+[SYSTEMINFO]
+Device Model: X570 AORUS ELITE WIFI (Gigabyte Technology Co., Ltd.)
+Device Name: DESKTOP-GKTLGDO
+Device Type: Desktop
+Operating System: Windows 10  (10.0.19042) 64bit
+Processor Count: 16
+Processor Type: AMD Ryzen 7 3700X 8-Core Processor 
+Supports Audio: True
+Supports 3D Textures: True
+[LINEARTIMER]
+[LEVELSELECTION]
+[LEVELSELECTION]
+Level selected, loading scene: 2
+[DEBUGGER]
+Assets\Resources\Log.txt
+StreamWriter writer initialized....
+[SYSTEMINFO]
+Device Model: X570 AORUS ELITE WIFI (Gigabyte Technology Co., Ltd.)
+Device Name: DESKTOP-GKTLGDO
+Device Type: Desktop
+Operating System: Windows 10  (10.0.19042) 64bit
+Processor Count: 16
+Processor Type: AMD Ryzen 7 3700X 8-Core Processor 
+Supports Audio: True
+Supports 3D Textures: True
+[LINEARTIMER]
+[LEVELSELECTION]
+[LEVELSELECTION]
+Level selected, loading scene: 2
+[DEBUGGER]
+Assets\Resources\Log.txt
+StreamWriter writer initialized....
+[SYSTEMINFO]
+Device Model: X570 AORUS ELITE WIFI (Gigabyte Technology Co., Ltd.)
+Device Name: DESKTOP-GKTLGDO
+Device Type: Desktop
+Operating System: Windows 10  (10.0.19042) 64bit
+Processor Count: 16
+Processor Type: AMD Ryzen 7 3700X 8-Core Processor 
+Supports Audio: True
+Supports 3D Textures: True
+[LINEARTIMER]
+[LEVELSELECTION]
+[LEVELSELECTION]
