@@ -2009,6 +2009,10 @@ MonoBehaviour:
   eventBox: {fileID: 206623589}
   patientScenes:
   - PatientPotion
+  goodEventStinger: {fileID: 8300000, guid: 8194b6ccbcd68d849aa0c87c017a2216, type: 3}
+  badEventStinger: {fileID: 8300000, guid: 3029f07f501d78041bcb513773ec277d, type: 3}
+  goodEndingStinger: {fileID: 8300000, guid: 9e3821e3badea0245bb83af47e398603, type: 3}
+  badEndingStinger: {fileID: 8300000, guid: 550f8ef6544e6ec4ba6aa3fb6c7cd667, type: 3}
 --- !u!114 &1719904886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2571,6 +2575,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3625949854855672996, guid: 969b064ddbc7e1844a1c2d4723bd43f0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -578.11
+      objectReference: {fileID: 0}
     - target: {fileID: 3625949855178501000, guid: 969b064ddbc7e1844a1c2d4723bd43f0, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -2737,7 +2745,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3625949856270037307, guid: 969b064ddbc7e1844a1c2d4723bd43f0, type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3625949856270037307, guid: 969b064ddbc7e1844a1c2d4723bd43f0, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
