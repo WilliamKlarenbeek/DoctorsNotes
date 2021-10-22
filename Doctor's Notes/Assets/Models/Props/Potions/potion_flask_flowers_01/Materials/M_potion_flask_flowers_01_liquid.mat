@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: M_potion_flask_flowers_01_liquid
-  m_Shader: {fileID: -6465566751694194690, guid: 2116830cb584b7143af3bada133be20e, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 2af0e698f6155c54595ab4642250bc7c, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0

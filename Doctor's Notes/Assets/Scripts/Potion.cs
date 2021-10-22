@@ -12,8 +12,10 @@ public class Potion : GenericObject
 
     public override void Start()
     {
-        base.Start();
-        gameObject.GetComponent<Renderer>().material.color = new Color(red * (2 - black), green * (2 - black), blue * (2 - black), 1);
+        // base.Start();
+        // gameObject.GetComponent<Renderer>().material.color = new Color(red * (2 - black), green * (2 - black), blue * (2 - black), 1);
+        gameObject.transform.Find("potion_flask_flowers_01").gameObject.transform.Find("SM_potion_flask_flowers_01_liquid").gameObject.GetComponent<Renderer>().material.SetColor("_BaseColour", new Color(red * (2 - black), green * (2 - black), blue * (2 - black), 1));
+
     }
 
     private void OnTriggerStay(Collider collision)
