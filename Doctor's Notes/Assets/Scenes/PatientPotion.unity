@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4472134, g: 0.49713904, b: 0.5751725, a: 1}
+  m_IndirectSpecularColor: {r: 0.44721383, g: 0.4971397, b: 0.57517344, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3307,18 +3307,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: e457ffd414cd92cac9fd36ceeb918cfa, type: 2}
     - target: {fileID: 3184199233679081691, guid: 5032121d77626e4449d213a55ad44f8e, type: 3}
-      propertyPath: RotationModule.x.minMaxState
-      value: 3
-      propertyPath: ColorModule.enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3184199233679081691, guid: 5032121d77626e4449d213a55ad44f8e, type: 3}
       propertyPath: ShapeModule.enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3184199233679081691, guid: 5032121d77626e4449d213a55ad44f8e, type: 3}
       propertyPath: EmissionModule.enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3184199233679081691, guid: 5032121d77626e4449d213a55ad44f8e, type: 3}
+      propertyPath: RotationModule.x.minMaxState
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3184199233679081691, guid: 5032121d77626e4449d213a55ad44f8e, type: 3}
       propertyPath: RotationModule.y.minMaxState
@@ -3332,10 +3330,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8464625592295352077, guid: 5032121d77626e4449d213a55ad44f8e, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5032121d77626e4449d213a55ad44f8e, type: 3}
 --- !u!1001 &1977269856
