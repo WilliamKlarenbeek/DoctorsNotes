@@ -39,7 +39,7 @@ public class Symptom : MonoBehaviour
 
     public void calculateValues(float min, float max)
     {
-        symptomManager.recordValues(this, (Mathf.Round(Random.Range(min, max) * 100f) / 100f), Random.Range(min, max), Random.Range(min, max), 0);
+        symptomManager.recordValues(this, (Mathf.Round(Random.Range(min, max) * 10f) / 10f), (Mathf.Round(Random.Range(min, max) * 10f) / 10f), (Mathf.Round(Random.Range(min, max) * 10f) / 10f), 0);
     }
     public void destroySelf()
     {
