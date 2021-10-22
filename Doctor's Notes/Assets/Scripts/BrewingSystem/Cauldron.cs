@@ -22,6 +22,10 @@ public class Cauldron : Tool
     List<Ingredient> ingredientList = new List<Ingredient>();
     List<Ingredient> knownIngredients = new List<Ingredient>();
     List<Ingredient> unknownIngredients = new List<Ingredient>();
+    public float potionInstX; 
+    public float potionInstY; 
+    public float potionInstZ; 
+
 
     public override void Start()
     {
@@ -108,7 +112,10 @@ public class Cauldron : Tool
         {
             state = "ready";
             Vector3 dist = Camera.main.WorldToScreenPoint(transform.position);
-            GameObject objectInstance = Instantiate(Resources.Load("Prefabs/Potions/Potion"), Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x - (Input.mousePosition.x - dist.x), Input.mousePosition.y - (Input.mousePosition.y - dist.y), dist.z)), new Quaternion()) as GameObject;
+            //Will need to be edited so that different bottles appear with different potions
+            //Currently, the default is the bottle designed for red liquids only
+            GameObject objectInstance = Instantiate(Resources.Load("Prefabs/Potions/PotionOutput/pref_potion_red"), 
+            new Vector3(potionInstX, potionInstY, potionInstZ), new Quaternion()) as GameObject;
             Potion newPotion = objectInstance.GetComponent<Potion>();
             if ((timer >= 10) && (timer <= 25))
             {
