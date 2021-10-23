@@ -104,7 +104,7 @@ Material:
     - _QueueOffset: -12
     - _ReceiveShadows: 0
     - _Shininess: 0.078125
-    - _Smoothness: 1
+    - _Smoothness: 0.4
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 5
