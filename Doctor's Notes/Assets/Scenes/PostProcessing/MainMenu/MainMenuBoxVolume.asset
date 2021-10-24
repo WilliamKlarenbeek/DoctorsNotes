@@ -16,7 +16,7 @@ MonoBehaviour:
   m_AdvancedMode: 0
   color:
     m_OverrideState: 1
-    m_Value: {r: 0, g: 0.7830189, b: 0.23638307, a: 1}
+    m_Value: {r: 0, g: 0.23584908, b: 0.07319457, a: 1}
     hdr: 0
     showAlpha: 0
     showEyeDropper: 1
@@ -25,7 +25,7 @@ MonoBehaviour:
     m_Value: {x: 0.46, y: 0.54}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.204
+    m_Value: 0.222
     min: 0
     max: 1
   smoothness:
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
-  m_Name: Box Volume Profile
+  m_Name: MainMenuBoxVolume
   m_EditorClassIdentifier: 
   components:
   - {fileID: -3957288754708090323}
@@ -69,10 +69,10 @@ MonoBehaviour:
   m_AdvancedMode: 0
   shadows:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.76156485, z: 0.8137571, w: 0.106761575}
+    m_Value: {x: 0.844842, y: 1, z: 0.90618676, w: 0.14206608}
   midtones:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.8079624, z: 0.63462013, w: 0.1957294}
+    m_Value: {x: 1, y: 0.9057125, z: 0.63613045, w: 0.1251204}
   highlights:
     m_OverrideState: 0
     m_Value: {x: 0.9764595, y: 0.9962868, z: 1, w: -0.3736654}
@@ -140,8 +140,8 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 0
   contrast:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 2
     min: -100
     max: 100
   colorFilter:
@@ -157,6 +157,6 @@ MonoBehaviour:
     max: 180
   saturation:
     m_OverrideState: 1
-    m_Value: -25
+    m_Value: -32
     min: -100
     max: 100
