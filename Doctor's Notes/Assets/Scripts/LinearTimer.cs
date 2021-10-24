@@ -106,8 +106,8 @@ public class LinearTimer : MonoBehaviour
         blightParticleSystemShape.position = new Vector2(0, Mathf.Lerp(blightOriginPointY, 0.5f, ((float)mapSelectionDB.currentDay / (float)mapSelectionDB.maxDay)));
         blightParticleSystemShape.scale = new Vector3(2.5f, Mathf.Lerp(blightOriginScaleY, blightMaxYScale, ((float)mapSelectionDB.currentDay / (float)mapSelectionDB.maxDay)), 1);
         blightParticleSystemEmission.rateOverTime = Mathf.Lerp(blightOriginEmission, 100f, ((float)mapSelectionDB.currentDay / (float)mapSelectionDB.maxDay));
-        Debug.Log("Current Day: " + currentDay);
-        Debug.Log("End Day: " + endDay);
+        //Debug.Log("Current Day: " + currentDay);
+        //Debug.Log("End Day: " + endDay);
     }
 
     IEnumerator UpdateTimer()

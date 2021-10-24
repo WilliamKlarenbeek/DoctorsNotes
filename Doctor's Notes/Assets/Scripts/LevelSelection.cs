@@ -15,6 +15,7 @@ public class LevelSelection : MonoBehaviour
     public Sprite loseLockImage;
     private int levelIndex;
     private PlayerIcon player;
+    [SerializeField] public int levelSelection;
 
     private void Awake()
     {
@@ -28,18 +29,33 @@ public class LevelSelection : MonoBehaviour
     private void Start()
     {
         // debugger called
-        Debugger.debuggerInstance.WriteToFileTag("levelSelection"); 
+        Debugger.debuggerInstance.WriteToFileTag("levelSelection");
         /*Debugger.debuggerInstance.ReadFile(); */
     }
 
-    private void Update() //check on every frame 
+    void Update() //check on every frame 
     {
         UpdateLevelImage();
         if (player.isMoving()) {
-            GetComponent<Button>().enabled = false;
+            Debug.Log("Player is currently moving");
+            //GetComponent<Button>().enabled = false;
         } else
         {
-            GetComponent<Button>().enabled = true;
+            Debug.Log("town selected here01");
+            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit))
+            {
+                var selection = hit.transform;
+                //if (selection.CompareTag(selectableTag) && Input.GetMouseButton(0))
+                if (selection.CompareTag("Town"))
+                {
+                    Debug.Log("town selected");
+                    PressSelection(levelSelection);
+                }
+            }
+            //Debug.Log("Player is currently not moving");            
+            //GetComponent<Button>().enabled = true;
         }
     }
 

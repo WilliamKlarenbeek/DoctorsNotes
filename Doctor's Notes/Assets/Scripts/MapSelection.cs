@@ -19,6 +19,7 @@ public class MapSelection : ScriptableObject
     [SerializeField] private List<string> lockedLocations;
     [SerializeField] private List<string> healedLocations;
     [SerializeField] private List<string> deadLocations;
+
     private string tempSavedLocation;
     private PatientOutcome tempOutcome = PatientOutcome.Undefined;
 

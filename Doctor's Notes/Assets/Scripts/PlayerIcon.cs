@@ -22,7 +22,7 @@ public class PlayerIcon : MonoBehaviour
     private Vector3 _currentPos;
     private bool moving = false;
     
-    public float distPercentage = 0.0f; 
+    public float distPercentage = 0.0f;
 
     private void Awake()
     {
@@ -34,7 +34,8 @@ public class PlayerIcon : MonoBehaviour
     {
         if (mapSelectionDB.isGameBegin() || mapSelectionDB.GetCurrentLocation() == null)
         {
-            mapSelectionDB.SetCurrentLocation(_startLevel.GetComponent<RectTransform>().anchoredPosition);
+            mapSelectionDB.SetCurrentLocation(_startLevel.transform.position);
+            //mapSelectionDB.SetCurrentLocation(_startLevel.GetComponent<RectTransform>().anchoredPosition);
             mapSelectionDB.SetCurrentTimer(0f);
             mapSelectionDB.SetCurrentDay(1);
             mapSelectionDB.SetMaxDay(30);
@@ -44,8 +45,10 @@ public class PlayerIcon : MonoBehaviour
         eventHandler = eventHandlerObject.GetComponent<MapEventHandler>();
         //player Icon is set to start level position when the game starts
         //transform.position = new Vector3(295, 568, 0);
-        GetComponent<RectTransform>().anchoredPosition = mapSelectionDB.GetCurrentLocation();
-        _startPos = GetComponent<RectTransform>().anchoredPosition;
+        transform.position = mapSelectionDB.GetCurrentLocation();
+        //GetComponent<RectTransform>().anchoredPosition = mapSelectionDB.GetCurrentLocation();
+        _startPos = transform.position;
+        //_startPos = GetComponent<RectTransform>().anchoredPosition;
 
         mapSelectionDB.UpdateLockedLocations();
     }
@@ -60,7 +63,7 @@ public class PlayerIcon : MonoBehaviour
         moving = true;
 
         while (transform.position != _targetPos)
-        {
+        {           
             //distPercentage = ToString("F2");
             //Debug.Log("Start: " + _startPos.magnitude + "Current: " + _currentPos.magnitude + "Target: " + _targetPos.magnitude);
             distPercentage = getDistPercentage(_startPos, _currentPos, _targetPos);
@@ -78,12 +81,12 @@ public class PlayerIcon : MonoBehaviour
             _currentPos = transform.position;
 
             //Debug.Log(distPercentage);
-
             yield return new WaitForEndOfFrame();
         }
         moving = false;
         LinearTimer.instance.EndTimer();
-        mapSelectionDB.SetCurrentLocation(GetComponent<RectTransform>().anchoredPosition);
+        mapSelectionDB.SetCurrentLocation(transform.position);
+        //mapSelectionDB.SetCurrentLocation(GetComponent<RectTransform>().anchoredPosition);
         mapSelectionDB.AddLockedLocation(targetPos);
         eventHandler.RandomEvent();
         //yield return StartCoroutine(SceneController.LoadScene(1, 2f));
