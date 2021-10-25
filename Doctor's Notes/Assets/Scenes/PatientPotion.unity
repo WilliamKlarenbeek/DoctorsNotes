@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44721574, g: 0.4971416, b: 0.5751729, a: 1}
+  m_IndirectSpecularColor: {r: 0.44721556, g: 0.49714172, b: 0.57517254, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1880,7 +1880,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2a7cf06e06b649b44bde8972c0763445, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.6470494
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2a7cf06e06b649b44bde8972c0763445, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1888,7 +1888,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2a7cf06e06b649b44bde8972c0763445, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.513192
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2a7cf06e06b649b44bde8972c0763445, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2066,7 +2066,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.4, z: 0.2}
+  m_Size: {x: 0.2, y: 0.25, z: 0.2}
   m_Center: {x: 0, y: 0.1, z: 0}
 --- !u!95 &1134329555
 Animator:
@@ -3468,7 +3468,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2121135086267247353, guid: 5032121d77626e4449d213a55ad44f8e, type: 3}
       propertyPath: potionInstX
-      value: 3.2
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: 2121135086267247353, guid: 5032121d77626e4449d213a55ad44f8e, type: 3}
       propertyPath: potionInstY
@@ -3476,7 +3476,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2121135086267247353, guid: 5032121d77626e4449d213a55ad44f8e, type: 3}
       propertyPath: potionInstZ
-      value: -1
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 2315968916926304863, guid: 5032121d77626e4449d213a55ad44f8e, type: 3}
       propertyPath: m_Materials.Array.data[0]

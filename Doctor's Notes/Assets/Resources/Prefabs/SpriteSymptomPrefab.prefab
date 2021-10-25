@@ -97,7 +97,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10.240001, y: 10.24, z: 0.20000033}
+  m_Size: {x: 10.240001, y: 10.24, z: 0.4}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &4859369784364652576
 Rigidbody:
@@ -127,3 +127,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6df6ab85e8905ba449f6a5ffa3d517d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  symptomDB: {fileID: 11400000, guid: d46376d0e0c524c4fba8c492f4a6f6fe, type: 2}
