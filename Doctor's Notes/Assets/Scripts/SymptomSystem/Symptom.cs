@@ -5,6 +5,7 @@ using UnityEngine;
 public class Symptom : MonoBehaviour
 {
     Patient symptomManager;
+    public SymptomDatabase symptomDB;
 
     private int id;
     private bool isColliding;
@@ -12,6 +13,7 @@ public class Symptom : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        gameObject.GetComponent<SpriteRenderer>().sprite = symptomDB.getRandomImage();
         symptomManager = GameObject.Find("Patient").GetComponent<Patient>();
     }
 

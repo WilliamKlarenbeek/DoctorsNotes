@@ -126,6 +126,16 @@ public class MortarPestle : Tool
         }
     }
 
+    void OnMouseDrag()
+    {
+
+    }
+
+    public void OnMouseUp()
+    {
+
+    }
+
     public override void PerformAction(Collider collision)
     {
         if ((collision.gameObject.GetComponent<IngredientBasic>() != null) && (state == "ready"))

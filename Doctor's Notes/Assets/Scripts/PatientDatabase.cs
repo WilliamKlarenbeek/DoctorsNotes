@@ -15,7 +15,7 @@ public class PatientDatabase : ScriptableObject
 
     public Sprite getRandomImage()
     {
-        int randIndex = Mathf.RoundToInt(Random.Range(0, patientImageList.Count));
+        int randIndex = Mathf.RoundToInt(Random.Range(0, patientImageList.Count-1));
 
         return patientImageList[randIndex];
     }

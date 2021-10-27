@@ -117,7 +117,7 @@ public class Cauldron : Tool
             GameObject objectInstance = Instantiate(Resources.Load("Prefabs/Potions/PotionOutput/pref_potion_red"), 
             new Vector3(potionInstX, potionInstY, potionInstZ), new Quaternion()) as GameObject;
             Potion newPotion = objectInstance.GetComponent<Potion>();
-            if ((timer >= 10) && (timer <= 25))
+            if ((timer >= 4) && (timer <= 20))
             {
                 newPotion.Red = redTotal;
                 newPotion.Blue = blueTotal;
@@ -148,7 +148,7 @@ public class Cauldron : Tool
                     book.ChangeDescription(unknownIngredients[0].prefabPath, redTotal.ToString(), blueTotal.ToString(), greenTotal.ToString(), blackTotal.ToString());
                 }
             }
-            else if (timer < 10)
+            else if (timer < 4)
             {
                 newPotion.Red = 0;
                 newPotion.Blue = 0;
@@ -160,7 +160,7 @@ public class Cauldron : Tool
                 newPotion.Red = redTotal;
                 newPotion.Blue = blueTotal;
                 newPotion.Green = greenTotal;
-                newPotion.Black = blackTotal + ((timer - 25) / 10);
+                newPotion.Black = blackTotal + ((timer - 20) / 10);
             }
             redTotal = 0;
             blueTotal = 0;
