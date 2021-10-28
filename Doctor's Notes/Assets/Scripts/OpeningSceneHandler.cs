@@ -10,11 +10,13 @@ public class OpeningSceneHandler : MonoBehaviour
     {
         public string Dialogue { get { return _Dialogue; } }
         public float Duration { get { return _Duration; } }
+        public float CharTransition { get { return _CharTransition; } }
         public AudioClip voiceLine { get { return _voiceLine; } }
         public Image fadeObject { get { return _fadeObject; } }
 
         [SerializeField] private string _Dialogue;
         [SerializeField] private float _Duration;
+        [SerializeField] private float _CharTransition;
         [SerializeField] private AudioClip _voiceLine;
         [SerializeField] private Image _fadeObject;
     }
@@ -115,7 +117,6 @@ public class OpeningSceneHandler : MonoBehaviour
 
         foreach (OpeningDialogue i in DialogueSequence)
         {
-            DialogueText.text = i.Dialogue;
             if(i.voiceLine != null)
             {
                 sndManager.PlaySound(i.voiceLine);
@@ -124,6 +125,8 @@ public class OpeningSceneHandler : MonoBehaviour
             {
 
             }
+            StartCoroutine(PrintByCharacter(i));
+
             yield return new WaitForSeconds(i.Duration);
             DialogueText.text = "";
         }
@@ -138,6 +141,22 @@ public class OpeningSceneHandler : MonoBehaviour
         }
         duration = 0f;
         DialoguePanel.GetComponent<Image>().color = new Color(0, 0, 0, 0f);
+
+        StartCoroutine(SceneController.LoadScene("MapScene", 4f));
+    }
+
+    IEnumerator PrintByCharacter(OpeningDialogue aDialogue)
+    {
+        string outStream = "";
+
+        foreach (char i in aDialogue.Dialogue)
+        {
+            outStream += i;
+            DialogueText.text = outStream;
+
+            yield return new WaitForSeconds((aDialogue.CharTransition / aDialogue.Dialogue.Length));
+        }
+        DialogueText.text = aDialogue.Dialogue;
     }
 
     IEnumerator FadeInObject(Image aImage, float aDuration)
