@@ -90,13 +90,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - CloudIntensity: 0.676
+    - CloudIntensity: 0.166
     - CloudScale: 10
-    - CloudSpeed: 0.098
-    - RippleContrast: 2.68
-    - RippleDensity: 19.7
-    - RippleIntensity: 0.545
-    - RippleSpeed: 0.092
+    - CloudSpeed: 0.097
+    - RippleContrast: 5
+    - RippleDensity: 10.7
+    - RippleIntensity: 1
+    - RippleSpeed: 0.132
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -126,7 +126,7 @@ Material:
     m_Colors:
     - BaseColour: {r: 0.7735849, g: 0.3320577, b: 0.3320577, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _BaseColour: {r: 0.04045032, g: 0.33726445, b: 0.9528302, a: 0}
+    - _BaseColour: {r: 0.26415092, g: 0.09095763, b: 0.09951037, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
