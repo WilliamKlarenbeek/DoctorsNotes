@@ -92,7 +92,6 @@ public class GenericObject : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 10) == false && collidingWithPatient == false)
         {
             Book.IncreaseQuantity(prefabPath);
-
             Destroy(gameObject);
         }
         else

@@ -12,6 +12,7 @@ public class InventoryItem
     public string prefabPath;
     public int itemQuantity;
     public string itemDescription;
+    public int itemPrice;
 
     public InventoryItem(Item aItem)
     {
