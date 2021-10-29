@@ -46,18 +46,5 @@ public abstract class Tool : GenericObject
         }
     }
 
-    public void OnMouseUp()
-    {
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, 10) == false && collidingWithPatient == false)
-        {
-            transform.position = prevValidPosition;
-        }
-        else
-        {
-            PlayObjectSound(releaseSound);
-            isGrabbed = false;
-        }
-    }
-
     public abstract void PerformAction(Collider collison);
 }

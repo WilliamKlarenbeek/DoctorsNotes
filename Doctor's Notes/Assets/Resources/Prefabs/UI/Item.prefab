@@ -102,6 +102,7 @@ MonoBehaviour:
     prefabPath: 
     itemQuantity: 0
     itemDescription: 
+    itemPrice: 0
   inventoryDB: {fileID: 0}
 --- !u!114 &2937376062739696134
 MonoBehaviour:

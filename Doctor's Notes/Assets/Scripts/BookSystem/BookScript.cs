@@ -20,6 +20,8 @@ public class BookScript : MonoBehaviour
     public List<List<InventoryItem>> Book;
     public List<InventoryItem> bookItems;
     public GameObject iconTemplate;
+    private GameObject currentItem;
+    private Text moneyText;
 
     private List<InventoryItem[]> dynamicBookList;
     private int currentPage;
@@ -34,6 +36,8 @@ public class BookScript : MonoBehaviour
     {
         inventoryDB = Resources.Load("Databases/InventoryDatabase") as Inventory;
         buttons = this.GetComponentsInChildren<Button>(true);
+        moneyText = GameObject.Find("Money").GetComponent<Text>();
+        moneyText.text = "$" + PlayerPrefs.GetInt("money").ToString();
 
         currentCategory = (BookCategory)0;
         CreateListOfItems();
@@ -121,7 +125,7 @@ public class BookScript : MonoBehaviour
 
         int index = 0;
         float YOffset = 0;
-        GameObject currentItem;
+        currentItem = null;
         //GameObject prefabItem;
 
         if (aPageNumber < dynamicBookList.Count && aPageNumber > -1)
@@ -255,6 +259,7 @@ public class BookScript : MonoBehaviour
 
         List<List<InventoryItem>> masterList = inventoryDB.GetInventoryList();
         List<InventoryItem> materialList = masterList[1];
+        List<InventoryItem> toolList = masterList[0];
         GameObject currentObject = null;
         Ingredient currentIngredient = null;
         float currentValue = 0;
@@ -294,7 +299,15 @@ public class BookScript : MonoBehaviour
                 Book[bestCategory].Add(newItem);
             }
         }
+        foreach (InventoryItem i in toolList)
+        {
+            //Create New Items for Book
+            InventoryItem newItem = new InventoryItem(i.prefabPath);
+            newItem.itemQuantity = i.itemQuantity;
 
+            Book[3].Add(newItem);
+
+        }
         SortInventoryItems();
     }
 
@@ -390,6 +403,16 @@ public class BookScript : MonoBehaviour
             i.interactable = true;
         }
         transitioning = false;
+    }
+
+    public void BuyItem()
+    {
+        if((PlayerPrefs.GetInt("money") >= currentItem.GetComponent<ItemSlot>().GetItem().itemPrice) && (currentItem.GetComponent<ItemSlot>().GetItem().itemPrice > 0))
+        {
+            PlayerPrefs.SetInt("money", (PlayerPrefs.GetInt("money") - currentItem.GetComponent<ItemSlot>().GetItem().itemPrice));
+            moneyText.text = "$" + PlayerPrefs.GetInt("money").ToString();
+            IncreaseQuantity(currentItem.GetComponent<ItemSlot>().GetItem().prefabPath);
+        }
     }
 
     public bool IsTransitioning()
