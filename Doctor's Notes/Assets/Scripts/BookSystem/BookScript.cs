@@ -19,6 +19,8 @@ public class BookScript : MonoBehaviour
 
     public List<List<InventoryItem>> Book;
     public List<InventoryItem> bookItems;
+    // iconTemplate is the game object that contains the arrangerment of UI elements 
+    // that is displayed to the user. 
     public GameObject iconTemplate;
 
     private List<InventoryItem[]> dynamicBookList;

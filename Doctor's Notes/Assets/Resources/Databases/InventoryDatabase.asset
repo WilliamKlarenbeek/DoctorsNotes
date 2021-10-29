@@ -21,6 +21,10 @@ MonoBehaviour:
     itemQuantity: 42
     itemDescription: Used to mix materials into potions. Do not mix for fewer than
       10 seconds or more than 30 seconds.
+    Red: 0
+    Blue: 0
+    Green: 0
+    Black: 0
   - itemPrefab: {fileID: 0}
     itemImage: {fileID: 21300000, guid: dcfe7e5dc5fe86a4f8a99f56e8615751, type: 3}
     itemImageHighlight: {fileID: 0}
@@ -29,6 +33,10 @@ MonoBehaviour:
     itemQuantity: 51
     itemDescription: Used to refine materials. Move the mouse left and right of the
       mortar and pestle to refine.
+    Red: 0
+    Blue: 0
+    Green: 0
+    Black: 0
   - itemPrefab: {fileID: 0}
     itemImage: {fileID: 21300000, guid: 9dda5d55f5b366445b770aa9edb10665, type: 3}
     itemImageHighlight: {fileID: 0}
@@ -37,6 +45,10 @@ MonoBehaviour:
     itemQuantity: 43
     itemDescription: Used to collect new materials and potions from mortar and pestle
       and cauldron.
+    Red: 0
+    Blue: 0
+    Green: 0
+    Black: 0
   materialList:
   - itemPrefab: {fileID: 3114960941816112004, guid: fe81f147253708c41b50e773fcb2ba32, type: 3}
     itemImage: {fileID: 21300000, guid: 67aa30350d3788343958bab5bfde133f, type: 3}
@@ -45,6 +57,10 @@ MonoBehaviour:
     prefabPath: Prefabs/Materials/FrenchRose
     itemQuantity: 50
     itemDescription: 'Red: 0.3, Blue: 0, Green: 0, Black: 0.2'
+    Red: 0.3
+    Blue: 0
+    Green: 0
+    Black: 0.2
   - itemPrefab: {fileID: 3114960941816112004, guid: fe81f147253708c41b50e773fcb2ba32, type: 3}
     itemImage: {fileID: 21300000, guid: 67aa30350d3788343958bab5bfde133f, type: 3}
     itemImageHighlight: {fileID: 21300000, guid: 7afd4f34481804a4d8959a778aa6262d, type: 3}
@@ -52,13 +68,21 @@ MonoBehaviour:
     prefabPath: Prefabs/Materials/RefinedFrenchRose
     itemQuantity: 0
     itemDescription: 'Red: 0.5, Blue: 0, Green: 0, Black: 0.1'
+    Red: 0.5
+    Blue: 0
+    Green: 0
+    Black: 0.1
   - itemPrefab: {fileID: 1461303337962157507, guid: 107a5177bcb172b49a9d8e1d15947c73, type: 3}
     itemImage: {fileID: 21300000, guid: d5c0a9e9237be7b4ca9f12937d9e25a8, type: 3}
     itemImageHighlight: {fileID: 21300000, guid: 4c17b3820754dc648a887b5db199a26b, type: 3}
     itemName: Lavender
     prefabPath: Prefabs/Materials/Lavender
-    itemQuantity: 50
+    itemQuantity: 48
     itemDescription: 'Red: 0, Blue: 0.3, Green: 0, Black: 0.2'
+    Red: 0
+    Blue: 0.3
+    Green: 0
+    Black: 0.2
   - itemPrefab: {fileID: 1461303337962157507, guid: 107a5177bcb172b49a9d8e1d15947c73, type: 3}
     itemImage: {fileID: 21300000, guid: d5c0a9e9237be7b4ca9f12937d9e25a8, type: 3}
     itemImageHighlight: {fileID: 21300000, guid: 4c17b3820754dc648a887b5db199a26b, type: 3}
@@ -66,6 +90,10 @@ MonoBehaviour:
     prefabPath: Prefabs/Materials/RefinedLavender
     itemQuantity: 0
     itemDescription: 'Red: 0, Blue: 0.5, Green: 0, Black: 0.1'
+    Red: 0
+    Blue: 0.5
+    Green: 0
+    Black: 0.1
   - itemPrefab: {fileID: 32152570053778297, guid: a17b179e510148a428bf7e6deb4f5c65, type: 3}
     itemImage: {fileID: 21300000, guid: e5abb1987708aa349b967a2a6a653472, type: 3}
     itemImageHighlight: {fileID: 21300000, guid: 55dfa2b6f91554f49b7d97e6b79ef8ae, type: 3}
@@ -73,6 +101,10 @@ MonoBehaviour:
     prefabPath: Prefabs/Materials/Oakmoss
     itemQuantity: 50
     itemDescription: 'Red: 0, Blue: 0, Green: 0.3, Black: 0.2'
+    Red: 0
+    Blue: 0
+    Green: 0.3
+    Black: 0.2
   - itemPrefab: {fileID: 32152570053778297, guid: a17b179e510148a428bf7e6deb4f5c65, type: 3}
     itemImage: {fileID: 21300000, guid: e5abb1987708aa349b967a2a6a653472, type: 3}
     itemImageHighlight: {fileID: 21300000, guid: 55dfa2b6f91554f49b7d97e6b79ef8ae, type: 3}
@@ -80,6 +112,10 @@ MonoBehaviour:
     prefabPath: Prefabs/Materials/RefinedOakmoss
     itemQuantity: 0
     itemDescription: 'Red: 0, Blue: 0, Green: 0.5, Black: 0.1'
+    Red: 0
+    Blue: 0
+    Green: 0.5
+    Black: 0.1
   - itemPrefab: {fileID: 5702422707856050532, guid: 467e1c57d5b1c4a479d1361bc51473bc, type: 3}
     itemImage: {fileID: 21300000, guid: 8f47a884c9b161342800d0a05e6dad6f, type: 3}
     itemImageHighlight: {fileID: 21300000, guid: ee27133f24c86954c880269612276679, type: 3}
@@ -87,6 +123,10 @@ MonoBehaviour:
     prefabPath: Prefabs/Materials/InsatiateSod
     itemQuantity: 50
     itemDescription: 'Red: 0.1, Blue: 0.1, Green: 0.1, Black: 0.7'
+    Red: 0.1
+    Blue: 0.1
+    Green: 0.1
+    Black: 0.7
   - itemPrefab: {fileID: 0}
     itemImage: {fileID: 21300000, guid: 837b1c80cbbc42c408ae10e094062996, type: 3}
     itemImageHighlight: {fileID: 0}
@@ -94,6 +134,10 @@ MonoBehaviour:
     prefabPath: Prefabs/Materials/RefinedInsatiateSod
     itemQuantity: 0
     itemDescription: 
+    Red: 0
+    Blue: 0
+    Green: 0
+    Black: 0
   - itemPrefab: {fileID: 5790791624246513155, guid: cd47660aaf383aa4ea97ca61440a79bd, type: 3}
     itemImage: {fileID: 21300000, guid: a50521638a6049745b5d7c1c4766e284, type: 3}
     itemImageHighlight: {fileID: 21300000, guid: 8888804134e5eae43a3de5f7528fd4dd, type: 3}
@@ -101,11 +145,19 @@ MonoBehaviour:
     prefabPath: Prefabs/Materials/HolyWater
     itemQuantity: 50
     itemDescription: 'Red: 0, Blue: 0, Green: 0, Black: -0.5'
+    Red: 0
+    Blue: 0
+    Green: 0
+    Black: 0
   - itemPrefab: {fileID: 5702422707856050532, guid: 467e1c57d5b1c4a479d1361bc51473bc, type: 3}
     itemImage: {fileID: 21300000, guid: 8f47a884c9b161342800d0a05e6dad6f, type: 3}
     itemImageHighlight: {fileID: 21300000, guid: ee27133f24c86954c880269612276679, type: 3}
     itemName: Bud of the Solstice Bloom
     prefabPath: Prefabs/Materials/BudoftheSolsticeBloom
-    itemQuantity: 50
+    itemQuantity: 46
     itemDescription: 'Red: 0.3, Blue: 0.3, Green: 0.3, Black: 0'
+    Red: 0.3
+    Blue: 0.3
+    Green: 0.3
+    Black: 0
   otherList: []

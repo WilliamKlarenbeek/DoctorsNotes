@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class InventoryItem
@@ -12,6 +13,13 @@ public class InventoryItem
     public string prefabPath;
     public int itemQuantity;
     public string itemDescription;
+
+    //Individual color values
+    public float Red;
+    public float Blue;
+    public float Green;
+    public float Black;
+    /*public GameObject redDot0;*/ 
 
     public InventoryItem(Item aItem)
     {
