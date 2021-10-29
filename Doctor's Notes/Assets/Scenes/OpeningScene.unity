@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -280,8 +280,55 @@ MonoBehaviour:
   DialoguePanel: {fileID: 1118122268}
   DialogueText: {fileID: 1780584665}
   DialogueSequence:
-  - _Dialogue: Test dialogue that should last 4 seconds.
+  - _Dialogue: Brittonia
+    _Duration: 1
+    _CharTransition: 4
+    _voiceLine: {fileID: 0}
+    _fadeObject: {fileID: 0}
+  - _Dialogue: A country within the quiet reaches of the world.
+    _Duration: 6
+    _CharTransition: 2
+    _voiceLine: {fileID: 0}
+    _fadeObject: {fileID: 0}
+  - _Dialogue: Home to a thriving civilisation...
     _Duration: 4
+    _CharTransition: 1
+    _voiceLine: {fileID: 0}
+    _fadeObject: {fileID: 0}
+  - _Dialogue: ...And a thriving plague.
+    _Duration: 5
+    _CharTransition: 2
+    _voiceLine: {fileID: 0}
+    _fadeObject: {fileID: 0}
+  - _Dialogue: A parasitic, plant-like horror from origins unknown is spreading across
+      Brittonia.
+    _Duration: 6
+    _CharTransition: 2
+    _voiceLine: {fileID: 0}
+    _fadeObject: {fileID: 0}
+  - _Dialogue: Infecting humans at an alarming rate...
+    _Duration: 4
+    _CharTransition: 1
+    _voiceLine: {fileID: 0}
+    _fadeObject: {fileID: 0}
+  - _Dialogue: ...And with no cure.
+    _Duration: 4
+    _CharTransition: 1
+    _voiceLine: {fileID: 0}
+    _fadeObject: {fileID: 0}
+  - _Dialogue: Should this disease be left unchecked...
+    _Duration: 4
+    _CharTransition: 1
+    _voiceLine: {fileID: 0}
+    _fadeObject: {fileID: 0}
+  - _Dialogue: ...The whole of Brittonia could be subjected to this horrifying plague.
+    _Duration: 6
+    _CharTransition: 1
+    _voiceLine: {fileID: 0}
+    _fadeObject: {fileID: 0}
+  - _Dialogue: And remain forever etched in history's list of the dead...
+    _Duration: 8
+    _CharTransition: 2
     _voiceLine: {fileID: 0}
     _fadeObject: {fileID: 0}
 --- !u!1 &356842480
@@ -1452,7 +1499,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -404.3}
-  m_SizeDelta: {x: 500, y: 250}
+  m_SizeDelta: {x: 1280, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1780584665
 MonoBehaviour:

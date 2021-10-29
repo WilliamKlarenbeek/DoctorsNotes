@@ -21,6 +21,7 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
     private Text quantityText;
     private Text nameText;
     private Text descriptionText;
+    private Text buyButton;
     private SoundManager sndManager;
     [SerializeField] private Inventory inventoryDB;
 
@@ -31,6 +32,7 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
         quantityText = transform.Find("Quantity").GetComponent<Text>();
         nameText = transform.Find("Name").GetComponent<Text>();
         descriptionText = transform.Find("Description").GetComponent<Text>();
+        buyButton = GameObject.Find("BuyButton").GetComponent<Text>();
         inventoryDB = Resources.Load("Databases/InventoryDatabase") as Inventory;
         Book = GameObject.Find("Book_UI").GetComponent<BookScript>();
         worldCamera = GameObject.Find("Main Camera");
@@ -73,10 +75,23 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
                     currentItem = j;
                     nameText.text = j.itemName;
                     descriptionText.text = j.itemDescription;
+                    if(j.itemPrice >  0)
+                    {
+                        buyButton.text = "Buy $" + j.itemPrice.ToString();
+                    }
+                    else
+                    {
+                        buyButton.text = "N/A";
+                    }
                     break;
                 }
             }
         }
+    }
+
+    public InventoryItem GetItem()
+    {
+        return currentItem;
     }
 
     public void OnMouseOver()
@@ -107,7 +122,15 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
 
             if (Physics.Raycast(ray, out hit, 100.0f) && quantity > 0)
             {
-                var obj = Instantiate(Resources.Load(currentItem.prefabPath) as GameObject, new Vector3(hit.point.x, 2.25f, hit.point.z), Quaternion.Euler(new Vector3(80, 0, 0)));
+                GameObject obj;
+                if(currentItem.itemName != "Beaker")
+                {
+                    obj = Instantiate(Resources.Load(currentItem.prefabPath) as GameObject, new Vector3(hit.point.x, 2.25f, hit.point.z), Quaternion.Euler(new Vector3(80, 0, 0)));
+                }
+                else
+                {
+                    obj = Instantiate(Resources.Load(currentItem.prefabPath) as GameObject, new Vector3(hit.point.x, 1.25f, hit.point.z), Quaternion.Euler(new Vector3(0, 0, 0)));
+                }
                 if (obj.GetComponent<GenericObject>() != null)
                 {
                     GenericObject createdItem = obj.GetComponent<GenericObject>();
