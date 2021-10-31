@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44721574, g: 0.4971416, b: 0.5751729, a: 1}
+  m_IndirectSpecularColor: {r: 0.44721556, g: 0.49714172, b: 0.57517254, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1141,7 +1141,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 532299197}
   m_LocalRotation: {x: 0.7025614, y: 0.080046766, z: -0.080046766, w: 0.7025614}
-  m_LocalPosition: {x: 0.08, y: 0.05, z: 0.2}
+  m_LocalPosition: {x: 0.083, y: 0.05, z: 0.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1134329551}
@@ -1157,15 +1157,15 @@ TextMesh:
   m_GameObject: {fileID: 532299197}
   m_Text: 
   m_OffsetZ: 0
-  m_CharacterSize: 0.1
+  m_CharacterSize: 0.01
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
   m_TabSize: 4
-  m_FontSize: 0
+  m_FontSize: 200
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 0}
+  m_Font: {fileID: 12800000, guid: 0005228e3632e654fb0b994ceb1baa86, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -1189,7 +1189,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: 0005228e3632e654fb0b994ceb1baa86, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
