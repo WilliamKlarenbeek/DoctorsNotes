@@ -13,6 +13,11 @@ public class InventoryItem
     public int itemQuantity;
     public string itemDescription;
     public int itemPrice;
+    //Individual color values
+    public float Red;
+    public float Blue;
+    public float Green;
+    public float Black;
 
     public InventoryItem(Item aItem)
     {
