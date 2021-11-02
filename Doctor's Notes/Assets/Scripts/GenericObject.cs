@@ -89,7 +89,12 @@ public class GenericObject : MonoBehaviour
 
     public void OnMouseUp()
     {
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 10) == false && collidingWithPatient == false)
+        if (gameObject.GetComponent<Ingredient>() && Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 10) == false)
+        {
+            Book.IncreaseQuantity(prefabPath);
+            Destroy(gameObject);
+        }
+        else if (gameObject.GetComponent<Beaker>() && Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, 10) == false)
         {
             Book.IncreaseQuantity(prefabPath);
             Destroy(gameObject);
