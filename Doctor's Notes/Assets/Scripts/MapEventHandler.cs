@@ -202,29 +202,25 @@ public class MapEventHandler : MonoBehaviour
             case 0:
                 endingName = "Game Over!";
                 endingDesc = "The plague has consumed the entire country. Seems you were too late in preventing its total eradication...";
-                endingOutcome = "Bad Ending";
                 sndManager.PlayMusic(badEndingStinger);
                 break;
             case 1:
                 endingName = "Most Towns Saved!";
                 endingDesc = "Most of the towns of the country have been saved from the spread of this deadly plague!";
-                endingOutcome = "Ending 1";
                 sndManager.PlayMusic(goodEndingStinger);
                 break;
             case 2:
                 endingName = "Most Towns Dead!";
                 endingDesc = "Most of the towns of the country that have been infected, have unfortunately died out...";
-                endingOutcome = "Ending 2";
                 sndManager.PlayMusic(badEndingStinger);
                 break;
             default:
                 endingName = "Game Over!";
                 endingDesc = "The plague has consumed the entire country. Seems you were too late in preventing its total eradication...";
-                endingOutcome = "Bad Ending";
                 sndManager.PlayMusic(badEndingStinger);
                 break;
         }
-
+        endingOutcome = "Patients Saved: " + mapSelectionDB.GetLocationSaved();
         eventNameText.text = endingName;
         eventDescText.text = endingDesc;
         eventResultText.text = endingOutcome;

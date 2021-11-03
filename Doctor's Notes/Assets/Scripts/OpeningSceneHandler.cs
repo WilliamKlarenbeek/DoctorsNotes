@@ -29,6 +29,7 @@ public class OpeningSceneHandler : MonoBehaviour
     public Text DialogueText;
 
     private SoundManager sndManager;
+    private bool skipFlag;
 
     [SerializeField] private List<OpeningDialogue> DialogueSequence;
 
@@ -43,7 +44,14 @@ public class OpeningSceneHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            skipFlag = true;
+        }
+        else
+        {
+            skipFlag = false;
+        }
     }
 
     void Initialise()
@@ -117,17 +125,28 @@ public class OpeningSceneHandler : MonoBehaviour
 
         foreach (OpeningDialogue i in DialogueSequence)
         {
-            if(i.voiceLine != null)
+            if (i.voiceLine != null)
             {
                 sndManager.PlaySound(i.voiceLine);
             }
-            if(i.fadeObject != null)
+            if (i.fadeObject != null)
             {
 
             }
             StartCoroutine(PrintByCharacter(i));
 
-            yield return new WaitForSeconds(i.Duration);
+            while (duration < i.Duration)
+            {
+                duration += Time.deltaTime;
+                if (skipFlag)
+                {
+                    break;
+                }
+                yield return null;
+            }
+            duration = 0f;
+            //yield return new WaitForSeconds(i.Duration);
+
             DialogueText.text = "";
         }
         DialogueText.text = "";

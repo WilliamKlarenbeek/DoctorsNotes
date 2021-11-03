@@ -281,8 +281,8 @@ MonoBehaviour:
   DialogueText: {fileID: 1780584665}
   DialogueSequence:
   - _Dialogue: Brittonia
-    _Duration: 1
-    _CharTransition: 4
+    _Duration: 4
+    _CharTransition: 1
     _voiceLine: {fileID: 0}
     _fadeObject: {fileID: 0}
   - _Dialogue: A country within the quiet reaches of the world.

@@ -283,7 +283,7 @@ MonoBehaviour:
   lockObject: {fileID: 3625949855897955876}
   genericLockImage: {fileID: -3612360273905304128, guid: f983d856f74a9aa46918e1ebe31f80d2, type: 3}
   winLockImage: {fileID: 21300000, guid: d3da9a1c4ef199e4681726feae3a609e, type: 3}
-  loseLockImage: {fileID: 21300000, guid: 2ad3b12dba0d3d542bd5b053782e6fd3, type: 3}
+  loseLockImage: {fileID: 21300000, guid: aae1e01d394db744397dd8995051fdde, type: 3}
 --- !u!114 &1636975422189466382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -782,7 +782,7 @@ MonoBehaviour:
   lockObject: {fileID: 3625949854755392717}
   genericLockImage: {fileID: -3612360273905304128, guid: f983d856f74a9aa46918e1ebe31f80d2, type: 3}
   winLockImage: {fileID: 21300000, guid: d3da9a1c4ef199e4681726feae3a609e, type: 3}
-  loseLockImage: {fileID: 21300000, guid: 2ad3b12dba0d3d542bd5b053782e6fd3, type: 3}
+  loseLockImage: {fileID: 21300000, guid: aae1e01d394db744397dd8995051fdde, type: 3}
 --- !u!114 &3625949855571540505
 MonoBehaviour:
   m_ObjectHideFlags: 0

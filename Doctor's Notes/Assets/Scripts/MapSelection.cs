@@ -183,4 +183,9 @@ public class MapSelection : ScriptableObject
         }
         tempOutcome = PatientOutcome.Undefined;
     }
+
+    public int GetLocationSaved()
+    {
+        return healedLocations.Count;
+    }
 }
