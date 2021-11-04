@@ -13,8 +13,9 @@ public class LevelSelection : MonoBehaviour
     public Sprite genericLockImage;
     public Sprite winLockImage;
     public Sprite loseLockImage;
-    private int levelIndex;
     private PlayerIcon player;
+    [SerializeField] private MapSelection mapSelectionDB;
+    [SerializeField] private int deathDay;
 
     private void Awake()
     {
@@ -34,11 +35,19 @@ public class LevelSelection : MonoBehaviour
 
     private void Update() //check on every frame 
     {
-        UpdateLevelImage();
+        if (mapSelectionDB.GetCurrentDay() >= (deathDay + mapSelectionDB.GetBonusDay()) && unlocked == true)
+        {
+            SetWin(2);
+            SetUnlocked(false);
+            mapSelectionDB.AddLockedLocation(gameObject);
+            mapSelectionDB.AddDeadLocation(gameObject);
+        }
+        
         if (player.isMoving()) {
             GetComponent<Button>().enabled = false;
         } else
         {
+            UpdateLevelImage();
             GetComponent<Button>().enabled = true;
         }
     }
@@ -57,21 +66,15 @@ public class LevelSelection : MonoBehaviour
         }
     }
 
-    public int getLevelIndex()
-    {
-        return levelIndex;
-    }
-
-    public void PressSelection(int aIndex)
+    public void PressSelection()
     {
         if(unlocked && player.isMoving() == false)
         {
-            levelIndex = aIndex;
             // Once the player Icon moves to the selected location then 
             // Load Scene coroutine is called from the Movement Coroutine inside the PlayerIcon
             StartCoroutine(PlayerIcon.instance.Movement(gameObject));
-            Debug.Log("Level selected, loading scene: " + aIndex);
-            Debugger.debuggerInstance.WriteToFile("Level selected, loading scene: " + aIndex);
+            //Debug.Log("Level selected, loading scene: " + aIndex);
+            //Debugger.debuggerInstance.WriteToFile("Level selected, loading scene: " + aIndex);
         }
     }
 
@@ -96,8 +99,13 @@ public class LevelSelection : MonoBehaviour
         }
     }
 
-    public void SetLocked(bool aFlag)
+    public void SetUnlocked(bool aFlag)
     {
         unlocked = aFlag;
+    }
+
+    public bool GetUnlocked()
+    {
+        return unlocked;
     }
 }

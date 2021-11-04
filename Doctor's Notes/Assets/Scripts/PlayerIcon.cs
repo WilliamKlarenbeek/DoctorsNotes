@@ -22,7 +22,8 @@ public class PlayerIcon : MonoBehaviour
     private Vector3 _currentPos;
     private bool moving = false;
     
-    public float distPercentage = 0.0f; 
+    public float distPercentage = 0.0f;
+    [SerializeField] private int maxDayLimit = 14;
 
     private void Awake()
     {
@@ -37,7 +38,8 @@ public class PlayerIcon : MonoBehaviour
             mapSelectionDB.SetCurrentLocation(_startLevel.GetComponent<RectTransform>().anchoredPosition);
             mapSelectionDB.SetCurrentTimer(0f);
             mapSelectionDB.SetCurrentDay(1);
-            mapSelectionDB.SetMaxDay(30);
+            mapSelectionDB.SetBonusDay(0);
+            mapSelectionDB.SetMaxDay(maxDayLimit);
             mapSelectionDB.ResetLockedLocations();
             mapSelectionDB.SetGameBeginFlag(false);
         }
@@ -84,7 +86,14 @@ public class PlayerIcon : MonoBehaviour
         moving = false;
         LinearTimer.instance.EndTimer();
         mapSelectionDB.SetCurrentLocation(GetComponent<RectTransform>().anchoredPosition);
-        mapSelectionDB.AddLockedLocation(targetPos);
+        if(targetPos.GetComponent<LevelSelection>() != null)
+        {
+            if(targetPos.GetComponent<LevelSelection>().GetUnlocked() == true)
+            {
+                mapSelectionDB.AddLockedLocation(targetPos);
+            }
+        }
+        
         eventHandler.RandomEvent();
         //yield return StartCoroutine(SceneController.LoadScene(1, 2f));
         //yield return StartCoroutine(SceneController.LoadScene(LevelSelection.levelSelectionInstance.getLevelIndex(), 2f));
