@@ -24,7 +24,7 @@ public class Cauldron : Tool
     List<Ingredient> unknownIngredients = new List<Ingredient>();
     public float potionInstX; 
     public float potionInstY; 
-    public float potionInstZ; 
+    public float potionInstZ;
 
 
     public override void Start()
@@ -89,6 +89,15 @@ public class Cauldron : Tool
         {
             Ingredient insertedMaterial = collision.gameObject.GetComponent<Ingredient>();
             ingredientList.Add(insertedMaterial);
+            if (sndManager != null && state != "working")
+            {
+                StartCoroutine(sndManager.FadeInSound(workingSound, 1f, 1f, true));
+                //cauldronSound = true;
+            }
+            else
+            {
+                Debug.Log("Sound Manager Does Not Exist!");
+            }
             state = "working";
             if (insertedMaterial != null)
             {
@@ -96,15 +105,6 @@ public class Cauldron : Tool
                 blueTotal += insertedMaterial.blue;
                 greenTotal += insertedMaterial.green;
                 blackTotal += insertedMaterial.black;
-            }
-
-            if (sndManager != null)
-            {
-                StartCoroutine(sndManager.FadeInSound(workingSound, 1f, 1f, true));
-            }
-            else
-            {
-                Debug.Log("Sound Manager Does Not Exist!");
             }
             Destroy(collision.gameObject);
         }
