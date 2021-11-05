@@ -3948,6 +3948,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3625949855598836406, guid: 969b064ddbc7e1844a1c2d4723bd43f0, type: 3}
+      propertyPath: maxDayLimit
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 3625949855598836406, guid: 969b064ddbc7e1844a1c2d4723bd43f0, type: 3}
       propertyPath: eventHandlerObject
       value: 
       objectReference: {fileID: 1719904884}
