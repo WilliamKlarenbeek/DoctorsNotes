@@ -6,6 +6,7 @@ public class PauseScript : MonoBehaviour
 {
     public GameObject pauseMenu;
     public GameObject quitMenu;
+    public GameObject panel;
 
     private bool paused = false;
     private bool canPause = true;
@@ -20,8 +21,13 @@ public class PauseScript : MonoBehaviour
         {
             quitMenu = transform.Find("QuitMenu").gameObject;
         }
+        if(panel == null)
+        {
+            panel = transform.Find("Panel").gameObject;
+        }
         pauseMenu.SetActive(false);
         quitMenu.SetActive(false);
+        panel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -31,11 +37,13 @@ public class PauseScript : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Escape) && paused == false)
             {
+                panel.SetActive(true);
                 pauseMenu.SetActive(true);
                 paused = true;
             }
             else if (Input.GetKeyDown(KeyCode.Escape) && paused == true)
             {
+                panel.SetActive(false);
                 pauseMenu.SetActive(false);
                 paused = false;
             }
@@ -57,6 +65,7 @@ public class PauseScript : MonoBehaviour
 
     public void ResumeButton()
     {
+        panel.SetActive(false);
         pauseMenu.SetActive(false);
         paused = false;
     }

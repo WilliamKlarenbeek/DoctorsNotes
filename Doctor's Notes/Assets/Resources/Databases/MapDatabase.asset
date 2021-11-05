@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: MapDatabase
   m_EditorClassIdentifier: 
   gameBegin: 1
-  currentCoords: {x: 51.76822, y: 229.78607}
-  currentTimer: 2.096259
-  currentDay: 3
-  maxDay: 30
+  lockedLocations:
+  - 2
+  healedLocations: []
+  deadLocations: []
+  currentCoords: {x: 52.03849, y: 229.79572}
+  currentTimer: 0.8684451
