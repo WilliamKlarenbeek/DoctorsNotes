@@ -1,5 +1,103 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7673478904189731045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a3f811d5aa14d243a14c4c99ae942ad, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -200, y: 408}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -7673478904189731045}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: 3946606750291790911}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -7673478904189731045}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -4126691170398149722}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  speakerName: Master Doctor
+  dialogueLine: Now apply the cure to the plague. Drag the potion bottle in the cauldron
+    over onto the patient's plague to counteract its own red values.
+  sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
+--- !u!114 &-4126691170398149722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a3f811d5aa14d243a14c4c99ae942ad, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 40, y: 424}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -4126691170398149722}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -7673478904189731045}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -4126691170398149722}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -2995475349854893819}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  speakerName: Master Doctor
+  dialogueLine: Success! The plague has changed colour to blue, designating the only
+    colour remaining.
+  sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
 --- !u!114 &-3970568566063884875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,6 +246,56 @@ MonoBehaviour:
     Refining doubles a herb''s color values, while also decreasing black. Drag the
     herb into the pestle and mortar and rotate until receiving the refined dust. '
   sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
+--- !u!114 &-2995475349854893819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a3f811d5aa14d243a14c4c99ae942ad, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 296, y: 456}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -2995475349854893819}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -4126691170398149722}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -2995475349854893819}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: Entry
+        node: {fileID: 4201409091352197178}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  speakerName: Master Doctor
+  dialogueLine: Return to your notebook and select the blue bookmark to see blue
+    herbs you are knowledgeable on. A lavender once refined should solve the patients
+    ailment, repeat the previous steps to finally cure this plague.
+  sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,8 +319,11 @@ MonoBehaviour:
   - {fileID: 2002440723547021139}
   - {fileID: 6194064655389461732}
   - {fileID: 3946606750291790911}
-  - {fileID: 5678276298232354767}
-  current: {fileID: 0}
+  - {fileID: -7673478904189731045}
+  - {fileID: -4126691170398149722}
+  - {fileID: -2995475349854893819}
+  - {fileID: 4201409091352197178}
+  current: {fileID: 7678928078146428874}
 --- !u!114 &258526079330863597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,7 +371,7 @@ MonoBehaviour:
   exit: 0
   speakerName: Master Doctor
   dialogueLine: As a Doctor you can cure plagues by mixing remedies with medicinal
-    herbs. Access your medicinal herbs from the book on the table.
+    herbs. Access your medicinal herbs from the book on the table
   sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
 --- !u!114 &2002440723547021139
 MonoBehaviour:
@@ -269,8 +420,7 @@ MonoBehaviour:
   exit: 0
   speakerName: Master Doctor
   dialogueLine: Drag the refined herb into the cauldron to begin brewing. You must
-    wait for 10 seconds before a cure is finished and can be removed. Drag a potion
-    bottle over the cauldron to receive your cure.
+    wait for 5 seconds before a cure is finished and can be removed.
   sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
 --- !u!114 &3946606750291790911
 MonoBehaviour:
@@ -308,8 +458,8 @@ MonoBehaviour:
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
-      - fieldName: Entry
-        node: {fileID: 5678276298232354767}
+      - fieldName: entry
+        node: {fileID: -7673478904189731045}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -318,10 +468,41 @@ MonoBehaviour:
   entry: 0
   exit: 0
   speakerName: Master Doctor
-  dialogueLine: Return to your notebook and select the blue bookmark to see blue
-    herbs you are knowledgeable on. A lavender once refined should solve the patients
-    ailment, repeat the previous steps to finally cure this plague.
+  dialogueLine: To retrieve your finished cure drag the potion bottle into the cauldron.
+    Remember, if you overcook the cure it will appear black and possess no healing
+    effects.
   sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
+--- !u!114 &4201409091352197178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beb364519f1b3ae49944bfb626ff92e2, type: 3}
+  m_Name: End
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 618.51227, y: 449.51727}
+  ports:
+    keys:
+    - Entry
+    values:
+    - _fieldName: Entry
+      _node: {fileID: 4201409091352197178}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -2995475349854893819}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Entry: 0
 --- !u!114 &4404663679904957875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,9 +549,9 @@ MonoBehaviour:
   entry: 0
   exit: 0
   speakerName: Master Doctor
-  dialogueLine: Every herb has four respective colour values. The three healing colours
-    of red, green and blue, and the poisonous black. See more herbs with the arrow
-    button.
+  dialogueLine: 'Every herb has five respective colour values. The four healing colours
+    of red, green, blue and white, and the poisonous black. See more herbs with the
+    arrow button. '
   sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
 --- !u!114 &4901133824125313063
 MonoBehaviour:
@@ -403,37 +584,6 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
   exit: 0
---- !u!114 &5678276298232354767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: beb364519f1b3ae49944bfb626ff92e2, type: 3}
-  m_Name: End
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: -161, y: 388}
-  ports:
-    keys:
-    - Entry
-    values:
-    - _fieldName: Entry
-      _node: {fileID: 5678276298232354767}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: exit
-        node: {fileID: 3946606750291790911}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-  Entry: 0
 --- !u!114 &6194064655389461732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -480,9 +630,8 @@ MonoBehaviour:
   entry: 0
   exit: 0
   speakerName: Master Doctor
-  dialogueLine: 'Now apply the cure to the plague. Drag the potion bottle in the
-    cauldron over onto the patient''s plague to counteract its own red values. Success!
-    The plague has changed colour to blue, designating the only colour remaining. '
+  dialogueLine: To remove a cure from the cauldron, you will need a beaker. Access
+    the white tab of the book and drag a beaker from the book onto the table.
   sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
 --- !u!114 &7678928078146428874
 MonoBehaviour:
@@ -530,5 +679,5 @@ MonoBehaviour:
   entry: 0
   exit: 0
   speakerName: Master Doctor
-  dialogueLine: "\u201CPress Space to Progress Dialogue\u201D"
+  dialogueLine: "\u201CSpace to Progress\u201D"
   sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}

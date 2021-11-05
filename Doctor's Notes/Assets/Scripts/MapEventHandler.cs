@@ -160,7 +160,11 @@ public class MapEventHandler : MonoBehaviour
     {
         int randIndex = Mathf.RoundToInt(Random.Range(0, patientScenes.Count));
 
-        if(endingNumber == -1)
+        if (PlayerPrefs.GetString("scene") == "TutorialScene")
+        {
+            StartCoroutine(SceneController.LoadScene("TutorialScene", 2f));
+        }
+        else if (endingNumber == -1)
         {
             StartCoroutine(SceneController.LoadScene(patientScenes[randIndex], 2f));
         } else

@@ -48,6 +48,12 @@ public class Symptom : MonoBehaviour
         Destroy(gameObject);
     }
 
+
+    public void setValues(float red, float blue, float green)
+    {
+        symptomManager.recordValues(this, red, blue, green, 0);
+    }
+
     public int ID
     {
         get
