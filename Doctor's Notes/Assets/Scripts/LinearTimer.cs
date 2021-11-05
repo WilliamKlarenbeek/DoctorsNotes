@@ -93,8 +93,8 @@ public class LinearTimer : MonoBehaviour
 
     public void EndTimer()
     {
-        timerGoing = false; 
-        if(mapEventHandler != null)
+        timerGoing = false;
+        if (mapEventHandler != null && currentDay >= endDay)
         {
             mapEventHandler.EndingInit(0);
         }

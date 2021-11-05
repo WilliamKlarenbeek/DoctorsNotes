@@ -23,7 +23,7 @@ public class PlayerIcon : MonoBehaviour
     private bool moving = false;
     
     public float distPercentage = 0.0f;
-    [SerializeField] private int maxDayLimit = 14;
+    [SerializeField] private int maxDayLimit;
 
     private void Awake()
     {
