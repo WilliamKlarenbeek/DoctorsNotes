@@ -3919,6 +3919,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1493888225624589216, guid: 969b064ddbc7e1844a1c2d4723bd43f0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1910779955279478781, guid: 969b064ddbc7e1844a1c2d4723bd43f0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3625949854694633651, guid: 969b064ddbc7e1844a1c2d4723bd43f0, type: 3}
       propertyPath: lightObject
       value: 
@@ -3927,6 +3935,10 @@ PrefabInstance:
       propertyPath: mapEventHandler
       value: 
       objectReference: {fileID: 1719904885}
+    - target: {fileID: 3625949854716913922, guid: 969b064ddbc7e1844a1c2d4723bd43f0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3625949854755392717, guid: 969b064ddbc7e1844a1c2d4723bd43f0, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -3947,6 +3959,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3625949855571540501, guid: 969b064ddbc7e1844a1c2d4723bd43f0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3625949855571540501, guid: 969b064ddbc7e1844a1c2d4723bd43f0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3625949855598836406, guid: 969b064ddbc7e1844a1c2d4723bd43f0, type: 3}
+      propertyPath: _startLevel
+      value: 
+      objectReference: {fileID: 2031676698}
     - target: {fileID: 3625949855598836406, guid: 969b064ddbc7e1844a1c2d4723bd43f0, type: 3}
       propertyPath: maxDayLimit
       value: 14
@@ -4103,8 +4127,21 @@ PrefabInstance:
       propertyPath: InitialModule.startSpeed.scalar
       value: 0.005
       objectReference: {fileID: 0}
+    - target: {fileID: 5397282585930186075, guid: 969b064ddbc7e1844a1c2d4723bd43f0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9040519252146908202, guid: 969b064ddbc7e1844a1c2d4723bd43f0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 969b064ddbc7e1844a1c2d4723bd43f0, type: 3}
+--- !u!1 &2031676698 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3625949855571540498, guid: 969b064ddbc7e1844a1c2d4723bd43f0, type: 3}
+  m_PrefabInstance: {fileID: 2031676697}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2047717320
 GameObject:
   m_ObjectHideFlags: 0

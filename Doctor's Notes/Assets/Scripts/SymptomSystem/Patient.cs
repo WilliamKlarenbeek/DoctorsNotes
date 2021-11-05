@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Patient : MonoBehaviour
 {
@@ -111,8 +112,14 @@ public class Patient : MonoBehaviour
         }
         for (int i = 0; i < symptomLocations.Count; i++)
         {
-            Debug.Log(symptomLocations[i]);
-            if (symptomLocations[i] == 2) //make head symptom
+            if (SceneManager.GetActiveScene().name == "TutorialScene")
+            {
+                GameObject objectInstance = Instantiate(Resources.Load("Prefabs/SpriteSymptomPrefab"), new Vector3(-6.64f, 1.785f, 1.24f), Quaternion.Euler(new Vector3(173, -50.38f, 151.66f)), gameObject.transform) as GameObject;
+                Symptom newSymptom = objectInstance.GetComponent<Symptom>();
+                newSymptom.setValues(0.2f, 0.2f, 0);
+            }
+            //Debug.Log(symptomLocations[i]);
+            else if (symptomLocations[i] == 2) //make head symptom
             {
                 GameObject objectInstance = Instantiate(Resources.Load("Prefabs/SpriteSymptomPrefab"), new Vector3(-5.39f, 1.97f, 5.68f), Quaternion.Euler(new Vector3(0, 0, 0)), gameObject.transform) as GameObject;
                 Symptom newSymptom = objectInstance.GetComponent<Symptom>();

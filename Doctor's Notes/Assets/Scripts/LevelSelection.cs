@@ -66,10 +66,11 @@ public class LevelSelection : MonoBehaviour
         }
     }
 
-    public void PressSelection()
+    public void PressSelection(string sceneName)
     {
         if(unlocked && player.isMoving() == false)
         {
+            PlayerPrefs.SetString("scene", sceneName);
             // Once the player Icon moves to the selected location then 
             // Load Scene coroutine is called from the Movement Coroutine inside the PlayerIcon
             StartCoroutine(PlayerIcon.instance.Movement(gameObject));
