@@ -13,7 +13,7 @@ public class Potion : GenericObject
     public override void Start()
     {
         //Recolouring the potion prefab liquid based on the colour of the potion
-        if (red == 0 && blue == 0 && green == 0)
+        if (red == 0 && blue == 0 && green == 0 && black <= 0)
         {
             gameObject.transform.Find("potion_flask_flowers_01").gameObject.transform.Find("SM_potion_flask_flowers_01_liquid").gameObject.GetComponent<Renderer>().material.SetColor("_BaseColour", new Color(1, 1, 1));
 
