@@ -7,6 +7,9 @@ public class Symptom : MonoBehaviour
     Patient symptomManager;
     public SymptomDatabase symptomDB;
 
+    float timer = 0;
+    float buildUpAmount;
+    int nextTic = 1;
     private int id;
     private bool isColliding;
 
@@ -21,6 +24,12 @@ public class Symptom : MonoBehaviour
     void Update()
     {
         isColliding = false;
+        timer += Time.deltaTime;
+        if(timer > nextTic)
+        {
+            symptomManager.updateValues(this, id, 0, 0, 0, (Mathf.Round(buildUpAmount * 1000f) / 1000f));
+            nextTic += 1;
+        }
     }
 
     private void OnTriggerStay(Collider collision)
@@ -39,9 +48,10 @@ public class Symptom : MonoBehaviour
         }
     }
 
-    public void calculateValues(float min, float max)
+    public void calculateValues(float min, float max, float buildup)
     {
         symptomManager.recordValues(this, (Mathf.Round(Random.Range(min, max) * 10f) / 10f), (Mathf.Round(Random.Range(min, max) * 10f) / 10f), (Mathf.Round(Random.Range(min, max) * 10f) / 10f), 0);
+        buildUpAmount = buildup;
     }
     public void destroySelf()
     {

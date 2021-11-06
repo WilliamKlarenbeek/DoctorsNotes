@@ -1818,3 +1818,60 @@ Supports 3D Textures: True
 [LEVELSELECTION]
 [LEVELSELECTION]
 [LEVELSELECTION]
+[DEBUGGER]
+Assets\Resources\Log.txt
+StreamWriter writer initialized....
+[SYSTEMINFO]
+Device Model: 81EK (LENOVO)
+Device Name: YOGA
+Device Type: Desktop
+Operating System: Windows 10  (10.0.19042) 64bit
+Processor Count: 8
+Processor Type: Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz
+Supports Audio: True
+Supports 3D Textures: True
+[LINEARTIMER]
+[LEVELSELECTION]
+[LEVELSELECTION]
+[LEVELSELECTION]
+[LEVELSELECTION]
+[LEVELSELECTION]
+[LEVELSELECTION]
+[DEBUGGER]
+Assets\Resources\Log.txt
+StreamWriter writer initialized....
+[SYSTEMINFO]
+Device Model: 81EK (LENOVO)
+Device Name: YOGA
+Device Type: Desktop
+Operating System: Windows 10  (10.0.19042) 64bit
+Processor Count: 8
+Processor Type: Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz
+Supports Audio: True
+Supports 3D Textures: True
+[LINEARTIMER]
+[LEVELSELECTION]
+[LEVELSELECTION]
+[LEVELSELECTION]
+[LEVELSELECTION]
+[LEVELSELECTION]
+[LEVELSELECTION]
+[DEBUGGER]
+Assets\Resources\Log.txt
+StreamWriter writer initialized....
+[SYSTEMINFO]
+Device Model: 81EK (LENOVO)
+Device Name: YOGA
+Device Type: Desktop
+Operating System: Windows 10  (10.0.19042) 64bit
+Processor Count: 8
+Processor Type: Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz
+Supports Audio: True
+Supports 3D Textures: True
+[LINEARTIMER]
+[LEVELSELECTION]
+[LEVELSELECTION]
+[LEVELSELECTION]
+[LEVELSELECTION]
+[LEVELSELECTION]
+[LEVELSELECTION]
