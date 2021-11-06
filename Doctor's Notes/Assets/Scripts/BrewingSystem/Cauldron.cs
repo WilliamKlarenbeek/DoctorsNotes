@@ -48,13 +48,31 @@ public class Cauldron : Tool
             brewingText.text = ((int)timer).ToString();
 
             brewingColor = new Color(Mathf.Clamp(redTotal * (2 - blackTotal), 0, 1), Mathf.Clamp(greenTotal * (2 - blackTotal), 0, 1), Mathf.Clamp(blueTotal * (2 - blackTotal), 0, 1));
+            if(redTotal == 0 && blueTotal == 0 && greenTotal == 0)
+            {
+                brewingColor = new Color(1, 1, 1);
+            }
             if (renderer != null)
             {
                 liquidObject.SetActive(true);
                 renderer.material.color = brewingColor;
-                liquid.ChangeColor(redTotal, greenTotal, blueTotal, blackTotal);
+                if (redTotal == 0 && blueTotal == 0 && greenTotal == 0)
+                {
+                    liquid.ChangeColor(1, 1, 1, 0);
+                }
+                else
+                {
+                    liquid.ChangeColor(redTotal, greenTotal, blueTotal, blackTotal);
+                }
                 fumes.StartParticles();
-                fumes.ChangeColor(redTotal, greenTotal, blueTotal, blackTotal);
+                if (redTotal == 0 && blueTotal == 0 && greenTotal == 0)
+                {
+                    fumes.ChangeColor(1, 1, 1, 0);
+                }
+                else
+                {
+                    fumes.ChangeColor(redTotal, greenTotal, blueTotal, blackTotal);
+                }
             }
             flameLightObject.SetActive(true);
         }
