@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Controller
       objectReference: {fileID: 0}
+    - target: {fileID: 6618853005062437186, guid: 29edd3705bbc4884b84b0f51f55c6f2a, type: 3}
+      propertyPath: SceneMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 5bdca4fc923a99f49a41ce8633a7665a, type: 3}
     - target: {fileID: 6618853005062437187, guid: 29edd3705bbc4884b84b0f51f55c6f2a, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -540,6 +544,55 @@ PrefabInstance:
     - target: {fileID: 6996710226626037381, guid: dd87e4417d4ad724a92d63358bc45f3e, type: 3}
       propertyPath: m_Name
       value: CreditsCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6996710228131141671, guid: dd87e4417d4ad724a92d63358bc45f3e, type: 3}
+      propertyPath: m_Text
+      value: 'William Klarenbeek - Programmer, Producer
+
+
+        Cara Sykes-Johnson
+        - 3D and 2D Artist, Lead Game Designer
+
+
+        Gabriel Morgan - Technical
+        Artist, HR Manager, Programmer
+
+
+        Emiliano Pablo - Sound Designer,
+        Freelancer, Programmer
+
+
+        Mihai Petrescu - Programmer
+
+
+        Lual
+        Gout - 3D Artist
+
+
+        Lea - 2D Artist
+
+
+        Ben Robertson - Writer
+
+
+        Music
+
+        Suonatore
+        di Liuto by Kevin MacLeod
+
+        Link: https://incompetech.filmmusic.io/song/4440-suonatore-di-liuto
+
+        License:
+        https://filmmusic.io/standard-license
+
+
+
+
+        Map Music and Patient Music
+        by Dale Cenzon
+
+
+        Stingers by Emiliano Pablo'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd87e4417d4ad724a92d63358bc45f3e, type: 3}

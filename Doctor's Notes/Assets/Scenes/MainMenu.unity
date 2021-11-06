@@ -172,6 +172,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Controller
       objectReference: {fileID: 0}
+    - target: {fileID: 6618853005062437186, guid: 29edd3705bbc4884b84b0f51f55c6f2a, type: 3}
+      propertyPath: SceneMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 79028979356ddf540b1526aa0cf14f53, type: 3}
     - target: {fileID: 6618853005062437187, guid: 29edd3705bbc4884b84b0f51f55c6f2a, type: 3}
       propertyPath: m_RootOrder
       value: 5

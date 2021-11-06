@@ -116,8 +116,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa5bdbf7a61eeb449867f9a4044e70e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  YStartingPosition: -1200
-  YEndingPosition: 1200
+  YStartingPosition: -2000
+  YEndingPosition: 2000
   scrollDuration: 20
   endingImage: {fileID: 6996710226964799470}
   endingText: {fileID: 6996710227518463726}
@@ -463,7 +463,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -150}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1600, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6996710228131141668
@@ -532,7 +532,41 @@ MonoBehaviour:
 
 
     Ben
-    Robertson - Writer'
+    Robertson - Writer
+
+
+    Music
+
+    Suonatore di Liuto by Kevin MacLeod
+
+    Link:
+    https://incompetech.filmmusic.io/song/4440-suonatore-di-liuto
+
+    License: https://filmmusic.io/standard-license
+
+
+    Teller
+    of the Tales by Kevin MacLeod
+
+    Link: https://incompetech.filmmusic.io/song/4467-teller-of-the-tales
+
+    License:
+    https://filmmusic.io/standard-license
+
+
+    Angevin by Kevin MacLeod
+
+    Licensed
+    under Creative Commons: By Attribution 4.0 License
+
+    http://creativecommons.org/licenses/by/4.0/
+
+
+    Map
+    Music and Patient Music by Dale Cenzon
+
+
+    Stingers by Emiliano Pablo'
 --- !u!1 &6996710228659974404
 GameObject:
   m_ObjectHideFlags: 0
