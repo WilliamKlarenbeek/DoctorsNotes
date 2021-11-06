@@ -24,7 +24,7 @@ public class Cauldron : Tool
     List<Ingredient> unknownIngredients = new List<Ingredient>();
     public float potionInstX; 
     public float potionInstY; 
-    public float potionInstZ; 
+    public float potionInstZ;
 
 
     public override void Start()
@@ -48,13 +48,31 @@ public class Cauldron : Tool
             brewingText.text = ((int)timer).ToString();
 
             brewingColor = new Color(Mathf.Clamp(redTotal * (2 - blackTotal), 0, 1), Mathf.Clamp(greenTotal * (2 - blackTotal), 0, 1), Mathf.Clamp(blueTotal * (2 - blackTotal), 0, 1));
+            if(redTotal == 0 && blueTotal == 0 && greenTotal == 0)
+            {
+                brewingColor = new Color(1, 1, 1);
+            }
             if (renderer != null)
             {
                 liquidObject.SetActive(true);
                 renderer.material.color = brewingColor;
-                liquid.ChangeColor(redTotal, greenTotal, blueTotal, blackTotal);
+                if (redTotal == 0 && blueTotal == 0 && greenTotal == 0)
+                {
+                    liquid.ChangeColor(1, 1, 1, 0);
+                }
+                else
+                {
+                    liquid.ChangeColor(redTotal, greenTotal, blueTotal, blackTotal);
+                }
                 fumes.StartParticles();
-                fumes.ChangeColor(redTotal, greenTotal, blueTotal, blackTotal);
+                if (redTotal == 0 && blueTotal == 0 && greenTotal == 0)
+                {
+                    fumes.ChangeColor(1, 1, 1, 0);
+                }
+                else
+                {
+                    fumes.ChangeColor(redTotal, greenTotal, blueTotal, blackTotal);
+                }
             }
             flameLightObject.SetActive(true);
         }
@@ -89,6 +107,15 @@ public class Cauldron : Tool
         {
             Ingredient insertedMaterial = collision.gameObject.GetComponent<Ingredient>();
             ingredientList.Add(insertedMaterial);
+            if (sndManager != null && state != "working")
+            {
+                StartCoroutine(sndManager.FadeInSound(workingSound, 1f, 1f, true));
+                //cauldronSound = true;
+            }
+            else
+            {
+                Debug.Log("Sound Manager Does Not Exist!");
+            }
             state = "working";
             if (insertedMaterial != null)
             {
@@ -96,15 +123,6 @@ public class Cauldron : Tool
                 blueTotal += insertedMaterial.blue;
                 greenTotal += insertedMaterial.green;
                 blackTotal += insertedMaterial.black;
-            }
-
-            if (sndManager != null)
-            {
-                StartCoroutine(sndManager.FadeInSound(workingSound, 1f, 1f, true));
-            }
-            else
-            {
-                Debug.Log("Sound Manager Does Not Exist!");
             }
             Destroy(collision.gameObject);
         }

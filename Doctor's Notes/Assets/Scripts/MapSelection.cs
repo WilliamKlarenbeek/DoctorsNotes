@@ -6,7 +6,7 @@ using UnityEngine;
 public class MapSelection : ScriptableObject
 {
     //Maximum locked locations should ideally match the amount of locations in the map scene.
-    const int MAXIMUM_LOCKED_LOCATIONS = 2;
+    const int MAXIMUM_LOCKED_LOCATIONS = 6;
 
     enum PatientOutcome
     {
@@ -24,8 +24,9 @@ public class MapSelection : ScriptableObject
 
     public Vector2 currentCoords;
     public float currentTimer = 0;
-    public int currentDay = 1;
-    public int maxDay = 30;
+    private int currentDay = 1;
+    private int maxDay;
+    private int bonusDays = 0;
 
     public int EndStateCheck()
     {
@@ -38,7 +39,8 @@ public class MapSelection : ScriptableObject
             {
                 return 2;
             }
-        } else
+        }
+        else
         {
             return -1;
         }
@@ -84,6 +86,16 @@ public class MapSelection : ScriptableObject
         return maxDay;
     }
 
+    public void SetBonusDay(int aDay)
+    {
+        bonusDays = aDay;
+    }
+
+    public int GetBonusDay()
+    {
+        return bonusDays;
+    }
+
     public bool isGameBegin()
     {
         return gameBegin;
@@ -118,8 +130,31 @@ public class MapSelection : ScriptableObject
         {
             lockedLocations.Add(aLocation.name);
             tempSavedLocation = aLocation.name;
-            Debug.Log("Added Locked Location.");
         } 
+        else
+        {
+            Debug.Log("Invalid Location Object.");
+        }
+    }
+
+    public void AddHealedLocation(GameObject aLocation)
+    {
+        if (aLocation.GetComponent<LevelSelection>() != null)
+        {
+            healedLocations.Add(aLocation.name);
+        }
+        else
+        {
+            Debug.Log("Invalid Location Object.");
+        }
+    }
+
+    public void AddDeadLocation(GameObject aLocation)
+    {
+        if (aLocation.GetComponent<LevelSelection>() != null)
+        {
+            deadLocations.Add(aLocation.name);
+        }
         else
         {
             Debug.Log("Invalid Location Object.");
@@ -149,7 +184,7 @@ public class MapSelection : ScriptableObject
             {
                 if (tempLocation.GetComponent<LevelSelection>() != null)
                 {
-                    tempLocation.GetComponent<LevelSelection>().SetLocked(false);
+                    tempLocation.GetComponent<LevelSelection>().SetUnlocked(false);
                 } else
                 {
                     Debug.Log("Level Selection Script Not Found.");
@@ -166,9 +201,13 @@ public class MapSelection : ScriptableObject
             {
                 if (tempLocation.GetComponent<LevelSelection>() != null)
                 {
+                    //Doesn't hurt to double check now, does it?
+                    tempLocation.GetComponent<LevelSelection>().SetUnlocked(false);
                     tempLocation.GetComponent<LevelSelection>().SetWin(1);
                 }
             }
+
+            deadLocations.Remove(i);
         }
         foreach (string i in deadLocations)
         {
@@ -177,6 +216,7 @@ public class MapSelection : ScriptableObject
             {
                 if (tempLocation.GetComponent<LevelSelection>() != null)
                 {
+                    tempLocation.GetComponent<LevelSelection>().SetUnlocked(false);
                     tempLocation.GetComponent<LevelSelection>().SetWin(2);
                 }
             }

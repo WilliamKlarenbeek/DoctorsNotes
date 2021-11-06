@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6507,6 +6507,7 @@ GameObject:
   - component: {fileID: 1357792947}
   - component: {fileID: 1357792950}
   - component: {fileID: 1357792952}
+  - component: {fileID: 1357792951}
   m_Layer: 5
   m_Name: BtnExit
   m_TagString: Untagged
@@ -6630,6 +6631,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Audio: {fileID: 8300000, guid: a537e1bf8ee133c43bb7f692133f30b5, type: 3}
   Controller: {fileID: 0}
+--- !u!114 &1357792951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357792945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 810981cbcb3fda842a3866ecf4c975d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightTextColor: {r: 1, g: 0.047058824, b: 0, a: 1}
 --- !u!114 &1357792952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7487,6 +7501,7 @@ GameObject:
   - component: {fileID: 1738263900}
   - component: {fileID: 1738263903}
   - component: {fileID: 1738263904}
+  - component: {fileID: 1738263905}
   m_Layer: 5
   m_Name: BtnPlay
   m_TagString: Untagged
@@ -7624,6 +7639,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetScene: 0
   transitionDuration: 1
+--- !u!114 &1738263905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738263898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 810981cbcb3fda842a3866ecf4c975d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightTextColor: {r: 1, g: 0.046356056, b: 0, a: 1}
 --- !u!1001 &1777577324
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -36,9 +36,7 @@ public class MapEventHandler : MonoBehaviour
 
         if (mapSelectionDB.EndStateCheck() != -1)
         {
-            endState = true;
-            endingNumber = mapSelectionDB.EndStateCheck();
-            sndManager.StopMusic(true);
+            EndingInit(mapSelectionDB.EndStateCheck());
         }
 
         UpdateEventList();
@@ -129,15 +127,15 @@ public class MapEventHandler : MonoBehaviour
         switch (aEvent.eventType)
         {
             case (MapEvent.EventType)0:
-                mapSelectionDB.maxDay += amount;
+                mapSelectionDB.SetBonusDay(mapSelectionDB.GetBonusDay() + amount);
                 resultMessage = "The plague slowed down by " + amount + " days.";
                 sndManager.PlaySound(goodEventStinger);
                 break;
             case (MapEvent.EventType)1:
-                mapSelectionDB.currentDay += amount;
-                if(mapSelectionDB.currentDay > mapSelectionDB.maxDay)
+                mapSelectionDB.SetCurrentDay(mapSelectionDB.GetCurrentDay() + amount);
+                if(mapSelectionDB.GetCurrentDay() > mapSelectionDB.GetMaxDay())
                 {
-                    mapSelectionDB.currentDay = mapSelectionDB.maxDay;
+                    mapSelectionDB.SetCurrentDay(mapSelectionDB.GetMaxDay());
                 }
                 resultMessage = "You stalled for " + amount + " days.";
                 sndManager.PlaySound(badEventStinger);
@@ -162,11 +160,16 @@ public class MapEventHandler : MonoBehaviour
     {
         int randIndex = Mathf.RoundToInt(Random.Range(0, patientScenes.Count));
 
-        if(endingNumber == -1)
+        if (PlayerPrefs.GetString("scene") == "TutorialScene")
+        {
+            StartCoroutine(SceneController.LoadScene("TutorialScene", 2f));
+        }
+        else if (endingNumber == -1)
         {
             StartCoroutine(SceneController.LoadScene(patientScenes[randIndex], 2f));
         } else
         {
+            mapSelectionDB.SetGameBeginFlag(true);
             StartCoroutine(SceneController.LoadScene("Ending" + endingNumber, 2f));
         }
         eventBox.SetActive(false);
@@ -182,6 +185,13 @@ public class MapEventHandler : MonoBehaviour
                 eventList.Add(i);
             }
         }
+    }
+
+    public void EndingInit(int aEnding)
+    {
+        endState = true;
+        endingNumber = aEnding;
+        sndManager.StopMusic(true);
     }
 
     //0 - Out of Time Ending

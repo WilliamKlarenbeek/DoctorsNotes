@@ -23,7 +23,7 @@ public class LinearTimer : MonoBehaviour
     //Current Day is self explanatory; the day the player is currently on.
     private int currentDay = 1;
     //End day is how many days the player has before the blight consumes the world.
-    public int endDay = 30;
+    private int endDay;
 
     //Blight Effect
     [SerializeField] private GameObject blightEffect;
@@ -45,6 +45,7 @@ public class LinearTimer : MonoBehaviour
     [SerializeField] private GameObject mapObject;
     private Image map;
     [SerializeField] private MapSelection mapSelectionDB;
+    [SerializeField] private MapEventHandler mapEventHandler;
 
     private void Awake()
     {
@@ -70,7 +71,7 @@ public class LinearTimer : MonoBehaviour
     {
         elapsedTime = mapSelectionDB.GetCurrentTimer(); 
         currentDay = mapSelectionDB.GetCurrentDay();
-        endDay = mapSelectionDB.GetMaxDay();
+        endDay = mapSelectionDB.GetMaxDay() + mapSelectionDB.GetBonusDay();
         timerBar = GetComponent<Image>();
         timerBar.fillAmount = (float)(elapsedTime / resetTime);
         timerGoing = false;
@@ -92,7 +93,11 @@ public class LinearTimer : MonoBehaviour
 
     public void EndTimer()
     {
-        timerGoing = false; 
+        timerGoing = false;
+        if (mapEventHandler != null && currentDay >= endDay)
+        {
+            mapEventHandler.EndingInit(0);
+        }
     }
 
     public void ResetTimer()
@@ -103,9 +108,9 @@ public class LinearTimer : MonoBehaviour
 
     private void UpdateBlightFX()
     {
-        blightParticleSystemShape.position = new Vector2(0, Mathf.Lerp(blightOriginPointY, 0.5f, ((float)mapSelectionDB.currentDay / (float)mapSelectionDB.maxDay)));
-        blightParticleSystemShape.scale = new Vector3(2.5f, Mathf.Lerp(blightOriginScaleY, blightMaxYScale, ((float)mapSelectionDB.currentDay / (float)mapSelectionDB.maxDay)), 1);
-        blightParticleSystemEmission.rateOverTime = Mathf.Lerp(blightOriginEmission, 100f, ((float)mapSelectionDB.currentDay / (float)mapSelectionDB.maxDay));
+        blightParticleSystemShape.position = new Vector2(0, Mathf.Lerp(blightOriginPointY, 0.5f, ((float)mapSelectionDB.GetCurrentDay() / (float)mapSelectionDB.GetMaxDay())));
+        blightParticleSystemShape.scale = new Vector3(2.5f, Mathf.Lerp(blightOriginScaleY, blightMaxYScale, ((float)mapSelectionDB.GetCurrentDay() / (float)mapSelectionDB.GetMaxDay())), 1);
+        blightParticleSystemEmission.rateOverTime = Mathf.Lerp(blightOriginEmission, 100f, ((float)mapSelectionDB.GetCurrentDay() / (float)mapSelectionDB.GetMaxDay()));
         Debug.Log("Current Day: " + currentDay);
         Debug.Log("End Day: " + endDay);
     }
@@ -125,7 +130,7 @@ public class LinearTimer : MonoBehaviour
 
             if (elapsedTime > resetTime)
             {
-                if(currentDay == endDay)
+                if(currentDay >= endDay)
                 {
                     EndTimer();
                 } 

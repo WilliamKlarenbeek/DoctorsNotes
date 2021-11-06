@@ -161,7 +161,7 @@ public class OpeningSceneHandler : MonoBehaviour
         duration = 0f;
         DialoguePanel.GetComponent<Image>().color = new Color(0, 0, 0, 0f);
 
-        StartCoroutine(SceneController.LoadScene("MapScene", 4f));
+        StartCoroutine(SceneController.LoadScene("TutorialScene", 4f));
     }
 
     IEnumerator PrintByCharacter(OpeningDialogue aDialogue)
