@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
 {
     public GameObject Controller;
-    public GameObject mouseoverGlow; 
+    public GameObject mouseoverGlow;
 
     private GameObject worldCamera;
     private BookScript Book;
@@ -27,6 +27,7 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
     private Image[] blueImages = new Image[10];
     private Image[] whiteImages = new Image[10];
     private Image[] blackImages = new Image[10];
+    private Image[] emptyImages = new Image[50];
     private Text buyButton;
     private SoundManager sndManager;
     [SerializeField] private Inventory inventoryDB;
@@ -48,6 +49,7 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
         PopulateBlueImages();
         PopulateWhiteImages();
         PopulateBlackImages();
+        PopulateEmptyImages();
     }
 
     void Start()
@@ -147,11 +149,51 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
         gameObject.GetComponent<Image>().sprite = currentItem.itemImage;
     }
 
+    public void OnMouseDown()
+    {
+        ItemSlot objectClone = Instantiate(this) as ItemSlot;
+        GameObject foundCanvas = GameObject.Find("Book_UI");
+        objectClone.transform.SetParent(foundCanvas.transform);      
+        objectClone.name = "itemCopy";
+    }
+
+    public void OnMouseUp()
+    {
+        GameObject objectClone = GameObject.Find("itemCopy");
+        Destroy(objectClone);
+    }
+
     public void OnDrag(PointerEventData eventData)
     {
         if(Book.IsTransitioning() == false)
         {
             transform.position = Input.mousePosition;
+            foreach (Image redImage in redImages)
+            {
+                redImage.enabled = false;
+            }
+            foreach (Image greenImage in greenImages)
+            {
+                greenImage.enabled = false;
+            }
+            foreach (Image blueImage in blueImages)
+            {
+                blueImage.enabled = false;
+            }
+            foreach (Image whiteImage in whiteImages)
+            {
+                whiteImage.enabled = false;
+            }
+            foreach (Image blackImage in blackImages)
+            {
+                blackImage.enabled = false;
+            }
+            foreach (Image emptyImage in emptyImages)
+            {
+                emptyImage.enabled = false;
+            }
+            nameText.enabled = false;
+            descriptionText.enabled = false;
 
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         }
@@ -162,6 +204,23 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
         if(Book.IsTransitioning() == false)
         {
             transform.position = origin;
+           
+            for (int n = 0; n < currentItem.Red; n++)
+                redImages[9 - n].enabled = true;
+            for (int n = 0; n < currentItem.Green; n++)
+                greenImages[9 - n].enabled = true;
+            for (int n = 0; n < currentItem.Blue; n++)
+                blueImages[9 - n].enabled = true;
+            for (int n = 0; n < currentItem.White; n++)
+                whiteImages[9 - n].enabled = true;
+            for (int n = 0; n < currentItem.Black; n++)
+                blackImages[9 - n].enabled = true;
+            foreach (Image emptyImage in emptyImages)
+            {
+                emptyImage.enabled = true;
+            }
+            nameText.enabled = true;
+            descriptionText.enabled = true;
 
             if (Physics.Raycast(ray, out hit, 100.0f) && quantity > 0)
             {
@@ -295,5 +354,15 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
         blackImages[7] = transform.Find("blackDot2").GetComponent<Image>();
         blackImages[8] = transform.Find("blackDot1").GetComponent<Image>();
         blackImages[9] = transform.Find("blackDot0").GetComponent<Image>();
+    }
+
+    void PopulateEmptyImages()
+    {
+        for(int x = 0; x < emptyImages.Length; x++)
+        {
+            emptyImages[x] = transform.Find("emptyDot" + x).GetComponent<Image>();
+        }
+        //for(int x = 0; x > emptyImages.Length; x++)
+        //emptyImages[x] = transform.Find("emptyDot" + x).GetComponent<Image>();
     }
 }
