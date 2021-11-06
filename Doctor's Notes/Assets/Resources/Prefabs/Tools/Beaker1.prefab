@@ -11,9 +11,7 @@ GameObject:
   - component: {fileID: 573904727979496819}
   - component: {fileID: -6514836900815588069}
   - component: {fileID: 7002500377576445910}
-  - component: {fileID: 1496455848375819812}
   - component: {fileID: -4308454063164168982}
-  - component: {fileID: -5388388482072605338}
   m_Layer: 0
   m_Name: Beaker1
   m_TagString: Untagged
@@ -86,20 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1496455848375819812
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 573904727979496823}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 3867116104177159494, guid: c30c62c47f535034e92ea32bb1adf0ac, type: 3}
 --- !u!114 &-4308454063164168982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,22 +103,6 @@ MonoBehaviour:
   grabSound: {fileID: 8300000, guid: 6ec4e5896db06a54b9c12a34560cdef7, type: 3}
   releaseSound: {fileID: 8300000, guid: a15d07adfa0b85a4b9d3de9ac6b723d1, type: 3}
   Controller: {fileID: 0}
---- !u!54 &-5388388482072605338
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 573904727979496823}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!54 &8109945771116105295
 Rigidbody:
   m_ObjectHideFlags: 0
