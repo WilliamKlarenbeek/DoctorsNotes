@@ -153,7 +153,9 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
     {
         ItemSlot objectClone = Instantiate(this) as ItemSlot;
         GameObject foundCanvas = GameObject.Find("Book_UI");
-        objectClone.transform.SetParent(foundCanvas.transform);      
+        objectClone.transform.SetParent(foundCanvas.transform);
+        objectClone.transform.localScale = Vector3.one;
+        objectClone.transform.localPosition = Vector3.zero;
         objectClone.name = "itemCopy";
     }
 
