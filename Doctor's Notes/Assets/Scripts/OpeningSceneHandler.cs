@@ -90,6 +90,7 @@ public class OpeningSceneHandler : MonoBehaviour
             i.SetActive(true);
         }
         disintegratingMap.SetActive(true);
+        StartCoroutine(disintegratingMap.GetComponent<CinematicMap>().PlayEffect());
 
         CameraObject.GetComponent<Animator>().speed = 1;
 
