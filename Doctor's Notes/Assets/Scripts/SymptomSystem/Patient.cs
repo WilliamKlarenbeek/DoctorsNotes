@@ -172,6 +172,11 @@ public class Patient : MonoBehaviour
         symptomAmount++;
     }
 
+    public void KillPatient()
+    {
+        patientSceneController.PrintEvent(false, 0, true);
+    }
+
     public void updateValues(Symptom symp, int id,  float redChange, float blueChange, float greenChange, float blackChange)
     {
         symptomValues[id][0] = symptomValues[id][0] - redChange;
@@ -235,8 +240,8 @@ public class Patient : MonoBehaviour
         {
             Debug.Log("Cured");
             mapDB.SetWinFlag(true);
-            PlayerPrefs.SetInt("money", (PlayerPrefs.GetInt("money") + 50));
-            patientSceneController.PrintEvent(cured, 50);
+            PlayerPrefs.SetInt("money", (PlayerPrefs.GetInt("money") + 250));
+            patientSceneController.PrintEvent(cured, 250);
             //resultButton.gameObject.SetActive(true);
             //resultButton.gameObject.GetComponentInChildren<Text>().text = "Patient has been Cured";
         }

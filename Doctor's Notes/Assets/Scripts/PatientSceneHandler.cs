@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PatientSceneHandler : MonoBehaviour
 {
     public GameObject resultBox;
+    public GameObject resultPanel;
 
     private Text resultNameText;
     private Text resultDescText;
@@ -27,11 +28,13 @@ public class PatientSceneHandler : MonoBehaviour
             sndManager = Controller.GetComponent<SoundManager>();
         }
 
+        resultPanel.SetActive(false);
         resultBox.SetActive(false);
     }
 
-    public void PrintEvent(bool aFlag, int aMoney)
+    public void PrintEvent(bool aFlag, int aMoney, bool aForfeit = false)
     {
+        resultPanel.SetActive(true);
         resultBox.SetActive(true);
 
         if(aFlag == true)
@@ -43,10 +46,19 @@ public class PatientSceneHandler : MonoBehaviour
         } 
         else
         {
-            resultNameText.text = "Failed!";
-            resultDescText.text = "Your patient has died!";
-            resultResultText.text = "";
-            sndManager.PlaySound(badEventStinger);
+            if(aForfeit == true)
+            {
+                resultNameText.text = "Failed!";
+                resultDescText.text = "You've given up on your patient and left them to die...";
+                resultResultText.text = "";
+                sndManager.PlaySound(badEventStinger);
+            } else
+            {
+                resultNameText.text = "Failed!";
+                resultDescText.text = "Your patient has died!";
+                resultResultText.text = "";
+                sndManager.PlaySound(badEventStinger);
+            }
         }
     }
 }

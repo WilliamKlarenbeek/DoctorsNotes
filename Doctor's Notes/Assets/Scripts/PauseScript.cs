@@ -5,6 +5,7 @@ using UnityEngine;
 public class PauseScript : MonoBehaviour
 {
     public GameObject pauseMenu;
+    public GameObject forfeitMenu;
     public GameObject quitMenu;
     public GameObject panel;
 
@@ -24,6 +25,10 @@ public class PauseScript : MonoBehaviour
         if(panel == null)
         {
             panel = transform.Find("Panel").gameObject;
+        }
+        if(forfeitMenu != null)
+        {
+            forfeitMenu.SetActive(false);
         }
         pauseMenu.SetActive(false);
         quitMenu.SetActive(false);
@@ -60,6 +65,7 @@ public class PauseScript : MonoBehaviour
 
     public void ToggleCanPause(bool aFlag)
     {
+        Debug.Log("Method Accessed");
         canPause = aFlag;
     }
 
@@ -75,6 +81,23 @@ public class PauseScript : MonoBehaviour
         CloseQuitMenu();
         ResumeButton();
         StartCoroutine(SceneController.LoadScene("MainMenu", 1f));
+    }
+
+    public void ForfeitButton()
+    {
+        GameObject.Find("Patient").GetComponent<Patient>().KillPatient();
+        CloseForfeitMenu();
+        ResumeButton();
+    }
+
+    public void OpenForfeitMenu()
+    {
+        forfeitMenu.SetActive(true);
+    }
+
+    public void CloseForfeitMenu()
+    {
+        forfeitMenu.SetActive(false);
     }
 
     public void OpenQuitMenu()
