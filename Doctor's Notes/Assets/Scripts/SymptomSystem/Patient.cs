@@ -231,6 +231,7 @@ public class Patient : MonoBehaviour
         if (blackLevels >= 2)
         {
             Debug.Log("Dead");
+            symp.StopBuildup();
             mapDB.SetWinFlag(false);
             patientSceneController.PrintEvent(false, 0);
             //resultButton.gameObject.SetActive(true);
@@ -239,6 +240,7 @@ public class Patient : MonoBehaviour
         else if (cured == true)
         {
             Debug.Log("Cured");
+            symp.StopBuildup();
             mapDB.SetWinFlag(true);
             PlayerPrefs.SetInt("money", (PlayerPrefs.GetInt("money") + 250));
             patientSceneController.PrintEvent(cured, 250);
