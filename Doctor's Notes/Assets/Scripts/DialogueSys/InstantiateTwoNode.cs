@@ -15,7 +15,7 @@ public class InstantiateTwoDialogue : BaseNode
 
     public override string GetString()
     {
-        return "InstantiateNode/" + speakerName + "/" + dialogueLine + "/" + objectName + "/" + secondObjectName;
+        return "InstantiateTwoNode/" + speakerName + "/" + dialogueLine + "/" + objectName + "/" + secondObjectName;
     }
 
     public override Sprite GetSprite()

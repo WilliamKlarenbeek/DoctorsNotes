@@ -151,6 +151,57 @@ MonoBehaviour:
   dialogueLine: Upon the bed is a patient suffering from a grey plague which will
     kill them if left uncured. "Space"
   sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
+--- !u!114 &-7864159020201158561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Instantiate Two Dialogue
+  m_EditorClassIdentifier: Assembly-CSharp::InstantiateTwoDialogue
+  graph: {fileID: 11400000}
+  position: {x: 856, y: 200}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -7864159020201158561}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -2254469130257289121}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -7864159020201158561}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -4683940360757228094}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  speakerName: Master Doctor
+  dialogueLine: Return to your doctor's notes and drag a green Oakmoss herb and a
+    blue Lavender herb onto the table.
+  objectName: Oakmoss(Clone)
+  secondObjectName: Lavender(Clone)
+  sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
 --- !u!114 &-5604187766236980379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,7 +327,13 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: 6466824770968316167}
+        node: {fileID: 0}
+        reroutePoints: []
+      - fieldName: exit
+        node: {fileID: 0}
+        reroutePoints: []
+      - fieldName: exit
+        node: {fileID: -7864159020201158561}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -301,7 +358,7 @@ MonoBehaviour:
     a single cure. All herbs can be added to the cauldron anytime during the brewing
     process to add their color values.
   cauldronName: Cauldron
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
 --- !u!114 &-2468146281014117582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -388,7 +445,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: 6466824770968316167}
+        node: {fileID: -7864159020201158561}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -529,11 +586,11 @@ MonoBehaviour:
   - {fileID: 3165562869615907478}
   - {fileID: -5408689329883747498}
   - {fileID: -2254469130257289121}
-  - {fileID: 6466824770968316167}
   - {fileID: -4683940360757228094}
   - {fileID: 9148358534728730372}
   - {fileID: 7937591323280633781}
-  current: {fileID: 3165562869615907478}
+  - {fileID: -7864159020201158561}
+  current: {fileID: 3059544972255098621}
 --- !u!114 &1538896496691648496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -715,7 +772,7 @@ MonoBehaviour:
   dialogueLine: Now to turn this dust into a cure drag it into the cauldron to begin
     the brewing process.
   cauldronName: Cauldron
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
 --- !u!114 &5327073661526415518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -816,57 +873,6 @@ MonoBehaviour:
   dialogueLine: To begin creating a remedy to cure the grey plague we must remove
     its red components. Drag the French Rose herb icon from the book to the table.
   objectName: FrenchRose(Clone)
-  sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
---- !u!114 &6466824770968316167
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: Instantiate Two Dialogue
-  m_EditorClassIdentifier: Assembly-CSharp::InstantiateTwoDialogue
-  graph: {fileID: 11400000}
-  position: {x: 856, y: 184}
-  ports:
-    keys:
-    - entry
-    - exit
-    values:
-    - _fieldName: entry
-      _node: {fileID: 6466824770968316167}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: exit
-        node: {fileID: -2254469130257289121}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: exit
-      _node: {fileID: 6466824770968316167}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: entry
-        node: {fileID: -4683940360757228094}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-  entry: 0
-  exit: 0
-  speakerName: Master Doctor
-  dialogueLine: Return to your doctor's notes and drag a green Oakmoss herb and a
-    blue Lavender herb onto the table.
-  objectName: Oakmoss(Clone)
-  secondObjectName: Lavender(Clone)
   sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
 --- !u!114 &6717779997363467952
 MonoBehaviour:
