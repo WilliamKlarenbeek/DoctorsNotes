@@ -110,15 +110,15 @@ public class Patient : MonoBehaviour
                 }
                 if (symptomLocations.Count == 1)
                 {
-                    buildup = 0.03f;
+                    buildup = 0.005f;
                 }
                 else if (symptomLocations.Count == 2)
                 {
-                    buildup = 0.015f;
+                    buildup = 0.0025f;
                 }
                 else if (symptomLocations.Count == 3)
                 {
-                    buildup = 0.01f;
+                    buildup = 0.000125f;
                 }
             }
             else if (rngVal == 1) //increase rbgMax by 0.5
