@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5146766044311942282}
   - component: {fileID: 2585438062536573058}
   - component: {fileID: 5515750086204656424}
+  - component: {fileID: -4266055523183931134}
   m_Layer: 0
   m_Name: InsatiateSod
   m_TagString: Untagged
@@ -139,3 +140,17 @@ MonoBehaviour:
   blue: 0.1
   black: 0.7
   refinedVersion: RefinedInsatiateSod
+--- !u!114 &-4266055523183931134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189516885678001938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d0cbbc2a5feafc41a33c1a591984b34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverCursor: {fileID: 2800000, guid: e379b5755c465564baa2b4e146c500dd, type: 3}
+  downCursor: {fileID: 2800000, guid: ce1a25a3c9a51d74fbc41f5a532044a1, type: 3}

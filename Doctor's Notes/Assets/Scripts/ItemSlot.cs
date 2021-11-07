@@ -32,6 +32,9 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
     private SoundManager sndManager;
     [SerializeField] private Inventory inventoryDB;
 
+    [SerializeField] Texture2D hoverCursor;
+    [SerializeField] Texture2D downCursor;
+
     // Start is called before the first frame update
 
     void Awake()
@@ -142,15 +145,18 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
     public void OnMouseOver()
     {
         gameObject.GetComponent<Image>().sprite = currentItem.itemImageHighlight;
+        Cursor.SetCursor(hoverCursor, Vector2.zero, CursorMode.Auto);
     }
 
     public void OnMouseExit()
     {
         gameObject.GetComponent<Image>().sprite = currentItem.itemImage;
+        Cursor.SetCursor(default, Vector2.zero, CursorMode.Auto);
     }
 
     public void OnMouseDown()
     {
+        Cursor.SetCursor(downCursor, Vector2.zero, CursorMode.Auto);
         ItemSlot objectClone = Instantiate(this) as ItemSlot;
         GameObject foundCanvas = GameObject.Find("Book_UI");
         objectClone.transform.SetParent(foundCanvas.transform);
@@ -167,7 +173,8 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
 
     public void OnDrag(PointerEventData eventData)
     {
-        if(Book.IsTransitioning() == false)
+        Cursor.SetCursor(downCursor, Vector2.zero, CursorMode.Auto);
+        if (Book.IsTransitioning() == false)
         {
             transform.position = Input.mousePosition;
             foreach (Image redImage in redImages)
@@ -203,7 +210,8 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if(Book.IsTransitioning() == false)
+        Cursor.SetCursor(default, Vector2.zero, CursorMode.Auto);
+        if (Book.IsTransitioning() == false)
         {
             transform.position = origin;
            

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8191241878872482895}
   - component: {fileID: 1522372100671295559}
   - component: {fileID: -3088535368578340994}
+  - component: {fileID: 1613860194801894468}
   m_Layer: 0
   m_Name: RefinedOakmoss
   m_TagString: Untagged
@@ -138,3 +139,17 @@ MonoBehaviour:
   green: 0.5
   blue: 0
   black: 0.1
+--- !u!114 &1613860194801894468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2757289470080622551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d0cbbc2a5feafc41a33c1a591984b34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverCursor: {fileID: 2800000, guid: e379b5755c465564baa2b4e146c500dd, type: 3}
+  downCursor: {fileID: 2800000, guid: ce1a25a3c9a51d74fbc41f5a532044a1, type: 3}
