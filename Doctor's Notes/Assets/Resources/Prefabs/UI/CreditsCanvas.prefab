@@ -117,8 +117,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   YStartingPosition: -2000
-  YEndingPosition: 2000
-  scrollDuration: 20
+  YEndingPosition: 3000
+  scrollDuration: 30
   endingImage: {fileID: 6996710226964799470}
   endingText: {fileID: 6996710227518463726}
 --- !u!1 &6996710226964799456

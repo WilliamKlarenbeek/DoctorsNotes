@@ -170,6 +170,7 @@ public class MapEventHandler : MonoBehaviour
         } else
         {
             mapSelectionDB.SetGameBeginFlag(true);
+            mapSelectionDB.ResetLockedLocations();
             StartCoroutine(SceneController.LoadScene("Ending" + endingNumber, 2f));
         }
         eventBox.SetActive(false);

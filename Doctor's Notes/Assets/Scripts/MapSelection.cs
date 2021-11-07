@@ -119,6 +119,8 @@ public class MapSelection : ScriptableObject
 
     public void ResetLockedLocations()
     {
+        tempSavedLocation = "";
+        tempOutcome = PatientOutcome.Undefined;
         lockedLocations = new List<string>();
         healedLocations = new List<string>();
         deadLocations = new List<string>();

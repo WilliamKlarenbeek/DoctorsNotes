@@ -180,6 +180,7 @@ public class Patient : MonoBehaviour
 
     public void KillPatient()
     {
+        mapDB.SetWinFlag(false);
         patientSceneController.PrintEvent(false, 0, true);
     }
 
