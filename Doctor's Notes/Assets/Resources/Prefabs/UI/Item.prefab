@@ -201,6 +201,7 @@ MonoBehaviour:
     itemName: 
     prefabPath: 
     itemQuantity: 0
+    defaultQuantity: 0
     itemDescription: 
     itemPrice: 0
     Red: 0
@@ -4587,7 +4588,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: N/A
+  m_Text: ' '
 --- !u!114 &1196305417782486489
 MonoBehaviour:
   m_ObjectHideFlags: 0
