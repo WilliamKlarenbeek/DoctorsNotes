@@ -9,6 +9,7 @@ public class Symptom : MonoBehaviour
 
     float timer = 0;
     float buildUpAmount;
+    bool buildingUp = true;
     int nextTic = 1;
     private int id;
     private bool isColliding;
@@ -25,7 +26,7 @@ public class Symptom : MonoBehaviour
     {
         isColliding = false;
         timer += Time.deltaTime;
-        if(timer > nextTic)
+        if(timer > nextTic && buildingUp)
         {
             symptomManager.updateValues(this, id, 0, 0, 0, (Mathf.Round(buildUpAmount * 1000f) / 1000f));
             nextTic += 1;
@@ -58,6 +59,10 @@ public class Symptom : MonoBehaviour
         Destroy(gameObject);
     }
 
+    public void StopBuildup()
+    {
+        buildingUp = false;
+    }
 
     public void setValues(float red, float blue, float green)
     {
