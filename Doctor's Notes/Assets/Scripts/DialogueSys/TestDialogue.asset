@@ -1,5 +1,103 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7959303673478794272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a3f811d5aa14d243a14c4c99ae942ad, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -280, y: -40}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -7959303673478794272}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: 7083995655538662226}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -7959303673478794272}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -6645386546247991862}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  speakerName: Doc
+  dialogueLine: Dialogue 1
+  sprite: {fileID: 0}
+--- !u!114 &-6645386546247991862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Instantiate Two Dialogue
+  m_EditorClassIdentifier: Assembly-CSharp::InstantiateTwoDialogue
+  graph: {fileID: 11400000}
+  position: {x: -40, y: 136}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -6645386546247991862}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -7959303673478794272}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -6645386546247991862}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: 7970695277558385737}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  speakerName: adadad
+  dialogueLine: dawdawd
+  objectName: Oakmoss(Clone)
+  secondObjectName: Lavender(Clone)
+  sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14,206 +112,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodes:
   - {fileID: 7083995655538662226}
-  - {fileID: 5875885608877153060}
-  - {fileID: 6523304772942472504}
-  - {fileID: 1651958672306195812}
-  - {fileID: 680459933752284099}
   - {fileID: 8606304289230287936}
-  current: {fileID: 6523304772942472504}
---- !u!114 &680459933752284099
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a3f811d5aa14d243a14c4c99ae942ad, type: 3}
-  m_Name: Dialogue
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: -280, y: 40}
-  ports:
-    keys:
-    - entry
-    - exit
-    values:
-    - _fieldName: entry
-      _node: {fileID: 680459933752284099}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: exit
-        node: {fileID: 7083995655538662226}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: exit
-      _node: {fileID: 680459933752284099}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: entry
-        node: {fileID: 6523304772942472504}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-  entry: 0
-  exit: 0
-  speakerName: Doc
-  dialogueLine: regular 1
-  sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
---- !u!114 &1651958672306195812
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c69a69a41bc51fe4494aad3f9e35ef4a, type: 3}
-  m_Name: Cauldron
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: 296, y: 104}
-  ports:
-    keys:
-    - entry
-    - exit
-    values:
-    - _fieldName: entry
-      _node: {fileID: 1651958672306195812}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: exit
-        node: {fileID: 6523304772942472504}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: exit
-      _node: {fileID: 1651958672306195812}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: entry
-        node: {fileID: 5875885608877153060}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-  entry: 0
-  exit: 0
-  speakerName: Doc
-  dialogueLine: cauldron test
-  cauldronName: Cauldron
-  sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
---- !u!114 &5875885608877153060
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a3f811d5aa14d243a14c4c99ae942ad, type: 3}
-  m_Name: Dialogue
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: 221, y: -167}
-  ports:
-    keys:
-    - entry
-    - exit
-    values:
-    - _fieldName: entry
-      _node: {fileID: 5875885608877153060}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: exit
-        node: {fileID: 1651958672306195812}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: exit
-      _node: {fileID: 5875885608877153060}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: Entry
-        node: {fileID: 8606304289230287936}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-  entry: 0
-  exit: 0
-  speakerName: Doc
-  dialogueLine: regular dialogue
-  sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
---- !u!114 &6523304772942472504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: feaa4ef4cc3665540b5d0e67bcdfbcdf, type: 3}
-  m_Name: Book Script
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: -40, y: 232}
-  ports:
-    keys:
-    - entry
-    - exit
-    values:
-    - _fieldName: entry
-      _node: {fileID: 6523304772942472504}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: exit
-        node: {fileID: 680459933752284099}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: exit
-      _node: {fileID: 6523304772942472504}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: entry
-        node: {fileID: 1651958672306195812}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-  entry: 0
-  exit: 0
-  speakerName: Doc
-  dialogueLine: book test
-  bookName: Book_UI
-  sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
+  - {fileID: -7959303673478794272}
+  - {fileID: 7970695277558385737}
+  - {fileID: -6645386546247991862}
+  current: {fileID: -6645386546247991862}
 --- !u!114 &7083995655538662226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,13 +141,64 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: 680459933752284099}
+        node: {fileID: -7959303673478794272}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
   exit: 0
+--- !u!114 &7970695277558385737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a3f811d5aa14d243a14c4c99ae942ad, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 200, y: -88}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: 7970695277558385737}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: 0}
+        reroutePoints: []
+      - fieldName: exit
+        node: {fileID: -6645386546247991862}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 7970695277558385737}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: Entry
+        node: {fileID: 8606304289230287936}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  speakerName: Doc
+  dialogueLine: Dialogue 2
+  sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
 --- !u!114 &8606304289230287936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,7 +223,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: 5875885608877153060}
+        node: {fileID: 7970695277558385737}
         reroutePoints: []
       _direction: 0
       _connectionType: 0

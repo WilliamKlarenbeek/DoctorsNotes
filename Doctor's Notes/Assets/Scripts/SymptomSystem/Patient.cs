@@ -102,7 +102,7 @@ public class Patient : MonoBehaviour
                 {
                     symptomLocations.Add(0);
                 }
-                if(symptomLocations.Count == 1)
+                if (symptomLocations.Count == 1)
                 {
                     buildup = 0.03f;
                 }
@@ -132,7 +132,7 @@ public class Patient : MonoBehaviour
             {
                 GameObject objectInstance = Instantiate(Resources.Load("Prefabs/SpriteSymptomPrefab"), new Vector3(-6.64f, 1.785f, 1.24f), Quaternion.Euler(new Vector3(173, -50.38f, 151.66f)), gameObject.transform) as GameObject;
                 Symptom newSymptom = objectInstance.GetComponent<Symptom>();
-                newSymptom.setValues(0.2f, 0.2f, 0);
+                newSymptom.setValues(0.2f, 0.2f, 0.2f);
             }
             //Debug.Log(symptomLocations[i]);
             else if (symptomLocations[i] == 2) //make head symptom
@@ -177,7 +177,7 @@ public class Patient : MonoBehaviour
         patientSceneController.PrintEvent(false, 0, true);
     }
 
-    public void updateValues(Symptom symp, int id,  float redChange, float blueChange, float greenChange, float blackChange)
+    public void updateValues(Symptom symp, int id, float redChange, float blueChange, float greenChange, float blackChange)
     {
         symptomValues[id][0] = symptomValues[id][0] - redChange;
         symptomValues[id][1] = symptomValues[id][1] - blueChange;
@@ -218,7 +218,7 @@ public class Patient : MonoBehaviour
 
         cured = true;
         blackLevels = 0;
-        for(int x = 0; x < symptomValues.Count; x++)
+        for (int x = 0; x < symptomValues.Count; x++)
         {
             blackLevels += symptomValues[x][3];
             if (symptomValues[x][0] > 0 || symptomValues[x][1] > 0 || symptomValues[x][2] > 0)
@@ -245,5 +245,21 @@ public class Patient : MonoBehaviour
             //resultButton.gameObject.SetActive(true);
             //resultButton.gameObject.GetComponentInChildren<Text>().text = "Patient has been Cured";
         }
+    }
+
+    public bool checkValues(int id, float redChange, float blueChange, float greenChange)
+    {
+        Debug.Log("id" + id);
+        Debug.Log("red value" + symptomValues[id][0] + "    " + redChange);
+        Debug.Log("blue value" + symptomValues[id][1] + "    " + blueChange);
+        Debug.Log("green value" + symptomValues[id][2] + "    " + greenChange);
+        if (symptomValues[id][0] <= redChange && symptomValues[id][1] <= blueChange && symptomValues[id][2] <= greenChange)
+        {
+            return true;
+        }
+        else return false;
+        //symptomValues[id][0] = symptomValues[id][0] - redChange;
+        //symptomValues[id][1] = symptomValues[id][1] - blueChange;
+        //symptomValues[id][2] = symptomValues[id][2] - greenChange;
     }
 }

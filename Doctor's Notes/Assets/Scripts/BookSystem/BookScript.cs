@@ -31,6 +31,7 @@ public class BookScript : MonoBehaviour
     private Button[] buttons;
     [SerializeField] private Inventory inventoryDB;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -430,5 +431,21 @@ public class BookScript : MonoBehaviour
     public bool IsTransitioning()
     {
         return transitioning;
+    }
+
+    public bool GetCategory(int bookTab)
+    {
+        if (currentCategory == (BookCategory)bookTab)
+            return true;
+        else
+            return false;
+    }
+
+    public bool GetBookButton()
+    {
+        if (currentPage != 0)
+            return true;
+        else
+            return false;
     }
 }
