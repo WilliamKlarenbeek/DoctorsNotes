@@ -54,6 +54,18 @@ public class Inventory : ScriptableObject
         }
     }
 
+    public void InitialisePlayerInventory()
+    {
+        foreach (List<InventoryItem> i in inventoryList)
+        {
+            foreach (InventoryItem j in i)
+            {
+                j.itemQuantity = j.defaultQuantity;
+            }
+        }
+        PlayerPrefs.SetInt("money", 500);
+    }
+
     public List<List<InventoryItem>> GetInventoryList()
     {
         return inventoryList;

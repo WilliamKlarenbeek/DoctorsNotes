@@ -19,6 +19,7 @@ public class MapEventHandler : MonoBehaviour
     private Text eventNameText;
     private Text eventDescText;
     private Text eventResultText;
+    [SerializeField] private GameObject eventPanel;
     private GameController Controller;
     private bool endState = false;
     private int endingNumber = -1;
@@ -48,6 +49,7 @@ public class MapEventHandler : MonoBehaviour
             eventResultText = eventBox.transform.Find("EventResult").GetComponent<Text>();
         }
 
+        eventPanel.SetActive(false);
         eventBox.SetActive(false);
     }
 
@@ -149,6 +151,7 @@ public class MapEventHandler : MonoBehaviour
 
     private void PrintEvent(MapEvent aEvent, string aOutcome)
     {
+        eventPanel.SetActive(true);
         eventBox.SetActive(true);
 
         eventNameText.text = aEvent.eventName;
@@ -173,6 +176,7 @@ public class MapEventHandler : MonoBehaviour
             mapSelectionDB.ResetLockedLocations();
             StartCoroutine(SceneController.LoadScene("Ending" + endingNumber, 2f));
         }
+        eventPanel.SetActive(false);
         eventBox.SetActive(false);
     }
 
@@ -206,6 +210,7 @@ public class MapEventHandler : MonoBehaviour
         string endingDesc = "";
         string endingOutcome = "";
 
+        eventPanel.SetActive(true);
         eventBox.SetActive(true);
 
         switch (endingNumber)

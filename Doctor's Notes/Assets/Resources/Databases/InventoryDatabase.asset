@@ -19,6 +19,7 @@ MonoBehaviour:
     itemName: Beaker
     prefabPath: Prefabs/Tools/Beaker1
     itemQuantity: 38
+    defaultQuantity: 20
     itemDescription: Used to collect new materials and potions from mortar and pestle
       and cauldron.
     itemPrice: 5
@@ -34,6 +35,7 @@ MonoBehaviour:
     itemName: French Rose
     prefabPath: Prefabs/Materials/FrenchRose
     itemQuantity: 42
+    defaultQuantity: 20
     itemDescription: 'Red: 0.3, Blue: 0, Green: 0, Black: 0.2'
     itemPrice: 10
     Red: 3
@@ -47,6 +49,7 @@ MonoBehaviour:
     itemName: Refined French Rose
     prefabPath: Prefabs/Materials/RefinedFrenchRose
     itemQuantity: 0
+    defaultQuantity: 0
     itemDescription: 'Red: 0.5, Blue: 0, Green: 0, Black: 0.1'
     itemPrice: 0
     Red: 5
@@ -60,6 +63,7 @@ MonoBehaviour:
     itemName: Lavender
     prefabPath: Prefabs/Materials/Lavender
     itemQuantity: 48
+    defaultQuantity: 20
     itemDescription: 'Red: 0, Blue: 0.3, Green: 0, Black: 0.2'
     itemPrice: 10
     Red: 0
@@ -73,6 +77,7 @@ MonoBehaviour:
     itemName: RefinedLavender
     prefabPath: Prefabs/Materials/RefinedLavender
     itemQuantity: 0
+    defaultQuantity: 0
     itemDescription: 'Red: 0, Blue: 0.5, Green: 0, Black: 0.1'
     itemPrice: 0
     Red: 0
@@ -86,6 +91,7 @@ MonoBehaviour:
     itemName: Oakmoss
     prefabPath: Prefabs/Materials/Oakmoss
     itemQuantity: 43
+    defaultQuantity: 20
     itemDescription: 'Red: 0, Blue: 0, Green: 0.3, Black: 0.2'
     itemPrice: 10
     Red: 0
@@ -99,6 +105,7 @@ MonoBehaviour:
     itemName: Refined Oakmoss
     prefabPath: Prefabs/Materials/RefinedOakmoss
     itemQuantity: 1
+    defaultQuantity: 0
     itemDescription: 'Red: 0, Blue: 0, Green: 0.5, Black: 0.1'
     itemPrice: 0
     Red: 0
@@ -112,6 +119,7 @@ MonoBehaviour:
     itemName: Insatiate Sod
     prefabPath: Prefabs/Materials/InsatiateSod
     itemQuantity: 50
+    defaultQuantity: 1
     itemDescription: 'Red: 0.1, Blue: 0.1, Green: 0.1, Black: 0.7'
     itemPrice: 20
     Red: 1
@@ -125,6 +133,7 @@ MonoBehaviour:
     itemName: Refined Insatiate Sod
     prefabPath: Prefabs/Materials/RefinedInsatiateSod
     itemQuantity: 0
+    defaultQuantity: 0
     itemDescription: 'Red: 0.7, Blue: 0.7, Green: 0.7, Black: 0.1'
     itemPrice: 0
     Red: 7
@@ -138,6 +147,7 @@ MonoBehaviour:
     itemName: Holy Water
     prefabPath: Prefabs/Materials/HolyWater
     itemQuantity: 49
+    defaultQuantity: 3
     itemDescription: 'Red: 0, Blue: 0, Green: 0, Black: -0.5'
     itemPrice: 25
     Red: 0
@@ -151,6 +161,7 @@ MonoBehaviour:
     itemName: Bud of the Solstice Bloom
     prefabPath: Prefabs/Materials/BudoftheSolsticeBloom
     itemQuantity: 50
+    defaultQuantity: 3
     itemDescription: 'Red: 0.3, Blue: 0.3, Green: 0.3, Black: 0'
     itemPrice: 50
     Red: 3

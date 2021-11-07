@@ -11,6 +11,7 @@ public class InventoryItem
     public string itemName;
     public string prefabPath;
     public int itemQuantity;
+    public int defaultQuantity;
     public string itemDescription;
     public int itemPrice;
     //Individual color values

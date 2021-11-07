@@ -122,6 +122,11 @@ public class GameController : MonoBehaviour
         mapSelectionDB.SetGameBeginFlag(true);
     }
 
+    public void setTransitioning(bool aFlag)
+    {
+        transitioning = aFlag;
+    }
+
     public bool isTransitioning()
     {
         return transitioning;

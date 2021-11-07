@@ -63,7 +63,7 @@ public class Patient : MonoBehaviour
 
         rgbMin = 0.1f;
         rgbMax = 0.5f;
-        buildup = 0.03f;
+        buildup = 0.005f;
 
         for (int i = 0; i <= mapDB.GetCurrentDay(); i = i + 3)
         {

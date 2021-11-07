@@ -14,6 +14,7 @@ public class PlayerIcon : MonoBehaviour
     //speed the player icon moves at
     private float speed = 20f;
     [SerializeField] private MapSelection mapSelectionDB;
+    [SerializeField] private Inventory inventoryDB;
     [SerializeField] private GameObject eventHandlerObject;
     private MapEventHandler eventHandler;
 
@@ -41,6 +42,7 @@ public class PlayerIcon : MonoBehaviour
             mapSelectionDB.SetBonusDay(0);
             mapSelectionDB.SetMaxDay(maxDayLimit);
             mapSelectionDB.ResetLockedLocations();
+            inventoryDB.InitialisePlayerInventory();
             mapSelectionDB.SetGameBeginFlag(false);
         }
         eventHandler = eventHandlerObject.GetComponent<MapEventHandler>();
