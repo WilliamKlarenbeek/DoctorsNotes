@@ -30,6 +30,7 @@ public class Patient : MonoBehaviour
     private List<int> symptomLocations = new List<int>();
     float rgbMax;
     float rgbMin;
+    float buildup;
 
     //Lists to match the dynamic nature of symptom object adding
     private List<List<float>> symptomValues = new List<List<float>>();
@@ -55,9 +56,10 @@ public class Patient : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().sprite = patientDB.getRandomImage();
 
         rgbMin = 0.1f;
-        rgbMax = 0.6f;
+        rgbMax = 0.5f;
+        buildup = 0.03f;
 
-        for (int i = 0; i < mapDB.GetCurrentDay(); i = i + 5)
+        for (int i = 0; i <= mapDB.GetCurrentDay(); i = i + 3)
         {
             if (symptomLocations.Count == 0)
             {
@@ -71,7 +73,7 @@ public class Patient : MonoBehaviour
             {
                 rngVal = Mathf.RoundToInt(Random.Range(0, 2));
             }
-            else if (rgbMax - rgbMin <= 0.5)
+            else if (rgbMax - rgbMin <= 0.4f)
             {
                 rngVal = Mathf.RoundToInt(Random.Range(1, 3));
             }
@@ -80,9 +82,9 @@ public class Patient : MonoBehaviour
                 rngVal = Mathf.RoundToInt(Random.Range(0, 3));
             }
 
-            //increase symptoms by 1, increase rgb max by 0.5, increase rgb min by 0.5
             if (rngVal == 2) //increase symptoms by 1, to a max of 3
             {
+                Debug.Log("a");
                 rngVal = Mathf.RoundToInt(Random.Range(0, 3));
                 while ((symptomLocations.Contains(rngVal)))
                 {
@@ -100,14 +102,28 @@ public class Patient : MonoBehaviour
                 {
                     symptomLocations.Add(0);
                 }
+                if(symptomLocations.Count == 1)
+                {
+                    buildup = 0.03f;
+                }
+                else if (symptomLocations.Count == 2)
+                {
+                    buildup = 0.015f;
+                }
+                else if (symptomLocations.Count == 3)
+                {
+                    buildup = 0.01f;
+                }
             }
             else if (rngVal == 1) //increase rbgMax by 0.5
             {
-                rgbMax += 0.5f;
+                Debug.Log("b");
+                rgbMax += 0.4f;
             }
-            else //increase rbgMin by 0.5
+            else if (rngVal == 0) //increase rbgMin by 0.4
             {
-                rgbMin += 0.5f;
+                Debug.Log("c");
+                rgbMin += 0.2f;
             }
         }
         for (int i = 0; i < symptomLocations.Count; i++)
@@ -123,19 +139,19 @@ public class Patient : MonoBehaviour
             {
                 GameObject objectInstance = Instantiate(Resources.Load("Prefabs/SpriteSymptomPrefab"), new Vector3(-5.39f, 1.97f, 5.68f), Quaternion.Euler(new Vector3(0, 0, 0)), gameObject.transform) as GameObject;
                 Symptom newSymptom = objectInstance.GetComponent<Symptom>();
-                newSymptom.calculateValues(rgbMin, rgbMax);
+                newSymptom.calculateValues(rgbMin, rgbMax, buildup);
             }
             else if (symptomLocations[i] == 1) //make arm symptom
             {
                 GameObject objectInstance = Instantiate(Resources.Load("Prefabs/SpriteSymptomPrefab"), new Vector3(-6.64f, 1.785f, 1.24f), Quaternion.Euler(new Vector3(173, -50.38f, 151.66f)), gameObject.transform) as GameObject;
                 Symptom newSymptom = objectInstance.GetComponent<Symptom>();
-                newSymptom.calculateValues(rgbMin, rgbMax);
+                newSymptom.calculateValues(rgbMin, rgbMax, buildup);
             }
             else //make leg symptom
             {
                 GameObject objectInstance = Instantiate(Resources.Load("Prefabs/SpriteSymptomPrefab"), new Vector3(-5.72f, 1.97f, -0.835f), Quaternion.Euler(new Vector3(-180, 150.768f, -180)), gameObject.transform) as GameObject;
                 Symptom newSymptom = objectInstance.GetComponent<Symptom>();
-                newSymptom.calculateValues(rgbMin, rgbMax);
+                newSymptom.calculateValues(rgbMin, rgbMax, buildup);
             }
         }
 
@@ -151,8 +167,14 @@ public class Patient : MonoBehaviour
         symptomValues.Add(new List<float>(tempList));
         tempList.Clear();
         symp.GetComponent<Renderer>().material.color = new Color(red, green, blue, 1);
+        symp.GetComponent<Renderer>().material.color = new Color(Mathf.Clamp(red * (2 - black), 0, 1), Mathf.Clamp(green * (2 - black), 0, 1), Mathf.Clamp(blue * (2 - black), 0, 1));
         symp.ID = symptomAmount;
         symptomAmount++;
+    }
+
+    public void KillPatient()
+    {
+        patientSceneController.PrintEvent(false, 0, true);
     }
 
     public void updateValues(Symptom symp, int id,  float redChange, float blueChange, float greenChange, float blackChange)
@@ -187,7 +209,7 @@ public class Patient : MonoBehaviour
         }
         else
         {
-            symp.GetComponent<Renderer>().material.color = new Color(symptomValues[id][0], symptomValues[id][2], symptomValues[id][1], 1);
+            symp.GetComponent<Renderer>().material.color = new Color(Mathf.Clamp(symptomValues[id][0] * (2 - symptomValues[id][3]), 0, 1), Mathf.Clamp(symptomValues[id][2] * (2 - symptomValues[id][3]), 0, 1), Mathf.Clamp(symptomValues[id][1] * (2 - symptomValues[id][3]), 0, 1));
         }
         Debug.Log("Red: " + symptomValues[id][0]);
         Debug.Log("Blue: " + symptomValues[id][1]);
@@ -218,8 +240,8 @@ public class Patient : MonoBehaviour
         {
             Debug.Log("Cured");
             mapDB.SetWinFlag(true);
-            PlayerPrefs.SetInt("money", (PlayerPrefs.GetInt("money") + 50));
-            patientSceneController.PrintEvent(cured, 50);
+            PlayerPrefs.SetInt("money", (PlayerPrefs.GetInt("money") + 250));
+            patientSceneController.PrintEvent(cured, 250);
             //resultButton.gameObject.SetActive(true);
             //resultButton.gameObject.GetComponentInChildren<Text>().text = "Patient has been Cured";
         }

@@ -18,7 +18,7 @@ MonoBehaviour:
     itemImageHighlight: {fileID: 21300000, guid: 9dda5d55f5b366445b770aa9edb10665, type: 3}
     itemName: Beaker
     prefabPath: Prefabs/Tools/Beaker1
-    itemQuantity: 40
+    itemQuantity: 38
     itemDescription: Used to collect new materials and potions from mortar and pestle
       and cauldron.
     itemPrice: 5
@@ -85,7 +85,7 @@ MonoBehaviour:
     itemImageHighlight: {fileID: 21300000, guid: 55dfa2b6f91554f49b7d97e6b79ef8ae, type: 3}
     itemName: Oakmoss
     prefabPath: Prefabs/Materials/Oakmoss
-    itemQuantity: 44
+    itemQuantity: 43
     itemDescription: 'Red: 0, Blue: 0, Green: 0.3, Black: 0.2'
     itemPrice: 10
     Red: 0
@@ -113,7 +113,7 @@ MonoBehaviour:
     prefabPath: Prefabs/Materials/InsatiateSod
     itemQuantity: 50
     itemDescription: 'Red: 0.1, Blue: 0.1, Green: 0.1, Black: 0.7'
-    itemPrice: 5
+    itemPrice: 20
     Red: 1
     Blue: 1
     Green: 1
@@ -137,9 +137,9 @@ MonoBehaviour:
     itemImageHighlight: {fileID: 21300000, guid: 8888804134e5eae43a3de5f7528fd4dd, type: 3}
     itemName: Holy Water
     prefabPath: Prefabs/Materials/HolyWater
-    itemQuantity: 50
+    itemQuantity: 49
     itemDescription: 'Red: 0, Blue: 0, Green: 0, Black: -0.5'
-    itemPrice: 70
+    itemPrice: 25
     Red: 0
     Blue: 0
     Green: 0

@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour
 {
     [Range(0.0f, 1f)]
     public float musicVolume = 0.25f;
+    public PauseScript PauseMenu;
 
     [SerializeField] private AudioClip SceneMusic;
     private SoundManager sndManager;
@@ -57,6 +58,11 @@ public class GameController : MonoBehaviour
         blackScreen.color = c;
         transitioning = true;
 
+        if(PauseMenu != null)
+        {
+            PauseMenu.ToggleCanPause(false);
+        }
+
         while (frame < aDuration)
         {
             c.a += (1/aDuration) * Time.deltaTime;
@@ -65,6 +71,12 @@ public class GameController : MonoBehaviour
             frame += Time.deltaTime;
             yield return null;
         }
+
+        if (PauseMenu != null)
+        {
+            PauseMenu.ToggleCanPause(true);
+        }
+
         transitioning = false;
     }
 
@@ -77,6 +89,11 @@ public class GameController : MonoBehaviour
         blackScreen.color = c;
         transitioning = true;
 
+        if (PauseMenu != null)
+        {
+            PauseMenu.ToggleCanPause(false);
+        }
+
         while (frame < aDuration)
         {
             c.a -= (1 / aDuration) * Time.deltaTime;
@@ -85,6 +102,12 @@ public class GameController : MonoBehaviour
             frame += Time.deltaTime;
             yield return null;
         }
+
+        if (PauseMenu != null)
+        {
+            PauseMenu.ToggleCanPause(true);
+        }
+
         transitioning = false;
         blackCanvas.SetActive(false);
     }

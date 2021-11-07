@@ -65,6 +65,7 @@ public class MapEventHandler : MonoBehaviour
     {
         int index = 0;
         MapEvent selectedEvent = null;
+        gameObject.GetComponent<PauseScript>().ToggleCanPause(false);
 
         if (eventList.Count > 0)
         {
@@ -91,23 +92,22 @@ public class MapEventHandler : MonoBehaviour
         int randIndex = 0;
         string resultMessage = "";
 
-        amount = Mathf.RoundToInt(Random.Range(1, 4));
-        randIndex = Mathf.RoundToInt(Random.Range(0, inventoryDB.materialList.Count - 1));
+        amount = Mathf.RoundToInt(Random.Range(10, 50));
 
         switch (aEvent.eventType)
         {
             case (MapEvent.EventType)0:
-                inventoryDB.materialList[randIndex].itemQuantity += amount;
-                resultMessage = "You gained " + amount + " " + inventoryDB.materialList[randIndex].itemName;
+                PlayerPrefs.SetInt("money", (PlayerPrefs.GetInt("money") + amount));
+                resultMessage = "You gained " + amount + " gold.";
                 sndManager.PlaySound(goodEventStinger);
                 break;
             case (MapEvent.EventType)1:
-                inventoryDB.materialList[randIndex].itemQuantity -= amount;
-                if (inventoryDB.materialList[randIndex].itemQuantity < 0)
+                PlayerPrefs.SetInt("money", (PlayerPrefs.GetInt("money") - amount));
+                if(PlayerPrefs.GetInt("money") < 0)
                 {
-                    inventoryDB.materialList[randIndex].itemQuantity = 0;
+                    PlayerPrefs.SetInt("money", 0);
                 }
-                resultMessage = "You lost " + amount + " " + inventoryDB.materialList[randIndex].itemName;
+                resultMessage = "You lost " + amount + " gold.";
                 sndManager.PlaySound(badEventStinger);
                 break;
             default:
@@ -133,9 +133,9 @@ public class MapEventHandler : MonoBehaviour
                 break;
             case (MapEvent.EventType)1:
                 mapSelectionDB.SetCurrentDay(mapSelectionDB.GetCurrentDay() + amount);
-                if(mapSelectionDB.GetCurrentDay() > mapSelectionDB.GetMaxDay())
+                if(mapSelectionDB.GetCurrentDay() > (mapSelectionDB.GetMaxDay() + mapSelectionDB.GetBonusDay()))
                 {
-                    mapSelectionDB.SetCurrentDay(mapSelectionDB.GetMaxDay());
+                    mapSelectionDB.SetCurrentDay((mapSelectionDB.GetMaxDay() + mapSelectionDB.GetBonusDay()));
                 }
                 resultMessage = "You stalled for " + amount + " days.";
                 sndManager.PlaySound(badEventStinger);

@@ -15,13 +15,14 @@ MonoBehaviour:
   eventList:
   - eventType: 0
     eventOutcome: 0
-    eventName: Ingredients Discovered!
-    eventDesc: On your way to the next town you found some useful ingredients!
+    eventName: Gold Found!
+    eventDesc: On your way to the next town you found a pouch of gold coins lying
+      on the side of the road!
     eventChance: 1
   - eventType: 1
     eventOutcome: 0
-    eventName: Ingredients Stolen!
-    eventDesc: Unbeknownst to you, some bandits stole some ingredients from you!
+    eventName: Gold Stolen!
+    eventDesc: Unbeknownst to you, some bandits stole some of your gold!
     eventChance: 1
   - eventType: 0
     eventOutcome: 1

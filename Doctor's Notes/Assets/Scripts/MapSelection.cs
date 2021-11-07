@@ -24,7 +24,7 @@ public class MapSelection : ScriptableObject
 
     public Vector2 currentCoords;
     public float currentTimer = 0;
-    private int currentDay = 1;
+    [SerializeField] private int currentDay = 1;
     private int maxDay;
     private int bonusDays = 0;
 
