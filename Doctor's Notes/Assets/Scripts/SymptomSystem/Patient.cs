@@ -42,6 +42,12 @@ public class Patient : MonoBehaviour
 
     [SerializeField] private MapSelection mapDB;
 
+    //Default gold reward bonuses
+    [SerializeField] private int baseBonus = 50;
+    [SerializeField] private int maximumBonus = 150;
+    private float blackPenalty = 0;
+    private int currentBonus;
+
     void Start()
     {
         if (patientSceneController == null)
@@ -179,6 +185,8 @@ public class Patient : MonoBehaviour
 
     public void updateValues(Symptom symp, int id, float redChange, float blueChange, float greenChange, float blackChange)
     {
+        currentBonus = baseBonus;
+
         symptomValues[id][0] = symptomValues[id][0] - redChange;
         symptomValues[id][1] = symptomValues[id][1] - blueChange;
         symptomValues[id][2] = symptomValues[id][2] - greenChange;
@@ -204,6 +212,7 @@ public class Patient : MonoBehaviour
 
         if (symptomValues[id][0] <= 0 && symptomValues[id][1] <= 0 && symptomValues[id][2] <= 0)
         {
+            blackPenalty = blackPenalty + symptomValues[id][3];
             symptomValues[id][3] = 0;
             symp.destroySelf();
         }
@@ -241,9 +250,10 @@ public class Patient : MonoBehaviour
         {
             Debug.Log("Cured");
             symp.StopBuildup();
+            currentBonus += Mathf.RoundToInt(maximumBonus * (1 - (blackPenalty / 2)));
             mapDB.SetWinFlag(true);
-            PlayerPrefs.SetInt("money", (PlayerPrefs.GetInt("money") + 250));
-            patientSceneController.PrintEvent(cured, 250);
+            PlayerPrefs.SetInt("money", (PlayerPrefs.GetInt("money") + currentBonus));
+            patientSceneController.PrintEvent(cured, currentBonus);
             //resultButton.gameObject.SetActive(true);
             //resultButton.gameObject.GetComponentInChildren<Text>().text = "Patient has been Cured";
         }
