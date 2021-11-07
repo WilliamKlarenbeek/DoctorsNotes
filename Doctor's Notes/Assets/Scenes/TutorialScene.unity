@@ -1849,11 +1849,26 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 414934084}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.1845827, y: 1.6856238, z: 0.2517138}
   m_Center: {x: -0.00000018731153, y: 0.000000029620237, z: 0.12423816}
+--- !u!114 &414934089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414934084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6fdd87c7db59c34bae4dae7a754a577, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bookUI: {fileID: 6021721429307851002}
+  defaultMaterial: {fileID: 2100000, guid: 92b9f27cbc288a5a08649f1dd68812ac, type: 2}
+  hoverMaterial: {fileID: 2100000, guid: 05d64acdfbbb9f940b120ba5827175ce, type: 2}
 --- !u!1 &516429596
 GameObject:
   m_ObjectHideFlags: 0
@@ -5382,6 +5397,8 @@ MonoBehaviour:
   patientDB: {fileID: 11400000, guid: 44c710c9baf19b14ba1113207585388e, type: 2}
   debugMode: 0
   mapDB: {fileID: 11400000, guid: a6c4a8ed8070a2147a59151a111384d7, type: 2}
+  baseBonus: 50
+  maximumBonus: 150
 --- !u!54 &1730606929
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5430,7 +5447,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1743591586
 RectTransform:
   m_ObjectHideFlags: 0

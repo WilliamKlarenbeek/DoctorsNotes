@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InstantiateTwoDialogue : BaseNode
+public class InstantiateTwoNode : BaseNode
 {
 
     [Input] public int entry;
