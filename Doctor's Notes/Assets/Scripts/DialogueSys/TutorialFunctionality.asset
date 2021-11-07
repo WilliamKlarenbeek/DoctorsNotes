@@ -202,6 +202,50 @@ MonoBehaviour:
   objectName: Oakmoss(Clone)
   secondObjectName: Lavender(Clone)
   sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
+--- !u!114 &-6982040325033829175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Instantiate Two Dialogue
+  m_EditorClassIdentifier: Assembly-CSharp::InstantiateTwoDialogue
+  graph: {fileID: 11400000}
+  position: {x: 904, y: 168}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -6982040325033829175}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -6982040325033829175}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  speakerName: 
+  dialogueLine: 
+  objectName: 
+  secondObjectName: 
+  sprite: {fileID: 0}
 --- !u!114 &-5604187766236980379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,6 +346,57 @@ MonoBehaviour:
   blueValue: 2
   greenValue: 2
   sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
+--- !u!114 &-4791877642446628638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 243cf3335938ff3449a83292d435cadf, type: 3}
+  m_Name: Instantiate Two
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 888, y: 216}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -4791877642446628638}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -2254469130257289121}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -4791877642446628638}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -4683940360757228094}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  speakerName: Master Doctor
+  dialogueLine: Return to your doctor's notes and drag a green Oakmoss herb and a
+    blue Lavender herb onto the table.
+  objectName: Oakmoss(Clone)
+  secondObjectName: Lavender(Clone)
+  sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
 --- !u!114 &-4683940360757228094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -333,7 +428,10 @@ MonoBehaviour:
         node: {fileID: 0}
         reroutePoints: []
       - fieldName: exit
-        node: {fileID: -7864159020201158561}
+        node: {fileID: 0}
+        reroutePoints: []
+      - fieldName: exit
+        node: {fileID: -4791877642446628638}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -358,6 +456,106 @@ MonoBehaviour:
     a single cure. All herbs can be added to the cauldron anytime during the brewing
     process to add their color values.
   cauldronName: Cauldron
+  sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
+--- !u!114 &-4629387991212673974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a3f811d5aa14d243a14c4c99ae942ad, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 152, y: 216}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -4629387991212673974}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -2999756373154370304}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -4629387991212673974}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: 5667259503229319562}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  speakerName: Master Doctor
+  dialogueLine: 'There is only one way to nullify the black value and that is with
+    a white value. Holy water is the key to slowing the black value down. You can
+    add the holy water to your remedies in the cauldron to counteract the black. '
+  sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
+--- !u!114 &-2999756373154370304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a3f811d5aa14d243a14c4c99ae942ad, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 152, y: 24}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -2999756373154370304}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -2468146281014117582}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -2999756373154370304}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: -4629387991212673974}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  speakerName: Master Doctor
+  dialogueLine: 'Be cautious if the black value gets too high your patient will die.
+    You must be vigilant even with a small amount of black it will become stronger
+    and gradually increase and slowly kill your patient. '
   sprite: {fileID: 21300000, guid: d256aba466a869c41b70f03c34c7f61b, type: 3}
 --- !u!114 &-2468146281014117582
 MonoBehaviour:
@@ -396,7 +594,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: 5667259503229319562}
+        node: {fileID: -2999756373154370304}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -445,7 +643,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: -7864159020201158561}
+        node: {fileID: -4791877642446628638}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -589,7 +787,9 @@ MonoBehaviour:
   - {fileID: -4683940360757228094}
   - {fileID: 9148358534728730372}
   - {fileID: 7937591323280633781}
-  - {fileID: -7864159020201158561}
+  - {fileID: -4791877642446628638}
+  - {fileID: -2999756373154370304}
+  - {fileID: -4629387991212673974}
   current: {fileID: 3059544972255098621}
 --- !u!114 &1538896496691648496
 MonoBehaviour:
@@ -786,7 +986,7 @@ MonoBehaviour:
   m_Name: Mortar
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 234, y: 319.5}
+  position: {x: 232, y: 424}
   ports:
     keys:
     - entry
@@ -837,7 +1037,7 @@ MonoBehaviour:
   m_Name: Instantiate
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 212, y: 63.5}
+  position: {x: -104, y: 408}
   ports:
     keys:
     - entry
@@ -849,7 +1049,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: -2468146281014117582}
+        node: {fileID: -4629387991212673974}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
