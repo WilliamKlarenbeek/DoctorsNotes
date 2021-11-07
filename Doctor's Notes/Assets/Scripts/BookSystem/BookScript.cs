@@ -350,6 +350,16 @@ public class BookScript : MonoBehaviour
         }
     }
 
+    public bool GetBookOpen()
+    {
+        if (opened == true)
+        {
+            return true;
+        }
+        else
+            return false;
+    }
+
     IEnumerator OpenBook(float aDuration)
     {
         transitioning = true;

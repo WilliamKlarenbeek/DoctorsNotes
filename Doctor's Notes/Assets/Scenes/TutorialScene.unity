@@ -2035,11 +2035,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ff89767fc6620c4785aa78db28446c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  graph: {fileID: 11400000, guid: 1be489300378e864dbe8be4bd5a623f7, type: 2}
+  graph: {fileID: 11400000, guid: 061e99f463aff7c4ea76292dff9fa850, type: 2}
   speaker: {fileID: 317796461}
   dialogue: {fileID: 1366102327}
   speakerImage: {fileID: 791458657}
   dialoguePanel: {fileID: 261297735}
+  textDelay: 0.1
 --- !u!4 &516429598
 Transform:
   m_ObjectHideFlags: 0
