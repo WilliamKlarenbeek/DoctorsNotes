@@ -202,4 +202,12 @@ public class Cauldron : Tool
             Destroy(collision.gameObject);
         }
     }
+
+    public bool StateWorking()
+    {
+        if (state == "working") {
+            return true;
+        } else
+            return false;
+    }
 }

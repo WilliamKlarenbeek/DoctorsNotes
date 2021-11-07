@@ -147,4 +147,11 @@ public class MortarPestle : Tool
             spinsText.text = mouseSpins.ToString() + "/10";
         }
     }
+
+    public bool StateWorking()
+    {
+        if (state == "working")
+            return true;
+        else return false;
+    }
 }

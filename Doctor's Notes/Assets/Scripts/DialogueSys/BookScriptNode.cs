@@ -1,0 +1,24 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class BookScriptNode : BaseNode
+{
+
+    [Input] public int entry;
+    [Output] public int exit;
+    public string speakerName;
+    public string dialogueLine;
+    public string bookName;
+    public Sprite sprite;
+
+    public override string GetString()
+    {
+        return "BookScriptNode/" + speakerName + "/" + dialogueLine + "/" + bookName;
+    }
+
+    public override Sprite GetSprite()
+    {
+        return sprite;
+    }
+}
