@@ -32,7 +32,7 @@ public class ItemSlot : MonoBehaviour, IDragHandler, IEndDragHandler
         quantityText = transform.Find("Quantity").GetComponent<Text>();
         nameText = transform.Find("Name").GetComponent<Text>();
         descriptionText = transform.Find("Description").GetComponent<Text>();
-        buyButton = GameObject.Find("BuyButton").GetComponent<Text>();
+        buyButton = GameObject.Find("BuyButton").transform.Find("Text").gameObject.GetComponent<Text>();
         inventoryDB = Resources.Load("Databases/InventoryDatabase") as Inventory;
         Book = GameObject.Find("Book_UI").GetComponent<BookScript>();
         worldCamera = GameObject.Find("Main Camera");
